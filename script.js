@@ -19,13 +19,6 @@
       { src: 'assets/images/projects/realtime-analytics/e.png', alt: 'Realtime Analytics — laporan' },
       { src: 'assets/images/projects/realtime-analytics/f.png', alt: 'Realtime Analytics — detail metrik' },
       { src: 'assets/images/projects/realtime-analytics/g.png', alt: 'Realtime Analytics — ringkasan' }
-    ],
-    'sync-engine': [
-      { src: 'assets/images/projects/sync-engine/a.png', alt: 'Sync Engine — arsitektur sistem' },
-      { src: 'assets/images/projects/sync-engine/b.png', alt: 'Sync Engine — flow sinkronisasi' },
-      { src: 'assets/images/projects/sync-engine/c.png', alt: 'Sync Engine — performa data' },
-      { src: 'assets/images/projects/sync-engine/d.png', alt: 'Sync Engine — hasil test' },
-      { src: 'assets/images/projects/sync-engine/e.png', alt: 'Sync Engine — monitoring' }
     ]
   };
 
@@ -221,6 +214,45 @@
     if (e.key === 'ArrowRight') nextImage();
     if (e.key === 'ArrowLeft') prevImage();
   });
+
+  // ============================================
+  // Spotlight neon glow + Parallax tilt 3D
+  // ============================================
+  if (!prefersReducedMotion) {
+    document.querySelectorAll('.project-card__image').forEach(function (cardImage) {
+      var spotlight = cardImage.querySelector('.spotlight');
+      var img = cardImage.querySelector('img');
+
+      cardImage.addEventListener('mousemove', function (e) {
+        var rect = cardImage.getBoundingClientRect();
+        var x = e.clientX - rect.left;
+        var y = e.clientY - rect.top;
+
+        // Spotlight position
+        if (spotlight) {
+          cardImage.style.setProperty('--mouse-x', x + 'px');
+          cardImage.style.setProperty('--mouse-y', y + 'px');
+        }
+
+        // Parallax tilt 3D
+        if (img) {
+          var centerX = rect.width / 2;
+          var centerY = rect.height / 2;
+          var rotateX = ((y - centerY) / centerY) * -8;
+          var rotateY = ((x - centerX) / centerX) * 8;
+          cardImage.style.transform = 'perspective(1000px) rotateX(' + rotateX + 'deg) rotateY(' + rotateY + 'deg) scale3d(1.02, 1.02, 1.02)';
+        }
+      });
+
+      cardImage.addEventListener('mouseleave', function () {
+        if (spotlight) {
+          cardImage.style.setProperty('--mouse-x', '50%');
+          cardImage.style.setProperty('--mouse-y', '50%');
+        }
+        cardImage.style.transform = 'perspective(1000px) rotateX(0deg) rotateY(0deg) scale3d(1, 1, 1)';
+      });
+    });
+  }
 
   // ============================================
   // Smooth scroll for anchor links

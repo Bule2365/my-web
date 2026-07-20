@@ -646,6 +646,9 @@ strong {
   overflow: hidden;
   aspect-ratio: 16 / 9;
   background-color: var(--color-surface-2);
+  transform-style: preserve-3d;
+  transition: transform 0.15s ease-out;
+  border-bottom: 1px solid var(--color-border);
 }
 
 .project-card__image img {
@@ -659,12 +662,61 @@ strong {
   transform: scale(1.03);
 }
 
+/* Laptop device frame */
+.project-card__image::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 28px;
+  background-color: var(--color-surface-2);
+  border-bottom: 1px solid var(--color-border);
+  z-index: 3;
+}
+
+.project-card__image::after {
+  content: '';
+  position: absolute;
+  top: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 6px;
+  height: 6px;
+  border-radius: var(--radius-full);
+  background-color: var(--color-text-tertiary);
+  opacity: 0.5;
+  z-index: 4;
+}
+
+/* Spotlight neon glow */
+.spotlight {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  opacity: 0;
+  transition: opacity var(--transition-base);
+  pointer-events: none;
+  background: radial-gradient(
+    600px circle at var(--mouse-x, 50%) var(--mouse-y, 50%),
+    rgba(59, 130, 246, 0.15),
+    transparent 40%
+  );
+}
+
+.project-card:hover .spotlight {
+  opacity: 1;
+}
+
 .project-card__overlay {
   position: absolute;
   inset: 0;
+  z-index: 5;
   display: flex;
   align-items: center;
   justify-content: center;
+  gap: var(--space-3);
+  flex-wrap: wrap;
   background-color: rgba(0, 0, 0, 0.5);
   opacity: 0;
   transition: opacity var(--transition-base);
@@ -674,12 +726,12 @@ strong {
   opacity: 1;
 }
 
-.project-card__btn-view {
+.project-card__btn-view,
+.project-card__btn-github {
   display: inline-flex;
   align-items: center;
   gap: var(--space-2);
   padding: var(--space-3) var(--space-5);
-  background-color: rgba(255, 255, 255, 0.1);
   backdrop-filter: blur(8px);
   -webkit-backdrop-filter: blur(8px);
   border: 1px solid rgba(255, 255, 255, 0.15);
@@ -690,8 +742,21 @@ strong {
   transition: background-color var(--transition-fast);
 }
 
+.project-card__btn-view {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
 .project-card__btn-view:hover {
   background-color: rgba(255, 255, 255, 0.2);
+}
+
+.project-card__btn-github {
+  background-color: rgba(59, 130, 246, 0.2);
+  border-color: rgba(59, 130, 246, 0.3);
+}
+
+.project-card__btn-github:hover {
+  background-color: rgba(59, 130, 246, 0.35);
 }
 
 .project-card__body {
@@ -1467,11 +1532,27 @@ a.kontak__item-value:hover {
   .proyek__grid .project-card {
     display: grid;
     grid-template-columns: 1.2fr 1fr;
+    grid-template-rows: 1fr;
   }
 
   .proyek__grid .project-card:last-child {
     max-width: none;
     justify-self: unset;
+  }
+
+  .project-card__image {
+    aspect-ratio: auto;
+    min-height: 100%;
+  }
+
+  .project-card__image img {
+    min-height: 100%;
+  }
+
+  .project-card__body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
   }
 
   .project-card:nth-child(even) {

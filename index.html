@@ -74,7 +74,10 @@
           "AI",
           "Automation"
         ],
-        "sameAs": ["https://github.com/daffa", "https://linkedin.com/in/daffa"]
+        "sameAs": [
+          "https://github.com/Bule2365",
+          "https://linkedin.com/in/leaddaf"
+        ]
       }
     </script>
 
@@ -292,6 +295,8 @@
                 <span class="chip">GitHub</span>
                 <span class="chip">VS Code</span>
                 <span class="chip">Postman</span>
+                <span class="chip">WSL</span>
+                <span class="chip">opencode CLI</span>
               </div>
             </div>
             <div class="keahlian__group">
@@ -328,6 +333,7 @@
                   height="450"
                   loading="lazy"
                 />
+                <div class="spotlight"></div>
                 <div class="project-card__overlay">
                   <button
                     class="project-card__btn-view"
@@ -348,6 +354,25 @@
                     </svg>
                     Lihat Galeri
                   </button>
+                  <a
+                    href="https://github.com/Bule2365/AI-code-review-assistant"
+                    class="project-card__btn-github"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label="Buka repositori AI Code Review Assistant di GitHub"
+                  >
+                    <svg
+                      width="18"
+                      height="18"
+                      viewBox="0 0 24 24"
+                      fill="currentColor"
+                    >
+                      <path
+                        d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"
+                      />
+                    </svg>
+                    Lihat di GitHub
+                  </a>
                 </div>
               </div>
               <div class="project-card__body">
@@ -356,7 +381,9 @@
                   <span class="tag">AI/LLM</span>
                   <span class="tag">Agent</span>
                 </div>
-                <h3 class="project-card__title">AI Assistant</h3>
+                <h3 class="project-card__title">
+                  AI Code Review Assistant (v1.5)
+                </h3>
                 <p class="project-card__desc">
                   Intelligent assistant berbasis AI yang dirancang untuk
                   membantu proses decision-making dan automation.
@@ -367,27 +394,44 @@
                   <div class="project-card__detail">
                     <h4>Tujuan</h4>
                     <p>
-                      Membangun sistem AI yang dapat membantu pengguna
-                      menyelesaikan tugas kompleks secara lebih efisien.
+                      Membangun platform visual berbasis cloud (cloud dashboard)
+                      yang dapat mengotomatisasi proses audit, peninjauan
+                      (review), dan optimasi kode secara otonom untuk membantu
+                      pengguna menyelesaikan tugas kompleks secara lebih
+                      efisien.
                     </p>
                   </div>
                   <div class="project-card__detail">
                     <h4>Tantangan</h4>
                     <p>
-                      Merancang prompt engineering yang konsisten dan membangun
-                      pipeline yang dapat diandalkan untuk berbagai jenis input.
+                      Mengintegrasikan ditenagai oleh Gemini 2.5 Flash melalui
+                      SDK resmi Google GenAI ke dalam backend FastAPI, merancang
+                      prompt engineering serta skema validasi Pydantic agar AI
+                      menghasilkan output terstruktur JSON yang selalu
+                      konsisten, memetakan Abstract Syntax Tree (AST) untuk
+                      memvalidasi sintaks Python secara lokal sebelum analisis
+                      dilakukan, sekaligus menyediakannya pada pipeline
+                      arsitektur API dan CORS yang aman untuk berbagai jenis
+                      input file (.py, .js, .jsx).
                     </p>
                   </div>
                   <div class="project-card__detail">
                     <h4>Hasil</h4>
                     <p>
-                      Sistem yang mempercepat proses analisis dan eksperimen,
-                      memudahkan pengguna dalam mengambil keputusan berbasis
-                      data.
+                      Sistem yang mempercepat proses analisis dan eksperimen
+                      melalui fitur Autonomous Code Diagnostics yang sukses
+                      diintegrasikan ke dalam Modern Cyberpunk Dashboard UI
+                      berbasis React dan Tailwind CSS v4. Sistem ini berhasil
+                      memberikan diagnosis otonom yang akurat mencakup Security
+                      Review (celah keamanan), Performance Analysis (rekomendasi
+                      optimasi performa), Code Style Assessment (kualitas kode),
+                      Complexity Metrics (metrik kompleksitas), dan AI
+                      Recommendations secara real-time, sehingga memudahkan
+                      pengguna dalam mengambil keputusan berbasis data.
                     </p>
                   </div>
                 </div>
-              </div>
+              </div>  
             </article>
 
             <!-- Project: Realtime Analytics -->
@@ -400,6 +444,7 @@
                   height="450"
                   loading="lazy"
                 />
+                <div class="spotlight"></div>
                 <div class="project-card__overlay">
                   <button
                     class="project-card__btn-view"
@@ -420,112 +465,91 @@
                     </svg>
                     Lihat Galeri
                   </button>
+                  <a
+                    href="https://github.com/Bule2365/intelligent-search-recommendation-engine"
+                    class="project-card__btn-github"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label="Buka repositori Intelligent Search and Recommendation Engine di GitHub"
+                  >
+                    <svg
+                      width="18"
+                      height="18"
+                      viewBox="0 0 24 24"
+                      fill="currentColor"
+                    >
+                      <path
+                        d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"
+                      />
+                    </svg>
+                    Lihat di GitHub
+                  </a>
                 </div>
               </div>
               <div class="project-card__body">
                 <div class="project-card__tags">
                   <span class="tag">Python</span>
                   <span class="tag">FastAPI</span>
-                  <span class="tag">WebSocket</span>
                 </div>
-                <h3 class="project-card__title">Realtime Analytics</h3>
+                <h3 class="project-card__title">
+                  Intelligent Search and Recommendation Engine
+                </h3>
                 <p class="project-card__desc">
-                  Dashboard monitoring data real-time yang menampilkan
-                  visualisasi metrik dan performa sistem secara langsung.
-                  Dirancang untuk memberikan visibilitas instan terhadap data
-                  yang berubah secara terus-menerus.
+                  Saya berhasil membangun search engine dan recommendation
+                  system untuk e-commerce yang menggabungkan BM25, semantic
+                  search, dan collaborative filtering -- dioptimalkan khusus
+                  untuk berjalan di laptop tanpa GPU. Setiap keputusan
+                  arsitektur saya dokumentasikan dengan trade-off yang jelas,
+                  dari pemilihan model AI sampai strategi caching, dan seluruh
+                  klaim performa saya validasi dengan pengukuran nyata, bukan
+                  estimasi.
                 </p>
                 <div class="project-card__details">
                   <div class="project-card__detail">
                     <h4>Tujuan</h4>
                     <p>
-                      Menyediakan tampilan data real-time yang membantu pengguna
-                      memahami kondisi sistem saat itu juga.
+                      Bayangkan kita adalah pengguna sebuah marketplace dengan
+                      50.000 produk. Tiga masalah klasik selalu muncul:
+                      <br />&bull; Vocabulary mismatch - pengguna mengetik
+                      "sepatu lari ringan", tapi produk diberi judul "Footwear
+                      Athletic Lightweight Series X". Keyword search murni akan
+                      gagal total di sini. <br />&bull; Cold start - produk baru
+                      tanpa histori pembelian tidak pernah muncul di
+                      rekomendasi, padahal mungkin produk itu sangat relevan.
+                      <br />&bull; One-size-fits-all ranking - dua pengguna yang
+                      mencari "laptop" punya kebutuhan sangat berbeda (gamer vs
+                      pelajar), tapi hasil yang mereka lihat identik.
                     </p>
                   </div>
                   <div class="project-card__detail">
                     <h4>Tantangan</h4>
                     <p>
-                      Menangani high-frequency data updates tanpa mengorbankan
-                      performa dan memastikan sinkronisasi yang akurat.
+                      Proyek ini dirancang untuk menyelesaikan ketiga masalah
+                      sekaligus, secara bertahap: dimulai dari keyword search
+                      klasik, lalu semantic search berbasis embedding untuk
+                      mengatasi vocabulary mismatch, lalu hybrid ranking dan
+                      personalization untuk mengatasi cold start dan generic
+                      ranking.
                     </p>
                   </div>
                   <div class="project-card__detail">
                     <h4>Hasil</h4>
                     <p>
-                      Dashboard yang mempermudah analisis dan pengambilan
-                      keputusan berbasis data real-time.
-                    </p>
-                  </div>
-                </div>
-              </div>
-            </article>
-
-            <!-- Project: Sync Engine -->
-            <article class="project-card" data-project="sync-engine">
-              <div class="project-card__image">
-                <img
-                  src="assets/images/projects/sync-engine/a.png"
-                  alt="Sync Engine — arsitektur sistem sinkronisasi data"
-                  width="800"
-                  height="450"
-                  loading="lazy"
-                />
-                <div class="project-card__overlay">
-                  <button
-                    class="project-card__btn-view"
-                    aria-label="Lihat galeri Sync Engine"
-                    data-lightbox="sync-engine"
-                  >
-                    <svg
-                      width="20"
-                      height="20"
-                      viewBox="0 0 24 24"
-                      fill="none"
-                      stroke="currentColor"
-                      stroke-width="2"
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                    >
-                      <path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7" />
-                    </svg>
-                    Lihat Galeri
-                  </button>
-                </div>
-              </div>
-              <div class="project-card__body">
-                <div class="project-card__tags">
-                  <span class="tag">CRDT</span>
-                  <span class="tag">Python</span>
-                  <span class="tag">Real-time</span>
-                </div>
-                <h3 class="project-card__title">Sync Engine</h3>
-                <p class="project-card__desc">
-                  Sistem real-time data synchronization berbasis CRDT
-                  (Conflict-free Replicated Data Types) yang memastikan
-                  konsistensi data di berbagai client tanpa konflik. Dirancang
-                  untuk aplikasi yang membutuhkan kolaborasi simultan.
-                </p>
-                <div class="project-card__details">
-                  <div class="project-card__detail">
-                    <h4>Tujuan</h4>
-                    <p>
-                      Membangun mekanisme sinkronisasi data yang robust dan
-                      conflict-free untuk sistem distributed.
-                    </p>
-                  </div>
-                  <div class="project-card__detail">
-                    <h4>Tantangan</h4>
-                    <p>
-                      Implementasi CRDT yang efisien secara memori dan
-                      komputasi, serta menangani edge cases pada konflik data.
-                    </p>
-                  </div>
-                  <div class="project-card__detail">
-                    <h4>Hasil</h4>
-                    <p>
-                      Sistem yang memperbaiki reliabilitas data synchronization
-                      dan menyederhanakan arsitektur kolaborasi real-time.
+                      Sistem berhasil diimplementasikan secara end-to-end dan
+                      diuji menggunakan TestClient FastAPI terhadap database
+                      SQLite 2.000 produk serta menghasilkan 11.812 event
+                      interaksi nyata. Pencarian BM25 berjalan sangat responsif
+                      dengan rata-rata latency hanya 4,6ms per query. Melalui
+                      hybrid search, sistem berhasil mengatasi masalah
+                      vocabulary mismatch (terbukti pada query "hp murah" yang
+                      sukses mengangkat produk elektronik relevan meski tanpa
+                      kecocokan kata literal). Selain itu, sistem rekomendasi
+                      berbasis collaborative filtering terbukti mampu mendeteksi
+                      preferensi kategori tersembunyi pengguna secara akurat,
+                      lengkap dengan transisi otomatis ke fitur cold start
+                      fallback (Bayesian average popularity) untuk menangani
+                      pengguna atau produk baru dengan mulus tanpa menyebabkan
+                      error atau hasil kosong.
                     </p>
                   </div>
                 </div>
@@ -1259,11 +1283,11 @@
                 <div>
                   <h3 class="kontak__item-label">LinkedIn</h3>
                   <a
-                    href="https://linkedin.com/in/daffa"
+                    href="https://linkedin.com/in/leaddaf"
                     target="_blank"
                     rel="noopener"
                     class="kontak__item-value"
-                    >linkedin.com/in/daffa</a
+                    >linkedin.com/in/leaddaf</a
                   >
                 </div>
               </div>
@@ -1287,11 +1311,11 @@
                 <div>
                   <h3 class="kontak__item-label">GitHub</h3>
                   <a
-                    href="https://github.com/daffa"
+                    href="https://github.com/Bule2365"
                     target="_blank"
                     rel="noopener"
                     class="kontak__item-value"
-                    >github.com/daffa</a
+                    >github.com/Bule2365</a
                   >
                 </div>
               </div>
@@ -1342,7 +1366,7 @@
           </div>
           <div class="footer__links">
             <a
-              href="https://github.com/daffa"
+              href="https://github.com/Bule2365"
               target="_blank"
               rel="noopener"
               aria-label="GitHub Daffa"
@@ -1363,7 +1387,7 @@
               </svg>
             </a>
             <a
-              href="https://linkedin.com/in/daffa"
+              href="https://linkedin.com/in/leaddaf"
               target="_blank"
               rel="noopener"
               aria-label="LinkedIn Daffa"

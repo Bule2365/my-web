@@ -3,19 +3,19 @@
 
   const projectImages = {
     'ai-assistant': [
-      { src: 'assets/images/projects/ai-assistant/a.png', alt: 'AI Assistant — interface utama' },
-      { src: 'assets/images/projects/ai-assistant/b.png', alt: 'AI Assistant — fitur interaksi' },
-      { src: 'assets/images/projects/ai-assistant/c.png', alt: 'AI Assistant — output hasil' },
-      { src: 'assets/images/projects/ai-assistant/d.png', alt: 'AI Assistant — dashboard' }
+      { src: 'assets/images/projects/ai-assistant/a.webp', alt: 'AI Assistant — interface utama' },
+      { src: 'assets/images/projects/ai-assistant/b.webp', alt: 'AI Assistant — fitur interaksi' },
+      { src: 'assets/images/projects/ai-assistant/c.webp', alt: 'AI Assistant — output hasil' },
+      { src: 'assets/images/projects/ai-assistant/d.webp', alt: 'AI Assistant — dashboard' }
     ],
     'realtime-analytics': [
-      { src: 'assets/images/projects/realtime-analytics/a.png', alt: 'Realtime Analytics — dashboard utama' },
-      { src: 'assets/images/projects/realtime-analytics/b.png', alt: 'Realtime Analytics — visualisasi data' },
-      { src: 'assets/images/projects/realtime-analytics/c.png', alt: 'Realtime Analytics — monitoring panel' },
-      { src: 'assets/images/projects/realtime-analytics/d.png', alt: 'Realtime Analytics — konfigurasi' },
-      { src: 'assets/images/projects/realtime-analytics/e.png', alt: 'Realtime Analytics — laporan' },
-      { src: 'assets/images/projects/realtime-analytics/f.png', alt: 'Realtime Analytics — detail metrik' },
-      { src: 'assets/images/projects/realtime-analytics/g.png', alt: 'Realtime Analytics — ringkasan' }
+      { src: 'assets/images/projects/realtime-analytics/a.webp', alt: 'Realtime Analytics — dashboard utama' },
+      { src: 'assets/images/projects/realtime-analytics/b.webp', alt: 'Realtime Analytics — visualisasi data' },
+      { src: 'assets/images/projects/realtime-analytics/c.webp', alt: 'Realtime Analytics — monitoring panel' },
+      { src: 'assets/images/projects/realtime-analytics/d.webp', alt: 'Realtime Analytics — konfigurasi' },
+      { src: 'assets/images/projects/realtime-analytics/e.webp', alt: 'Realtime Analytics — laporan' },
+      { src: 'assets/images/projects/realtime-analytics/f.webp', alt: 'Realtime Analytics — detail metrik' },
+      { src: 'assets/images/projects/realtime-analytics/g.webp', alt: 'Realtime Analytics — ringkasan' }
     ]
   };
 
@@ -139,7 +139,7 @@
   // Scroll reveal
   if (!prefersReducedMotion) {
     var revealElements = document.querySelectorAll(
-      '.section__header, .tentang__grid, .keahlian__group, .project-card, .cert-card, .cv__content, .timeline__item, .kontak__grid, .footer__content'
+      '.section__header, .tentang__grid, .keahlian__group, .project-card, .cert-card, .cv__content, .kontak__grid, .footer__content'
     );
     revealElements.forEach(function (el) { el.classList.add('reveal'); });
 
@@ -261,41 +261,6 @@
       else nextImage();
     }
   }, { passive: true });
-
-  // Spotlight + Parallax
-  if (!prefersReducedMotion) {
-    document.querySelectorAll('.project-card__image').forEach(function (cardImage) {
-      var spotlight = cardImage.querySelector('.spotlight');
-      var img = cardImage.querySelector('img');
-
-      cardImage.addEventListener('mousemove', function (e) {
-        var rect = cardImage.getBoundingClientRect();
-        var x = e.clientX - rect.left;
-        var y = e.clientY - rect.top;
-
-        if (spotlight) {
-          cardImage.style.setProperty('--mouse-x', x + 'px');
-          cardImage.style.setProperty('--mouse-y', y + 'px');
-        }
-
-        if (img) {
-          var centerX = rect.width / 2;
-          var centerY = rect.height / 2;
-          var rotateX = ((y - centerY) / centerY) * -8;
-          var rotateY = ((x - centerX) / centerX) * 8;
-          cardImage.style.transform = 'perspective(1000px) rotateX(' + rotateX + 'deg) rotateY(' + rotateY + 'deg) scale3d(1.02, 1.02, 1.02)';
-        }
-      });
-
-      cardImage.addEventListener('mouseleave', function () {
-        if (spotlight) {
-          cardImage.style.setProperty('--mouse-x', '50%');
-          cardImage.style.setProperty('--mouse-y', '50%');
-        }
-        cardImage.style.transform = 'perspective(1000px) rotateX(0deg) rotateY(0deg) scale3d(1, 1, 1)';
-      });
-    });
-  }
 
   // Smooth scroll for anchor links
   document.querySelectorAll('a[href^="#"]').forEach(function (anchor) {

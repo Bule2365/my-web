@@ -1,7 +1,7 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://daffa.dev/sitemap.xml
+Sitemap: https://bule2365.github.io/my-web/sitemap.xml
 
 # Google Search Console verification
 User-agent: Googlebot

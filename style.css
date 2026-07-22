@@ -212,7 +212,7 @@ strong {
   top: 0;
   left: 0;
   right: 0;
-  z-index: var(--z-nav);
+  z-index: 110;
   background-color: transparent;
   transition:
     background-color var(--transition-base),
@@ -320,16 +320,46 @@ strong {
   height: 100vh;
   height: 100dvh;
   background-color: var(--color-bg);
-  padding: 5rem var(--container-padding) var(--space-8);
-  gap: var(--space-2);
-  z-index: var(--z-nav);
+  padding: var(--space-6) var(--container-padding) var(--space-8);
+  gap: var(--space-1);
+  z-index: 100;
   overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+  overscroll-behavior: contain;
+}
+
+.nav__menu-close-wrap {
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: var(--space-4);
+}
+
+.nav__close {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  border-radius: var(--radius-md);
+  color: var(--color-text-secondary);
+  background-color: var(--color-surface-2);
+  border: 1px solid var(--color-border);
+  transition: all var(--transition-fast);
+}
+
+.nav__close:hover,
+.nav__close:focus-visible {
+  color: var(--color-text);
+  background-color: var(--color-surface-3);
+  border-color: var(--color-border-hover);
 }
 
 .nav__menu.open .nav__link {
   font-size: var(--font-size-xl);
   padding: var(--space-4) var(--space-4);
   color: var(--color-text-secondary);
+  border-radius: var(--radius-lg);
+  text-align: center;
 }
 
 .nav__menu.open .nav__link:hover,
@@ -1102,6 +1132,12 @@ strong {
   gap: var(--space-3);
 }
 
+.cv__edu-main {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+}
+
 .cv__edu-school {
   font-size: var(--font-size-base);
   font-weight: var(--font-weight-semibold);
@@ -1275,6 +1311,10 @@ a.kontak__item-value:hover {
   background-color: var(--color-surface);
   border: 1px solid var(--color-border);
   border-radius: var(--radius-xl);
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
 .kontak__cta-card h3 {
@@ -1403,15 +1443,15 @@ a.kontak__item-value:hover {
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 40px;
-  height: 40px;
+  width: 44px;
+  height: 44px;
   border-radius: var(--radius-full);
   color: var(--color-text-secondary);
   background-color: rgba(255, 255, 255, 0.1);
   transition:
     color var(--transition-fast),
     background-color var(--transition-fast);
-  z-index: 1;
+  z-index: 2;
 }
 
 .lightbox__close:hover {
@@ -1435,7 +1475,7 @@ a.kontak__item-value:hover {
   transition:
     color var(--transition-fast),
     background-color var(--transition-fast);
-  z-index: 1;
+  z-index: 2;
 }
 
 .lightbox__prev {
@@ -1450,6 +1490,10 @@ a.kontak__item-value:hover {
 .lightbox__next:hover {
   color: var(--color-text);
   background-color: rgba(255, 255, 255, 0.2);
+}
+
+.lightbox__controls {
+  display: none;
 }
 
 .lightbox__counter {
@@ -1510,11 +1554,113 @@ a.kontak__item-value:hover {
 }
 
 /* ============================================
+   MOBILE — Lightbox & Touch Fixes (< 768px)
+   ============================================ */
+@media (max-width: 767px) {
+  /* Lightbox: hide side buttons, show controls bar */
+  .lightbox__prev,
+  .lightbox__next {
+    display: none;
+  }
+
+  .lightbox__controls {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--space-6);
+    margin-top: var(--space-4);
+  }
+
+  .lightbox__prev-sm,
+  .lightbox__next-sm {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 44px;
+    height: 44px;
+    border-radius: var(--radius-full);
+    color: var(--color-text-secondary);
+    background-color: rgba(255, 255, 255, 0.1);
+    transition:
+      color var(--transition-fast),
+      background-color var(--transition-fast);
+  }
+
+  .lightbox__prev-sm:hover,
+  .lightbox__next-sm:hover {
+    color: var(--color-text);
+    background-color: rgba(255, 255, 255, 0.2);
+  }
+
+  .lightbox__counter {
+    margin-top: 0;
+    font-size: var(--font-size-sm);
+    color: var(--color-text-tertiary);
+  }
+
+  /* Lightbox close: reposition for mobile */
+  .lightbox__close {
+    top: -2.5rem;
+    right: 50%;
+    transform: translateX(50%);
+  }
+
+  /* Project card: always show overlay on mobile */
+  .project-card__overlay {
+    opacity: 1;
+    background-color: rgba(0, 0, 0, 0.6);
+    gap: var(--space-2);
+  }
+
+  .project-card__btn-view,
+  .project-card__btn-github {
+    padding: var(--space-2) var(--space-3);
+    font-size: var(--font-size-xs);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+  }
+
+  .project-card__btn-view svg,
+  .project-card__btn-github svg {
+    width: 16px;
+    height: 16px;
+  }
+
+  /* Better mobile section spacing */
+  .section {
+    padding: clamp(3rem, 8vw, 5rem) 0;
+  }
+
+  .cv__exp-header {
+    flex-direction: column;
+    gap: var(--space-1);
+  }
+
+  .cv__edu-item {
+    flex-direction: column;
+    gap: var(--space-1);
+  }
+}
+
+/* Hide small lightbox buttons on tablet+ */
+@media (min-width: 768px) {
+  .lightbox__prev-sm,
+  .lightbox__next-sm,
+  .lightbox__controls {
+    display: none !important;
+  }
+}
+
+/* ============================================
    RESPONSIVE — TABLET (768px+)
    ============================================ */
 @media (min-width: 768px) {
   .nav__menu {
     display: flex;
+  }
+
+  .nav__menu-close-wrap {
+    display: none;
   }
 
   .nav__toggle {

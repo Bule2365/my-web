@@ -46,20 +46,46 @@
   // ============================================
   const navToggle = document.querySelector('.nav__toggle');
   const navMenu = document.getElementById('nav-menu');
+  const navClose = document.querySelector('.nav__close');
+  let scrollPos = 0;
+
+  function openMenu() {
+    scrollPos = window.scrollY;
+    navToggle.setAttribute('aria-expanded', 'true');
+    navMenu.classList.add('open');
+    document.body.style.position = 'fixed';
+    document.body.style.top = '-' + scrollPos + 'px';
+    document.body.style.width = '100%';
+  }
+
+  function closeMenu() {
+    navToggle.setAttribute('aria-expanded', 'false');
+    navMenu.classList.remove('open');
+    document.body.style.position = '';
+    document.body.style.top = '';
+    document.body.style.width = '';
+    window.scrollTo(0, scrollPos);
+  }
 
   if (navToggle && navMenu) {
     navToggle.addEventListener('click', function () {
-      const isExpanded = this.getAttribute('aria-expanded') === 'true';
-      this.setAttribute('aria-expanded', String(!isExpanded));
-      navMenu.classList.toggle('open');
-      document.body.style.overflow = isExpanded ? '' : 'hidden';
+      var isExpanded = this.getAttribute('aria-expanded') === 'true';
+      if (isExpanded) {
+        closeMenu();
+      } else {
+        openMenu();
+      }
     });
+
+    if (navClose) {
+      navClose.addEventListener('click', function () {
+        closeMenu();
+      });
+    }
 
     navMenu.querySelectorAll('.nav__link').forEach(function (link) {
       link.addEventListener('click', function () {
-        navToggle.setAttribute('aria-expanded', 'false');
-        navMenu.classList.remove('open');
-        document.body.style.overflow = '';
+        closeMenu();
       });
     });
   }
@@ -156,10 +182,13 @@
   const lightboxClose = lightbox.querySelector('.lightbox__close');
   const lightboxPrev = lightbox.querySelector('.lightbox__prev');
   const lightboxNext = lightbox.querySelector('.lightbox__next');
+  const lightboxPrevSm = lightbox.querySelector('.lightbox__prev-sm');
+  const lightboxNextSm = lightbox.querySelector('.lightbox__next-sm');
   const lightboxBackdrop = lightbox.querySelector('.lightbox__backdrop');
 
   let currentProject = '';
   let currentIndex = 0;
+  let lightboxScrollPos = 0;
 
   function openLightbox(projectId) {
     if (!projectImages[projectId]) return;
@@ -168,13 +197,19 @@
     showLightboxImage();
     lightbox.classList.add('active');
     lightbox.setAttribute('aria-hidden', 'false');
-    document.body.style.overflow = 'hidden';
+    lightboxScrollPos = window.scrollY;
+    document.body.style.position = 'fixed';
+    document.body.style.top = '-' + lightboxScrollPos + 'px';
+    document.body.style.width = '100%';
   }
 
   function closeLightbox() {
     lightbox.classList.remove('active');
     lightbox.setAttribute('aria-hidden', 'true');
-    document.body.style.overflow = '';
+    document.body.style.position = '';
+    document.body.style.top = '';
+    document.body.style.width = '';
+    window.scrollTo(0, lightboxScrollPos);
   }
 
   function showLightboxImage() {
@@ -207,6 +242,8 @@
   if (lightboxBackdrop) lightboxBackdrop.addEventListener('click', closeLightbox);
   if (lightboxNext) lightboxNext.addEventListener('click', nextImage);
   if (lightboxPrev) lightboxPrev.addEventListener('click', prevImage);
+  if (lightboxNextSm) lightboxNextSm.addEventListener('click', nextImage);
+  if (lightboxPrevSm) lightboxPrevSm.addEventListener('click', prevImage);
 
   document.addEventListener('keydown', function (e) {
     if (!lightbox.classList.contains('active')) return;
@@ -214,6 +251,23 @@
     if (e.key === 'ArrowRight') nextImage();
     if (e.key === 'ArrowLeft') prevImage();
   });
+
+  // Touch swipe for lightbox
+  var touchStartX = 0;
+  var touchStartY = 0;
+  lightbox.addEventListener('touchstart', function (e) {
+    touchStartX = e.changedTouches[0].screenX;
+    touchStartY = e.changedTouches[0].screenY;
+  }, { passive: true });
+
+  lightbox.addEventListener('touchend', function (e) {
+    var dx = e.changedTouches[0].screenX - touchStartX;
+    var dy = e.changedTouches[0].screenY - touchStartY;
+    if (Math.abs(dx) > Math.abs(dy) && Math.abs(dx) > 50) {
+      if (dx > 0) prevImage();
+      else nextImage();
+    }
+  }, { passive: true });
 
   // ============================================
   // Spotlight neon glow + Parallax tilt 3D

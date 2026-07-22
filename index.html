@@ -205,6 +205,11 @@
           <span class="nav__toggle-bar"></span>
         </button>
         <ul class="nav__menu" id="nav-menu" role="list">
+          <li class="nav__menu-close-wrap">
+            <button class="nav__close" aria-label="Tutup menu">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+            </button>
+          </li>
           <li><a href="#tentang" class="nav__link">Tentang</a></li>
           <li><a href="#keahlian" class="nav__link">Keahlian</a></li>
           <li><a href="#proyek" class="nav__link">Proyek</a></li>
@@ -1304,19 +1309,19 @@
             <div class="timeline__item">
               <div class="timeline__marker"></div>
               <div class="timeline__content">
-                <span class="timeline__date">Awal</span>
-                <h3 class="timeline__title">Fondasi Pemrograman</h3>
+                <span class="timeline__date">Fondasi</span>
+                <h3 class="timeline__title">Pemrograman Dasar</h3>
                 <p class="timeline__desc">
-                  Mulai mempelajari bahasa pemrograman PHP, Python, dan
-                  JavaScript sebagai fondasi utama pengembangan software.
+                  Mulai mempelajari PHP, Python, dan JavaScript sebagai fondasi
+                  utama pengembangan perangkat lunak.
                 </p>
               </div>
             </div>
             <div class="timeline__item">
               <div class="timeline__marker"></div>
               <div class="timeline__content">
-                <span class="timeline__date">Perkembangan</span>
-                <h3 class="timeline__title">Eksplorasi Backend &amp; Web</h3>
+                <span class="timeline__date">Eksplorasi</span>
+                <h3 class="timeline__title">Backend &amp; Web Development</h3>
                 <p class="timeline__desc">
                   Mempelajari framework backend seperti Laravel, FastAPI, dan
                   Node.js. Membangun aplikasi web pertama.
@@ -1337,11 +1342,11 @@
             <div class="timeline__item">
               <div class="timeline__marker"></div>
               <div class="timeline__content">
-                <span class="timeline__date">Proyek</span>
-                <h3 class="timeline__title">Building Real Systems</h3>
+                <span class="timeline__date">Proyek Nyata</span>
+                <h3 class="timeline__title">Sistem &amp; Platform</h3>
                 <p class="timeline__desc">
-                  Membangun proyek nyata: real-time sync engine, AI assistant,
-                  dan analytics dashboard sebagai bukti kompetensi.
+                  Membangun proyek-produk nyata: AI code review assistant,
+                  intelligent search engine, dan analytics dashboard.
                 </p>
               </div>
             </div>
@@ -1638,7 +1643,15 @@
             height="800"
           />
         </div>
-        <p class="lightbox__counter"></p>
+        <div class="lightbox__controls">
+          <button class="lightbox__prev-sm" aria-label="Gambar sebelumnya">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6" /></svg>
+          </button>
+          <p class="lightbox__counter"></p>
+          <button class="lightbox__next-sm" aria-label="Gambar berikutnya">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6" /></svg>
+          </button>
+        </div>
       </div>
     </div>
 

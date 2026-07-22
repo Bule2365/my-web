@@ -213,6 +213,10 @@
           <span class="nav__toggle-bar"></span>
           <span class="nav__toggle-bar"></span>
         </button>
+        <button class="theme-toggle" id="themeToggle" aria-label="Ganti tema tampilan">
+          <svg class="theme-toggle__icon theme-toggle__sun" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+          <svg class="theme-toggle__icon theme-toggle__moon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+        </button>
         <ul class="nav__menu" id="nav-menu" role="list">
 <li><a href="#tentang" class="nav__link">Tentang</a></li>
           <li><a href="#keahlian" class="nav__link">Keahlian</a></li>
@@ -639,6 +643,7 @@
               Productivity
             </button>
             <button class="filter-btn" data-filter="security">Security</button>
+            <button class="filter-btn" data-filter="microsoft">Microsoft</button>
           </div>
           <div class="sertifikat__grid">
             <div class="cert-card" data-category="ai">
@@ -912,6 +917,30 @@
               </div>
             </div>
 
+            <div class="cert-card" data-category="microsoft">
+              <div class="cert-card__icon">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2" ry="2" /><line x1="8" y1="21" x2="16" y2="21" /><line x1="12" y1="17" x2="12" y2="21" /></svg>
+              </div>
+              <h3 class="cert-card__title">Microsoft Excel Basic</h3>
+              <p class="cert-card__category">Microsoft</p>
+              <div class="cert-card__actions">
+                <a href="assets/certificates/muhammad-daffa-aria-firmansyah_microsoft-excel-basic.pdf" class="btn btn--small btn--primary" target="_blank" rel="noopener" aria-label="Buka sertifikat Microsoft Excel Basic di tab baru">Lihat</a>
+                <a href="assets/certificates/muhammad-daffa-aria-firmansyah_microsoft-excel-basic.pdf" class="btn btn--small btn--ghost" download aria-label="Unduh sertifikat Microsoft Excel Basic">Unduh</a>
+              </div>
+            </div>
+
+            <div class="cert-card" data-category="microsoft">
+              <div class="cert-card__icon">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" /><polyline points="14 2 14 8 20 8" /><line x1="16" y1="13" x2="8" y2="13" /><line x1="16" y1="17" x2="8" y2="17" /><polyline points="10 9 9 9 8 9" /></svg>
+              </div>
+              <h3 class="cert-card__title">Microsoft Word</h3>
+              <p class="cert-card__category">Microsoft</p>
+              <div class="cert-card__actions">
+                <a href="assets/certificates/muhammad-daffa-aria-firmansyah_microsoft-word.pdf" class="btn btn--small btn--primary" target="_blank" rel="noopener" aria-label="Buka sertifikat Microsoft Word di tab baru">Lihat</a>
+                <a href="assets/certificates/muhammad-daffa-aria-firmansyah_microsoft-word.pdf" class="btn btn--small btn--ghost" download aria-label="Unduh sertifikat Microsoft Word">Unduh</a>
+              </div>
+            </div>
+
           </div>
         </div>
       </section>
@@ -1075,11 +1104,11 @@
                 </div>
                 <div>
                   <h3 class="kontak__item-label">Email</h3>
-                  <a
-                    href="mailto:ariadaffa127@gmail.com?subject=Halo%20Daffa&body=Saya%20tertarik%20untuk..."
-                    class="kontak__item-value"
-                    >ariadaffa127@gmail.com</a
-                  >
+                  <button
+                    class="kontak__item-value kontak__item-copy"
+                    data-copy="ariadaffa127@gmail.com"
+                    aria-label="Salin alamat email"
+                  >ariadaffa127@gmail.com</button>
                 </div>
               </div>
               <div class="kontak__item">
@@ -1149,27 +1178,14 @@
                   kesempatan belajar. Jika Anda mencari backend developer yang
                   serius dan detail-oriented, mari bicara.
                 </p>
-                <a
-                  href="mailto:ariadaffa127@gmail.com?subject=Halo%20Daffa&body=Saya%20tertarik%20untuk..."
+                <button
                   class="btn btn--primary"
+                  data-copy="ariadaffa127@gmail.com"
+                  aria-label="Salin alamat email"
                 >
-                  <svg
-                    width="18"
-                    height="18"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    stroke-width="2"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                  >
-                    <path
-                      d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"
-                    />
-                    <polyline points="22,6 12,13 2,6" />
-                  </svg>
-                  Kirim Email
-                </a>
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+                  Salin Email
+                </button>
               </div>
             </div>
           </div>
@@ -1226,26 +1242,13 @@
                 <circle cx="4" cy="4" r="2" />
               </svg>
             </a>
-            <a
-              href="mailto:ariadaffa127@gmail.com?subject=Halo%20Daffa&body=Saya%20tertarik%20untuk..."
-              aria-label="Email Daffa"
+            <button
+              class="footer__email-btn"
+              data-copy="ariadaffa127@gmail.com"
+              aria-label="Salin alamat email"
             >
-              <svg
-                width="18"
-                height="18"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="2"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-              >
-                <path
-                  d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"
-                />
-                <polyline points="22,6 12,13 2,6" />
-              </svg>
-            </a>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+            </button>
           </div>
           <p class="footer__copy">
             &copy; <span id="year"></span> Muhammad Daffa Aria Firmansyah. Hak cipta dilindungi.
@@ -1327,6 +1330,9 @@
         </div>
       </div>
     </div>
+
+    <!-- Toast Notification -->
+    <div class="toast" id="toast" role="alert" aria-live="polite"></div>
 
     <!-- Back to Top -->
     <button class="back-to-top" id="backToTop" aria-label="Kembali ke atas">

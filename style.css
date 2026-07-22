@@ -12,6 +12,23 @@
   --color-accent-hover: #2563eb;
   --color-accent-subtle: rgba(59, 130, 246, 0.08);
   --color-accent-border: rgba(59, 130, 246, 0.2);
+}
+
+[data-theme="light"] {
+  --color-bg: #f8f8fa;
+  --color-surface: #ffffff;
+  --color-surface-2: #f1f1f3;
+  --color-surface-3: #e8e8ec;
+  --color-border: rgba(0, 0, 0, 0.08);
+  --color-border-hover: rgba(0, 0, 0, 0.15);
+  --color-text: #18181b;
+  --color-text-secondary: #52525b;
+  --color-text-tertiary: #71717a;
+  --color-accent: #2563eb;
+  --color-accent-hover: #1d4ed8;
+  --color-accent-subtle: rgba(37, 99, 235, 0.08);
+  --color-accent-border: rgba(37, 99, 235, 0.2);
+}
 
   --font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
   --font-size-xs: 0.75rem;
@@ -202,6 +219,10 @@ strong {
   box-shadow: 0 1px 0 var(--color-border);
 }
 
+[data-theme="light"] .header.scrolled {
+  background-color: rgba(248, 248, 250, 0.85);
+}
+
 .nav {
   display: flex;
   align-items: center;
@@ -261,6 +282,64 @@ strong {
   gap: var(--space-1);
 }
 
+.theme-toggle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border-radius: var(--radius-md);
+  color: var(--color-text-secondary);
+  background: none;
+  border: 1px solid var(--color-border);
+  cursor: pointer;
+  transition: all var(--transition-fast);
+  flex-shrink: 0;
+  position: relative;
+  z-index: calc(var(--z-menu) + 1);
+}
+
+.theme-toggle:hover {
+  color: var(--color-text);
+  border-color: var(--color-border-hover);
+  background-color: var(--color-surface-2);
+}
+
+.theme-toggle__icon {
+  position: absolute;
+  transition: opacity var(--transition-fast), transform var(--transition-fast);
+}
+
+.theme-toggle__sun {
+  opacity: 1;
+  transform: rotate(0deg);
+}
+
+.theme-toggle__moon {
+  opacity: 0;
+  transform: rotate(90deg);
+}
+
+[data-theme="light"] .theme-toggle__sun {
+  opacity: 0;
+  transform: rotate(-90deg);
+}
+
+[data-theme="light"] .theme-toggle__moon {
+  opacity: 1;
+  transform: rotate(0deg);
+}
+
+.nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  max-width: var(--container-max);
+  margin: 0 auto;
+  padding: var(--space-4) var(--container-padding);
+  gap: var(--space-3);
+}
+
 .nav__link {
   display: block;
   padding: var(--space-2) var(--space-3);
@@ -290,6 +369,10 @@ strong {
   opacity: 0;
   visibility: hidden;
   transition: opacity var(--transition-base), visibility var(--transition-base);
+}
+
+[data-theme="light"] .menu-backdrop {
+  background-color: rgba(0, 0, 0, 0.3);
 }
 
 .menu-backdrop.visible {
@@ -1076,8 +1159,46 @@ strong {
   transition: color var(--transition-fast);
 }
 
-a.kontak__item-value:hover {
+a.kontak__item-value:hover,
+.kontak__item-copy:hover {
   color: var(--color-accent);
+}
+
+.kontak__item-copy {
+  background: none;
+  border: none;
+  font: inherit;
+  font-size: var(--font-size-base);
+  font-weight: var(--font-weight-medium);
+  color: var(--color-text);
+  cursor: pointer;
+  padding: 0;
+  text-align: left;
+  transition: color var(--transition-fast);
+}
+
+.kontak__item-copy:hover {
+  color: var(--color-accent);
+}
+
+.footer__email-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  border-radius: var(--radius-full);
+  color: var(--color-text-secondary);
+  border: 1px solid var(--color-border);
+  background: none;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+}
+
+.footer__email-btn:hover {
+  color: var(--color-text);
+  border-color: var(--color-border-hover);
+  background-color: var(--color-surface-2);
 }
 
 .kontak__cta-card {
@@ -1268,6 +1389,34 @@ a.kontak__item-value:hover {
   margin-top: var(--space-4);
   font-size: var(--font-size-sm);
   color: var(--color-text-tertiary);
+}
+
+/* ============================================
+   TOAST NOTIFICATION
+   ============================================ */
+.toast {
+  position: fixed;
+  bottom: var(--space-6);
+  left: 50%;
+  transform: translateX(-50%) translateY(12px);
+  z-index: 9999;
+  padding: var(--space-3) var(--space-6);
+  background-color: var(--color-text);
+  color: var(--color-bg);
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-medium);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-lg);
+  opacity: 0;
+  visibility: hidden;
+  transition: all var(--transition-base);
+  pointer-events: none;
+}
+
+.toast.active {
+  opacity: 1;
+  visibility: visible;
+  transform: translateX(-50%) translateY(0);
 }
 
 /* ============================================
@@ -1491,12 +1640,6 @@ a.kontak__item-value:hover {
 
   .keahlian__grid {
     grid-template-columns: repeat(3, 1fr);
-  }
-
-  .keahlian__grid .keahlian__group:last-child {
-    grid-column: 1 / -1;
-    max-width: 360px;
-    justify-self: center;
   }
 
   .sertifikat__grid {

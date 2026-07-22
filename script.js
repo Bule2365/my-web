@@ -36,6 +36,28 @@
     document.body.style.removeProperty('--scrollbar-width');
   }
 
+  // Theme toggle
+  var themeToggle = document.getElementById('themeToggle');
+  var htmlEl = document.documentElement;
+  var savedTheme = localStorage.getItem('theme');
+
+  if (savedTheme === 'light') {
+    htmlEl.setAttribute('data-theme', 'light');
+  }
+
+  if (themeToggle) {
+    themeToggle.addEventListener('click', function () {
+      var isLight = htmlEl.getAttribute('data-theme') === 'light';
+      if (isLight) {
+        htmlEl.removeAttribute('data-theme');
+        localStorage.setItem('theme', 'dark');
+      } else {
+        htmlEl.setAttribute('data-theme', 'light');
+        localStorage.setItem('theme', 'light');
+      }
+    });
+  }
+
   // Header scroll
   var header = document.getElementById('header');
   function handleHeaderScroll() {
@@ -275,6 +297,40 @@
           top: offsetTop,
           behavior: prefersReducedMotion ? 'auto' : 'smooth'
         });
+      }
+    });
+  });
+
+  // Copy to clipboard
+  var toast = document.getElementById('toast');
+  var toastTimer;
+
+  function showToast(msg) {
+    toast.textContent = msg;
+    toast.classList.add('active');
+    clearTimeout(toastTimer);
+    toastTimer = setTimeout(function () {
+      toast.classList.remove('active');
+    }, 2000);
+  }
+
+  document.querySelectorAll('[data-copy]').forEach(function (el) {
+    el.addEventListener('click', function () {
+      var text = this.getAttribute('data-copy');
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(text).then(function () {
+          showToast('Email berhasil disalin!');
+        });
+      } else {
+        var ta = document.createElement('textarea');
+        ta.value = text;
+        ta.style.position = 'fixed';
+        ta.style.opacity = '0';
+        document.body.appendChild(ta);
+        ta.select();
+        document.execCommand('copy');
+        document.body.removeChild(ta);
+        showToast('Email berhasil disalin!');
       }
     });
   });

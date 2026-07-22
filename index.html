@@ -205,12 +205,7 @@
           <span class="nav__toggle-bar"></span>
         </button>
         <ul class="nav__menu" id="nav-menu" role="list">
-          <li class="nav__menu-close-wrap">
-            <button class="nav__close" aria-label="Tutup menu">
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
-            </button>
-          </li>
-          <li><a href="#tentang" class="nav__link">Tentang</a></li>
+<li><a href="#tentang" class="nav__link">Tentang</a></li>
           <li><a href="#keahlian" class="nav__link">Keahlian</a></li>
           <li><a href="#proyek" class="nav__link">Proyek</a></li>
           <li><a href="#sertifikat" class="nav__link">Sertifikat</a></li>
@@ -219,6 +214,7 @@
           <li><a href="#kontak" class="nav__link">Kontak</a></li>
         </ul>
       </nav>
+      <div class="menu-backdrop" id="menu-backdrop"></div>
     </header>
 
     <!-- Main Content -->
@@ -400,8 +396,9 @@
               </div>
               <div class="keahlian__chips">
                 <span class="chip">FastAPI</span>
-                <span class="chip">Node.js</span>
                 <span class="chip">Laravel</span>
+                <span class="chip">Django</span>
+                <span class="chip">Node.js</span>
               </div>
             </div>
             <div class="keahlian__group">
@@ -424,11 +421,12 @@
                 <h3 class="keahlian__group-title">Tools &amp; Platform</h3>
               </div>
               <div class="keahlian__chips">
+                <span class="chip">Git</span>
                 <span class="chip">GitHub</span>
                 <span class="chip">VS Code</span>
                 <span class="chip">Postman</span>
                 <span class="chip">WSL</span>
-                <span class="chip">opencode CLI</span>
+                <span class="chip">AI Agent Opencode CLI</span>
               </div>
             </div>
             <div class="keahlian__group keahlian__group--highlight">
@@ -1224,10 +1222,11 @@
             <div class="cv__section">
               <h4 class="cv__section-title">Keahlian</h4>
               <ul class="cv__skills-list">
-                <li>Microsoft Office &amp; Google Workspace</li>
-                <li>Basis Data SQL (MySQL)</li>
-                <li>Pengembangan Web (Laravel &amp; React)</li>
-                <li>Bahasa Pemrograman: PHP, JavaScript, Python</li>
+                <li>Bahasa Pemrograman: Python, PHP, JavaScript</li>
+                <li>Database: MySQL, SQLite</li>
+                <li>Framework: FastAPI, Laravel, Django, Node.js</li>
+                <li>Frontend: HTML, CSS, JavaScript</li>
+                <li>Tools: Git, GitHub, VS Code, WSL, Postman, AI Agent Opencode CLI</li>
                 <li>Prompt Engineering &amp; AI Tools</li>
               </ul>
             </div>
@@ -1240,6 +1239,7 @@
                 <li>Komunikasi &amp; Kerja Sama Tim</li>
                 <li>Manajemen Waktu</li>
                 <li>Berpikir Kritis</li>
+                <li>Kemampuan Belajar Mandiri</li>
               </ul>
             </div>
           </div>
@@ -1399,7 +1399,7 @@
                 <div>
                   <h3 class="kontak__item-label">Email</h3>
                   <a
-                    href="https://mail.google.com/mail/?view=cm&fs=1&to=ariadaffa127@gmail.com&su=Halo%20Daffa&body=Saya%20tertarik%20untuk..."
+                    href="mailto:ariadaffa127@gmail.com?subject=Halo%20Daffa&body=Saya%20tertarik%20untuk..."
                     class="kontak__item-value"
                     >ariadaffa127@gmail.com</a
                   >
@@ -1473,7 +1473,7 @@
                   serius dan detail-oriented, mari bicara.
                 </p>
                 <a
-                  href="https://mail.google.com/mail/?view=cm&fs=1&to=ariadaffa127@gmail.com&su=Halo%20Daffa&body=Saya%20tertarik%20untuk..."
+                  href="mailto:ariadaffa127@gmail.com?subject=Halo%20Daffa&body=Saya%20tertarik%20untuk..."
                   class="btn btn--primary"
                 >
                   <svg
@@ -1519,14 +1519,10 @@
                 width="18"
                 height="18"
                 viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="2"
-                stroke-linecap="round"
-                stroke-linejoin="round"
+                fill="currentColor"
               >
                 <path
-                  d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"
+                  d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"
                 />
               </svg>
             </a>
@@ -1554,7 +1550,7 @@
               </svg>
             </a>
             <a
-              href="https://mail.google.com/mail/?view=cm&fs=1&to=ariadaffa127@gmail.com&su=Halo%20Daffa&body=Saya%20tertarik%20untuk..."
+              href="mailto:ariadaffa127@gmail.com?subject=Halo%20Daffa&body=Saya%20tertarik%20untuk..."
               aria-label="Email Daffa"
             >
               <svg
@@ -1575,7 +1571,7 @@
             </a>
           </div>
           <p class="footer__copy">
-            &copy; 2026 Muhammad Daffa Aria Firmansyah. Hak cipta dilindungi.
+            &copy; <span id="year"></span> Muhammad Daffa Aria Firmansyah. Hak cipta dilindungi.
           </p>
         </div>
       </div>

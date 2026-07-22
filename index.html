@@ -13,10 +13,13 @@
       content="Muhammad Daffa Aria Firmansyah, backend developer, web developer, portfolio, Python, JavaScript, PHP, FastAPI, Node.js, Laravel, AI, automation"
     />
     <meta name="author" content="Muhammad Daffa Aria Firmansyah" />
+    <meta name="theme-color" content="#0a0a0b" />
+    <meta name="robots" content="index, follow" />
     <link rel="canonical" href="https://daffa.dev/" />
 
     <!-- Open Graph -->
     <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Daffa — Portfolio" />
     <meta
       property="og:title"
       content="Muhammad Daffa Aria Firmansyah — Junior Backend Developer"
@@ -25,7 +28,8 @@
       property="og:description"
       content="Portfolio personal — fokus pada problem solving teknis, sistem backend, automation, dan solusi digital berbasis AI."
     />
-    <meta property="og:image" content="assets/images/profile.jpg" />
+    <meta property="og:image" content="https://daffa.dev/assets/images/profile.jpg" />
+    <meta property="og:image:alt" content="Foto profil Muhammad Daffa Aria Firmansyah" />
     <meta property="og:url" content="https://daffa.dev/" />
     <meta property="og:locale" content="id_ID" />
 
@@ -39,7 +43,8 @@
       name="twitter:description"
       content="Portfolio personal — fokus pada problem solving teknis, sistem backend, automation, dan solusi digital berbasis AI."
     />
-    <meta name="twitter:image" content="assets/images/profile.jpg" />
+    <meta name="twitter:image" content="https://daffa.dev/assets/images/profile.jpg" />
+    <meta name="twitter:image:alt" content="Foto profil Muhammad Daffa Aria Firmansyah" />
 
     <!-- Favicon -->
     <link rel="icon" type="image/svg+xml" href="assets/icons/favicon.svg" />
@@ -52,16 +57,24 @@
       rel="stylesheet"
     />
 
-    <!-- Structured Data -->
+    <!-- Structured Data — Person -->
     <script type="application/ld+json">
       {
         "@context": "https://schema.org",
         "@type": "Person",
         "name": "Muhammad Daffa Aria Firmansyah",
+        "alternateName": "Daffa",
         "jobTitle": "Junior Backend Developer",
         "url": "https://daffa.dev",
-        "image": "assets/images/profile.jpg",
+        "image": "https://daffa.dev/assets/images/profile.jpg",
         "description": "Backend developer yang fokus pada problem solving teknis, sistem backend, automation, dan solusi digital berbasis AI.",
+        "email": "ariadaffa127@gmail.com",
+        "address": {
+          "@type": "PostalAddress",
+          "addressLocality": "Depok",
+          "addressRegion": "Jawa Barat",
+          "addressCountry": "ID"
+        },
         "knowsAbout": [
           "Python",
           "JavaScript",
@@ -71,13 +84,39 @@
           "Laravel",
           "SQLite",
           "MySQL",
-          "AI",
-          "Automation"
+          "Artificial Intelligence",
+          "Automation",
+          "Backend Development",
+          "System Design"
         ],
         "sameAs": [
           "https://github.com/Bule2365",
           "https://linkedin.com/in/leaddaf"
+        ],
+        "alumniOf": [
+          {
+            "@type": "EducationalOrganization",
+            "name": "SMK Informatika Utama"
+          },
+          {
+            "@type": "CollegeOrUniversity",
+            "name": "Institut Bisnis dan Informatika Kosgoro 1957"
+          }
         ]
+      }
+    </script>
+
+    <!-- Structured Data — WebSite -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "WebSite",
+        "name": "Muhammad Daffa Aria Firmansyah — Portfolio",
+        "url": "https://daffa.dev",
+        "author": {
+          "@type": "Person",
+          "name": "Muhammad Daffa Aria Firmansyah"
+        }
       }
     </script>
 
@@ -267,7 +306,12 @@
           </div>
           <div class="keahlian__grid">
             <div class="keahlian__group">
-              <h3 class="keahlian__group-title">Bahasa Pemrograman</h3>
+              <div class="keahlian__group-header">
+                <div class="keahlian__group-icon">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6" /><polyline points="8 6 2 12 8 18" /></svg>
+                </div>
+                <h3 class="keahlian__group-title">Bahasa Pemrograman</h3>
+              </div>
               <div class="keahlian__chips">
                 <span class="chip">Python</span>
                 <span class="chip">JavaScript</span>
@@ -275,7 +319,12 @@
               </div>
             </div>
             <div class="keahlian__group">
-              <h3 class="keahlian__group-title">Framework</h3>
+              <div class="keahlian__group-header">
+                <div class="keahlian__group-icon">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L2 7l10 5 10-5-10-5z" /><path d="M2 17l10 5 10-5" /><path d="M2 12l10 5 10-5" /></svg>
+                </div>
+                <h3 class="keahlian__group-title">Framework</h3>
+              </div>
               <div class="keahlian__chips">
                 <span class="chip">FastAPI</span>
                 <span class="chip">Node.js</span>
@@ -283,14 +332,24 @@
               </div>
             </div>
             <div class="keahlian__group">
-              <h3 class="keahlian__group-title">Database</h3>
+              <div class="keahlian__group-header">
+                <div class="keahlian__group-icon">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="5" rx="9" ry="3" /><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3" /><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5" /></svg>
+                </div>
+                <h3 class="keahlian__group-title">Database</h3>
+              </div>
               <div class="keahlian__chips">
                 <span class="chip">SQLite</span>
                 <span class="chip">MySQL</span>
               </div>
             </div>
             <div class="keahlian__group">
-              <h3 class="keahlian__group-title">Tools &amp; Platform</h3>
+              <div class="keahlian__group-header">
+                <div class="keahlian__group-icon">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2" ry="2" /><line x1="8" y1="21" x2="16" y2="21" /><line x1="12" y1="17" x2="12" y2="21" /></svg>
+                </div>
+                <h3 class="keahlian__group-title">Tools &amp; Platform</h3>
+              </div>
               <div class="keahlian__chips">
                 <span class="chip">GitHub</span>
                 <span class="chip">VS Code</span>
@@ -299,8 +358,13 @@
                 <span class="chip">opencode CLI</span>
               </div>
             </div>
-            <div class="keahlian__group">
-              <h3 class="keahlian__group-title">Fokus Utama</h3>
+            <div class="keahlian__group keahlian__group--highlight">
+              <div class="keahlian__group-header">
+                <div class="keahlian__group-icon keahlian__group-icon--accent">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" /></svg>
+                </div>
+                <h3 class="keahlian__group-title">Fokus Utama</h3>
+              </div>
               <div class="keahlian__chips">
                 <span class="chip chip--accent">Backend Development</span>
                 <span class="chip chip--accent">AI &amp; Automation</span>
@@ -951,7 +1015,8 @@
           <div class="cv__content">
             <!-- Header -->
             <div class="cv__header">
-              <h3 class="cv__name">Daffa Aria</h3>
+              <h3 class="cv__name">Muhammad Daffa Aria Firmansyah</h3>
+              <p class="cv__role">Junior Backend Developer</p>
               <div class="cv__contact-row">
                 <span class="cv__contact-item">
                   <svg
@@ -1102,7 +1167,7 @@
 
           <div class="cv__actions">
             <a
-              href="documents/CV-Daffa_v4.pdf"
+              href="documents/CV-Daffa_v5.pdf"
               class="btn btn--primary"
               target="_blank"
               rel="noopener"
@@ -1127,7 +1192,7 @@
               Buka PDF di Tab Baru
             </a>
             <a
-              href="documents/CV-Daffa_v4.pdf"
+              href="documents/CV-Daffa_v5.pdf"
               class="btn btn--secondary"
               download
               aria-label="Unduh CV Daffa"
@@ -1431,7 +1496,7 @@
             </a>
           </div>
           <p class="footer__copy">
-            &copy; 2026 Daffa Aria. Hak cipta dilindungi.
+            &copy; 2026 Muhammad Daffa Aria Firmansyah. Hak cipta dilindungi.
           </p>
         </div>
       </div>

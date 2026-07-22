@@ -571,6 +571,51 @@ strong {
   display: flex;
   flex-direction: column;
   gap: var(--space-4);
+  padding: clamp(var(--space-5), 3vw, var(--space-6));
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  transition: border-color var(--transition-fast), box-shadow var(--transition-fast);
+}
+
+.keahlian__group:hover {
+  border-color: var(--color-border-hover);
+  box-shadow: var(--shadow-sm);
+}
+
+.keahlian__group--highlight {
+  border-color: var(--color-accent-border);
+  background-color: var(--color-accent-subtle);
+}
+
+.keahlian__group--highlight:hover {
+  border-color: var(--color-accent);
+  box-shadow: var(--shadow-glow);
+}
+
+.keahlian__group-header {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+}
+
+.keahlian__group-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border-radius: var(--radius-md);
+  background-color: var(--color-surface-2);
+  border: 1px solid var(--color-border);
+  color: var(--color-text-secondary);
+  flex-shrink: 0;
+}
+
+.keahlian__group-icon--accent {
+  background-color: var(--color-accent-subtle);
+  border-color: var(--color-accent-border);
+  color: var(--color-accent);
 }
 
 .keahlian__group-title {
@@ -926,7 +971,14 @@ strong {
 .cv__name {
   font-size: var(--font-size-2xl);
   font-weight: var(--font-weight-bold);
-  margin-bottom: var(--space-3);
+  margin-bottom: var(--space-2);
+}
+
+.cv__role {
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-medium);
+  color: var(--color-accent);
+  margin-bottom: var(--space-4);
 }
 
 .cv__contact-row {
@@ -1518,6 +1570,12 @@ a.kontak__item-value:hover {
 
   .keahlian__grid {
     grid-template-columns: repeat(3, 1fr);
+  }
+
+  .keahlian__grid .keahlian__group:last-child {
+    grid-column: 1 / -1;
+    max-width: 360px;
+    justify-self: center;
   }
 
   .sertifikat__grid {

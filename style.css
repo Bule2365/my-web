@@ -585,16 +585,6 @@ strong {
   box-shadow: var(--shadow-sm);
 }
 
-.keahlian__group--highlight {
-  border-color: var(--color-accent-border);
-  background-color: var(--color-accent-subtle);
-}
-
-.keahlian__group--highlight:hover {
-  border-color: var(--color-accent);
-  box-shadow: var(--shadow-glow);
-}
-
 .keahlian__group-header {
   display: flex;
   align-items: center;
@@ -612,12 +602,6 @@ strong {
   border: 1px solid var(--color-border);
   color: var(--color-text-secondary);
   flex-shrink: 0;
-}
-
-.keahlian__group-icon--accent {
-  background-color: var(--color-accent-subtle);
-  border-color: var(--color-accent-border);
-  color: var(--color-accent);
 }
 
 .keahlian__group-title {

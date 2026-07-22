@@ -3,19 +3,19 @@
 
   const projectImages = {
     'ai-assistant': [
-      { src: 'assets/images/projects/ai-assistant/a.webp', fallback: 'assets/images/projects/ai-assistant/a.png', alt: 'AI Assistant — interface utama' },
-      { src: 'assets/images/projects/ai-assistant/b.webp', fallback: 'assets/images/projects/ai-assistant/b.png', alt: 'AI Assistant — fitur interaksi' },
-      { src: 'assets/images/projects/ai-assistant/c.webp', fallback: 'assets/images/projects/ai-assistant/c.png', alt: 'AI Assistant — output hasil' },
-      { src: 'assets/images/projects/ai-assistant/d.webp', fallback: 'assets/images/projects/ai-assistant/d.png', alt: 'AI Assistant — dashboard' }
+      { src: 'assets/images/projects/ai-assistant/a.png', alt: 'AI Assistant — interface utama' },
+      { src: 'assets/images/projects/ai-assistant/b.png', alt: 'AI Assistant — fitur interaksi' },
+      { src: 'assets/images/projects/ai-assistant/c.png', alt: 'AI Assistant — output hasil' },
+      { src: 'assets/images/projects/ai-assistant/d.png', alt: 'AI Assistant — dashboard' }
     ],
     'realtime-analytics': [
-      { src: 'assets/images/projects/realtime-analytics/a.webp', fallback: 'assets/images/projects/realtime-analytics/a.png', alt: 'Realtime Analytics — dashboard utama' },
-      { src: 'assets/images/projects/realtime-analytics/b.webp', fallback: 'assets/images/projects/realtime-analytics/b.png', alt: 'Realtime Analytics — visualisasi data' },
-      { src: 'assets/images/projects/realtime-analytics/c.webp', fallback: 'assets/images/projects/realtime-analytics/c.png', alt: 'Realtime Analytics — monitoring panel' },
-      { src: 'assets/images/projects/realtime-analytics/d.webp', fallback: 'assets/images/projects/realtime-analytics/d.png', alt: 'Realtime Analytics — konfigurasi' },
-      { src: 'assets/images/projects/realtime-analytics/e.webp', fallback: 'assets/images/projects/realtime-analytics/e.png', alt: 'Realtime Analytics — laporan' },
-      { src: 'assets/images/projects/realtime-analytics/f.webp', fallback: 'assets/images/projects/realtime-analytics/f.png', alt: 'Realtime Analytics — detail metrik' },
-      { src: 'assets/images/projects/realtime-analytics/g.webp', fallback: 'assets/images/projects/realtime-analytics/g.png', alt: 'Realtime Analytics — ringkasan' }
+      { src: 'assets/images/projects/realtime-analytics/a.png', alt: 'Realtime Analytics — dashboard utama' },
+      { src: 'assets/images/projects/realtime-analytics/b.png', alt: 'Realtime Analytics — visualisasi data' },
+      { src: 'assets/images/projects/realtime-analytics/c.png', alt: 'Realtime Analytics — monitoring panel' },
+      { src: 'assets/images/projects/realtime-analytics/d.png', alt: 'Realtime Analytics — konfigurasi' },
+      { src: 'assets/images/projects/realtime-analytics/e.png', alt: 'Realtime Analytics — laporan' },
+      { src: 'assets/images/projects/realtime-analytics/f.png', alt: 'Realtime Analytics — detail metrik' },
+      { src: 'assets/images/projects/realtime-analytics/g.png', alt: 'Realtime Analytics — ringkasan' }
     ]
   };
 

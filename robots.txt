@@ -1,3 +1,8 @@
 User-agent: *
 Allow: /
+
 Sitemap: https://daffa.dev/sitemap.xml
+
+# Google Search Console verification
+User-agent: Googlebot
+Allow: /

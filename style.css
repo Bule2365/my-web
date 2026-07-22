@@ -1159,46 +1159,8 @@ strong {
   transition: color var(--transition-fast);
 }
 
-a.kontak__item-value:hover,
-.kontak__item-copy:hover {
+a.kontak__item-value:hover {
   color: var(--color-accent);
-}
-
-.kontak__item-copy {
-  background: none;
-  border: none;
-  font: inherit;
-  font-size: var(--font-size-base);
-  font-weight: var(--font-weight-medium);
-  color: var(--color-text);
-  cursor: pointer;
-  padding: 0;
-  text-align: left;
-  transition: color var(--transition-fast);
-}
-
-.kontak__item-copy:hover {
-  color: var(--color-accent);
-}
-
-.footer__email-btn {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 44px;
-  height: 44px;
-  border-radius: var(--radius-full);
-  color: var(--color-text-secondary);
-  border: 1px solid var(--color-border);
-  background: none;
-  cursor: pointer;
-  transition: all var(--transition-fast);
-}
-
-.footer__email-btn:hover {
-  color: var(--color-text);
-  border-color: var(--color-border-hover);
-  background-color: var(--color-surface-2);
 }
 
 .kontak__cta-card {
@@ -1389,34 +1351,6 @@ a.kontak__item-value:hover,
   margin-top: var(--space-4);
   font-size: var(--font-size-sm);
   color: var(--color-text-tertiary);
-}
-
-/* ============================================
-   TOAST NOTIFICATION
-   ============================================ */
-.toast {
-  position: fixed;
-  bottom: var(--space-6);
-  left: 50%;
-  transform: translateX(-50%) translateY(12px);
-  z-index: 9999;
-  padding: var(--space-3) var(--space-6);
-  background-color: var(--color-text);
-  color: var(--color-bg);
-  font-size: var(--font-size-sm);
-  font-weight: var(--font-weight-medium);
-  border-radius: var(--radius-lg);
-  box-shadow: var(--shadow-lg);
-  opacity: 0;
-  visibility: hidden;
-  transition: all var(--transition-base);
-  pointer-events: none;
-}
-
-.toast.active {
-  opacity: 1;
-  visibility: visible;
-  transform: translateX(-50%) translateY(0);
 }
 
 /* ============================================

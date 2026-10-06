@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import Navbar from './Navbar';
+import Navbar from './components/Navbar';
 import Hero from './Hero';
 import About from './About';
 import Skills from './Skills';

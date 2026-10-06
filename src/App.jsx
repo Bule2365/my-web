@@ -1,13 +1,13 @@
 import React from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import Navbar from './components/Navbar';
-import Hero from './Hero';
-import About from './About';
-import Skills from './Skills';
-import Projects from './Projects';
-import Certificates from './Certificates';
-import Contact from './Contact';
-import Footer from './Footer';
+import Hero from './components/Hero';
+import About from './components/About';
+import Projects from './components/Projects';
+import Skills from './components/Skills';
+import Certificates from './components/Certificates';
+import Contact from './components/Contact';
+import Footer from './components/Footer';
 
 export default function App() {
   return (

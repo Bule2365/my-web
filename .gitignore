@@ -6,3 +6,4 @@ dist
 *.local
 .gitignore
 task.md
+repomix-output.xml

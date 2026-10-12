@@ -135,6 +135,7 @@ public/
 src/
   components/
     About.jsx
+    BackToTop.jsx
     Certificates.jsx
     Contact.jsx
     CTAButton.jsx
@@ -146,10 +147,12 @@ src/
     Skills.jsx
   data/
     index.js
+  utils/
+    assetUrl.js
   App.jsx
   index.css
   main.jsx
-.gitignore
+  theme.js
 google3935b0c3f9d63e31.html
 index.html
 package.json
@@ -244,86 +247,44 @@ export default function About() {
 }
 </file>
 
-<file path="src/components/Certificates.jsx">
-import React, { useState } from 'react';
-import ScrollReveal from './ScrollReveal';
-import CTAButton from './CTAButton';
-import { certificates } from '../data';
+<file path="src/components/BackToTop.jsx">
+import React, { useEffect, useState } from 'react';
 
-const filters = ['all', 'ai', 'productivity', 'security', 'microsoft'];
+function BackToTop() {
+  const [visible, setVisible] = useState(false);
 
-const filterLabels = {
-  all: 'Semua',
-  ai: 'AI',
-  productivity: 'Productivity',
-  security: 'Security',
-  microsoft: 'Microsoft',
-};
+  useEffect(() => {
+    const updateVisibility = () => setVisible(window.scrollY > 400);
+    updateVisibility();
+    window.addEventListener('scroll', updateVisibility, { passive: true });
+    return () => window.removeEventListener('scroll', updateVisibility);
+  }, []);
 
-export default function Certificates() {
-  const [activeFilter, setActiveFilter] = useState('all');
-
-  const filtered = activeFilter === 'all'
-    ? certificates
-    : certificates.filter((c) => c.category === activeFilter);
+  const scrollToTop = () => {
+    const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    window.scrollTo({ top: 0, behavior: reduceMotion ? 'auto' : 'smooth' });
+  };
 
   return (
-    <section className="section" id="sertifikat">
-      <div className="container">
-        <ScrollReveal>
-          <div className="section__header">
-            <h2 className="section__title">Sertifikat</h2>
-            <p className="section__subtitle">Bukti kompetensi dan pembelajaran berkelanjutan</p>
-          </div>
-        </ScrollReveal>
-
-        <ScrollReveal>
-          <div className="certs__filters flex flex-wrap gap-2 mb-8" role="group" aria-label="Filter sertifikat">
-            {filters.map((f) => (
-              <button
-                key={f}
-                className={`certs__filter px-4 py-2 text-sm font-medium rounded-full border border-border text-text-secondary transition-all hover:text-text hover:border-border-hover ${
-                  activeFilter === f ? 'text-white bg-accent border-accent' : ''
-                }`}
-                onClick={() => setActiveFilter(f)}
-              >
-                {filterLabels[f]}
-              </button>
-            ))}
-          </div>
-        </ScrollReveal>
-
-        <ScrollReveal>
-          <div className="certs__grid grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-            {filtered.map((cert) => (
-              <div key={cert.id} className="cert-card p-6 bg-surface border border-border rounded-xl hover:border-border-hover hover:shadow-md hover:-translate-y-1 transition-all duration-300">
-                <div className="cert-card__icon flex items-center justify-center w-10 h-10 rounded-lg bg-accent-subtle text-accent text-xl mb-4">
-                  <i className="bi bi-award-fill" aria-hidden="true" />
-                </div>
-                <h3 className="cert-card__title font-semibold mb-1">{cert.title}</h3>
-                <div className="cert-card__issuer flex items-center gap-2 text-sm text-text-secondary mb-1">
-                  <i className="bi bi-building text-xs" aria-hidden="true" />
-                  {cert.issuer}
-                </div>
-                {cert.date && (
-                  <div className="cert-card__date flex items-center gap-2 text-xs text-text-tertiary mb-4">
-                    <i className="bi bi-calendar3" aria-hidden="true" />
-                    {cert.date}
-                  </div>
-                )}
-                <div className="cert-card__actions">
-                  <CTAButton href={cert.image} variant="outline" className="text-xs px-3 py-1.5">
-                    <i className="bi bi-eye" aria-hidden="true" /> Lihat Sertifikat
-                  </CTAButton>
-                </div>
-              </div>
-            ))}
-          </div>
-        </ScrollReveal>
-      </div>
-    </section>
+    <button
+      type="button"
+      aria-label="Kembali ke atas"
+      aria-hidden={!visible}
+      tabIndex={visible ? 0 : -1}
+      onClick={scrollToTop}
+      className={[
+        'backtotop fixed bottom-6 right-6 z-50 flex h-11 w-11 items-center justify-center',
+        'rounded-full border border-border bg-surface-2 text-text-secondary transition-all duration-300',
+        'hover:border-border-hover hover:text-text focus-visible:outline focus-visible:outline-2 focus-visible:outline-accent',
+        visible ? 'visible translate-y-0 opacity-100' : 'invisible translate-y-2 opacity-0 pointer-events-none',
+      ].join(' ')}
+    >
+      <i className="bi bi-chevron-up text-lg" aria-hidden="true" />
+    </button>
   );
 }
+
+export default BackToTop;
 </file>
 
 <file path="src/components/Contact.jsx">
@@ -394,47 +355,6 @@ export default function Contact() {
 }
 </file>
 
-<file path="src/components/CTAButton.jsx">
-import React from 'react';
-import { motion } from 'framer-motion';
-
-const ctaVariants = {
-  rest: { scale: 1 },
-  hover: {
-    scale: 1.04,
-    boxShadow: '0 8px 25px rgba(59, 130, 246, 0.35)',
-    transition: { duration: 0.25, ease: 'easeInOut' },
-  },
-  tap: { scale: 0.97 },
-};
-
-export default function CTAButton({ href, children, variant = 'primary', ...props }) {
-  const isPrimary = variant === 'primary';
-
-  const baseClass = 'inline-flex items-center justify-center gap-2 px-6 py-3 text-sm font-medium rounded-lg transition-all duration-200 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent';
-
-  const variantClass = isPrimary
-    ? 'bg-accent text-white hover:bg-accent-hover'
-    : 'bg-surface-2 text-text border border-border hover:border-border-hover';
-
-  return (
-    <motion.a
-      href={href}
-      target="_blank"
-      rel="noopener noreferrer"
-      variants={ctaVariants}
-      initial="rest"
-      whileHover="hover"
-      whileTap="tap"
-      className={`${baseClass} ${variantClass}`}
-      {...props}
-    >
-      {children}
-    </motion.a>
-  );
-}
-</file>
-
 <file path="src/components/Footer.jsx">
 import React from 'react';
 import { motion } from 'framer-motion';
@@ -488,10 +408,300 @@ export default function Footer() {
 }
 </file>
 
+<file path="src/components/Skills.jsx">
+import React from 'react';
+import ScrollReveal from './ScrollReveal';
+import { skills } from '../data';
+
+const skillGroups = [
+  { title: 'Bahasa Pemrograman', items: skills.languages },
+  { title: 'Database', items: skills.databases },
+  { title: 'Framework', items: skills.frameworks },
+  { title: 'Tools', items: skills.tools },
+  { title: 'Fokus Utama', items: skills.focus, accent: true },
+];
+
+export default function Skills() {
+  return (
+    <section className="section" id="keahlian">
+      <div className="container">
+        <ScrollReveal>
+          <div className="section__header">
+            <h2 className="section__title">Keahlian Teknis</h2>
+            <p className="section__subtitle">Teknologi dan tools yang saya gunakan sehari-hari</p>
+          </div>
+        </ScrollReveal>
+
+        <ScrollReveal>
+          <div className="skills__grid grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+            {skillGroups.map((group) => (
+              <div key={group.title} className="skill__group p-6 bg-surface border border-border rounded-xl">
+                <h3 className="skill__group-title text-xs font-semibold text-text-tertiary uppercase tracking-widest mb-4">
+                  {group.title}
+                </h3>
+                <div className="skill__chips flex flex-wrap gap-2">
+                  {group.items.map((item) => (
+                    <span
+                      key={item}
+                      className={`chip ${group.accent ? 'chip--accent' : ''}`}
+                    >
+                      {item}
+                    </span>
+                  ))}
+                </div>
+              </div>
+            ))}
+          </div>
+        </ScrollReveal>
+      </div>
+    </section>
+  );
+}
+</file>
+
+<file path="src/utils/assetUrl.js">
+const BASE_URL = import.meta.env.BASE_URL || '/';
+
+export function assetUrl(path) {
+  const normalizedPath = String(path ?? '').replace(/^\/+/, '');
+  return `${BASE_URL}${normalizedPath}`;
+}
+</file>
+
+<file path="src/theme.js">
+export function readTheme() {
+  try {
+    const saved = window.localStorage.getItem('theme');
+    if (saved === 'light' || saved === 'dark') return saved;
+  } catch {
+    // Storage dapat diblokir; lanjutkan dengan preferensi OS.
+  }
+
+  try {
+    return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+  } catch {
+    return 'dark';
+  }
+}
+
+export function applyTheme(theme, { persist = true } = {}) {
+  const safeTheme = theme === 'light' ? 'light' : 'dark';
+  document.documentElement.dataset.theme = safeTheme;
+
+  if (persist) {
+    try {
+      window.localStorage.setItem('theme', safeTheme);
+    } catch {
+      // Tema tetap aktif untuk sesi ini meskipun tidak dapat disimpan.
+    }
+  }
+}
+</file>
+
+<file path="google3935b0c3f9d63e31.html">
+google-site-verification: google3935b0c3f9d63e31.html
+</file>
+
+<file path="package.json">
+{
+  "name": "portofolio-daffa",
+  "private": true,
+  "version": "2.0.0",
+  "type": "module",
+  "homepage": "https://bule2365.github.io/my-web",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "deploy": "gh-pages -d dist",
+    "predeploy": "npm run build"
+  },
+  "dependencies": {
+    "framer-motion": "^11.2.6",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1"
+  },
+  "devDependencies": {
+    "@types/react": "^18.3.3",
+    "@types/react-dom": "^18.3.0",
+    "@vitejs/plugin-react": "^4.3.0",
+    "autoprefixer": "^10.4.19",
+    "gh-pages": "^6.1.1",
+    "postcss": "^8.4.38",
+    "tailwindcss": "^3.4.4",
+    "vite": "^5.2.12"
+  }
+}
+</file>
+
+<file path="postcss.config.js">
+export default {
+  plugins: {
+    tailwindcss: {},
+    autoprefixer: {},
+  },
+};
+</file>
+
+<file path="vite.config.js">
+import { defineConfig } from 'vite';
+import react from '@vitejs/plugin-react';
+
+export default defineConfig({
+  plugins: [react()],
+  base: '/my-web/',
+});
+</file>
+
+<file path="src/components/Certificates.jsx">
+import React, { useState } from 'react';
+import ScrollReveal from './ScrollReveal';
+import CTAButton from './CTAButton';
+import { certificates } from '../data';
+
+const filters = ['all', 'ai', 'productivity', 'security', 'microsoft'];
+
+const filterLabels = {
+  all: 'Semua',
+  ai: 'AI',
+  productivity: 'Productivity',
+  security: 'Security',
+  microsoft: 'Microsoft',
+};
+
+export default function Certificates() {
+  const [activeFilter, setActiveFilter] = useState('all');
+
+  const filtered = activeFilter === 'all'
+    ? certificates
+    : certificates.filter((c) => c.category === activeFilter);
+
+  return (
+    <section className="section" id="sertifikat">
+      <div className="container">
+        <ScrollReveal>
+          <div className="section__header">
+            <h2 className="section__title">Sertifikat</h2>
+            <p className="section__subtitle">Bukti kompetensi dan pembelajaran berkelanjutan</p>
+          </div>
+        </ScrollReveal>
+
+        <ScrollReveal>
+          <div className="certs__filters flex flex-wrap gap-2 mb-8" role="group" aria-label="Filter sertifikat">
+            {filters.map((f) => (
+              <button
+                key={f}
+                type="button"
+                className={`certs__filter px-4 py-2 text-sm font-medium rounded-full border border-border text-text-secondary transition-all hover:text-text hover:border-border-hover ${
+                  activeFilter === f ? 'text-white bg-accent border-accent' : ''
+                }`}
+                aria-pressed={activeFilter === f}
+                onClick={() => setActiveFilter(f)}
+              >
+                {filterLabels[f]}
+              </button>
+            ))}
+          </div>
+          <div className="sr-only" aria-live="polite">
+            Menampilkan {filtered.length} sertifikat
+          </div>
+        </ScrollReveal>
+
+        <ScrollReveal>
+               {filtered.length === 0 ? (
+                 <div className="text-center text-text-secondary py-12">
+                   <p>Tidak ada sertifikat pada kategori ini.</p>
+                 </div>
+               ) : (
+                 <div className="certs__grid grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+                   {filtered.map((cert) => (
+                     <div key={cert.id} className="cert-card p-6 bg-surface border border-border rounded-xl hover:border-border-hover hover:shadow-md hover:-translate-y-1 transition-all duration-300" style={reduceMotion ? {} : undefined}>
+                   <div className="cert-card__icon flex items-center justify-center w-10 h-10 rounded-lg bg-accent-subtle text-accent text-xl mb-4">
+                     <i className="bi bi-award-fill" aria-hidden="true" />
+                   </div>
+                   <h3 className="cert-card__title font-semibold mb-1">{cert.title}</h3>
+                   <div className="cert-card__issuer flex items-center gap-2 text-sm text-text-secondary mb-1">
+                     <i className="bi bi-building text-xs" aria-hidden="true" />
+                     {cert.issuer}
+                   </div>
+                   {cert.date && (
+                     <div className="cert-card__date flex items-center gap-2 text-xs text-text-tertiary mb-4">
+                       <i className="bi bi-calendar3" aria-hidden="true" />
+                       {cert.date}
+                     </div>
+                   )}
+                   <div className="cert-card__actions">
+                     <CTAButton href={cert.image} variant="outline" className="text-xs px-3 py-1.5" target="_blank" rel="noopener noreferrer">
+                       <i className="bi bi-eye" aria-hidden="true" /> Lihat Sertifikat
+                     </CTAButton>
+                   </div>
+                 </div>
+               ))}
+             </div>
+           )}
+        </ScrollReveal>
+      </div>
+    </section>
+  );
+}
+</file>
+
+<file path="src/components/CTAButton.jsx">
+import React from 'react';
+import { motion, useReducedMotion } from 'framer-motion';
+
+const variants = {
+  primary: 'bg-accent text-white hover:bg-accent-hover border border-transparent',
+  secondary: 'bg-surface-2 text-text border border-border hover:border-border-hover',
+  outline: 'bg-transparent text-accent border border-accent-border hover:bg-accent-subtle hover:border-accent',
+};
+
+export default function CTAButton({
+  href,
+  children,
+  variant = 'primary',
+  className = '',
+  target,
+  rel,
+  download,
+  external = false,
+  ...anchorProps
+}) {
+  const reduceMotion = useReducedMotion();
+  const finalTarget = target ?? (external ? '_blank' : undefined);
+  const finalRel = finalTarget === '_blank'
+    ? (rel ?? 'noopener noreferrer')
+    : rel;
+
+  const baseClass = [
+    'inline-flex min-h-11 items-center justify-center gap-2 rounded-lg px-6 py-3',
+    'text-sm font-medium transition-colors duration-200',
+    'focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent',
+    'disabled:pointer-events-none disabled:opacity-50',
+  ].join(' ');
+
+  return (
+    <motion.a
+      href={href}
+      target={finalTarget}
+      rel={finalRel}
+      download={download}
+      className={`${baseClass} ${variants[variant] ?? variants.primary} ${className}`.trim()}
+      whileHover={reduceMotion ? undefined : { y: -1 }}
+      whileTap={reduceMotion ? undefined : { scale: 0.99 }}
+      {...anchorProps}
+    >
+      {children}
+    </motion.a>
+  );
+}
+</file>
+
 <file path="src/components/Hero.jsx">
 import React from 'react';
-import { motion } from 'framer-motion';
+import { motion, useReducedMotion } from 'framer-motion';
 import CTAButton from './CTAButton';
+import { assetUrl } from '../utils/assetUrl';
 
 const fadeUp = {
   hidden: { opacity: 0, y: 40 },
@@ -500,11 +710,13 @@ const fadeUp = {
 
 const staggerChildren = {
   visible: {
-    transition: { staggerChildren: 0.15, delayChildren: 0.2 },
+    transition: { staggerChildren: 0.1, delayChildren: 0.2 },
   },
 };
 
 export default function Hero() {
+  const reduceMotion = useReducedMotion();
+
   return (
     <section className="hero min-h-screen flex items-center pt-20" id="hero">
       <div className="container">
@@ -513,29 +725,34 @@ export default function Hero() {
           variants={staggerChildren}
           initial="hidden"
           animate="visible"
+          transition={reduceMotion ? { duration: 0 } : undefined}
         >
-          <motion.div className="hero__content" variants={fadeUp}>
+          <motion.div className="hero__content" variants={fadeUp} transition={reduceMotion ? { duration: 0 } : undefined}>
             <motion.p
               className="hero__greeting text-sm font-medium text-accent uppercase tracking-widest mb-3"
               variants={fadeUp}
+              transition={reduceMotion ? { duration: 0 } : undefined}
             >
               Daffa Aria
             </motion.p>
             <motion.h1
               className="hero__title text-4xl md:text-5xl lg:text-6xl font-bold leading-tight mb-4"
               variants={fadeUp}
+              transition={reduceMotion ? { duration: 0 } : undefined}
             >
               Junior Backend Developer
             </motion.h1>
             <motion.p
               className="hero__desc text-lg text-text-secondary max-w-md mb-6"
               variants={fadeUp}
+              transition={reduceMotion ? { duration: 0 } : undefined}
             >
               Bangun backend yang tangguh. Selesaikan masalah yang sebenarnya.
             </motion.p>
             <motion.div
               className="hero__tech flex flex-wrap gap-2 mb-8"
               variants={fadeUp}
+              transition={reduceMotion ? { duration: 0 } : undefined}
             >
               {['Python', 'FastAPI', 'Laravel', 'AI Automation'].map((tag) => (
                 <span key={tag} className="chip">{tag}</span>
@@ -544,9 +761,10 @@ export default function Hero() {
             <motion.div
               className="hero__actions flex flex-wrap gap-3"
               variants={fadeUp}
+              transition={reduceMotion ? { duration: 0 } : undefined}
             >
               <CTAButton href="#proyek" variant="primary">Lihat Proyek</CTAButton>
-              <CTAButton href="/my-web/documents/CV-Daffa_v6.pdf" variant="secondary">
+              <CTAButton href={assetUrl('documents/CV-Daffa_v6.pdf')} variant="secondary" download="CV-Daffa_v6.pdf">
                 <i className="bi bi-download" aria-hidden="true" />
                 Unduh CV
               </CTAButton>
@@ -563,7 +781,7 @@ export default function Hero() {
               transition={{ duration: 0.8, delay: 0.4, ease: 'easeOut' }}
             >
               <img
-                src="/my-web/assets/images/profile.webp"
+                src={assetUrl('assets/images/profile.webp')}
                 alt="Foto profil Daffa Aria"
                 width="320"
                 height="320"
@@ -581,73 +799,134 @@ export default function Hero() {
 </file>
 
 <file path="src/components/Navbar.jsx">
-import React, { useState, useEffect, useCallback } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
-import CTAButton from './CTAButton';
+import React, { useState, useEffect, useCallback, useRef } from 'react';
+import { motion, AnimatePresence, useReducedMotion } from 'framer-motion';
 import { contactInfo } from '../data';
+import { assetUrl } from '../utils/assetUrl';
+import { readTheme, applyTheme } from '../theme';
 
 const navLinks = [
   { href: '#tentang', label: 'Tentang' },
   { href: '#keahlian', label: 'Keahlian' },
   { href: '#proyek', label: 'Proyek' },
   { href: '#sertifikat', label: 'Sertifikat' },
-  { href: '/my-web/documents/CV-Daffa_v6.pdf', label: 'CV', isExternal: true },
+  { href: assetUrl('documents/CV-Daffa_v6.pdf'), label: 'CV', isExternal: true },
   { href: '#kontak', label: 'Kontak' },
 ];
+
+const SCROLL_OFFSET = 96;
+
+function useBodyScrollLock(lock) {
+  useEffect(() => {
+    if (!lock) {
+      return;
+    }
+    const prevOverflow = document.body.style.overflow;
+    document.body.style.overflow = 'hidden';
+    return () => {
+      document.body.style.overflow = prevOverflow;
+    };
+  }, [lock]);
+}
+
+function useMediaQuery(query) {
+  const [matches, setMatches] = useState(false);
+
+  useEffect(() => {
+    const media = window.matchMedia(query);
+    if (media.addEventListener) {
+      media.addEventListener('change', () => setMatches(media.matches));
+      setMatches(media.matches);
+      return () => media.removeEventListener('change', () => setMatches(media.matches));
+    } else {
+      media.addListener(() => setMatches(media.matches));
+      setMatches(media.matches);
+      return () => media.removeListener(() => setMatches(media.matches));
+    }
+  }, [query]);
+
+  return matches;
+}
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const [activeSection, setActiveSection] = useState('');
+  const menuRef = useRef(null);
+  const toggleRef = useRef(null);
+  const isDesktop = useMediaQuery('(min-width: 768px)');
 
-  const toggleMenu = useCallback(() => setIsOpen((prev) => !prev), []);
+  useBodyScrollLock(isOpen && !isDesktop);
+
+  const openMenu = useCallback(() => setIsOpen(true), []);
   const closeMenu = useCallback(() => setIsOpen(false), []);
+  const toggleMenu = useCallback(() => setIsOpen((prev) => !prev), []);
 
   useEffect(() => {
     const handleScroll = () => {
       setScrolled(window.scrollY > 40);
     };
+    handleScroll();
     window.addEventListener('scroll', handleScroll, { passive: true });
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
   useEffect(() => {
-    const sections = document.querySelectorAll('section[id]');
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            setActiveSection(entry.target.getAttribute('id'));
-          }
-        });
-      },
-      { threshold: 0.3, rootMargin: '-80px 0px 0px 0px' }
-    );
-    sections.forEach((s) => observer.observe(s));
-    return () => sections.forEach((s) => observer.unobserve(s));
+    const sections = SECTION_IDS.map((id) => document.getElementById(id)).filter(Boolean);
+
+    const updateActive = () => {
+      let current = '';
+      const scrollPos = window.scrollY + SCROLL_OFFSET;
+      for (let i = 0; i < sections.length; i++) {
+        const section = sections[i];
+        const sectionTop = section.offsetTop;
+        const sectionBottom = sectionTop + section.offsetHeight;
+        if (scrollPos >= sectionTop && scrollPos < sectionBottom) {
+          current = section.id;
+        }
+      }
+      if (!current && sections.length > 0) {
+        const firstTop = sections[0].offsetTop;
+        const lastBottom = sections[sections.length - 1].offsetTop + sections[sections.length - 1].offsetHeight;
+        if (window.scrollY < firstTop) {
+          current = 'hero';
+        } else if (window.scrollY >= lastBottom - SCROLL_OFFSET) {
+          current = 'kontak';
+        }
+      }
+      setActiveSection(current);
+    };
+
+    updateActive();
+    window.addEventListener('scroll', updateActive, { passive: true });
+    window.addEventListener('resize', updateActive);
+    return () => {
+      window.removeEventListener('scroll', updateActive);
+      window.removeEventListener('resize', updateActive);
+    };
   }, []);
 
   useEffect(() => {
-    if (isOpen) {
-      document.body.style.overflow = 'hidden';
-    } else {
-      document.body.style.overflow = '';
-    }
-    return () => {
-      document.body.style.overflow = '';
-    };
-  }, [isOpen]);
-
-  const handleNavClick = (e, href) => {
-    if (href.startsWith('#')) {
-      e.preventDefault();
+    if (isOpen && isDesktop) {
       closeMenu();
-      const target = document.querySelector(href);
-      if (target) {
-        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-      }
     }
+  }, [isOpen, isDesktop, closeMenu]);
+
+  useEffect(() => {
+    const handleKeydown = (e) => {
+      if (e.key === 'Escape' && isOpen) {
+        closeMenu();
+      }
+    };
+    document.addEventListener('keydown', handleKeydown);
+    return () => document.removeEventListener('keydown', handleKeydown);
+  }, [isOpen, closeMenu]);
+
+  const handleNavClick = (href) => {
+    closeMenu();
   };
+
+  const reduceMotion = useReducedMotion();
 
   return (
     <header
@@ -668,7 +947,8 @@ export default function Navbar() {
                   href={link.href}
                   target={link.isExternal ? '_blank' : undefined}
                   rel={link.isExternal ? 'noopener noreferrer' : undefined}
-                  onClick={(e) => handleNavClick(e, link.href)}
+                  onClick={() => handleNavClick(link.href)}
+                  aria-current={activeSection === link.href.slice(1) && !link.isExternal ? 'location' : undefined}
                   className={`block px-3 py-2 text-sm font-medium rounded-lg transition-colors ${
                     activeSection === link.href.slice(1) && !link.isExternal
                       ? 'text-white bg-surface-2'
@@ -684,9 +964,12 @@ export default function Navbar() {
           <ThemeToggle />
 
           <button
+            ref={toggleRef}
+            type="button"
             className="md:hidden flex flex-col gap-[5px] p-2 z-50 relative"
             onClick={toggleMenu}
             aria-label={isOpen ? 'Tutup menu' : 'Buka menu'}
+            aria-controls="nav-menu"
             aria-expanded={isOpen}
           >
             <span
@@ -711,11 +994,14 @@ export default function Navbar() {
       <AnimatePresence>
         {isOpen && (
           <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            transition={{ duration: 0.2 }}
-            className="md:hidden fixed inset-0 z-40 bg-bg/95 backdrop-blur-lg flex flex-col items-center justify-center gap-6"
+            id="nav-menu"
+            ref={menuRef}
+            initial={{ opacity: 0, x: '100%' }}
+            animate={{ opacity: 1, x: 0 }}
+            exit={{ opacity: 0, x: '100%' }}
+            transition={{ duration: reduceMotion ? 0 : 0.2, ease: 'easeInOut' }}
+            className="md:hidden fixed inset-y-0 right-0 z-40 w-64 bg-bg/95 backdrop-blur-lg flex flex-col gap-4 p-6 pt-16"
+            onClick={(e) => e.target === e.currentTarget && closeMenu()}
           >
             {navLinks.map((link) => (
               <a
@@ -723,12 +1009,16 @@ export default function Navbar() {
                 href={link.href}
                 target={link.isExternal ? '_blank' : undefined}
                 rel={link.isExternal ? 'noopener noreferrer' : undefined}
-                onClick={(e) => handleNavClick(e, link.href)}
-                className="text-xl font-medium text-text-secondary hover:text-white transition-colors"
+                onClick={() => handleNavClick(link.href)}
+                aria-current={activeSection === link.href.slice(1) && !link.isExternal ? 'location' : undefined}
+                className="text-lg font-medium text-text-secondary hover:text-white transition-colors"
               >
                 {link.label}
               </a>
             ))}
+            <div className="mt-auto pt-4">
+              <ThemeToggle />
+            </div>
           </motion.div>
         )}
       </AnimatePresence>
@@ -736,28 +1026,27 @@ export default function Navbar() {
   );
 }
 
+const SECTION_IDS = ['hero', 'tentang', 'keahlian', 'proyek', 'sertifikat', 'kontak'];
+
 function ThemeToggle() {
-  const [theme, setTheme] = useState(() => {
-    return localStorage.getItem('theme') || (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
-  });
+  const [theme, setTheme] = useState(readTheme);
+
+  useEffect(() => {
+    applyTheme(theme);
+  }, [theme]);
 
   const toggle = () => {
     const next = theme === 'dark' ? 'light' : 'dark';
     setTheme(next);
-    localStorage.setItem('theme', next);
-    document.documentElement.setAttribute('data-theme', next === 'light' ? 'light' : '');
   };
-
-  useEffect(() => {
-    document.documentElement.setAttribute('data-theme', theme === 'light' ? 'light' : '');
-  }, [theme]);
 
   return (
     <button
-      onClick={toggle}
-      aria-label="Ganti tema tampilan"
       type="button"
-      className="hidden md:flex items-center justify-center w-9 h-9 rounded-lg text-text-secondary border border-border hover:text-text hover:border-border-hover transition-all flex-shrink-0 relative"
+      aria-label={theme === 'dark' ? 'Aktifkan tema terang' : 'Aktifkan tema gelap'}
+      aria-pressed={theme === 'light'}
+      onClick={toggle}
+      className="inline-flex items-center justify-center w-10 h-10 rounded-lg text-text-secondary border border-border hover:text-text hover:border-border-hover focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent transition-colors"
     >
       <motion.i
         key={theme}
@@ -772,10 +1061,11 @@ function ThemeToggle() {
 </file>
 
 <file path="src/components/Projects.jsx">
-import React, { useState, useEffect, useCallback } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
+import React, { useState, useEffect, useCallback, useRef } from 'react';
+import { motion, AnimatePresence, useReducedMotion } from 'framer-motion';
 import ScrollReveal from './ScrollReveal';
 import { projectImages } from '../data';
+import { assetUrl } from '../utils/assetUrl';
 
 const projects = [
   {
@@ -807,6 +1097,8 @@ const projects = [
 export default function Projects() {
   const [lightboxProject, setLightboxProject] = useState(null);
   const [lightboxIndex, setLightboxIndex] = useState(0);
+  const lightboxRef = useRef(null);
+  const lastFocusedEl = useRef(null);
 
   const openLightbox = useCallback((projectId) => {
     setLightboxIndex(0);
@@ -829,12 +1121,44 @@ export default function Projects() {
   }, [lightboxProject]);
 
   useEffect(() => {
+    if (lightboxProject) {
+      lastFocusedEl.current = document.activeElement;
+    }
+  }, [lightboxProject]);
+
+  useEffect(() => {
+    if (lightboxProject && lightboxRef.current) {
+      const closeButton = lightboxRef.current.querySelector('.lightbox__close');
+      if (closeButton) {
+        closeButton.focus();
+      }
+    }
+  }, [lightboxProject]);
+
+  useEffect(() => {
+    if (!lightboxProject && lastFocusedEl.current) {
+      lastFocusedEl.current.focus();
+      lastFocusedEl.current = null;
+    }
+  }, [lightboxProject]);
+
+  useEffect(() => {
+    if (!lightboxProject) return;
+
     const handleKey = (e) => {
-      if (!lightboxProject) return;
-      if (e.key === 'Escape') closeLightbox();
-      if (e.key === 'ArrowRight') nextImage();
-      if (e.key === 'ArrowLeft') prevImage();
+      if (e.key === 'Escape') {
+        closeLightbox();
+      }
+
+      if (e.key === 'ArrowRight') {
+        nextImage();
+      }
+
+      if (e.key === 'ArrowLeft') {
+        prevImage();
+      }
     };
+
     window.addEventListener('keydown', handleKey);
     return () => window.removeEventListener('keydown', handleKey);
   }, [lightboxProject, closeLightbox, nextImage, prevImage]);
@@ -854,17 +1178,17 @@ export default function Projects() {
         <div className="projects__grid grid grid-cols-1 lg:grid-cols-2 gap-8">
           {projects.map((project, i) => (
             <ScrollReveal key={project.id}>
-              <article className="project-card bg-surface border border-border rounded-2xl overflow-hidden hover:border-border-hover hover:shadow-lg transition-all duration-300">
+              <article className="project-card bg-surface border border-border rounded-2xl overflow-hidden group-focus-within hover:border-border-hover hover:shadow-lg transition-all duration-300" style={reduceMotion ? {} : undefined}>
                 <div className="project-card__image relative overflow-hidden aspect-video bg-surface-2 border-b border-border">
                   <img
-                    src={`/my-web/assets/images/projects/${project.id}/a.webp`}
-                    alt={`${project.title} — interface utama`}
+                    src={assetUrl(`assets/images/projects/${project.id}/a.webp`)}
+                    alt={`${project.title} — tampilan utama`}
                     width="800"
                     height="450"
                     loading="lazy"
-                    className="w-full h-full object-cover transition-transform duration-300 hover:scale-105"
+                    className="w-full h-full object-cover transition-transform duration-300 hover:scale-105" style={reduceMotion ? {} : undefined}
                   />
-                  <div className="project-card__overlay absolute inset-0 z-2 flex items-center justify-center gap-3 bg-black/40 opacity-0 hover:opacity-100 transition-opacity duration-300">
+                   <div className="project-card__overlay absolute inset-0 z-2 flex items-center justify-center gap-3 bg-black/40 opacity-0 group-focus-within:opacity-100 hover:opacity-100 transition-opacity duration-300" style={reduceMotion ? {} : undefined}>
                     <button
                       className="btn btn--ghost btn--small text-white/90 border-white/20 backdrop-blur-sm hover:bg-white/15 hover:text-white hover:border-white/30"
                       aria-label="Lihat galeri"
@@ -914,12 +1238,13 @@ export default function Projects() {
         onClose={closeLightbox}
         onNext={nextImage}
         onPrev={prevImage}
+        lightboxRef={lightboxRef}
       />
     </section>
   );
 }
 
-function Lightbox({ images, index, isOpen, onClose, onNext, onPrev }) {
+function Lightbox({ images, index, isOpen, onClose, onNext, onPrev, lightboxRef }) {
   const [touchStart, setTouchStart] = useState(0);
 
   useEffect(() => {
@@ -940,7 +1265,10 @@ function Lightbox({ images, index, isOpen, onClose, onNext, onPrev }) {
 
   return (
     <motion.div
-      className="lightbox fixed inset-0 z-[200] flex items-center justify-center"
+      className={`lightbox fixed inset-0 z-[200] flex items-center justify-center ${isOpen ? 'active' : ''}`}
+      role="dialog"
+      aria-modal="true"
+      aria-label="Galeri Gambar"
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
@@ -950,6 +1278,7 @@ function Lightbox({ images, index, isOpen, onClose, onNext, onPrev }) {
       <div className="lightbox__backdrop absolute inset-0 bg-black/90" />
       <div className="lightbox__container relative w-[90vw] max-w-[1000px] max-h-[85vh] flex flex-col items-center" onClick={(e) => e.stopPropagation()}>
         <button
+          ref={lightboxRef}
           className="lightbox__close absolute -top-10 right-0 flex items-center justify-center w-11 h-11 text-text-secondary bg-white/10 rounded-full hover:text-white hover:bg-white/20 transition-colors z-[2]"
           aria-label="Tutup galeri"
           type="button"
@@ -1010,7 +1339,7 @@ function Lightbox({ images, index, isOpen, onClose, onNext, onPrev }) {
 
 <file path="src/components/ScrollReveal.jsx">
 import React from 'react';
-import { motion } from 'framer-motion';
+import { motion, useReducedMotion } from 'framer-motion';
 
 const containerVariants = {
   hidden: { opacity: 0 },
@@ -1036,6 +1365,8 @@ const itemVariants = {
 };
 
 export default function ScrollReveal({ children, className = '' }) {
+  const reduceMotion = useReducedMotion();
+
   return (
     <motion.div
       variants={containerVariants}
@@ -1043,9 +1374,16 @@ export default function ScrollReveal({ children, className = '' }) {
       whileInView="visible"
       viewport={{ once: true, amount: 0.15 }}
       className={className}
+      animate={reduceMotion ? 'visible' : 'visible'}
+      transition={reduceMotion ? { duration: 0 } : undefined}
     >
       {React.Children.map(children, (child, i) => (
-        <motion.div variants={itemVariants} custom={i}>
+        <motion.div
+          variants={itemVariants}
+          custom={i}
+          animate={reduceMotion ? 'visible' : 'visible'}
+          transition={reduceMotion ? { duration: 0 } : undefined}
+        >
           {child}
         </motion.div>
       ))}
@@ -1054,73 +1392,24 @@ export default function ScrollReveal({ children, className = '' }) {
 }
 </file>
 
-<file path="src/components/Skills.jsx">
-import React from 'react';
-import ScrollReveal from './ScrollReveal';
-import { skills } from '../data';
-
-const skillGroups = [
-  { title: 'Bahasa Pemrograman', items: skills.languages },
-  { title: 'Database', items: skills.databases },
-  { title: 'Framework', items: skills.frameworks },
-  { title: 'Tools', items: skills.tools },
-  { title: 'Fokus Utama', items: skills.focus, accent: true },
-];
-
-export default function Skills() {
-  return (
-    <section className="section" id="keahlian">
-      <div className="container">
-        <ScrollReveal>
-          <div className="section__header">
-            <h2 className="section__title">Keahlian Teknis</h2>
-            <p className="section__subtitle">Teknologi dan tools yang saya gunakan sehari-hari</p>
-          </div>
-        </ScrollReveal>
-
-        <ScrollReveal>
-          <div className="skills__grid grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-            {skillGroups.map((group) => (
-              <div key={group.title} className="skill__group p-6 bg-surface border border-border rounded-xl">
-                <h3 className="skill__group-title text-xs font-semibold text-text-tertiary uppercase tracking-widest mb-4">
-                  {group.title}
-                </h3>
-                <div className="skill__chips flex flex-wrap gap-2">
-                  {group.items.map((item) => (
-                    <span
-                      key={item}
-                      className={`chip ${group.accent ? 'chip--accent' : ''}`}
-                    >
-                      {item}
-                    </span>
-                  ))}
-                </div>
-              </div>
-            ))}
-          </div>
-        </ScrollReveal>
-      </div>
-    </section>
-  );
-}
-</file>
-
 <file path="src/data/index.js">
+import { assetUrl } from '../utils/assetUrl';
+
 const projectImages = {
   'ai-assistant': [
-    { src: '/my-web/assets/images/projects/ai-assistant/a.webp', alt: 'AI Assistant — interface utama' },
-    { src: '/my-web/assets/images/projects/ai-assistant/b.webp', alt: 'AI Assistant — fitur interaksi' },
-    { src: '/my-web/assets/images/projects/ai-assistant/c.webp', alt: 'AI Assistant — output hasil' },
-    { src: '/my-web/assets/images/projects/ai-assistant/d.webp', alt: 'AI Assistant — dashboard' },
+    { src: assetUrl('assets/images/projects/ai-assistant/a.webp'), alt: 'AI Code Review Assistant — tampilan utama' },
+    { src: assetUrl('assets/images/projects/ai-assistant/b.webp'), alt: 'AI Code Review Assistant — fitur interaksi' },
+    { src: assetUrl('assets/images/projects/ai-assistant/c.webp'), alt: 'AI Code Review Assistant — output analisis' },
+    { src: assetUrl('assets/images/projects/ai-assistant/d.webp'), alt: 'AI Code Review Assistant — dashboard' },
   ],
   'realtime-analytics': [
-    { src: '/my-web/assets/images/projects/realtime-analytics/a.webp', alt: 'Realtime Analytics — dashboard utama' },
-    { src: '/my-web/assets/images/projects/realtime-analytics/b.webp', alt: 'Realtime Analytics — visualisasi data' },
-    { src: '/my-web/assets/images/projects/realtime-analytics/c.webp', alt: 'Realtime Analytics — monitoring panel' },
-    { src: '/my-web/assets/images/projects/realtime-analytics/d.webp', alt: 'Realtime Analytics — konfigurasi' },
-    { src: '/my-web/assets/images/projects/realtime-analytics/e.webp', alt: 'Realtime Analytics — laporan' },
-    { src: '/my-web/assets/images/projects/realtime-analytics/f.webp', alt: 'Realtime Analytics — detail metrik' },
-    { src: '/my-web/assets/images/projects/realtime-analytics/g.webp', alt: 'Realtime Analytics — ringkasan' },
+    { src: assetUrl('assets/images/projects/realtime-analytics/a.webp'), alt: 'Intelligent Search & Recommendation Engine — tampilan utama' },
+    { src: assetUrl('assets/images/projects/realtime-analytics/b.webp'), alt: 'Intelligent Search & Recommendation Engine — visualisasi hasil' },
+    { src: assetUrl('assets/images/projects/realtime-analytics/c.webp'), alt: 'Intelligent Search & Recommendation Engine — monitoring panel' },
+    { src: assetUrl('assets/images/projects/realtime-analytics/d.webp'), alt: 'Intelligent Search & Recommendation Engine — konfigurasi' },
+    { src: assetUrl('assets/images/projects/realtime-analytics/e.webp'), alt: 'Intelligent Search & Recommendation Engine — laporan' },
+    { src: assetUrl('assets/images/projects/realtime-analytics/f.webp'), alt: 'Intelligent Search & Recommendation Engine — detail metrik' },
+    { src: assetUrl('assets/images/projects/realtime-analytics/g.webp'), alt: 'Intelligent Search & Recommendation Engine — ringkasan' },
   ],
 };
 
@@ -1131,7 +1420,7 @@ const certificates = [
     issuer: 'IBM SkillsBuild',
     date: 'Juli 2026',
     category: 'ai',
-    image: '/my-web/assets/certificates/BuildanAIAgent_Badge20260715-20-m898ux.pdf',
+    image: assetUrl('assets/certificates/BuildanAIAgent_Badge20260715-20-m898ux.pdf'),
   },
   {
     id: 2,
@@ -1139,7 +1428,7 @@ const certificates = [
     issuer: 'Anthropic Courses',
     date: null,
     category: 'ai',
-    image: '/my-web/assets/certificates/Certificate-of-completion-Claude-101.pdf',
+    image: assetUrl('assets/certificates/Certificate-of-completion-Claude-101.pdf'),
   },
   {
     id: 3,
@@ -1147,7 +1436,7 @@ const certificates = [
     issuer: 'IBM SkillsBuild',
     date: null,
     category: 'ai',
-    image: '/my-web/assets/certificates/Intelligent_by_Design_build_and_AI_agent.pdf',
+    image: assetUrl('assets/certificates/Intelligent_by_Design_build_and_AI_agent.pdf'),
   },
   {
     id: 4,
@@ -1155,7 +1444,7 @@ const certificates = [
     issuer: 'IBM SkillsBuild',
     date: null,
     category: 'ai',
-    image: '/my-web/assets/certificates/Introduction_to_Large_Language_Models.pdf',
+    image: assetUrl('assets/certificates/Introduction_to_Large_Language_Models.pdf'),
   },
   {
     id: 5,
@@ -1163,7 +1452,7 @@ const certificates = [
     issuer: 'IBM SkillsBuild',
     date: null,
     category: 'ai',
-    image: '/my-web/assets/certificates/Lab_Troubleshoot_your_code_using_ibm_bob.pdf',
+    image: assetUrl('assets/certificates/Lab_Troubleshoot_your_code_using_ibm_bob.pdf'),
   },
   {
     id: 6,
@@ -1171,7 +1460,7 @@ const certificates = [
     issuer: 'MySkill',
     date: 'Juni 2026',
     category: 'productivity',
-    image: '/my-web/assets/certificates/Muhammad Daffa Aria Firmansyah E-Certificate SC AI for Work Productivity Juni 2026.pdf',
+    image: assetUrl('assets/certificates/Muhammad Daffa Aria Firmansyah E-Certificate SC AI for Work Productivity Juni 2026.pdf'),
   },
   {
     id: 7,
@@ -1179,7 +1468,7 @@ const certificates = [
     issuer: 'IBM SkillsBuild',
     date: null,
     category: 'security',
-    image: '/my-web/assets/certificates/Certificate-of-Completion-Introduction-to-Information-Security.pdf',
+    image: assetUrl('assets/certificates/Certificate-of-Completion-Introduction-to-Information-Security.pdf'),
   },
   {
     id: 8,
@@ -1187,7 +1476,7 @@ const certificates = [
     issuer: 'Microsoft',
     date: null,
     category: 'microsoft',
-    image: '/my-web/assets/certificates/muhammad-daffa-aria-firmansyah_microsoft-excel-basic.pdf',
+    image: assetUrl('assets/certificates/muhammad-daffa-aria-firmansyah_microsoft-excel-basic.pdf'),
   },
   {
     id: 9,
@@ -1195,7 +1484,7 @@ const certificates = [
     issuer: 'Microsoft',
     date: null,
     category: 'microsoft',
-    image: '/my-web/assets/certificates/muhammad-daffa-aria-firmansyah_microsoft-word.pdf',
+    image: assetUrl('assets/certificates/muhammad-daffa-aria-firmansyah_microsoft-word.pdf'),
   },
 ];
 
@@ -1234,6 +1523,7 @@ export { projectImages, certificates, skills, contactInfo };
   --color-accent-hover: #2563eb;
   --color-accent-subtle: rgba(59, 130, 246, 0.1);
   --color-accent-border: rgba(59, 130, 246, 0.25);
+  --color-bg-rgb: 10 10 11;
   --font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
   --radius-sm: 6px;
   --radius-md: 8px;
@@ -1260,9 +1550,31 @@ export { projectImages, certificates, skills, contactInfo };
   --color-accent-hover: #1d4ed8;
   --color-accent-subtle: rgba(37, 99, 235, 0.08);
   --color-accent-border: rgba(37, 99, 235, 0.2);
+  --color-bg-rgb: 250 250 250;
   --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.06);
   --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.08);
   --shadow-lg: 0 8px 30px rgba(0, 0, 0, 0.1);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 6rem;
+}
+
+section[id] {
+  scroll-margin-top: 6rem;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
 }
 
 * {
@@ -1357,73 +1669,16 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import App from './App';
 import './index.css';
+import '../style.css';
+import { readTheme, applyTheme } from './theme';
 
-const savedTheme = localStorage.getItem('theme');
-const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-
-if (savedTheme === 'light' || (!savedTheme && !prefersDark)) {
-  document.documentElement.setAttribute('data-theme', 'light');
-}
+applyTheme(readTheme(), { persist: false });
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
     <App />
   </React.StrictMode>
 );
-</file>
-
-<file path=".gitignore">
-node_modules
-dist
-.env
-.env.local
-.DS_Store
-*.local
-</file>
-
-<file path="google3935b0c3f9d63e31.html">
-google-site-verification: google3935b0c3f9d63e31.html
-</file>
-
-<file path="package.json">
-{
-  "name": "portofolio-daffa",
-  "private": true,
-  "version": "2.0.0",
-  "type": "module",
-  "homepage": "https://bule2365.github.io/my-web",
-  "scripts": {
-    "dev": "vite",
-    "build": "vite build",
-    "preview": "vite preview",
-    "deploy": "gh-pages -d dist",
-    "predeploy": "npm run build"
-  },
-  "dependencies": {
-    "framer-motion": "^11.2.6",
-    "react": "^18.3.1",
-    "react-dom": "^18.3.1"
-  },
-  "devDependencies": {
-    "@types/react": "^18.3.3",
-    "@types/react-dom": "^18.3.0",
-    "@vitejs/plugin-react": "^4.3.0",
-    "autoprefixer": "^10.4.19",
-    "gh-pages": "^6.1.1",
-    "postcss": "^8.4.38",
-    "tailwindcss": "^3.4.4",
-    "vite": "^5.2.12"
-  }
-}
-</file>
-
-<file path="postcss.config.js">
-export default {
-  plugins: {
-    tailwindcss: {},
-    autoprefixer: {},
-  },
-};
 </file>
 
 <file path="tailwind.config.js">
@@ -1434,11 +1689,19 @@ export default {
   theme: {
     extend: {
       colors: {
+        bg: 'rgb(var(--color-bg-rgb) / <alpha-value>)',
+        surface: 'var(--color-surface)',
+        'surface-2': 'var(--color-surface-2)',
+        border: 'var(--color-border)',
+        'border-hover': 'var(--color-border-hover)',
+        text: 'var(--color-text)',
+        'text-secondary': 'var(--color-text-secondary)',
+        'text-tertiary': 'var(--color-text-tertiary)',
         accent: {
-          DEFAULT: '#3b82f6',
-          hover: '#2563eb',
-          subtle: 'rgba(59,130,246,0.1)',
-          border: 'rgba(59,130,246,0.25)',
+          DEFAULT: 'var(--color-accent)',
+          hover: 'var(--color-accent-hover)',
+          subtle: 'var(--color-accent-subtle)',
+          border: 'var(--color-accent-border)',
         },
       },
       fontFamily: {
@@ -1450,14 +1713,15 @@ export default {
 };
 </file>
 
-<file path="vite.config.js">
-import { defineConfig } from 'vite';
-import react from '@vitejs/plugin-react';
+<file path="robots.txt">
+User-agent: *
+Allow: /
 
-export default defineConfig({
-  plugins: [react()],
-  base: '/my-web/',
-});
+Sitemap: https://bule2365.github.io/my-web/sitemap.xml
+
+# Google Search Console verification
+User-agent: Googlebot
+Allow: /
 </file>
 
 <file path="src/App.jsx">
@@ -1466,11 +1730,12 @@ import { motion, AnimatePresence } from 'framer-motion';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
 import About from './components/About';
-import Projects from './components/Projects';
 import Skills from './components/Skills';
+import Projects from './components/Projects';
 import Certificates from './components/Certificates';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
+import BackToTop from './components/BackToTop';
 
 export default function App() {
   return (
@@ -1485,54 +1750,10 @@ export default function App() {
         <Contact />
       </main>
       <Footer />
-
-      <button
-        className="backtotop fixed bottom-6 right-6 z-50 flex items-center justify-center w-11 h-11 rounded-full bg-surface-2 border border-border text-text-secondary opacity-0 invisible translate-y-2 transition-all duration-300 hover:text-text hover:border-border-hover"
-        id="backToTop"
-        aria-label="Kembali ke atas"
-        type="button"
-        onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
-      >
-        <i className="bi bi-chevron-up text-lg" aria-hidden="true" />
-      </button>
-
-      <script
-        dangerouslySetInnerHTML={{
-          __html: `
-            (function() {
-              var btn = document.getElementById('backToTop');
-              if (!btn) return;
-              window.addEventListener('scroll', function() {
-                if (window.scrollY > 400) {
-                  btn.classList.add('visible');
-                  btn.style.opacity = '1';
-                  btn.style.visibility = 'visible';
-                  btn.style.transform = 'translateY(0)';
-                } else {
-                  btn.classList.remove('visible');
-                  btn.style.opacity = '0';
-                  btn.style.visibility = 'hidden';
-                  btn.style.transform = 'translateY(8px)';
-                }
-              }, { passive: true });
-            })();
-          `,
-        }}
-      />
+      <BackToTop />
     </div>
   );
 }
-</file>
-
-<file path="robots.txt">
-User-agent: *
-Allow: /
-
-Sitemap: https://bule2365.github.io/my-web/sitemap.xml
-
-# Google Search Console verification
-User-agent: Googlebot
-Allow: /
 </file>
 
 <file path="sitemap.xml">

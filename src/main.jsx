@@ -2,13 +2,10 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import App from './App';
 import './index.css';
+import '../style.css';
+import { readTheme, applyTheme } from './theme';
 
-const savedTheme = localStorage.getItem('theme');
-const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-
-if (savedTheme === 'light' || (!savedTheme && !prefersDark)) {
-  document.documentElement.setAttribute('data-theme', 'light');
-}
+applyTheme(readTheme(), { persist: false });
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>

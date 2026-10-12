@@ -1,0 +1,3311 @@
+This file is a merged representation of the entire codebase, combined into a single document by Repomix.
+
+<file_summary>
+This section contains a summary of this file.
+
+<purpose>
+This file contains a packed representation of the entire repository's contents.
+It is designed to be easily consumable by AI systems for analysis, code review,
+or other automated processes.
+</purpose>
+
+<file_format>
+The content is organized as follows:
+1. This summary section
+2. Repository information
+3. Directory structure
+4. Repository files (if enabled)
+5. Multiple file entries, each consisting of:
+  - File path as an attribute
+  - Full contents of the file
+</file_format>
+
+<usage_guidelines>
+- This file should be treated as read-only. Any changes should be made to the
+  original repository files, not this packed version.
+- When processing this file, use the file path to distinguish
+  between different files in the repository.
+- Be aware that this file may contain sensitive information. Handle it with
+  the same level of security as you would the original repository.
+</usage_guidelines>
+
+<notes>
+- Some files may have been excluded based on .gitignore rules and Repomix's configuration
+- Binary files are not included in this packed representation. Please refer to the Repository Structure section for a complete list of file paths, including binary files
+- Files matching patterns in .gitignore are excluded
+- Files matching default ignore patterns are excluded
+- Files are sorted by Git change count (files with more changes are at the bottom)
+</notes>
+
+</file_summary>
+
+<directory_structure>
+assets/
+  certificates/
+    BuildanAIAgent_Badge20260715-20-m898ux.pdf
+    Certificate-of-completion-Claude-101.pdf
+    Certificate-of-Completion-Introduction-to-Information-Security.pdf
+    Intelligent_by_Design_build_and_AI_agent.pdf
+    Introduction_to_Large_Language_Models.pdf
+    Lab_Troubleshoot_your_code_using_ibm_bob.pdf
+    Muhammad Daffa Aria Firmansyah E-Certificate SC AI for Work Productivity Juni 2026.pdf
+    muhammad-daffa-aria-firmansyah_microsoft-excel-basic.pdf
+    muhammad-daffa-aria-firmansyah_microsoft-word.pdf
+  icons/
+    favicon.svg
+  images/
+    projects/
+      ai-assistant/
+        a.png
+        a.webp
+        b.png
+        b.webp
+        c.png
+        c.webp
+        d.png
+        d.webp
+      realtime-analytics/
+        a.png
+        a.webp
+        b.png
+        b.webp
+        c.png
+        c.webp
+        d.png
+        d.webp
+        e.png
+        e.webp
+        f.png
+        f.webp
+        g.png
+        g.webp
+    about-collaboration.jpg
+    about-collaboration.webp
+    profile.jpg
+    profile.webp
+documents/
+  CV-Daffa_v5.pdf
+  CV-Daffa_v6.pdf
+public/
+  assets/
+    certificates/
+      BuildanAIAgent_Badge20260715-20-m898ux.pdf
+      Certificate-of-completion-Claude-101.pdf
+      Certificate-of-Completion-Introduction-to-Information-Security.pdf
+      Intelligent_by_Design_build_and_AI_agent.pdf
+      Introduction_to_Large_Language_Models.pdf
+      Lab_Troubleshoot_your_code_using_ibm_bob.pdf
+      Muhammad Daffa Aria Firmansyah E-Certificate SC AI for Work Productivity Juni 2026.pdf
+      muhammad-daffa-aria-firmansyah_microsoft-excel-basic.pdf
+      muhammad-daffa-aria-firmansyah_microsoft-word.pdf
+    icons/
+      favicon.svg
+    images/
+      projects/
+        ai-assistant/
+          a.png
+          a.webp
+          b.png
+          b.webp
+          c.png
+          c.webp
+          d.png
+          d.webp
+        realtime-analytics/
+          a.png
+          a.webp
+          b.png
+          b.webp
+          c.png
+          c.webp
+          d.png
+          d.webp
+          e.png
+          e.webp
+          f.png
+          f.webp
+          g.png
+          g.webp
+      about-collaboration.jpg
+      about-collaboration.webp
+      profile.jpg
+      profile.webp
+  documents/
+    CV-Daffa_v6.pdf
+src/
+  components/
+    About.jsx
+    Certificates.jsx
+    Contact.jsx
+    CTAButton.jsx
+    Footer.jsx
+    Hero.jsx
+    Navbar.jsx
+    Projects.jsx
+    ScrollReveal.jsx
+    Skills.jsx
+  data/
+    index.js
+  App.jsx
+  index.css
+  main.jsx
+.gitignore
+google3935b0c3f9d63e31.html
+index.html
+package.json
+postcss.config.js
+robots.txt
+script.js
+sitemap.xml
+style.css
+tailwind.config.js
+vite.config.js
+</directory_structure>
+
+<files>
+This section contains the contents of the repository's files.
+
+<file path="assets/icons/favicon.svg">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" fill="none">
+  <rect width="64" height="64" rx="18" fill="#050816" />
+  <rect x="6" y="6" width="52" height="52" rx="14" fill="url(#paint0_linear)" />
+  <path
+    d="M22 18H33.5C42.3366 18 49.5 25.1634 49.5 34C49.5 42.8366 42.3366 50 33.5 50H22V18ZM29.5 25V43H33.1C38.0153 43 42 38.9706 42 34C42 29.0294 38.0153 25 33.1 25H29.5Z"
+    fill="white"
+  />
+  <defs>
+    <linearGradient id="paint0_linear" x1="6" y1="6" x2="58" y2="58" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#2563EB" />
+      <stop offset="0.5" stop-color="#7C3AED" />
+      <stop offset="1" stop-color="#06B6D4" />
+    </linearGradient>
+  </defs>
+</svg>
+</file>
+
+<file path="public/assets/icons/favicon.svg">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" fill="none">
+  <rect width="64" height="64" rx="18" fill="#050816" />
+  <rect x="6" y="6" width="52" height="52" rx="14" fill="url(#paint0_linear)" />
+  <path
+    d="M22 18H33.5C42.3366 18 49.5 25.1634 49.5 34C49.5 42.8366 42.3366 50 33.5 50H22V18ZM29.5 25V43H33.1C38.0153 43 42 38.9706 42 34C42 29.0294 38.0153 25 33.1 25H29.5Z"
+    fill="white"
+  />
+  <defs>
+    <linearGradient id="paint0_linear" x1="6" y1="6" x2="58" y2="58" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#2563EB" />
+      <stop offset="0.5" stop-color="#7C3AED" />
+      <stop offset="1" stop-color="#06B6D4" />
+    </linearGradient>
+  </defs>
+</svg>
+</file>
+
+<file path="src/components/About.jsx">
+import React from 'react';
+import ScrollReveal from './ScrollReveal';
+
+export default function About() {
+  return (
+    <section className="section" id="tentang">
+      <div className="container">
+        <ScrollReveal>
+          <div className="section__header">
+            <h2 className="section__title">Tentang Saya</h2>
+            <p className="section__subtitle">Pendekatan, fokus, dan nilai yang saya bawa dalam setiap proyek</p>
+          </div>
+        </ScrollReveal>
+
+        <ScrollReveal>
+          <div className="about__content max-w-xl">
+            <p className="about__text text-text-secondary mb-4">
+              Saya <strong>Junior Backend Developer</strong> yang fokus pada hasil nyata: API yang cepat, sistem yang stabil, dan kode yang terstruktur. Pendekatan saya: pahami masalah dulu, baru tulis kode. Saya percaya sistem yang baik lahir dari kejelasan tujuan, struktur yang rapi, dan eksekusi yang konsisten.
+            </p>
+            <p className="about__text text-text-secondary mb-6">
+              Saat ini saya aktif membangun proyek mandiri — intelligent search engine, AI code review assistant, dan aplikasi web berbasis Laravel — sambil memperdalam AI, automation, dan software engineering melalui sertifikasi dan eksperimen langsung.
+            </p>
+            <div className="about__highlights grid grid-cols-1 sm:grid-cols-3 gap-4">
+              {[
+                { icon: 'bi-gear-wide-connected', label: 'Problem solving teknis' },
+                { icon: 'bi-diagram-3', label: 'Sistem backend & automation' },
+                { icon: 'bi-cpu', label: 'AI & solusi digital' },
+              ].map((item) => (
+                <div key={item.label} className="about__highlight inline-flex items-center gap-3 text-sm font-medium text-text">
+                  <i className={`${item.icon} text-accent text-lg flex-shrink-0`} aria-hidden="true" />
+                  {item.label}
+                </div>
+              ))}
+            </div>
+          </div>
+        </ScrollReveal>
+      </div>
+    </section>
+  );
+}
+</file>
+
+<file path="src/components/Certificates.jsx">
+import React, { useState } from 'react';
+import ScrollReveal from './ScrollReveal';
+import CTAButton from './CTAButton';
+import { certificates } from '../data';
+
+const filters = ['all', 'ai', 'productivity', 'security', 'microsoft'];
+
+const filterLabels = {
+  all: 'Semua',
+  ai: 'AI',
+  productivity: 'Productivity',
+  security: 'Security',
+  microsoft: 'Microsoft',
+};
+
+export default function Certificates() {
+  const [activeFilter, setActiveFilter] = useState('all');
+
+  const filtered = activeFilter === 'all'
+    ? certificates
+    : certificates.filter((c) => c.category === activeFilter);
+
+  return (
+    <section className="section" id="sertifikat">
+      <div className="container">
+        <ScrollReveal>
+          <div className="section__header">
+            <h2 className="section__title">Sertifikat</h2>
+            <p className="section__subtitle">Bukti kompetensi dan pembelajaran berkelanjutan</p>
+          </div>
+        </ScrollReveal>
+
+        <ScrollReveal>
+          <div className="certs__filters flex flex-wrap gap-2 mb-8" role="group" aria-label="Filter sertifikat">
+            {filters.map((f) => (
+              <button
+                key={f}
+                className={`certs__filter px-4 py-2 text-sm font-medium rounded-full border border-border text-text-secondary transition-all hover:text-text hover:border-border-hover ${
+                  activeFilter === f ? 'text-white bg-accent border-accent' : ''
+                }`}
+                onClick={() => setActiveFilter(f)}
+              >
+                {filterLabels[f]}
+              </button>
+            ))}
+          </div>
+        </ScrollReveal>
+
+        <ScrollReveal>
+          <div className="certs__grid grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+            {filtered.map((cert) => (
+              <div key={cert.id} className="cert-card p-6 bg-surface border border-border rounded-xl hover:border-border-hover hover:shadow-md hover:-translate-y-1 transition-all duration-300">
+                <div className="cert-card__icon flex items-center justify-center w-10 h-10 rounded-lg bg-accent-subtle text-accent text-xl mb-4">
+                  <i className="bi bi-award-fill" aria-hidden="true" />
+                </div>
+                <h3 className="cert-card__title font-semibold mb-1">{cert.title}</h3>
+                <div className="cert-card__issuer flex items-center gap-2 text-sm text-text-secondary mb-1">
+                  <i className="bi bi-building text-xs" aria-hidden="true" />
+                  {cert.issuer}
+                </div>
+                {cert.date && (
+                  <div className="cert-card__date flex items-center gap-2 text-xs text-text-tertiary mb-4">
+                    <i className="bi bi-calendar3" aria-hidden="true" />
+                    {cert.date}
+                  </div>
+                )}
+                <div className="cert-card__actions">
+                  <CTAButton href={cert.image} variant="outline" className="text-xs px-3 py-1.5">
+                    <i className="bi bi-eye" aria-hidden="true" /> Lihat Sertifikat
+                  </CTAButton>
+                </div>
+              </div>
+            ))}
+          </div>
+        </ScrollReveal>
+      </div>
+    </section>
+  );
+}
+</file>
+
+<file path="src/components/Contact.jsx">
+import React from 'react';
+import ScrollReveal from './ScrollReveal';
+import CTAButton from './CTAButton';
+import { contactInfo } from '../data';
+
+export default function Contact() {
+  const mailto = `mailto:${contactInfo.email}?subject=Ajakan%20Kerjasama%20Backend%20Development&body=Halo%20Daffa%2C%0A%0ASaya%20tertarik%20untuk%20berdiskusi%20mengenai%20peluang%20kerja%20sama%20backend%20development.%0A%0AMohon%20informasinya%20lebih%20lanjut.%0A%0ATerima%20kasih.%0A%0ASalam%2C%0A%5BNama%20Pengirim%5D`;
+
+  return (
+    <section className="section" id="kontak">
+      <div className="container">
+        <ScrollReveal>
+          <div className="section__header">
+            <h2 className="section__title">Hubungi Saya</h2>
+            <p className="section__subtitle">Tertarik berkolaborasi? Jangan ragu untuk menghubungi</p>
+          </div>
+        </ScrollReveal>
+
+        <ScrollReveal>
+          <div className="contact__content grid grid-cols-1 lg:grid-cols-2 gap-10">
+            <div className="contact__info flex flex-col gap-6">
+              <div className="contact__item flex items-start gap-4">
+                <i className="bi bi-envelope text-accent flex-shrink-0 text-xl mt-[2px]" aria-hidden="true" />
+                <div>
+                  <p className="contact__item-label text-xs font-medium text-text-tertiary uppercase tracking-widest mb-1">Email</p>
+                  <a href={mailto} className="contact__item-value font-medium hover:text-accent transition-colors">
+                    {contactInfo.email}
+                  </a>
+                </div>
+              </div>
+              <div className="contact__item flex items-start gap-4">
+                <i className="bi bi-linkedin text-accent flex-shrink-0 text-xl mt-[2px]" aria-hidden="true" />
+                <div>
+                  <p className="contact__item-label text-xs font-medium text-text-tertiary uppercase tracking-widest mb-1">LinkedIn</p>
+                  <a href={contactInfo.linkedin} target="_blank" rel="noopener" className="contact__item-value font-medium hover:text-accent transition-colors">
+                    linkedin.com/in/leaddaf
+                  </a>
+                </div>
+              </div>
+              <div className="contact__item flex items-start gap-4">
+                <i className="bi bi-github text-accent flex-shrink-0 text-xl mt-[2px]" aria-hidden="true" />
+                <div>
+                  <p className="contact__item-label text-xs font-medium text-text-tertiary uppercase tracking-widest mb-1">GitHub</p>
+                  <a href={contactInfo.github} target="_blank" rel="noopener" className="contact__item-value font-medium hover:text-accent transition-colors">
+                    github.com/Bule2365
+                  </a>
+                </div>
+              </div>
+            </div>
+
+            <div className="contact__cta p-8 bg-surface border border-border rounded-2xl flex flex-col justify-center">
+              <h3 className="contact__cta-title text-xl font-semibold mb-3">Siap untuk Kolaborasi?</h3>
+              <p className="contact__cta-text text-text-secondary mb-6 max-w-[440px]">
+                Saya selalu terbuka untuk proyek baru, ide segar, dan kesempatan belajar. Jika Anda mencari backend developer yang serius dan detail-oriented, mari bicara.
+              </p>
+              <CTAButton href={mailto} variant="primary">
+                <i className="bi bi-envelope" aria-hidden="true" /> Kirim Email
+              </CTAButton>
+            </div>
+          </div>
+        </ScrollReveal>
+      </div>
+    </section>
+  );
+}
+</file>
+
+<file path="src/components/CTAButton.jsx">
+import React from 'react';
+import { motion } from 'framer-motion';
+
+const ctaVariants = {
+  rest: { scale: 1 },
+  hover: {
+    scale: 1.04,
+    boxShadow: '0 8px 25px rgba(59, 130, 246, 0.35)',
+    transition: { duration: 0.25, ease: 'easeInOut' },
+  },
+  tap: { scale: 0.97 },
+};
+
+export default function CTAButton({ href, children, variant = 'primary', ...props }) {
+  const isPrimary = variant === 'primary';
+
+  const baseClass = 'inline-flex items-center justify-center gap-2 px-6 py-3 text-sm font-medium rounded-lg transition-all duration-200 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent';
+
+  const variantClass = isPrimary
+    ? 'bg-accent text-white hover:bg-accent-hover'
+    : 'bg-surface-2 text-text border border-border hover:border-border-hover';
+
+  return (
+    <motion.a
+      href={href}
+      target="_blank"
+      rel="noopener noreferrer"
+      variants={ctaVariants}
+      initial="rest"
+      whileHover="hover"
+      whileTap="tap"
+      className={`${baseClass} ${variantClass}`}
+      {...props}
+    >
+      {children}
+    </motion.a>
+  );
+}
+</file>
+
+<file path="src/components/Footer.jsx">
+import React from 'react';
+import { motion } from 'framer-motion';
+import { contactInfo } from '../data';
+
+export default function Footer() {
+  return (
+    <footer className="footer py-12 border-t border-border">
+      <div className="container">
+        <motion.div
+          className="footer__content flex flex-col items-center gap-4 text-center"
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5 }}
+        >
+          <div className="footer__social flex gap-3">
+            <a
+              href={contactInfo.github}
+              target="_blank"
+              rel="noopener"
+              aria-label="GitHub Daffa"
+              className="flex items-center justify-center w-10 h-10 text-text-secondary border border-border rounded-full hover:text-text hover:border-border-hover hover:bg-surface-2 transition-all"
+            >
+              <i className="bi bi-github text-lg" aria-hidden="true" />
+            </a>
+            <a
+              href={contactInfo.linkedin}
+              target="_blank"
+              rel="noopener"
+              aria-label="LinkedIn Daffa"
+              className="flex items-center justify-center w-10 h-10 text-text-secondary border border-border rounded-full hover:text-text hover:border-border-hover hover:bg-surface-2 transition-all"
+            >
+              <i className="bi bi-linkedin text-lg" aria-hidden="true" />
+            </a>
+            <a
+              href={`mailto:${contactInfo.email}?subject=Ajakan%20Kerjasama%20Backend%20Development`}
+              aria-label="Email Daffa"
+              className="flex items-center justify-center w-10 h-10 text-text-secondary border border-border rounded-full hover:text-text hover:border-border-hover hover:bg-surface-2 transition-all"
+            >
+              <i className="bi bi-envelope text-lg" aria-hidden="true" />
+            </a>
+          </div>
+          <p className="footer__copy text-xs text-text-tertiary">
+            &copy; {new Date().getFullYear()} Muhammad Daffa Aria Firmansyah
+          </p>
+        </motion.div>
+      </div>
+    </footer>
+  );
+}
+</file>
+
+<file path="src/components/Hero.jsx">
+import React from 'react';
+import { motion } from 'framer-motion';
+import CTAButton from './CTAButton';
+
+const fadeUp = {
+  hidden: { opacity: 0, y: 40 },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.7, ease: [0.25, 0.46, 0.45, 0.94] } },
+};
+
+const staggerChildren = {
+  visible: {
+    transition: { staggerChildren: 0.15, delayChildren: 0.2 },
+  },
+};
+
+export default function Hero() {
+  return (
+    <section className="hero min-h-screen flex items-center pt-20" id="hero">
+      <div className="container">
+        <motion.div
+          className="hero__content grid grid-cols-1 lg:grid-cols-[1fr_auto] gap-10 items-center"
+          variants={staggerChildren}
+          initial="hidden"
+          animate="visible"
+        >
+          <motion.div className="hero__content" variants={fadeUp}>
+            <motion.p
+              className="hero__greeting text-sm font-medium text-accent uppercase tracking-widest mb-3"
+              variants={fadeUp}
+            >
+              Daffa Aria
+            </motion.p>
+            <motion.h1
+              className="hero__title text-4xl md:text-5xl lg:text-6xl font-bold leading-tight mb-4"
+              variants={fadeUp}
+            >
+              Junior Backend Developer
+            </motion.h1>
+            <motion.p
+              className="hero__desc text-lg text-text-secondary max-w-md mb-6"
+              variants={fadeUp}
+            >
+              Bangun backend yang tangguh. Selesaikan masalah yang sebenarnya.
+            </motion.p>
+            <motion.div
+              className="hero__tech flex flex-wrap gap-2 mb-8"
+              variants={fadeUp}
+            >
+              {['Python', 'FastAPI', 'Laravel', 'AI Automation'].map((tag) => (
+                <span key={tag} className="chip">{tag}</span>
+              ))}
+            </motion.div>
+            <motion.div
+              className="hero__actions flex flex-wrap gap-3"
+              variants={fadeUp}
+            >
+              <CTAButton href="#proyek" variant="primary">Lihat Proyek</CTAButton>
+              <CTAButton href="/my-web/documents/CV-Daffa_v6.pdf" variant="secondary">
+                <i className="bi bi-download" aria-hidden="true" />
+                Unduh CV
+              </CTAButton>
+            </motion.div>
+          </motion.div>
+
+          <motion.div
+            className="hero__image flex justify-center"
+          >
+            <motion.div
+              className="hero__image-wrapper w-56 h-56 lg:w-72 lg:h-72 rounded-2xl overflow-hidden border border-border shadow-lg"
+              initial={{ opacity: 0, scale: 0.8 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.8, delay: 0.4, ease: 'easeOut' }}
+            >
+              <img
+                src="/my-web/assets/images/profile.webp"
+                alt="Foto profil Daffa Aria"
+                width="320"
+                height="320"
+                loading="eager"
+                fetchPriority="high"
+                className="w-full h-full object-cover"
+              />
+            </motion.div>
+          </motion.div>
+        </motion.div>
+      </div>
+    </section>
+  );
+}
+</file>
+
+<file path="src/components/Navbar.jsx">
+import React, { useState, useEffect, useCallback } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
+import CTAButton from './CTAButton';
+import { contactInfo } from '../data';
+
+const navLinks = [
+  { href: '#tentang', label: 'Tentang' },
+  { href: '#keahlian', label: 'Keahlian' },
+  { href: '#proyek', label: 'Proyek' },
+  { href: '#sertifikat', label: 'Sertifikat' },
+  { href: '/my-web/documents/CV-Daffa_v6.pdf', label: 'CV', isExternal: true },
+  { href: '#kontak', label: 'Kontak' },
+];
+
+export default function Navbar() {
+  const [isOpen, setIsOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
+  const [activeSection, setActiveSection] = useState('');
+
+  const toggleMenu = useCallback(() => setIsOpen((prev) => !prev), []);
+  const closeMenu = useCallback(() => setIsOpen(false), []);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setScrolled(window.scrollY > 40);
+    };
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
+  useEffect(() => {
+    const sections = document.querySelectorAll('section[id]');
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            setActiveSection(entry.target.getAttribute('id'));
+          }
+        });
+      },
+      { threshold: 0.3, rootMargin: '-80px 0px 0px 0px' }
+    );
+    sections.forEach((s) => observer.observe(s));
+    return () => sections.forEach((s) => observer.unobserve(s));
+  }, []);
+
+  useEffect(() => {
+    if (isOpen) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = '';
+    }
+    return () => {
+      document.body.style.overflow = '';
+    };
+  }, [isOpen]);
+
+  const handleNavClick = (e, href) => {
+    if (href.startsWith('#')) {
+      e.preventDefault();
+      closeMenu();
+      const target = document.querySelector(href);
+      if (target) {
+        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+    }
+  };
+
+  return (
+    <header
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+        scrolled ? 'bg-bg/85 backdrop-blur-md shadow-sm' : 'bg-transparent'
+      }`}
+    >
+      <nav className="container flex items-center justify-between py-4" aria-label="Navigasi utama">
+        <a href="#hero" className="text-lg font-semibold tracking-tight opacity-80 hover:opacity-100 transition-opacity">
+          Daffa Aria
+        </a>
+
+        <div className="flex items-center gap-2">
+          <ul className="hidden md:flex items-center gap-1">
+            {navLinks.map((link) => (
+              <li key={link.href}>
+                <a
+                  href={link.href}
+                  target={link.isExternal ? '_blank' : undefined}
+                  rel={link.isExternal ? 'noopener noreferrer' : undefined}
+                  onClick={(e) => handleNavClick(e, link.href)}
+                  className={`block px-3 py-2 text-sm font-medium rounded-lg transition-colors ${
+                    activeSection === link.href.slice(1) && !link.isExternal
+                      ? 'text-white bg-surface-2'
+                      : 'text-text-secondary hover:text-text hover:bg-surface-2'
+                  }`}
+                >
+                  {link.label}
+                </a>
+              </li>
+            ))}
+          </ul>
+
+          <ThemeToggle />
+
+          <button
+            className="md:hidden flex flex-col gap-[5px] p-2 z-50 relative"
+            onClick={toggleMenu}
+            aria-label={isOpen ? 'Tutup menu' : 'Buka menu'}
+            aria-expanded={isOpen}
+          >
+            <span
+              className={`block w-[22px] h-[2px] bg-text rounded-[2px] transition-all duration-300 ${
+                isOpen ? 'translate-y-[7px] rotate-45' : ''
+              }`}
+            />
+            <span
+              className={`block w-[22px] h-[2px] bg-text rounded-[2px] transition-all duration-300 ${
+                isOpen ? 'opacity-0' : ''
+              }`}
+            />
+            <span
+              className={`block w-[22px] h-[2px] bg-text rounded-[2px] transition-all duration-300 ${
+                isOpen ? '-translate-y-[7px] -rotate-45' : ''
+              }`}
+            />
+          </button>
+        </div>
+      </nav>
+
+      <AnimatePresence>
+        {isOpen && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.2 }}
+            className="md:hidden fixed inset-0 z-40 bg-bg/95 backdrop-blur-lg flex flex-col items-center justify-center gap-6"
+          >
+            {navLinks.map((link) => (
+              <a
+                key={link.href}
+                href={link.href}
+                target={link.isExternal ? '_blank' : undefined}
+                rel={link.isExternal ? 'noopener noreferrer' : undefined}
+                onClick={(e) => handleNavClick(e, link.href)}
+                className="text-xl font-medium text-text-secondary hover:text-white transition-colors"
+              >
+                {link.label}
+              </a>
+            ))}
+          </motion.div>
+        )}
+      </AnimatePresence>
+    </header>
+  );
+}
+
+function ThemeToggle() {
+  const [theme, setTheme] = useState(() => {
+    return localStorage.getItem('theme') || (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+  });
+
+  const toggle = () => {
+    const next = theme === 'dark' ? 'light' : 'dark';
+    setTheme(next);
+    localStorage.setItem('theme', next);
+    document.documentElement.setAttribute('data-theme', next === 'light' ? 'light' : '');
+  };
+
+  useEffect(() => {
+    document.documentElement.setAttribute('data-theme', theme === 'light' ? 'light' : '');
+  }, [theme]);
+
+  return (
+    <button
+      onClick={toggle}
+      aria-label="Ganti tema tampilan"
+      type="button"
+      className="hidden md:flex items-center justify-center w-9 h-9 rounded-lg text-text-secondary border border-border hover:text-text hover:border-border-hover transition-all flex-shrink-0 relative"
+    >
+      <motion.i
+        key={theme}
+        initial={{ opacity: 0, rotate: theme === 'dark' ? -90 : 90 }}
+        animate={{ opacity: 1, rotate: 0 }}
+        transition={{ duration: 0.2 }}
+        className={`bi text-lg ${theme === 'dark' ? 'bi-moon-fill' : 'bi-sun-fill'}`}
+      />
+    </button>
+  );
+}
+</file>
+
+<file path="src/components/Projects.jsx">
+import React, { useState, useEffect, useCallback } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
+import ScrollReveal from './ScrollReveal';
+import { projectImages } from '../data';
+
+const projects = [
+  {
+    id: 'ai-assistant',
+    tags: ['Python', 'FastAPI', 'AI/LLM'],
+    title: 'AI Code Review Assistant (v1.5)',
+    desc: 'AI-powered code review dan automation dashboard yang mengintegrasikan Gemini 2.5 Flash dengan backend FastAPI untuk diagnosis kode secara otonom.',
+    details: [
+      'Diagnosis otomatis: security review, performance, code style, complexity',
+      'AST Python untuk validasi sintaks lokal sebelum analisis AI',
+      'Pipeline API & CORS aman untuk .py, .js, .jsx',
+    ],
+    github: 'https://github.com/Bule2365/AI-code-review-assistant',
+  },
+  {
+    id: 'realtime-analytics',
+    tags: ['Python', 'FastAPI', 'Machine Learning'],
+    title: 'Intelligent Search & Recommendation Engine',
+    desc: 'Search engine dan recommendation system e-commerce hybrid yang menggabungkan BM25, semantic search, dan collaborative filtering.',
+    details: [
+      'BM25 search latency rata-rata 4,6ms per query pada 2.000 produk',
+      'Hybrid search atasi vocabulary mismatch',
+      'Cold start fallback tanpa error atau hasil kosong',
+    ],
+    github: 'https://github.com/Bule2365/intelligent-search-recommendation-engine',
+  },
+];
+
+export default function Projects() {
+  const [lightboxProject, setLightboxProject] = useState(null);
+  const [lightboxIndex, setLightboxIndex] = useState(0);
+
+  const openLightbox = useCallback((projectId) => {
+    setLightboxIndex(0);
+    setLightboxProject(projectId);
+  }, []);
+
+  const closeLightbox = useCallback(() => {
+    setLightboxProject(null);
+  }, []);
+
+  const nextImage = useCallback(() => {
+    setLightboxIndex((prev) => (prev + 1) % (projectImages[lightboxProject]?.length || 1));
+  }, [lightboxProject]);
+
+  const prevImage = useCallback(() => {
+    setLightboxIndex((prev) => {
+      const len = projectImages[lightboxProject]?.length || 1;
+      return (prev - 1 + len) % len;
+    });
+  }, [lightboxProject]);
+
+  useEffect(() => {
+    const handleKey = (e) => {
+      if (!lightboxProject) return;
+      if (e.key === 'Escape') closeLightbox();
+      if (e.key === 'ArrowRight') nextImage();
+      if (e.key === 'ArrowLeft') prevImage();
+    };
+    window.addEventListener('keydown', handleKey);
+    return () => window.removeEventListener('keydown', handleKey);
+  }, [lightboxProject, closeLightbox, nextImage, prevImage]);
+
+  const currentImages = lightboxProject ? projectImages[lightboxProject] : [];
+
+  return (
+    <section className="section" id="proyek">
+      <div className="container">
+        <ScrollReveal>
+          <div className="section__header">
+            <h2 className="section__title">Proyek Unggulan</h2>
+            <p className="section__subtitle">Proyek nyata yang menunjukkan kemampuan teknis dan cara saya menyelesaikan masalah</p>
+          </div>
+        </ScrollReveal>
+
+        <div className="projects__grid grid grid-cols-1 lg:grid-cols-2 gap-8">
+          {projects.map((project, i) => (
+            <ScrollReveal key={project.id}>
+              <article className="project-card bg-surface border border-border rounded-2xl overflow-hidden hover:border-border-hover hover:shadow-lg transition-all duration-300">
+                <div className="project-card__image relative overflow-hidden aspect-video bg-surface-2 border-b border-border">
+                  <img
+                    src={`/my-web/assets/images/projects/${project.id}/a.webp`}
+                    alt={`${project.title} — interface utama`}
+                    width="800"
+                    height="450"
+                    loading="lazy"
+                    className="w-full h-full object-cover transition-transform duration-300 hover:scale-105"
+                  />
+                  <div className="project-card__overlay absolute inset-0 z-2 flex items-center justify-center gap-3 bg-black/40 opacity-0 hover:opacity-100 transition-opacity duration-300">
+                    <button
+                      className="btn btn--ghost btn--small text-white/90 border-white/20 backdrop-blur-sm hover:bg-white/15 hover:text-white hover:border-white/30"
+                      aria-label="Lihat galeri"
+                      onClick={() => openLightbox(project.id)}
+                    >
+                      <i className="bi bi-images" aria-hidden="true" /> Lihat Galeri
+                    </button>
+                    <a
+                      href={project.github}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="btn btn--ghost btn--small text-white/90 border-white/20 backdrop-blur-sm hover:bg-white/15 hover:text-white hover:border-white/30"
+                      aria-label="Buka repositori di GitHub"
+                      onClick={(e) => e.stopPropagation()}
+                    >
+                      <i className="bi bi-github" aria-hidden="true" /> GitHub
+                    </a>
+                  </div>
+                </div>
+                <div className="project-card__body p-6">
+                  <div className="project-card__tags flex flex-wrap gap-2 mb-3">
+                    {project.tags.map((tag) => (
+                      <span key={tag} className="tag">{tag}</span>
+                    ))}
+                  </div>
+                  <h3 className="project-card__title text-xl font-bold mb-3">{project.title}</h3>
+                  <p className="project-card__desc text-text-secondary mb-4">{project.desc}</p>
+                  <ul className="project-card__details flex flex-col gap-2">
+                    {project.details.map((d) => (
+                      <li key={d} className="relative pl-4 text-sm text-text-tertiary leading-relaxed">
+                        <span className="absolute left-0 top-2 w-[4px] h-[4px] rounded-full bg-accent" />
+                        {d}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              </article>
+            </ScrollReveal>
+          ))}
+        </div>
+      </div>
+
+      <Lightbox
+        images={currentImages}
+        index={lightboxIndex}
+        isOpen={!!lightboxProject}
+        onClose={closeLightbox}
+        onNext={nextImage}
+        onPrev={prevImage}
+      />
+    </section>
+  );
+}
+
+function Lightbox({ images, index, isOpen, onClose, onNext, onPrev }) {
+  const [touchStart, setTouchStart] = useState(0);
+
+  useEffect(() => {
+    if (isOpen) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = '';
+    }
+    return () => {
+      document.body.style.overflow = '';
+    };
+  }, [isOpen]);
+
+  if (!isOpen) return null;
+
+  const current = images[index];
+  const total = images.length;
+
+  return (
+    <motion.div
+      className="lightbox fixed inset-0 z-[200] flex items-center justify-center"
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
+      transition={{ duration: 0.2 }}
+      onClick={onClose}
+    >
+      <div className="lightbox__backdrop absolute inset-0 bg-black/90" />
+      <div className="lightbox__container relative w-[90vw] max-w-[1000px] max-h-[85vh] flex flex-col items-center" onClick={(e) => e.stopPropagation()}>
+        <button
+          className="lightbox__close absolute -top-10 right-0 flex items-center justify-center w-11 h-11 text-text-secondary bg-white/10 rounded-full hover:text-white hover:bg-white/20 transition-colors z-[2]"
+          aria-label="Tutup galeri"
+          type="button"
+          onClick={onClose}
+        >
+          <i className="bi bi-x-lg text-xl" aria-hidden="true" />
+        </button>
+
+        <button
+          className="lightbox__nav lightbox__prev absolute left-[-3.5rem] top-1/2 -translate-y-1/2 flex items-center justify-center w-11 h-11 text-text-secondary bg-white/10 rounded-full hover:text-white hover:bg-white/20 transition-colors z-[2] hidden md:flex"
+          aria-label="Gambar sebelumnya"
+          type="button"
+          onClick={onPrev}
+        >
+          <i className="bi bi-chevron-left text-xl" aria-hidden="true" />
+        </button>
+
+        <button
+          className="lightbox__nav lightbox__next absolute right-[-3.5rem] top-1/2 -translate-y-1/2 flex items-center justify-center w-11 h-11 text-text-secondary bg-white/10 rounded-full hover:text-white hover:bg-white/20 transition-colors z-[2] hidden md:flex"
+          aria-label="Gambar berikutnya"
+          type="button"
+          onClick={onNext}
+        >
+          <i className="bi bi-chevron-right text-xl" aria-hidden="true" />
+        </button>
+
+        <figure className="lightbox__figure flex flex-col items-center w-full">
+          <AnimatePresence mode="wait">
+            <motion.img
+              key={index}
+              src={current?.src || ''}
+              alt={current?.alt || ''}
+              width={1200}
+              height={800}
+              className="lightbox__image max-w-full max-h-[75vh] object-contain rounded-lg"
+              initial={{ opacity: 0, x: 50 }}
+              animate={{ opacity: 1, x: 0 }}
+              exit={{ opacity: 0, x: -50 }}
+              transition={{ duration: 0.3 }}
+              onTouchStart={(e) => setTouchStart(e.changedTouches[0].screenX)}
+              onTouchEnd={(e) => {
+                const dx = e.changedTouches[0].screenX - touchStart;
+                if (Math.abs(dx) > 50) {
+                  dx > 0 ? onPrev() : onNext();
+                }
+              }}
+            />
+          </AnimatePresence>
+          <figcaption className="lightbox__counter mt-3 text-sm text-text-tertiary">
+            {index + 1} / {total}
+          </figcaption>
+        </figure>
+      </div>
+    </motion.div>
+  );
+}
+</file>
+
+<file path="src/components/ScrollReveal.jsx">
+import React from 'react';
+import { motion } from 'framer-motion';
+
+const containerVariants = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.1,
+      delayChildren: 0.1,
+    },
+  },
+};
+
+const itemVariants = {
+  hidden: { opacity: 0, y: 30 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: {
+      duration: 0.6,
+      ease: [0.25, 0.46, 0.45, 0.94],
+    },
+  },
+};
+
+export default function ScrollReveal({ children, className = '' }) {
+  return (
+    <motion.div
+      variants={containerVariants}
+      initial="hidden"
+      whileInView="visible"
+      viewport={{ once: true, amount: 0.15 }}
+      className={className}
+    >
+      {React.Children.map(children, (child, i) => (
+        <motion.div variants={itemVariants} custom={i}>
+          {child}
+        </motion.div>
+      ))}
+    </motion.div>
+  );
+}
+</file>
+
+<file path="src/components/Skills.jsx">
+import React from 'react';
+import ScrollReveal from './ScrollReveal';
+import { skills } from '../data';
+
+const skillGroups = [
+  { title: 'Bahasa Pemrograman', items: skills.languages },
+  { title: 'Database', items: skills.databases },
+  { title: 'Framework', items: skills.frameworks },
+  { title: 'Tools', items: skills.tools },
+  { title: 'Fokus Utama', items: skills.focus, accent: true },
+];
+
+export default function Skills() {
+  return (
+    <section className="section" id="keahlian">
+      <div className="container">
+        <ScrollReveal>
+          <div className="section__header">
+            <h2 className="section__title">Keahlian Teknis</h2>
+            <p className="section__subtitle">Teknologi dan tools yang saya gunakan sehari-hari</p>
+          </div>
+        </ScrollReveal>
+
+        <ScrollReveal>
+          <div className="skills__grid grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+            {skillGroups.map((group) => (
+              <div key={group.title} className="skill__group p-6 bg-surface border border-border rounded-xl">
+                <h3 className="skill__group-title text-xs font-semibold text-text-tertiary uppercase tracking-widest mb-4">
+                  {group.title}
+                </h3>
+                <div className="skill__chips flex flex-wrap gap-2">
+                  {group.items.map((item) => (
+                    <span
+                      key={item}
+                      className={`chip ${group.accent ? 'chip--accent' : ''}`}
+                    >
+                      {item}
+                    </span>
+                  ))}
+                </div>
+              </div>
+            ))}
+          </div>
+        </ScrollReveal>
+      </div>
+    </section>
+  );
+}
+</file>
+
+<file path="src/data/index.js">
+const projectImages = {
+  'ai-assistant': [
+    { src: '/my-web/assets/images/projects/ai-assistant/a.webp', alt: 'AI Assistant — interface utama' },
+    { src: '/my-web/assets/images/projects/ai-assistant/b.webp', alt: 'AI Assistant — fitur interaksi' },
+    { src: '/my-web/assets/images/projects/ai-assistant/c.webp', alt: 'AI Assistant — output hasil' },
+    { src: '/my-web/assets/images/projects/ai-assistant/d.webp', alt: 'AI Assistant — dashboard' },
+  ],
+  'realtime-analytics': [
+    { src: '/my-web/assets/images/projects/realtime-analytics/a.webp', alt: 'Realtime Analytics — dashboard utama' },
+    { src: '/my-web/assets/images/projects/realtime-analytics/b.webp', alt: 'Realtime Analytics — visualisasi data' },
+    { src: '/my-web/assets/images/projects/realtime-analytics/c.webp', alt: 'Realtime Analytics — monitoring panel' },
+    { src: '/my-web/assets/images/projects/realtime-analytics/d.webp', alt: 'Realtime Analytics — konfigurasi' },
+    { src: '/my-web/assets/images/projects/realtime-analytics/e.webp', alt: 'Realtime Analytics — laporan' },
+    { src: '/my-web/assets/images/projects/realtime-analytics/f.webp', alt: 'Realtime Analytics — detail metrik' },
+    { src: '/my-web/assets/images/projects/realtime-analytics/g.webp', alt: 'Realtime Analytics — ringkasan' },
+  ],
+};
+
+const certificates = [
+  {
+    id: 1,
+    title: 'Build an AI Agent',
+    issuer: 'IBM SkillsBuild',
+    date: 'Juli 2026',
+    category: 'ai',
+    image: '/my-web/assets/certificates/BuildanAIAgent_Badge20260715-20-m898ux.pdf',
+  },
+  {
+    id: 2,
+    title: 'Claude 101',
+    issuer: 'Anthropic Courses',
+    date: null,
+    category: 'ai',
+    image: '/my-web/assets/certificates/Certificate-of-completion-Claude-101.pdf',
+  },
+  {
+    id: 3,
+    title: 'Intelligent by Design: Build an AI Agent',
+    issuer: 'IBM SkillsBuild',
+    date: null,
+    category: 'ai',
+    image: '/my-web/assets/certificates/Intelligent_by_Design_build_and_AI_agent.pdf',
+  },
+  {
+    id: 4,
+    title: 'Introduction to Large Language Models',
+    issuer: 'IBM SkillsBuild',
+    date: null,
+    category: 'ai',
+    image: '/my-web/assets/certificates/Introduction_to_Large_Language_Models.pdf',
+  },
+  {
+    id: 5,
+    title: 'Troubleshoot Your Code Using IBM Bob',
+    issuer: 'IBM SkillsBuild',
+    date: null,
+    category: 'ai',
+    image: '/my-web/assets/certificates/Lab_Troubleshoot_your_code_using_ibm_bob.pdf',
+  },
+  {
+    id: 6,
+    title: 'AI for Work Productivity',
+    issuer: 'MySkill',
+    date: 'Juni 2026',
+    category: 'productivity',
+    image: '/my-web/assets/certificates/Muhammad Daffa Aria Firmansyah E-Certificate SC AI for Work Productivity Juni 2026.pdf',
+  },
+  {
+    id: 7,
+    title: 'Introduction to Information Security',
+    issuer: 'IBM SkillsBuild',
+    date: null,
+    category: 'security',
+    image: '/my-web/assets/certificates/Certificate-of-Completion-Introduction-to-Information-Security.pdf',
+  },
+  {
+    id: 8,
+    title: 'Microsoft Excel Basic',
+    issuer: 'Microsoft',
+    date: null,
+    category: 'microsoft',
+    image: '/my-web/assets/certificates/muhammad-daffa-aria-firmansyah_microsoft-excel-basic.pdf',
+  },
+  {
+    id: 9,
+    title: 'Microsoft Word',
+    issuer: 'Microsoft',
+    date: null,
+    category: 'microsoft',
+    image: '/my-web/assets/certificates/muhammad-daffa-aria-firmansyah_microsoft-word.pdf',
+  },
+];
+
+const skills = {
+  languages: ['Python', 'PHP', 'JavaScript'],
+  databases: ['MySQL', 'SQLite'],
+  frameworks: ['FastAPI', 'Laravel', 'Django', 'Node.js'],
+  tools: ['Git', 'GitHub', 'VS Code', 'WSL'],
+  focus: ['Backend Development', 'AI & Automation', 'System Design', 'Problem Solving'],
+};
+
+const contactInfo = {
+  email: 'ariadaffa127@gmail.com',
+  linkedin: 'https://linkedin.com/in/leaddaf',
+  github: 'https://github.com/Bule2365',
+};
+
+export { projectImages, certificates, skills, contactInfo };
+</file>
+
+<file path="src/index.css">
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --color-bg: #0a0a0b;
+  --color-surface: #111113;
+  --color-surface-2: #1a1a1d;
+  --color-border: rgba(255, 255, 255, 0.08);
+  --color-border-hover: rgba(255, 255, 255, 0.14);
+  --color-text: #fafafa;
+  --color-text-secondary: #a1a1aa;
+  --color-text-tertiary: #71717a;
+  --color-accent: #3b82f6;
+  --color-accent-hover: #2563eb;
+  --color-accent-subtle: rgba(59, 130, 246, 0.1);
+  --color-accent-border: rgba(59, 130, 246, 0.25);
+  --font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  --radius-sm: 6px;
+  --radius-md: 8px;
+  --radius-lg: 12px;
+  --radius-xl: 16px;
+  --radius-full: 9999px;
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.4);
+  --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.4);
+  --shadow-lg: 0 8px 30px rgba(0, 0, 0, 0.5);
+  --transition-fast: 150ms ease;
+  --transition-base: 250ms ease;
+}
+
+[data-theme="light"] {
+  --color-bg: #fafafa;
+  --color-surface: #ffffff;
+  --color-surface-2: #f1f1f3;
+  --color-border: rgba(0, 0, 0, 0.08);
+  --color-border-hover: rgba(0, 0, 0, 0.15);
+  --color-text: #18181b;
+  --color-text-secondary: #52525b;
+  --color-text-tertiary: #71717a;
+  --color-accent: #2563eb;
+  --color-accent-hover: #1d4ed8;
+  --color-accent-subtle: rgba(37, 99, 235, 0.08);
+  --color-accent-border: rgba(37, 99, 235, 0.2);
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.06);
+  --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.08);
+  --shadow-lg: 0 8px 30px rgba(0, 0, 0, 0.1);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-family);
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.5;
+  color: var(--color-text);
+  background: var(--color-bg);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+  transition: background var(--transition-base), color var(--transition-base);
+}
+
+img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button {
+  font: inherit;
+  color: inherit;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+ul, ol {
+  list-style: none;
+}
+
+h1, h2, h3, h4 {
+  font-weight: 600;
+  line-height: 1.15;
+  letter-spacing: -0.025em;
+}
+
+p {
+  line-height: 1.6;
+}
+
+strong {
+  font-weight: 600;
+  color: var(--color-text);
+}
+
+::selection {
+  background: var(--color-accent);
+  color: #fff;
+}
+
+:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 2px;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: var(--color-bg);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--color-surface-2);
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-text-tertiary);
+}
+</file>
+
+<file path="src/main.jsx">
+import React from 'react';
+import ReactDOM from 'react-dom/client';
+import App from './App';
+import './index.css';
+
+const savedTheme = localStorage.getItem('theme');
+const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+
+if (savedTheme === 'light' || (!savedTheme && !prefersDark)) {
+  document.documentElement.setAttribute('data-theme', 'light');
+}
+
+ReactDOM.createRoot(document.getElementById('root')).render(
+  <React.StrictMode>
+    <App />
+  </React.StrictMode>
+);
+</file>
+
+<file path=".gitignore">
+node_modules
+dist
+.env
+.env.local
+.DS_Store
+*.local
+</file>
+
+<file path="google3935b0c3f9d63e31.html">
+google-site-verification: google3935b0c3f9d63e31.html
+</file>
+
+<file path="package.json">
+{
+  "name": "portofolio-daffa",
+  "private": true,
+  "version": "2.0.0",
+  "type": "module",
+  "homepage": "https://bule2365.github.io/my-web",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "deploy": "gh-pages -d dist",
+    "predeploy": "npm run build"
+  },
+  "dependencies": {
+    "framer-motion": "^11.2.6",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1"
+  },
+  "devDependencies": {
+    "@types/react": "^18.3.3",
+    "@types/react-dom": "^18.3.0",
+    "@vitejs/plugin-react": "^4.3.0",
+    "autoprefixer": "^10.4.19",
+    "gh-pages": "^6.1.1",
+    "postcss": "^8.4.38",
+    "tailwindcss": "^3.4.4",
+    "vite": "^5.2.12"
+  }
+}
+</file>
+
+<file path="postcss.config.js">
+export default {
+  plugins: {
+    tailwindcss: {},
+    autoprefixer: {},
+  },
+};
+</file>
+
+<file path="tailwind.config.js">
+/** @type {import('tailwindcss').Config} */
+export default {
+  content: ['./index.html', './src/**/*.{js,jsx}'],
+  darkMode: 'class',
+  theme: {
+    extend: {
+      colors: {
+        accent: {
+          DEFAULT: '#3b82f6',
+          hover: '#2563eb',
+          subtle: 'rgba(59,130,246,0.1)',
+          border: 'rgba(59,130,246,0.25)',
+        },
+      },
+      fontFamily: {
+        sans: ['Inter', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'sans-serif'],
+      },
+    },
+  },
+  plugins: [],
+};
+</file>
+
+<file path="vite.config.js">
+import { defineConfig } from 'vite';
+import react from '@vitejs/plugin-react';
+
+export default defineConfig({
+  plugins: [react()],
+  base: '/my-web/',
+});
+</file>
+
+<file path="src/App.jsx">
+import React from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
+import Navbar from './components/Navbar';
+import Hero from './components/Hero';
+import About from './components/About';
+import Projects from './components/Projects';
+import Skills from './components/Skills';
+import Certificates from './components/Certificates';
+import Contact from './components/Contact';
+import Footer from './components/Footer';
+
+export default function App() {
+  return (
+    <div className="min-h-screen bg-bg text-text font-sans antialiased">
+      <Navbar />
+      <main id="main">
+        <Hero />
+        <About />
+        <Skills />
+        <Projects />
+        <Certificates />
+        <Contact />
+      </main>
+      <Footer />
+
+      <button
+        className="backtotop fixed bottom-6 right-6 z-50 flex items-center justify-center w-11 h-11 rounded-full bg-surface-2 border border-border text-text-secondary opacity-0 invisible translate-y-2 transition-all duration-300 hover:text-text hover:border-border-hover"
+        id="backToTop"
+        aria-label="Kembali ke atas"
+        type="button"
+        onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+      >
+        <i className="bi bi-chevron-up text-lg" aria-hidden="true" />
+      </button>
+
+      <script
+        dangerouslySetInnerHTML={{
+          __html: `
+            (function() {
+              var btn = document.getElementById('backToTop');
+              if (!btn) return;
+              window.addEventListener('scroll', function() {
+                if (window.scrollY > 400) {
+                  btn.classList.add('visible');
+                  btn.style.opacity = '1';
+                  btn.style.visibility = 'visible';
+                  btn.style.transform = 'translateY(0)';
+                } else {
+                  btn.classList.remove('visible');
+                  btn.style.opacity = '0';
+                  btn.style.visibility = 'hidden';
+                  btn.style.transform = 'translateY(8px)';
+                }
+              }, { passive: true });
+            })();
+          `,
+        }}
+      />
+    </div>
+  );
+}
+</file>
+
+<file path="robots.txt">
+User-agent: *
+Allow: /
+
+Sitemap: https://bule2365.github.io/my-web/sitemap.xml
+
+# Google Search Console verification
+User-agent: Googlebot
+Allow: /
+</file>
+
+<file path="sitemap.xml">
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url>
+    <loc>https://bule2365.github.io/my-web/</loc>
+    <lastmod>2026-07-22</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>1.0</priority>
+  </url>
+  <url>
+    <loc>https://bule2365.github.io/my-web/google3935b0c3f9d63e31.html</loc>
+    <lastmod>2026-07-22</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.1</priority>
+  </url>
+</urlset>
+</file>
+
+<file path="script.js">
+(function () {
+  'use strict';
+
+  /* ==========================================
+     DATA
+     ========================================== */
+  const projectImages = {
+    'ai-assistant': [
+      { src: 'assets/images/projects/ai-assistant/a.webp', alt: 'AI Assistant — interface utama' },
+      { src: 'assets/images/projects/ai-assistant/b.webp', alt: 'AI Assistant — fitur interaksi' },
+      { src: 'assets/images/projects/ai-assistant/c.webp', alt: 'AI Assistant — output hasil' },
+      { src: 'assets/images/projects/ai-assistant/d.webp', alt: 'AI Assistant — dashboard' }
+    ],
+    'realtime-analytics': [
+      { src: 'assets/images/projects/realtime-analytics/a.webp', alt: 'Realtime Analytics — dashboard utama' },
+      { src: 'assets/images/projects/realtime-analytics/b.webp', alt: 'Realtime Analytics — visualisasi data' },
+      { src: 'assets/images/projects/realtime-analytics/c.webp', alt: 'Realtime Analytics — monitoring panel' },
+      { src: 'assets/images/projects/realtime-analytics/d.webp', alt: 'Realtime Analytics — konfigurasi' },
+      { src: 'assets/images/projects/realtime-analytics/e.webp', alt: 'Realtime Analytics — laporan' },
+      { src: 'assets/images/projects/realtime-analytics/f.webp', alt: 'Realtime Analytics — detail metrik' },
+      { src: 'assets/images/projects/realtime-analytics/g.webp', alt: 'Realtime Analytics — ringkasan' }
+    ]
+  };
+
+  const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+
+  function getScrollbarWidth() {
+    return window.innerWidth - document.documentElement.clientWidth;
+  }
+
+  function lockBodyScroll() {
+    var w = getScrollbarWidth();
+    document.body.style.setProperty('--scrollbar-width', w + 'px');
+    document.body.classList.add('no-scroll');
+  }
+
+  function unlockBodyScroll() {
+    document.body.classList.remove('no-scroll');
+    document.body.style.removeProperty('--scrollbar-width');
+  }
+
+  /* ==========================================
+     THEME
+     ========================================== */
+  var themeToggle = document.getElementById('themeToggle');
+  var htmlEl = document.documentElement;
+  var savedTheme = localStorage.getItem('theme');
+
+  function applyTheme(theme) {
+    if (theme === 'light') {
+      htmlEl.setAttribute('data-theme', 'light');
+    } else {
+      htmlEl.removeAttribute('data-theme');
+    }
+  }
+
+  if (savedTheme) {
+    applyTheme(savedTheme);
+  } else if (prefersDark) {
+    applyTheme('dark');
+  } else {
+    applyTheme('light');
+  }
+
+  if (themeToggle) {
+    themeToggle.addEventListener('click', function () {
+      var isLight = htmlEl.getAttribute('data-theme') === 'light';
+      if (isLight) {
+        htmlEl.removeAttribute('data-theme');
+        localStorage.setItem('theme', 'dark');
+      } else {
+        htmlEl.setAttribute('data-theme', 'light');
+        localStorage.setItem('theme', 'light');
+      }
+    });
+  }
+
+  /* ==========================================
+     HEADER SCROLL
+     ========================================== */
+  var header = document.getElementById('header');
+
+  function handleHeaderScroll() {
+    if (window.scrollY > 40) {
+      header.classList.add('scrolled');
+    } else {
+      header.classList.remove('scrolled');
+    }
+  }
+
+  window.addEventListener('scroll', handleHeaderScroll, { passive: true });
+  handleHeaderScroll();
+
+  /* ==========================================
+     MOBILE MENU
+     ========================================== */
+  var navToggle = document.getElementById('navToggle');
+  var navMenu = document.getElementById('nav-menu');
+  var navBackdrop = document.getElementById('navBackdrop');
+  var lastFocusedEl = null;
+
+  function openMenu() {
+    lastFocusedEl = document.activeElement;
+    navToggle.setAttribute('aria-expanded', 'true');
+    navToggle.setAttribute('aria-label', 'Tutup menu');
+    navMenu.classList.add('open');
+    if (navBackdrop) navBackdrop.classList.add('visible');
+    lockBodyScroll();
+    navMenu.querySelector('.nav__link')?.focus();
+  }
+
+  function closeMenu() {
+    navToggle.setAttribute('aria-expanded', 'false');
+    navToggle.setAttribute('aria-label', 'Buka menu');
+    navMenu.classList.remove('open');
+    if (navBackdrop) navBackdrop.classList.remove('visible');
+    unlockBodyScroll();
+    if (lastFocusedEl) lastFocusedEl.focus();
+  }
+
+  if (navToggle && navMenu) {
+    navToggle.addEventListener('click', function () {
+      var isOpen = this.getAttribute('aria-expanded') === 'true';
+      isOpen ? closeMenu() : openMenu();
+    });
+
+    if (navBackdrop) {
+      navBackdrop.addEventListener('click', closeMenu);
+    }
+
+    navMenu.querySelectorAll('.nav__link').forEach(function (link) {
+      link.addEventListener('click', function (e) {
+        var href = this.getAttribute('href');
+        if (href && href.startsWith('#') && href.length > 1) {
+          closeMenu();
+        }
+      });
+    });
+
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape' && navMenu.classList.contains('open')) {
+        closeMenu();
+        e.preventDefault();
+      }
+
+      if (e.key === 'Tab' && navMenu.classList.contains('open')) {
+        var focusable = navMenu.querySelectorAll('.nav__link');
+        var first = focusable[0];
+        var last = focusable[focusable.length - 1];
+
+        if (e.shiftKey) {
+          if (document.activeElement === first) {
+            e.preventDefault();
+            last.focus();
+          }
+        } else {
+          if (document.activeElement === last) {
+            e.preventDefault();
+            first.focus();
+          }
+        }
+      }
+    });
+  }
+
+  /* ==========================================
+     ACTIVE NAV
+     ========================================== */
+  var sections = document.querySelectorAll('section[id]');
+  var navLinks = document.querySelectorAll('.nav__link');
+
+  function updateActiveNav() {
+    var current = '';
+    sections.forEach(function (section) {
+      var top = section.offsetTop - 120;
+      if (window.scrollY >= top) {
+        current = section.getAttribute('id');
+      }
+    });
+    navLinks.forEach(function (link) {
+      link.classList.remove('active');
+      if (link.getAttribute('href') === '#' + current) {
+        link.classList.add('active');
+      }
+    });
+  }
+
+  window.addEventListener('scroll', updateActiveNav, { passive: true });
+
+  /* ==========================================
+     BACK TO TOP
+     ========================================== */
+  var backToTop = document.getElementById('backToTop');
+
+  if (backToTop) {
+    window.addEventListener('scroll', function () {
+      if (window.scrollY > 400) {
+        backToTop.classList.add('visible');
+      } else {
+        backToTop.classList.remove('visible');
+      }
+    }, { passive: true });
+
+    backToTop.addEventListener('click', function () {
+      window.scrollTo({ top: 0, behavior: prefersReducedMotion ? 'auto' : 'smooth' });
+    });
+  }
+
+  /* ==========================================
+     SCROLL REVEAL
+     ========================================== */
+  if (!prefersReducedMotion) {
+    var revealEls = document.querySelectorAll(
+      '.section__header, .about__content, .skill__group, .project-card, .cert-card, .contact__content, .footer__content'
+    );
+
+    revealEls.forEach(function (el) {
+      el.classList.add('reveal');
+    });
+
+    var revealObserver = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          revealObserver.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+
+    revealEls.forEach(function (el) {
+      revealObserver.observe(el);
+    });
+  }
+
+  /* ==========================================
+     CERTIFICATE FILTER
+     ========================================== */
+  var filterBtns = document.querySelectorAll('.certs__filter');
+  var certCards = document.querySelectorAll('.cert-card');
+
+  filterBtns.forEach(function (btn) {
+    btn.addEventListener('click', function () {
+      filterBtns.forEach(function (b) { b.classList.remove('active'); });
+      btn.classList.add('active');
+      var filter = btn.getAttribute('data-filter');
+      certCards.forEach(function (card) {
+        if (filter === 'all' || card.getAttribute('data-category') === filter) {
+          card.classList.remove('hidden');
+        } else {
+          card.classList.add('hidden');
+        }
+      });
+    });
+  });
+
+  /* ==========================================
+     LIGHTBOX
+     ========================================== */
+  var lightbox = document.getElementById('lightbox');
+  var lightboxImg = lightbox.querySelector('.lightbox__image');
+  var lightboxCounter = lightbox.querySelector('.lightbox__counter');
+  var lightboxClose = lightbox.querySelector('.lightbox__close');
+  var lightboxPrev = lightbox.querySelector('.lightbox__prev');
+  var lightboxNext = lightbox.querySelector('.lightbox__next');
+  var lightboxBackdrop = lightbox.querySelector('.lightbox__backdrop');
+
+  var currentProject = '';
+  var currentIndex = 0;
+  var lbLastFocused = null;
+
+  function openLightbox(projectId) {
+    if (!projectImages[projectId]) return;
+    lbLastFocused = document.activeElement;
+    currentProject = projectId;
+    currentIndex = 0;
+    showLightboxImage();
+    lightbox.classList.add('active');
+    lightbox.setAttribute('aria-hidden', 'false');
+    lockBodyScroll();
+    lightboxClose.focus();
+  }
+
+  function closeLightbox() {
+    lightbox.classList.remove('active');
+    lightbox.setAttribute('aria-hidden', 'true');
+    unlockBodyScroll();
+    if (lbLastFocused) lbLastFocused.focus();
+  }
+
+  function showLightboxImage() {
+    var images = projectImages[currentProject];
+    if (!images || !images[currentIndex]) return;
+    lightboxImg.src = images[currentIndex].src;
+    lightboxImg.alt = images[currentIndex].alt;
+    lightboxCounter.textContent = (currentIndex + 1) + ' / ' + images.length;
+  }
+
+  function nextImage() {
+    var images = projectImages[currentProject];
+    currentIndex = (currentIndex + 1) % images.length;
+    showLightboxImage();
+  }
+
+  function prevImage() {
+    var images = projectImages[currentProject];
+    currentIndex = (currentIndex - 1 + images.length) % images.length;
+    showLightboxImage();
+  }
+
+  document.querySelectorAll('[data-lightbox]').forEach(function (btn) {
+    btn.addEventListener('click', function () {
+      openLightbox(this.getAttribute('data-lightbox'));
+    });
+  });
+
+  if (lightboxClose) lightboxClose.addEventListener('click', closeLightbox);
+  if (lightboxBackdrop) lightboxBackdrop.addEventListener('click', closeLightbox);
+  if (lightboxNext) lightboxNext.addEventListener('click', nextImage);
+  if (lightboxPrev) lightboxPrev.addEventListener('click', prevImage);
+
+  document.addEventListener('keydown', function (e) {
+    if (!lightbox.classList.contains('active')) return;
+
+    if (e.key === 'Escape') {
+      closeLightbox();
+      e.preventDefault();
+    }
+
+    if (e.key === 'ArrowRight') nextImage();
+    if (e.key === 'ArrowLeft') prevImage();
+
+    if (e.key === 'Tab') {
+      var focusable = lightbox.querySelectorAll(
+        '.lightbox__close, .lightbox__prev, .lightbox__next, .lightbox__image'
+      );
+      var first = focusable[0];
+      var last = focusable[focusable.length - 1];
+
+      if (e.shiftKey) {
+        if (document.activeElement === first) {
+          e.preventDefault();
+          last.focus();
+        }
+      } else {
+        if (document.activeElement === last) {
+          e.preventDefault();
+          first.focus();
+        }
+      }
+    }
+  });
+
+  /* Touch swipe */
+  var touchStartX = 0;
+  lightbox.addEventListener('touchstart', function (e) {
+    touchStartX = e.changedTouches[0].screenX;
+  }, { passive: true });
+
+  lightbox.addEventListener('touchend', function (e) {
+    var dx = e.changedTouches[0].screenX - touchStartX;
+    if (Math.abs(dx) > 50) {
+      if (dx > 0) prevImage();
+      else nextImage();
+    }
+  }, { passive: true });
+
+  /* ==========================================
+     SMOOTH SCROLL
+     ========================================== */
+  document.querySelectorAll('a[href^="#"]').forEach(function (anchor) {
+    anchor.addEventListener('click', function (e) {
+      var targetId = this.getAttribute('href');
+      if (targetId === '#') return;
+      var target = document.querySelector(targetId);
+      if (target) {
+        e.preventDefault();
+        var offset = target.getBoundingClientRect().top + window.scrollY - 80;
+        window.scrollTo({
+          top: offset,
+          behavior: prefersReducedMotion ? 'auto' : 'smooth'
+        });
+      }
+    });
+  });
+
+  /* ==========================================
+     COPYRIGHT YEAR
+     ========================================== */
+  var yearEl = document.getElementById('year');
+  if (yearEl) {
+    yearEl.textContent = new Date().getFullYear();
+  }
+
+})();
+</file>
+
+<file path="style.css">
+/* ============================================
+   DESIGN SYSTEM
+   ============================================ */
+:root {
+  --color-bg: #0a0a0b;
+  --color-surface: #111113;
+  --color-surface-2: #1a1a1d;
+  --color-border: rgba(255, 255, 255, 0.08);
+  --color-border-hover: rgba(255, 255, 255, 0.14);
+  --color-text: #fafafa;
+  --color-text-secondary: #a1a1aa;
+  --color-text-tertiary: #71717a;
+  --color-accent: #3b82f6;
+  --color-accent-hover: #2563eb;
+  --color-accent-subtle: rgba(59, 130, 246, 0.1);
+  --color-accent-border: rgba(59, 130, 246, 0.25);
+
+  --font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  --font-size-xs: 0.75rem;
+  --font-size-sm: 0.875rem;
+  --font-size-base: 1rem;
+  --font-size-lg: 1.125rem;
+  --font-size-xl: 1.25rem;
+  --font-size-2xl: 1.5rem;
+  --font-size-3xl: 1.875rem;
+  --font-size-4xl: clamp(2rem, 4vw, 3rem);
+  --font-size-5xl: clamp(2.5rem, 5vw, 4rem);
+  --font-weight-normal: 400;
+  --font-weight-medium: 500;
+  --font-weight-semibold: 600;
+  --font-weight-bold: 700;
+  --lineheight-tight: 1.15;
+  --lineheight-normal: 1.5;
+  --lineheight-relaxed: 1.6;
+
+  --space-1: 0.25rem;
+  --space-2: 0.5rem;
+  --space-3: 0.75rem;
+  --space-4: 1rem;
+  --space-5: 1.25rem;
+  --space-6: 1.5rem;
+  --space-8: 2rem;
+  --space-10: 2.5rem;
+  --space-12: 3rem;
+  --space-16: 4rem;
+  --space-20: 5rem;
+  --space-24: 6rem;
+  --space-32: 8rem;
+
+  --container-max: 1100px;
+  --container-padding: clamp(1.25rem, 4vw, 2rem);
+
+  --radius-sm: 6px;
+  --radius-md: 8px;
+  --radius-lg: 12px;
+  --radius-xl: 16px;
+  --radius-full: 9999px;
+
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.4);
+  --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.4);
+  --shadow-lg: 0 8px 30px rgba(0, 0, 0, 0.5);
+
+  --transition-fast: 150ms ease;
+  --transition-base: 250ms ease;
+
+  --z-header: 100;
+  --z-menu: 110;
+  --z-menu-toggle: 111;
+  --z-backdrop: 105;
+  --z-lightbox: 200;
+  --z-backtotop: 50;
+  --z-skip: 9999;
+}
+
+[data-theme="light"] {
+  --color-bg: #fafafa;
+  --color-surface: #ffffff;
+  --color-surface-2: #f1f1f3;
+  --color-border: rgba(0, 0, 0, 0.08);
+  --color-border-hover: rgba(0, 0, 0, 0.15);
+  --color-text: #18181b;
+  --color-text-secondary: #52525b;
+  --color-text-tertiary: #71717a;
+  --color-accent: #2563eb;
+  --color-accent-hover: #1d4ed8;
+  --color-accent-subtle: rgba(37, 99, 235, 0.08);
+  --color-accent-border: rgba(37, 99, 235, 0.2);
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.06);
+  --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.08);
+  --shadow-lg: 0 8px 30px rgba(0, 0, 0, 0.1);
+}
+
+/* ============================================
+   RESET & BASE
+   ============================================ */
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-family);
+  font-size: var(--font-size-base);
+  font-weight: var(--font-weight-normal);
+  line-height: var(--lineheight-normal);
+  color: var(--color-text);
+  background: var(--color-bg);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+  transition: background var(--transition-base), color var(--transition-base);
+}
+
+body.no-scroll {
+  overflow: hidden;
+  padding-right: var(--scrollbar-width, 0px);
+}
+
+img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button {
+  font: inherit;
+  color: inherit;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+ul, ol {
+  list-style: none;
+}
+
+h1, h2, h3, h4 {
+  font-weight: var(--font-weight-semibold);
+  line-height: var(--lineheight-tight);
+  letter-spacing: -0.025em;
+}
+
+p {
+  line-height: var(--lineheight-relaxed);
+}
+
+strong {
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-text);
+}
+
+::selection {
+  background: var(--color-accent);
+  color: #fff;
+}
+
+:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 2px;
+}
+
+/* ============================================
+   SKIP LINK
+   ============================================ */
+.skip-link {
+  position: absolute;
+  top: -100%;
+  left: var(--space-4);
+  padding: var(--space-3) var(--space-6);
+  background: var(--color-accent);
+  color: #fff;
+  font-weight: var(--font-weight-medium);
+  border-radius: var(--radius-md);
+  z-index: var(--z-skip);
+  transition: top var(--transition-fast);
+}
+
+.skip-link:focus {
+  top: var(--space-4);
+}
+
+/* ============================================
+   CONTAINER
+   ============================================ */
+.container {
+  width: 100%;
+  max-width: var(--container-max);
+  margin: 0 auto;
+  padding: 0 var(--container-padding);
+}
+
+/* ============================================
+   SECTION
+   ============================================ */
+.section {
+  padding: var(--space-20) 0;
+}
+
+.section__header {
+  margin-bottom: var(--space-12);
+}
+
+.section__title {
+  font-size: var(--font-size-4xl);
+  font-weight: var(--font-weight-bold);
+  margin-bottom: var(--space-3);
+}
+
+.section__subtitle {
+  font-size: var(--font-size-lg);
+  color: var(--color-text-secondary);
+  max-width: 600px;
+}
+
+/* ============================================
+   BUTTONS
+   ============================================ */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-2);
+  padding: var(--space-3) var(--space-6);
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-medium);
+  border-radius: var(--radius-lg);
+  transition: all var(--transition-fast);
+  white-space: nowrap;
+}
+
+.btn--primary {
+  background: var(--color-accent);
+  color: #fff;
+}
+
+.btn--primary:hover {
+  background: var(--color-accent-hover);
+}
+
+.btn--secondary {
+  background: var(--color-surface-2);
+  color: var(--color-text);
+  border: 1px solid var(--color-border);
+}
+
+.btn--secondary:hover {
+  border-color: var(--color-border-hover);
+}
+
+.btn--ghost {
+  background: transparent;
+  color: var(--color-text-secondary);
+  border: 1px solid var(--color-border);
+}
+
+.btn--ghost:hover {
+  color: var(--color-text);
+  border-color: var(--color-border-hover);
+}
+
+.btn--outline {
+  background: transparent;
+  color: var(--color-accent);
+  border: 1px solid var(--color-accent-border);
+}
+
+.btn--outline:hover {
+  background: var(--color-accent-subtle);
+  color: var(--color-accent-hover);
+  border-color: var(--color-accent);
+}
+
+.btn--small {
+  padding: var(--space-2) var(--space-4);
+  font-size: var(--font-size-xs);
+  border-radius: var(--radius-md);
+}
+
+/* ============================================
+   CHIP
+   ============================================ */
+.chip {
+  display: inline-flex;
+  align-items: center;
+  padding: var(--space-1) var(--space-3);
+  font-size: var(--font-size-xs);
+  font-weight: var(--font-weight-medium);
+  color: var(--color-text-secondary);
+  background: var(--color-surface-2);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-full);
+}
+
+.chip--accent {
+  color: var(--color-accent);
+  background: var(--color-accent-subtle);
+  border-color: var(--color-accent-border);
+}
+
+/* ============================================
+   TAG
+   ============================================ */
+.tag {
+  display: inline-flex;
+  padding: 2px var(--space-2);
+  font-size: var(--font-size-xs);
+  font-weight: var(--font-weight-medium);
+  color: var(--color-accent);
+  background: var(--color-accent-subtle);
+  border-radius: var(--radius-full);
+}
+
+/* ============================================
+   NAVIGATION
+   ============================================ */
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: var(--z-header);
+  background: transparent;
+  transition: background var(--transition-base), box-shadow var(--transition-base);
+}
+
+.header.scrolled {
+  background: rgba(10, 10, 11, 0.85);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  box-shadow: 0 1px 0 var(--color-border);
+}
+
+[data-theme="light"] .header.scrolled {
+  background: rgba(250, 250, 250, 0.85);
+}
+
+.nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: var(--space-4);
+  padding-bottom: var(--space-4);
+}
+
+.nav__logo {
+  font-size: var(--font-size-lg);
+  font-weight: var(--font-weight-semibold);
+  letter-spacing: -0.025em;
+  transition: opacity var(--transition-fast);
+}
+
+.nav__logo:hover {
+  opacity: 0.7;
+}
+
+.nav__right {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+}
+
+.nav__menu {
+  display: flex;
+  align-items: center;
+  gap: var(--space-1);
+}
+
+.nav__link {
+  display: block;
+  padding: var(--space-2) var(--space-3);
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-medium);
+  color: var(--color-text-secondary);
+  border-radius: var(--radius-md);
+  transition: color var(--transition-fast), background var(--transition-fast);
+}
+
+.nav__link:hover,
+.nav__link.active {
+  color: var(--color-text);
+  background: var(--color-surface-2);
+}
+
+/* Theme toggle */
+.theme-toggle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border-radius: var(--radius-md);
+  color: var(--color-text-secondary);
+  border: 1px solid var(--color-border);
+  transition: all var(--transition-fast);
+  flex-shrink: 0;
+  position: relative;
+}
+
+.theme-toggle:hover {
+  color: var(--color-text);
+  border-color: var(--color-border-hover);
+}
+
+.theme-toggle__icon {
+  position: absolute;
+  font-size: 1.125rem;
+  transition: opacity var(--transition-fast), transform var(--transition-fast);
+}
+
+.theme-toggle__sun {
+  opacity: 1;
+  transform: rotate(0deg);
+}
+
+.theme-toggle__moon {
+  opacity: 0;
+  transform: rotate(90deg);
+}
+
+[data-theme="light"] .theme-toggle__sun {
+  opacity: 0;
+  transform: rotate(-90deg);
+}
+
+[data-theme="light"] .theme-toggle__moon {
+  opacity: 1;
+  transform: rotate(0deg);
+}
+
+/* Hamburger */
+.nav__toggle {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  padding: var(--space-2);
+  z-index: var(--z-menu-toggle);
+}
+
+.nav__toggle-bar {
+  display: block;
+  width: 22px;
+  height: 2px;
+  background: var(--color-text);
+  border-radius: 2px;
+  transition: transform var(--transition-base), opacity var(--transition-fast);
+}
+
+.nav__toggle[aria-expanded="true"] .nav__toggle-bar:nth-child(1) {
+  transform: translateY(7px) rotate(45deg);
+}
+
+.nav__toggle[aria-expanded="true"] .nav__toggle-bar:nth-child(2) {
+  opacity: 0;
+}
+
+.nav__toggle[aria-expanded="true"] .nav__toggle-bar:nth-child(3) {
+  transform: translateY(-7px) rotate(-45deg);
+}
+
+/* Backdrop */
+.nav__backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: var(--z-backdrop);
+  background: rgba(0, 0, 0, 0.5);
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity var(--transition-base), visibility var(--transition-base);
+}
+
+[data-theme="light"] .nav__backdrop {
+  background: rgba(0, 0, 0, 0.25);
+}
+
+.nav__backdrop.visible {
+  opacity: 1;
+  visibility: visible;
+}
+
+/* Mobile menu */
+@media (max-width: 767px) {
+  .nav__toggle {
+    display: flex;
+  }
+
+  .nav__menu {
+    display: flex;
+    flex-direction: column;
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 280px;
+    height: 100vh;
+    height: 100dvh;
+    background: var(--color-bg);
+    padding: calc(env(safe-area-inset-top, 0px) + var(--space-20)) var(--space-6) calc(env(safe-area-inset-bottom, 0px) + var(--space-6));
+    gap: var(--space-1);
+    z-index: var(--z-menu);
+    transform: translateX(100%);
+    transition: transform var(--transition-base), box-shadow var(--transition-base);
+    box-shadow: none;
+    overflow-y: auto;
+  }
+
+  .nav__menu.open {
+    transform: translateX(0);
+    box-shadow: -8px 0 30px rgba(0, 0, 0, 0.3);
+  }
+
+  .nav__menu.open .nav__link {
+    font-size: var(--font-size-base);
+    padding: var(--space-3) var(--space-4);
+    text-align: left;
+  }
+
+  .theme-toggle {
+    z-index: var(--z-menu-toggle);
+  }
+}
+
+/* ============================================
+   HERO
+   ============================================ */
+.hero {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  padding-top: 5rem;
+}
+
+.hero__container {
+  width: 100%;
+}
+
+.hero__content {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-10);
+  align-items: center;
+}
+
+.hero__greeting {
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-medium);
+  color: var(--color-accent);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-bottom: var(--space-3);
+}
+
+.hero__title {
+  font-size: var(--font-size-5xl);
+  font-weight: var(--font-weight-bold);
+  line-height: 1.08;
+  margin-bottom: var(--space-4);
+}
+
+.hero__desc {
+  font-size: var(--font-size-lg);
+  color: var(--color-text-secondary);
+  max-width: 480px;
+  margin-bottom: var(--space-6);
+}
+
+.hero__tech {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+  margin-bottom: var(--space-8);
+}
+
+.hero__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-3);
+}
+
+.hero__image {
+  display: flex;
+  justify-content: center;
+}
+
+.hero__image-wrapper {
+  width: 260px;
+  height: 260px;
+  border-radius: var(--radius-xl);
+  overflow: hidden;
+  border: 2px solid var(--color-border);
+  box-shadow: var(--shadow-lg);
+}
+
+.hero__image-wrapper img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+@media (min-width: 768px) {
+  .hero__content {
+    grid-template-columns: 1fr auto;
+  }
+
+  .hero__image-wrapper {
+    width: 300px;
+    height: 300px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .hero__image-wrapper {
+    width: 340px;
+    height: 340px;
+  }
+}
+
+@media (min-width: 1440px) {
+  .hero__image-wrapper {
+    width: 360px;
+    height: 360px;
+  }
+}
+
+/* ============================================
+   ABOUT
+   ============================================ */
+.about__content {
+  max-width: 720px;
+}
+
+.about__text {
+  font-size: var(--font-size-base);
+  color: var(--color-text-secondary);
+  margin-bottom: var(--space-4);
+}
+
+.about__text:last-of-type {
+  margin-bottom: var(--space-6);
+}
+
+.about__highlights {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+}
+
+.about__highlight {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-3);
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-medium);
+  color: var(--color-text);
+}
+
+.about__highlight i {
+  color: var(--color-accent);
+  flex-shrink: 0;
+  font-size: 1.125rem;
+}
+
+/* ============================================
+   SKILLS
+   ============================================ */
+.skills__grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-4);
+}
+
+.skill__group {
+  padding: var(--space-6);
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+}
+
+.skill__group-title {
+  font-size: var(--font-size-xs);
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-text-tertiary);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-bottom: var(--space-4);
+}
+
+.skill__chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+}
+
+@media (min-width: 600px) {
+  .skills__grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 1024px) {
+  .skills__grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+/* ============================================
+   PROJECTS
+   ============================================ */
+.projects__grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-8);
+}
+
+.project-card {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-xl);
+  overflow: hidden;
+  transition: border-color var(--transition-base), box-shadow var(--transition-base);
+}
+
+.project-card:hover {
+  border-color: var(--color-border-hover);
+  box-shadow: var(--shadow-lg);
+}
+
+.project-card__image {
+  position: relative;
+  overflow: hidden;
+  aspect-ratio: 16 / 9;
+  background: var(--color-surface-2);
+  border-bottom: 1px solid var(--color-border);
+}
+
+.project-card__image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform var(--transition-base);
+}
+
+.project-card:hover .project-card__image img {
+  transform: scale(1.03);
+}
+
+.project-card__overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-3);
+  background: rgba(0, 0, 0, 0.5);
+  opacity: 0;
+  transition: opacity var(--transition-base);
+}
+
+.project-card:hover .project-card__overlay {
+  opacity: 1;
+}
+
+.project-card__overlay .btn--ghost {
+  color: rgba(255, 255, 255, 0.9);
+  border-color: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}
+
+.project-card__overlay .btn--ghost:hover {
+  background: rgba(255, 255, 255, 0.15);
+  color: #fff;
+  border-color: rgba(255, 255, 255, 0.3);
+}
+
+.project-card__body {
+  padding: var(--space-6);
+}
+
+.project-card__tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+  margin-bottom: var(--space-3);
+}
+
+.project-card__title {
+  font-size: var(--font-size-2xl);
+  font-weight: var(--font-weight-bold);
+  margin-bottom: var(--space-3);
+}
+
+.project-card__desc {
+  font-size: var(--font-size-base);
+  color: var(--color-text-secondary);
+  margin-bottom: var(--space-4);
+}
+
+.project-card__details {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+}
+
+.project-card__details li {
+  position: relative;
+  padding-left: var(--space-4);
+  font-size: var(--font-size-sm);
+  color: var(--color-text-tertiary);
+  line-height: var(--lineheight-relaxed);
+}
+
+.project-card__details li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 8px;
+  width: 4px;
+  height: 4px;
+  border-radius: var(--radius-full);
+  background: var(--color-accent);
+}
+
+@media (min-width: 768px) {
+  .projects__grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 1024px) {
+  .projects__grid {
+    grid-template-columns: 1fr;
+    gap: var(--space-10);
+  }
+
+  .project-card {
+    display: grid;
+    grid-template-columns: 1.2fr 1fr;
+  }
+
+  .project-card__image {
+    aspect-ratio: auto;
+    min-height: 100%;
+    border-bottom: none;
+    border-right: 1px solid var(--color-border);
+  }
+
+  .project-card__image img {
+    min-height: 100%;
+  }
+
+  .project-card__body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .project-card:nth-child(even) .project-card__image {
+    order: 2;
+    border-right: none;
+    border-left: 1px solid var(--color-border);
+  }
+
+  .project-card:nth-child(even) .project-card__body {
+    order: 1;
+  }
+}
+
+/* ============================================
+   CERTIFICATES
+   ============================================ */
+.certs__filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+  margin-bottom: var(--space-8);
+}
+
+.certs__filter {
+  padding: var(--space-2) var(--space-4);
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-medium);
+  color: var(--color-text-secondary);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-full);
+  transition: all var(--transition-fast);
+}
+
+.certs__filter:hover {
+  color: var(--color-text);
+  border-color: var(--color-border-hover);
+}
+
+.certs__filter.active {
+  color: #fff;
+  background: var(--color-accent);
+  border-color: var(--color-accent);
+}
+
+.certs__grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-4);
+}
+
+.cert-card {
+  display: flex;
+  flex-direction: column;
+  padding: var(--space-6);
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-xl);
+  transition: border-color var(--transition-base), box-shadow var(--transition-base), transform var(--transition-base), opacity var(--transition-base);
+}
+
+.cert-card:hover {
+  border-color: var(--color-border-hover);
+  box-shadow: var(--shadow-md);
+  transform: translateY(-2px);
+}
+
+.cert-card.hidden {
+  display: none;
+}
+
+.cert-card__icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: var(--radius-md);
+  background: var(--color-accent-subtle);
+  color: var(--color-accent);
+  font-size: 1.25rem;
+  margin-bottom: var(--space-4);
+}
+
+.cert-card__title {
+  font-size: var(--font-size-base);
+  font-weight: var(--font-weight-semibold);
+  margin-bottom: var(--space-2);
+  line-height: var(--lineheight-tight);
+}
+
+.cert-card__issuer {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  font-size: var(--font-size-sm);
+  color: var(--color-text-secondary);
+  margin-bottom: var(--space-1);
+}
+
+.cert-card__issuer i {
+  font-size: 0.875rem;
+  color: var(--color-text-tertiary);
+}
+
+.cert-card__date {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  font-size: var(--font-size-xs);
+  color: var(--color-text-tertiary);
+}
+
+.cert-card__date i {
+  font-size: 0.75rem;
+}
+
+.cert-card__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+  margin-top: var(--space-5);
+}
+
+@media (min-width: 600px) {
+  .certs__grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 1024px) {
+  .certs__grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+/* ============================================
+   CONTACT
+   ============================================ */
+.contact__content {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-10);
+}
+
+.contact__info {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-6);
+}
+
+.contact__item {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-4);
+}
+
+.contact__item i {
+  color: var(--color-accent);
+  flex-shrink: 0;
+  font-size: 1.25rem;
+  margin-top: 2px;
+}
+
+.contact__item-label {
+  font-size: var(--font-size-xs);
+  font-weight: var(--font-weight-medium);
+  color: var(--color-text-tertiary);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-bottom: var(--space-1);
+}
+
+.contact__item-value {
+  font-size: var(--font-size-base);
+  font-weight: var(--font-weight-medium);
+  color: var(--color-text);
+  transition: color var(--transition-fast);
+}
+
+.contact__item-value:hover {
+  color: var(--color-accent);
+}
+
+.contact__cta {
+  padding: var(--space-8);
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-xl);
+}
+
+.contact__cta-title {
+  font-size: var(--font-size-xl);
+  font-weight: var(--font-weight-semibold);
+  margin-bottom: var(--space-3);
+}
+
+.contact__cta-text {
+  font-size: var(--font-size-base);
+  color: var(--color-text-secondary);
+  margin-bottom: var(--space-6);
+  max-width: 440px;
+}
+
+@media (min-width: 768px) {
+  .contact__content {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+/* ============================================
+   FOOTER
+   ============================================ */
+.footer {
+  padding: var(--space-12) 0;
+  border-top: 1px solid var(--color-border);
+}
+
+.footer__content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-4);
+  text-align: center;
+}
+
+.footer__social {
+  display: flex;
+  gap: var(--space-3);
+}
+
+.footer__social a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  font-size: 1.25rem;
+  border-radius: var(--radius-full);
+  color: var(--color-text-secondary);
+  border: 1px solid var(--color-border);
+  transition: all var(--transition-fast);
+}
+
+.footer__social a:hover {
+  color: var(--color-text);
+  border-color: var(--color-border-hover);
+  background: var(--color-surface-2);
+}
+
+.footer__copy {
+  font-size: var(--font-size-xs);
+  color: var(--color-text-tertiary);
+}
+
+/* ============================================
+   LIGHTBOX
+   ============================================ */
+.lightbox {
+  position: fixed;
+  inset: 0;
+  z-index: var(--z-lightbox);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity var(--transition-base), visibility var(--transition-base);
+}
+
+.lightbox.active {
+  opacity: 1;
+  visibility: visible;
+}
+
+.lightbox__backdrop {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.9);
+}
+
+.lightbox__container {
+  position: relative;
+  width: 90vw;
+  max-width: 1000px;
+  max-height: 85vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.lightbox__close {
+  position: absolute;
+  top: -2.5rem;
+  right: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  font-size: 1.375rem;
+  border-radius: var(--radius-full);
+  color: var(--color-text-secondary);
+  background: rgba(255, 255, 255, 0.1);
+  transition: color var(--transition-fast), background var(--transition-fast);
+  z-index: 2;
+}
+
+.lightbox__close:hover {
+  color: #fff;
+  background: rgba(255, 255, 255, 0.2);
+}
+
+.lightbox__nav {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  font-size: 1.375rem;
+  border-radius: var(--radius-full);
+  color: var(--color-text-secondary);
+  background: rgba(255, 255, 255, 0.1);
+  transition: color var(--transition-fast), background var(--transition-fast);
+  z-index: 2;
+}
+
+.lightbox__nav:hover {
+  color: #fff;
+  background: rgba(255, 255, 255, 0.2);
+}
+
+.lightbox__prev {
+  left: -3.5rem;
+}
+
+.lightbox__next {
+  right: -3.5rem;
+}
+
+.lightbox__figure {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+
+.lightbox__image {
+  max-width: 100%;
+  max-height: 75vh;
+  object-fit: contain;
+  border-radius: var(--radius-lg);
+}
+
+.lightbox__counter {
+  margin-top: var(--space-3);
+  font-size: var(--font-size-sm);
+  color: var(--color-text-tertiary);
+}
+
+/* Project overlay always visible on mobile */
+@media (max-width: 767px) {
+  .project-card__overlay {
+    opacity: 1;
+    background: linear-gradient(to top, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0.4) 60%, transparent 100%);
+    align-items: flex-end;
+    padding-bottom: var(--space-4);
+  }
+
+  .project-card__overlay .btn--ghost {
+    color: rgba(255, 255, 255, 0.9);
+    border-color: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+  }
+
+  .project-card__overlay .btn--ghost:hover {
+    background: rgba(255, 255, 255, 0.15);
+    color: #fff;
+    border-color: rgba(255, 255, 255, 0.3);
+  }
+
+  .lightbox__nav {
+    display: none;
+  }
+
+  .lightbox__close {
+    top: -2.5rem;
+    right: 50%;
+    transform: translateX(50%);
+  }
+}
+
+/* ============================================
+   BACK TO TOP
+   ============================================ */
+.backtotop {
+  position: fixed;
+  bottom: var(--space-6);
+  right: var(--space-6);
+  z-index: var(--z-backtotop);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  font-size: 1.25rem;
+  border-radius: var(--radius-full);
+  background: var(--color-surface-2);
+  border: 1px solid var(--color-border);
+  color: var(--color-text-secondary);
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(8px);
+  transition: all var(--transition-base);
+}
+
+.backtotop.visible {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+.backtotop:hover {
+  color: var(--color-text);
+  border-color: var(--color-border-hover);
+}
+
+/* ============================================
+   SCROLL REVEAL
+   ============================================ */
+.reveal {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ============================================
+   REDUCED MOTION
+   ============================================ */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+
+  .reveal {
+    opacity: 1;
+    transform: none;
+  }
+}
+</file>
+
+<file path="index.html">
+<!doctype html>
+<html lang="id" dir="ltr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#0a0a0b" media="(prefers-color-scheme: dark)" />
+    <meta name="theme-color" content="#fafafa" media="(prefers-color-scheme: light)" />
+    <title>Daffa Aria — Junior Backend Developer</title>
+    <meta name="description" content="Portfolio Daffa Aria — Junior Backend Developer. Python, FastAPI, Laravel, AI automation. Berbasis di Cinere, Depok." />
+    <meta name="author" content="Daffa Aria" />
+    <link rel="canonical" href="https://bule2365.github.io/my-web/" />
+    <link rel="icon" type="image/svg+xml" href="/my-web/assets/icons/favicon.svg" />
+    <link rel="apple-touch-icon" href="/my-web/assets/icons/favicon.svg" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" />
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.jsx"></script>
+  </body>
+</html>
+</file>
+
+</files>

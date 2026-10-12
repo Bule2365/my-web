@@ -1,7 +1,8 @@
-import React, { useState, useEffect, useCallback } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
+import React, { useState, useEffect, useCallback, useRef } from 'react';
+import { motion, AnimatePresence, useReducedMotion } from 'framer-motion';
 import ScrollReveal from './ScrollReveal';
 import { projectImages } from '../data';
+import { assetUrl } from '../utils/assetUrl';
 
 const projects = [
   {
@@ -33,6 +34,8 @@ const projects = [
 export default function Projects() {
   const [lightboxProject, setLightboxProject] = useState(null);
   const [lightboxIndex, setLightboxIndex] = useState(0);
+  const lightboxRef = useRef(null);
+  const lastFocusedEl = useRef(null);
 
   const openLightbox = useCallback((projectId) => {
     setLightboxIndex(0);
@@ -55,12 +58,44 @@ export default function Projects() {
   }, [lightboxProject]);
 
   useEffect(() => {
+    if (lightboxProject) {
+      lastFocusedEl.current = document.activeElement;
+    }
+  }, [lightboxProject]);
+
+  useEffect(() => {
+    if (lightboxProject && lightboxRef.current) {
+      const closeButton = lightboxRef.current.querySelector('.lightbox__close');
+      if (closeButton) {
+        closeButton.focus();
+      }
+    }
+  }, [lightboxProject]);
+
+  useEffect(() => {
+    if (!lightboxProject && lastFocusedEl.current) {
+      lastFocusedEl.current.focus();
+      lastFocusedEl.current = null;
+    }
+  }, [lightboxProject]);
+
+  useEffect(() => {
+    if (!lightboxProject) return;
+
     const handleKey = (e) => {
-      if (!lightboxProject) return;
-      if (e.key === 'Escape') closeLightbox();
-      if (e.key === 'ArrowRight') nextImage();
-      if (e.key === 'ArrowLeft') prevImage();
+      if (e.key === 'Escape') {
+        closeLightbox();
+      }
+
+      if (e.key === 'ArrowRight') {
+        nextImage();
+      }
+
+      if (e.key === 'ArrowLeft') {
+        prevImage();
+      }
     };
+
     window.addEventListener('keydown', handleKey);
     return () => window.removeEventListener('keydown', handleKey);
   }, [lightboxProject, closeLightbox, nextImage, prevImage]);
@@ -80,17 +115,17 @@ export default function Projects() {
         <div className="projects__grid grid grid-cols-1 lg:grid-cols-2 gap-8">
           {projects.map((project, i) => (
             <ScrollReveal key={project.id}>
-              <article className="project-card bg-surface border border-border rounded-2xl overflow-hidden hover:border-border-hover hover:shadow-lg transition-all duration-300">
+              <article className="project-card bg-surface border border-border rounded-2xl overflow-hidden group-focus-within hover:border-border-hover hover:shadow-lg transition-all duration-300" style={reduceMotion ? {} : undefined}>
                 <div className="project-card__image relative overflow-hidden aspect-video bg-surface-2 border-b border-border">
                   <img
-                    src={`/my-web/assets/images/projects/${project.id}/a.webp`}
-                    alt={`${project.title} — interface utama`}
+                    src={assetUrl(`assets/images/projects/${project.id}/a.webp`)}
+                    alt={`${project.title} — tampilan utama`}
                     width="800"
                     height="450"
                     loading="lazy"
-                    className="w-full h-full object-cover transition-transform duration-300 hover:scale-105"
+                    className="w-full h-full object-cover transition-transform duration-300 hover:scale-105" style={reduceMotion ? {} : undefined}
                   />
-                  <div className="project-card__overlay absolute inset-0 z-2 flex items-center justify-center gap-3 bg-black/40 opacity-0 hover:opacity-100 transition-opacity duration-300">
+                   <div className="project-card__overlay absolute inset-0 z-2 flex items-center justify-center gap-3 bg-black/40 opacity-0 group-focus-within:opacity-100 hover:opacity-100 transition-opacity duration-300" style={reduceMotion ? {} : undefined}>
                     <button
                       className="btn btn--ghost btn--small text-white/90 border-white/20 backdrop-blur-sm hover:bg-white/15 hover:text-white hover:border-white/30"
                       aria-label="Lihat galeri"
@@ -140,12 +175,13 @@ export default function Projects() {
         onClose={closeLightbox}
         onNext={nextImage}
         onPrev={prevImage}
+        lightboxRef={lightboxRef}
       />
     </section>
   );
 }
 
-function Lightbox({ images, index, isOpen, onClose, onNext, onPrev }) {
+function Lightbox({ images, index, isOpen, onClose, onNext, onPrev, lightboxRef }) {
   const [touchStart, setTouchStart] = useState(0);
 
   useEffect(() => {
@@ -166,7 +202,10 @@ function Lightbox({ images, index, isOpen, onClose, onNext, onPrev }) {
 
   return (
     <motion.div
-      className="lightbox fixed inset-0 z-[200] flex items-center justify-center"
+      className={`lightbox fixed inset-0 z-[200] flex items-center justify-center ${isOpen ? 'active' : ''}`}
+      role="dialog"
+      aria-modal="true"
+      aria-label="Galeri Gambar"
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
@@ -176,6 +215,7 @@ function Lightbox({ images, index, isOpen, onClose, onNext, onPrev }) {
       <div className="lightbox__backdrop absolute inset-0 bg-black/90" />
       <div className="lightbox__container relative w-[90vw] max-w-[1000px] max-h-[85vh] flex flex-col items-center" onClick={(e) => e.stopPropagation()}>
         <button
+          ref={lightboxRef}
           className="lightbox__close absolute -top-10 right-0 flex items-center justify-center w-11 h-11 text-text-secondary bg-white/10 rounded-full hover:text-white hover:bg-white/20 transition-colors z-[2]"
           aria-label="Tutup galeri"
           type="button"

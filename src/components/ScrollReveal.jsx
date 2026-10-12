@@ -1,5 +1,5 @@
 import React from 'react';
-import { motion } from 'framer-motion';
+import { motion, useReducedMotion } from 'framer-motion';
 
 const containerVariants = {
   hidden: { opacity: 0 },
@@ -25,6 +25,8 @@ const itemVariants = {
 };
 
 export default function ScrollReveal({ children, className = '' }) {
+  const reduceMotion = useReducedMotion();
+
   return (
     <motion.div
       variants={containerVariants}
@@ -32,9 +34,16 @@ export default function ScrollReveal({ children, className = '' }) {
       whileInView="visible"
       viewport={{ once: true, amount: 0.15 }}
       className={className}
+      animate={reduceMotion ? 'visible' : 'visible'}
+      transition={reduceMotion ? { duration: 0 } : undefined}
     >
       {React.Children.map(children, (child, i) => (
-        <motion.div variants={itemVariants} custom={i}>
+        <motion.div
+          variants={itemVariants}
+          custom={i}
+          animate={reduceMotion ? 'visible' : 'visible'}
+          transition={reduceMotion ? { duration: 0 } : undefined}
+        >
           {child}
         </motion.div>
       ))}

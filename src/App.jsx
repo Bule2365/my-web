@@ -3,11 +3,12 @@ import { motion, AnimatePresence } from 'framer-motion';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
 import About from './components/About';
-import Projects from './components/Projects';
 import Skills from './components/Skills';
+import Projects from './components/Projects';
 import Certificates from './components/Certificates';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
+import BackToTop from './components/BackToTop';
 
 export default function App() {
   return (
@@ -22,40 +23,7 @@ export default function App() {
         <Contact />
       </main>
       <Footer />
-
-      <button
-        className="backtotop fixed bottom-6 right-6 z-50 flex items-center justify-center w-11 h-11 rounded-full bg-surface-2 border border-border text-text-secondary opacity-0 invisible translate-y-2 transition-all duration-300 hover:text-text hover:border-border-hover"
-        id="backToTop"
-        aria-label="Kembali ke atas"
-        type="button"
-        onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
-      >
-        <i className="bi bi-chevron-up text-lg" aria-hidden="true" />
-      </button>
-
-      <script
-        dangerouslySetInnerHTML={{
-          __html: `
-            (function() {
-              var btn = document.getElementById('backToTop');
-              if (!btn) return;
-              window.addEventListener('scroll', function() {
-                if (window.scrollY > 400) {
-                  btn.classList.add('visible');
-                  btn.style.opacity = '1';
-                  btn.style.visibility = 'visible';
-                  btn.style.transform = 'translateY(0)';
-                } else {
-                  btn.classList.remove('visible');
-                  btn.style.opacity = '0';
-                  btn.style.visibility = 'hidden';
-                  btn.style.transform = 'translateY(8px)';
-                }
-              }, { passive: true });
-            })();
-          `,
-        }}
-      />
+      <BackToTop />
     </div>
   );
 }

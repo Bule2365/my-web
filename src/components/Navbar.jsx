@@ -1,70 +1,131 @@
-import React, { useState, useEffect, useCallback } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
-import CTAButton from './CTAButton';
+import React, { useState, useEffect, useCallback, useRef } from 'react';
+import { motion, AnimatePresence, useReducedMotion } from 'framer-motion';
 import { contactInfo } from '../data';
+import { assetUrl } from '../utils/assetUrl';
+import { readTheme, applyTheme } from '../theme';
 
 const navLinks = [
   { href: '#tentang', label: 'Tentang' },
   { href: '#keahlian', label: 'Keahlian' },
   { href: '#proyek', label: 'Proyek' },
   { href: '#sertifikat', label: 'Sertifikat' },
-  { href: '/my-web/documents/CV-Daffa_v6.pdf', label: 'CV', isExternal: true },
+  { href: assetUrl('documents/CV-Daffa_v6.pdf'), label: 'CV', isExternal: true },
   { href: '#kontak', label: 'Kontak' },
 ];
+
+const SCROLL_OFFSET = 96;
+
+function useBodyScrollLock(lock) {
+  useEffect(() => {
+    if (!lock) {
+      return;
+    }
+    const prevOverflow = document.body.style.overflow;
+    document.body.style.overflow = 'hidden';
+    return () => {
+      document.body.style.overflow = prevOverflow;
+    };
+  }, [lock]);
+}
+
+function useMediaQuery(query) {
+  const [matches, setMatches] = useState(false);
+
+  useEffect(() => {
+    const media = window.matchMedia(query);
+    if (media.addEventListener) {
+      media.addEventListener('change', () => setMatches(media.matches));
+      setMatches(media.matches);
+      return () => media.removeEventListener('change', () => setMatches(media.matches));
+    } else {
+      media.addListener(() => setMatches(media.matches));
+      setMatches(media.matches);
+      return () => media.removeListener(() => setMatches(media.matches));
+    }
+  }, [query]);
+
+  return matches;
+}
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const [activeSection, setActiveSection] = useState('');
+  const menuRef = useRef(null);
+  const toggleRef = useRef(null);
+  const isDesktop = useMediaQuery('(min-width: 768px)');
 
-  const toggleMenu = useCallback(() => setIsOpen((prev) => !prev), []);
+  useBodyScrollLock(isOpen && !isDesktop);
+
+  const openMenu = useCallback(() => setIsOpen(true), []);
   const closeMenu = useCallback(() => setIsOpen(false), []);
+  const toggleMenu = useCallback(() => setIsOpen((prev) => !prev), []);
 
   useEffect(() => {
     const handleScroll = () => {
       setScrolled(window.scrollY > 40);
     };
+    handleScroll();
     window.addEventListener('scroll', handleScroll, { passive: true });
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
   useEffect(() => {
-    const sections = document.querySelectorAll('section[id]');
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            setActiveSection(entry.target.getAttribute('id'));
-          }
-        });
-      },
-      { threshold: 0.3, rootMargin: '-80px 0px 0px 0px' }
-    );
-    sections.forEach((s) => observer.observe(s));
-    return () => sections.forEach((s) => observer.unobserve(s));
+    const sections = SECTION_IDS.map((id) => document.getElementById(id)).filter(Boolean);
+
+    const updateActive = () => {
+      let current = '';
+      const scrollPos = window.scrollY + SCROLL_OFFSET;
+      for (let i = 0; i < sections.length; i++) {
+        const section = sections[i];
+        const sectionTop = section.offsetTop;
+        const sectionBottom = sectionTop + section.offsetHeight;
+        if (scrollPos >= sectionTop && scrollPos < sectionBottom) {
+          current = section.id;
+        }
+      }
+      if (!current && sections.length > 0) {
+        const firstTop = sections[0].offsetTop;
+        const lastBottom = sections[sections.length - 1].offsetTop + sections[sections.length - 1].offsetHeight;
+        if (window.scrollY < firstTop) {
+          current = 'hero';
+        } else if (window.scrollY >= lastBottom - SCROLL_OFFSET) {
+          current = 'kontak';
+        }
+      }
+      setActiveSection(current);
+    };
+
+    updateActive();
+    window.addEventListener('scroll', updateActive, { passive: true });
+    window.addEventListener('resize', updateActive);
+    return () => {
+      window.removeEventListener('scroll', updateActive);
+      window.removeEventListener('resize', updateActive);
+    };
   }, []);
 
   useEffect(() => {
-    if (isOpen) {
-      document.body.style.overflow = 'hidden';
-    } else {
-      document.body.style.overflow = '';
-    }
-    return () => {
-      document.body.style.overflow = '';
-    };
-  }, [isOpen]);
-
-  const handleNavClick = (e, href) => {
-    if (href.startsWith('#')) {
-      e.preventDefault();
+    if (isOpen && isDesktop) {
       closeMenu();
-      const target = document.querySelector(href);
-      if (target) {
-        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-      }
     }
+  }, [isOpen, isDesktop, closeMenu]);
+
+  useEffect(() => {
+    const handleKeydown = (e) => {
+      if (e.key === 'Escape' && isOpen) {
+        closeMenu();
+      }
+    };
+    document.addEventListener('keydown', handleKeydown);
+    return () => document.removeEventListener('keydown', handleKeydown);
+  }, [isOpen, closeMenu]);
+
+  const handleNavClick = (href) => {
+    closeMenu();
   };
+
+  const reduceMotion = useReducedMotion();
 
   return (
     <header
@@ -85,7 +146,8 @@ export default function Navbar() {
                   href={link.href}
                   target={link.isExternal ? '_blank' : undefined}
                   rel={link.isExternal ? 'noopener noreferrer' : undefined}
-                  onClick={(e) => handleNavClick(e, link.href)}
+                  onClick={() => handleNavClick(link.href)}
+                  aria-current={activeSection === link.href.slice(1) && !link.isExternal ? 'location' : undefined}
                   className={`block px-3 py-2 text-sm font-medium rounded-lg transition-colors ${
                     activeSection === link.href.slice(1) && !link.isExternal
                       ? 'text-white bg-surface-2'
@@ -101,9 +163,12 @@ export default function Navbar() {
           <ThemeToggle />
 
           <button
+            ref={toggleRef}
+            type="button"
             className="md:hidden flex flex-col gap-[5px] p-2 z-50 relative"
             onClick={toggleMenu}
             aria-label={isOpen ? 'Tutup menu' : 'Buka menu'}
+            aria-controls="nav-menu"
             aria-expanded={isOpen}
           >
             <span
@@ -128,11 +193,14 @@ export default function Navbar() {
       <AnimatePresence>
         {isOpen && (
           <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            transition={{ duration: 0.2 }}
-            className="md:hidden fixed inset-0 z-40 bg-bg/95 backdrop-blur-lg flex flex-col items-center justify-center gap-6"
+            id="nav-menu"
+            ref={menuRef}
+            initial={{ opacity: 0, x: '100%' }}
+            animate={{ opacity: 1, x: 0 }}
+            exit={{ opacity: 0, x: '100%' }}
+            transition={{ duration: reduceMotion ? 0 : 0.2, ease: 'easeInOut' }}
+            className="md:hidden fixed inset-y-0 right-0 z-40 w-64 bg-bg/95 backdrop-blur-lg flex flex-col gap-4 p-6 pt-16"
+            onClick={(e) => e.target === e.currentTarget && closeMenu()}
           >
             {navLinks.map((link) => (
               <a
@@ -140,12 +208,16 @@ export default function Navbar() {
                 href={link.href}
                 target={link.isExternal ? '_blank' : undefined}
                 rel={link.isExternal ? 'noopener noreferrer' : undefined}
-                onClick={(e) => handleNavClick(e, link.href)}
-                className="text-xl font-medium text-text-secondary hover:text-white transition-colors"
+                onClick={() => handleNavClick(link.href)}
+                aria-current={activeSection === link.href.slice(1) && !link.isExternal ? 'location' : undefined}
+                className="text-lg font-medium text-text-secondary hover:text-white transition-colors"
               >
                 {link.label}
               </a>
             ))}
+            <div className="mt-auto pt-4">
+              <ThemeToggle />
+            </div>
           </motion.div>
         )}
       </AnimatePresence>
@@ -153,28 +225,27 @@ export default function Navbar() {
   );
 }
 
+const SECTION_IDS = ['hero', 'tentang', 'keahlian', 'proyek', 'sertifikat', 'kontak'];
+
 function ThemeToggle() {
-  const [theme, setTheme] = useState(() => {
-    return localStorage.getItem('theme') || (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
-  });
+  const [theme, setTheme] = useState(readTheme);
+
+  useEffect(() => {
+    applyTheme(theme);
+  }, [theme]);
 
   const toggle = () => {
     const next = theme === 'dark' ? 'light' : 'dark';
     setTheme(next);
-    localStorage.setItem('theme', next);
-    document.documentElement.setAttribute('data-theme', next === 'light' ? 'light' : '');
   };
-
-  useEffect(() => {
-    document.documentElement.setAttribute('data-theme', theme === 'light' ? 'light' : '');
-  }, [theme]);
 
   return (
     <button
-      onClick={toggle}
-      aria-label="Ganti tema tampilan"
       type="button"
-      className="hidden md:flex items-center justify-center w-9 h-9 rounded-lg text-text-secondary border border-border hover:text-text hover:border-border-hover transition-all flex-shrink-0 relative"
+      aria-label={theme === 'dark' ? 'Aktifkan tema terang' : 'Aktifkan tema gelap'}
+      aria-pressed={theme === 'light'}
+      onClick={toggle}
+      className="inline-flex items-center justify-center w-10 h-10 rounded-lg text-text-secondary border border-border hover:text-text hover:border-border-hover focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent transition-colors"
     >
       <motion.i
         key={theme}

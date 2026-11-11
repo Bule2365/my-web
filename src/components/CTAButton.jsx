@@ -1,8 +1,8 @@
 import React from 'react';
-import { motion, useReducedMotion } from 'framer-motion';
+import { m, useReducedMotion } from 'framer-motion';
 
 const variants = {
-  primary: 'bg-accent text-white hover:bg-accent-hover border border-transparent',
+  primary: 'bg-accent-solid text-white hover:bg-accent-solid-hover border border-transparent',
   secondary: 'bg-surface-2 text-text border border-border hover:border-border-hover',
   outline: 'bg-transparent text-accent border border-accent-border hover:bg-accent-subtle hover:border-accent',
 };
@@ -32,7 +32,7 @@ export default function CTAButton({
   ].join(' ');
 
   return (
-    <motion.a
+    <m.a
       href={href}
       target={finalTarget}
       rel={finalRel}
@@ -43,6 +43,6 @@ export default function CTAButton({
       {...anchorProps}
     >
       {children}
-    </motion.a>
+    </m.a>
   );
 }

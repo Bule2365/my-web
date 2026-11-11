@@ -1,52 +1,43 @@
 import React from 'react';
-import { motion, useReducedMotion } from 'framer-motion';
+import { m, useReducedMotion } from 'framer-motion';
 
-const containerVariants = {
-  hidden: { opacity: 0 },
-  visible: {
-    opacity: 1,
-    transition: {
-      staggerChildren: 0.1,
-      delayChildren: 0.1,
-    },
-  },
-};
+const EASE = [0.25, 0.46, 0.45, 0.94];
 
-const itemVariants = {
-  hidden: { opacity: 0, y: 30 },
-  visible: {
-    opacity: 1,
-    y: 0,
-    transition: {
-      duration: 0.6,
-      ease: [0.25, 0.46, 0.45, 0.94],
-    },
-  },
-};
-
-export default function ScrollReveal({ children, className = '' }) {
+export default function ScrollReveal({ children, className = '', itemClassName = '' }) {
   const reduceMotion = useReducedMotion();
 
+  const containerVariants = {
+    hidden: { opacity: reduceMotion ? 1 : 0 },
+    visible: {
+      opacity: 1,
+      transition: reduceMotion
+        ? { duration: 0 }
+        : { staggerChildren: 0.1, delayChildren: 0.1 },
+    },
+  };
+
+  const itemVariants = {
+    hidden: { opacity: reduceMotion ? 1 : 0, y: reduceMotion ? 0 : 30 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: reduceMotion ? { duration: 0 } : { duration: 0.6, ease: EASE },
+    },
+  };
+
   return (
-    <motion.div
+    <m.div
       variants={containerVariants}
-      initial="hidden"
+      initial={reduceMotion ? false : 'hidden'}
       whileInView="visible"
       viewport={{ once: true, amount: 0.15 }}
       className={className}
-      animate={reduceMotion ? 'visible' : 'visible'}
-      transition={reduceMotion ? { duration: 0 } : undefined}
     >
-      {React.Children.map(children, (child, i) => (
-        <motion.div
-          variants={itemVariants}
-          custom={i}
-          animate={reduceMotion ? 'visible' : 'visible'}
-          transition={reduceMotion ? { duration: 0 } : undefined}
-        >
+      {React.Children.map(children, (child) => (
+        <m.div variants={itemVariants} className={itemClassName}>
           {child}
-        </motion.div>
+        </m.div>
       ))}
-    </motion.div>
+    </m.div>
   );
 }

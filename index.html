@@ -3,20 +3,135 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="theme-color" content="#0a0a0b" media="(prefers-color-scheme: dark)" />
-    <meta name="theme-color" content="#fafafa" media="(prefers-color-scheme: light)" />
+    <script>
+      (function () {
+        try {
+          var saved = localStorage.getItem('theme');
+          var theme =
+            saved === 'light' || saved === 'dark'
+              ? saved
+              : window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches
+                ? 'light'
+                : 'dark';
+          document.documentElement.dataset.theme = theme;
+        } catch (error) {
+          document.documentElement.dataset.theme = 'dark';
+        }
+      })();
+    </script>
+    <meta name="color-scheme" content="dark light" />
+    <meta name="theme-color" content="#0a0a0b" />
     <title>Daffa Aria — Junior Backend Developer</title>
-    <meta name="description" content="Portfolio Daffa Aria — Junior Backend Developer. Python, FastAPI, Laravel, AI automation. Berbasis di Cinere, Depok." />
-    <meta name="author" content="Daffa Aria" />
+    <meta
+      name="description"
+      content="Portfolio Daffa Aria — Junior Backend Developer. Python, FastAPI, Laravel, AI automation. Berbasis di Cinere, Depok."
+    />
+    <meta name="author" content="Muhammad Daffa Aria Firmansyah" />
+    <meta name="robots" content="index, follow" />
     <link rel="canonical" href="https://bule2365.github.io/my-web/" />
-    <link rel="icon" type="image/svg+xml" href="/my-web/assets/icons/favicon.svg" />
-    <link rel="apple-touch-icon" href="/my-web/assets/icons/favicon.svg" />
+    <link rel="icon" type="image/svg+xml" href="%BASE_URL%assets/icons/favicon.svg" />
+    <link rel="apple-touch-icon" href="%BASE_URL%assets/icons/favicon.svg" />
+    <link rel="preload" as="image" href="%BASE_URL%assets/images/profile.webp" type="image/webp" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Open Graph / LinkedIn -->
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Daffa Aria" />
+    <meta property="og:title" content="Daffa Aria — Junior Backend Developer" />
+    <meta
+      property="og:description"
+      content="Portfolio Daffa Aria — Junior Backend Developer. Python, FastAPI, Laravel, AI automation. Proyek nyata, sertifikasi, dan pengalaman kerja."
+    />
+    <meta property="og:url" content="https://bule2365.github.io/my-web/" />
+    <meta property="og:locale" content="id_ID" />
+    <meta
+      property="og:image"
+      content="https://bule2365.github.io/my-web/assets/images/og-image.png"
+    />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="Daffa Aria — Junior Backend Developer" />
+
+    <!-- Twitter / X -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Daffa Aria — Junior Backend Developer" />
+    <meta
+      name="twitter:description"
+      content="Portfolio Daffa Aria — Junior Backend Developer. Python, FastAPI, Laravel, AI automation."
+    />
+    <meta
+      name="twitter:image"
+      content="https://bule2365.github.io/my-web/assets/images/og-image.png"
+    />
+
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Person",
+        "name": "Muhammad Daffa Aria Firmansyah",
+        "alternateName": "Daffa Aria",
+        "jobTitle": "Junior Backend Developer",
+        "description": "Junior Backend Developer yang fokus pada API, sistem backend, dan AI automation.",
+        "url": "https://bule2365.github.io/my-web/",
+        "image": "https://bule2365.github.io/my-web/assets/images/profile.webp",
+        "email": "mailto:ariadaffa127@gmail.com",
+        "address": {
+          "@type": "PostalAddress",
+          "addressLocality": "Cinere, Depok",
+          "addressCountry": "ID"
+        },
+        "sameAs": [
+          "https://github.com/Bule2365",
+          "https://linkedin.com/in/leaddaf"
+        ],
+        "alumniOf": [
+          {
+            "@type": "CollegeOrUniversity",
+            "name": "Institut Bisnis dan Informatika Kosgoro 1957"
+          },
+          {
+            "@type": "School",
+            "name": "Sekolah Menengah Kejuruan Informatika Utama"
+          }
+        ],
+        "knowsAbout": [
+          "Backend Development",
+          "Python",
+          "FastAPI",
+          "Laravel",
+          "AI Automation",
+          "System Design"
+        ]
+      }
+    </script>
   </head>
   <body>
+    <noscript>
+      <div style="max-width: 42rem; margin: 0 auto; padding: 2rem; font-family: system-ui, sans-serif; line-height: 1.6">
+        <h1>Daffa Aria — Junior Backend Developer</h1>
+        <p>
+          Portfolio Daffa Aria, mahasiswa Teknik Informatika dan penerima Beasiswa Prestasi yang
+          berfokus pada backend development. Berpengalaman merancang RESTful API dan arsitektur
+          backend dengan Node.js, Next.js, Laravel, PostgreSQL, dan Docker, termasuk magang sebagai
+          Full Stack Developer di PT Prima Gemilang Futuristik.
+        </p>
+        <p>
+          Proyek unggulan: AI Code Review Assistant dan Intelligent Search &amp; Recommendation
+          Engine. Tersedia sembilan sertifikat dari IBM SkillsBuild, Anthropic Courses, MySkill, dan
+          Microsoft.
+        </p>
+        <p>
+          Email: <a href="mailto:ariadaffa127@gmail.com">ariadaffa127@gmail.com</a><br />
+          GitHub: <a href="https://github.com/Bule2365">github.com/Bule2365</a><br />
+          LinkedIn: <a href="https://linkedin.com/in/leaddaf">linkedin.com/in/leaddaf</a>
+        </p>
+      </div>
+    </noscript>
     <div id="root"></div>
     <script type="module" src="/src/main.jsx"></script>
   </body>

@@ -7,104 +7,173 @@ const projectImages = {
     { src: assetUrl('assets/images/projects/ai-assistant/c.webp'), alt: 'AI Code Review Assistant — output analisis' },
     { src: assetUrl('assets/images/projects/ai-assistant/d.webp'), alt: 'AI Code Review Assistant — dashboard' },
   ],
-  'realtime-analytics': [
-    { src: assetUrl('assets/images/projects/realtime-analytics/a.webp'), alt: 'Intelligent Search & Recommendation Engine — tampilan utama' },
-    { src: assetUrl('assets/images/projects/realtime-analytics/b.webp'), alt: 'Intelligent Search & Recommendation Engine — visualisasi hasil' },
-    { src: assetUrl('assets/images/projects/realtime-analytics/c.webp'), alt: 'Intelligent Search & Recommendation Engine — monitoring panel' },
-    { src: assetUrl('assets/images/projects/realtime-analytics/d.webp'), alt: 'Intelligent Search & Recommendation Engine — konfigurasi' },
-    { src: assetUrl('assets/images/projects/realtime-analytics/e.webp'), alt: 'Intelligent Search & Recommendation Engine — laporan' },
-    { src: assetUrl('assets/images/projects/realtime-analytics/f.webp'), alt: 'Intelligent Search & Recommendation Engine — detail metrik' },
-    { src: assetUrl('assets/images/projects/realtime-analytics/g.webp'), alt: 'Intelligent Search & Recommendation Engine — ringkasan' },
+  'intelligent-search': [
+    { src: assetUrl('assets/images/projects/intelligent-search/a.webp'), alt: 'Intelligent Search & Recommendation Engine — tampilan utama' },
+    { src: assetUrl('assets/images/projects/intelligent-search/b.webp'), alt: 'Intelligent Search & Recommendation Engine — visualisasi hasil' },
+    { src: assetUrl('assets/images/projects/intelligent-search/c.webp'), alt: 'Intelligent Search & Recommendation Engine — panel metrik' },
+    { src: assetUrl('assets/images/projects/intelligent-search/d.webp'), alt: 'Intelligent Search & Recommendation Engine — konfigurasi' },
+    { src: assetUrl('assets/images/projects/intelligent-search/e.webp'), alt: 'Intelligent Search & Recommendation Engine — laporan' },
+    { src: assetUrl('assets/images/projects/intelligent-search/f.webp'), alt: 'Intelligent Search & Recommendation Engine — detail metrik' },
+    { src: assetUrl('assets/images/projects/intelligent-search/g.webp'), alt: 'Intelligent Search & Recommendation Engine — ringkasan' },
   ],
 };
+
+const projects = [
+  {
+    id: 'ai-assistant',
+    tags: ['Python', 'FastAPI', 'AI/LLM'],
+    title: 'AI Code Review Assistant (v1.5)',
+    desc: 'AI-powered code review dan automation dashboard yang mengintegrasikan Gemini 2.5 Flash dengan backend FastAPI untuk diagnosis kode secara otonom.',
+    details: [
+      'Diagnosis otomatis: security review, performance, code style, complexity',
+      'AST Python untuk validasi sintaks lokal sebelum analisis AI',
+      'Pipeline API & CORS aman untuk .py, .js, .jsx',
+    ],
+    metric: { value: '4', label: 'jenis review otomatis' },
+    github: 'https://github.com/Bule2365/AI-code-review-assistant',
+  },
+  {
+    id: 'intelligent-search',
+    tags: ['Python', 'FastAPI', 'Machine Learning'],
+    title: 'Intelligent Search & Recommendation Engine',
+    desc: 'Search engine dan recommendation system e-commerce hybrid yang menggabungkan BM25, semantic search, dan collaborative filtering.',
+    details: [
+      'BM25 search latency rata-rata 4,6ms per query pada 2.000 produk',
+      'Hybrid search atasi vocabulary mismatch',
+      'Cold start fallback tanpa error atau hasil kosong',
+    ],
+    metric: { value: '4,6ms', label: 'rata-rata per query pada 2.000 produk' },
+    github: 'https://github.com/Bule2365/intelligent-search-recommendation-engine',
+  },
+];
 
 const certificates = [
   {
     id: 1,
     title: 'Build an AI Agent',
     issuer: 'IBM SkillsBuild',
-    date: 'Juli 2026',
+    date: '2026-07-15',
     category: 'ai',
-    image: assetUrl('assets/certificates/BuildanAIAgent_Badge20260715-20-m898ux.pdf'),
+    file: assetUrl('assets/certificates/BuildanAIAgent_Badge20260715-20-m898ux.pdf'),
   },
   {
     id: 2,
     title: 'Claude 101',
     issuer: 'Anthropic Courses',
-    date: null,
+    date: '2026-07',
     category: 'ai',
-    image: assetUrl('assets/certificates/Certificate-of-completion-Claude-101.pdf'),
+    file: assetUrl('assets/certificates/Certificate-of-completion-Claude-101.pdf'),
   },
   {
     id: 3,
     title: 'Intelligent by Design: Build an AI Agent',
     issuer: 'IBM SkillsBuild',
-    date: null,
+    date: '2026-07-15',
     category: 'ai',
-    image: assetUrl('assets/certificates/Intelligent_by_Design_build_and_AI_agent.pdf'),
+    file: assetUrl('assets/certificates/Intelligent_by_Design_build_and_AI_agent.pdf'),
   },
   {
     id: 4,
     title: 'Introduction to Large Language Models',
     issuer: 'IBM SkillsBuild',
-    date: null,
+    date: '2026-07-14',
     category: 'ai',
-    image: assetUrl('assets/certificates/Introduction_to_Large_Language_Models.pdf'),
+    file: assetUrl('assets/certificates/Introduction_to_Large_Language_Models.pdf'),
   },
   {
     id: 5,
     title: 'Troubleshoot Your Code Using IBM Bob',
     issuer: 'IBM SkillsBuild',
-    date: null,
+    date: '2026-07-14',
     category: 'ai',
-    image: assetUrl('assets/certificates/Lab_Troubleshoot_your_code_using_ibm_bob.pdf'),
+    file: assetUrl('assets/certificates/Lab_Troubleshoot_your_code_using_ibm_bob.pdf'),
   },
   {
     id: 6,
     title: 'AI for Work Productivity',
     issuer: 'MySkill',
-    date: 'Juni 2026',
+    date: '2026-06-12',
     category: 'productivity',
-    image: assetUrl('assets/certificates/Muhammad Daffa Aria Firmansyah E-Certificate SC AI for Work Productivity Juni 2026.pdf'),
+    file: assetUrl('assets/certificates/Muhammad Daffa Aria Firmansyah E-Certificate SC AI for Work Productivity Juni 2026.pdf'),
   },
   {
     id: 7,
     title: 'Introduction to Information Security',
     issuer: 'IBM SkillsBuild',
-    date: null,
+    date: '2026-06-17',
     category: 'security',
-    image: assetUrl('assets/certificates/Certificate-of-Completion-Introduction-to-Information-Security.pdf'),
+    file: assetUrl('assets/certificates/Certificate-of-Completion-Introduction-to-Information-Security.pdf'),
   },
   {
     id: 8,
     title: 'Microsoft Excel Basic',
     issuer: 'Microsoft',
-    date: null,
+    date: '2026-06-03',
     category: 'microsoft',
-    image: assetUrl('assets/certificates/muhammad-daffa-aria-firmansyah_microsoft-excel-basic.pdf'),
+    file: assetUrl('assets/certificates/muhammad-daffa-aria-firmansyah_microsoft-excel-basic.pdf'),
   },
   {
     id: 9,
     title: 'Microsoft Word',
     issuer: 'Microsoft',
-    date: null,
+    date: '2026-06-17',
     category: 'microsoft',
-    image: assetUrl('assets/certificates/muhammad-daffa-aria-firmansyah_microsoft-word.pdf'),
+    file: assetUrl('assets/certificates/muhammad-daffa-aria-firmansyah_microsoft-word.pdf'),
   },
 ];
 
 const skills = {
   languages: ['Python', 'PHP', 'JavaScript'],
-  databases: ['MySQL', 'SQLite'],
-  frameworks: ['FastAPI', 'Laravel', 'Django', 'Node.js'],
-  tools: ['Git', 'GitHub', 'VS Code', 'WSL'],
+  databases: ['MySQL', 'SQLite', 'PostgreSQL'],
+  frameworks: ['FastAPI', 'Laravel', 'Node.js', 'Next.js'],
+  tools: ['Git', 'GitHub', 'Docker', 'WSL', 'AI-Assisted Development'],
   focus: ['Backend Development', 'AI & Automation', 'System Design', 'Problem Solving'],
 };
 
 const contactInfo = {
   email: 'ariadaffa127@gmail.com',
+  phone: '+62 815-2365-1797',
+  whatsapp: 'https://wa.me/6281523651797',
+  location: 'Cinere, Depok',
   linkedin: 'https://linkedin.com/in/leaddaf',
   github: 'https://github.com/Bule2365',
 };
 
-export { projectImages, certificates, skills, contactInfo };
+const education = [
+  {
+    institution: 'Institut Bisnis dan Informatika Kosgoro 1957',
+    degree: 'S1 Teknik Informatika',
+    period: '2025 – Sekarang',
+    note: 'Penerima Beasiswa Prestasi',
+  },
+  {
+    institution: 'Sekolah Menengah Kejuruan Informatika Utama',
+    degree: 'Pengembangan Perangkat Lunak dan Gim',
+    period: '2022 – 2025',
+    note: null,
+  },
+];
+
+const experience = [
+  {
+    company: 'PT Prima Gemilang Futuristik',
+    role: 'Full Stack Developer (Magang — Flexible Remote)',
+    period: 'September 2026 – Sekarang',
+    points: [
+      'Merancang dan mengembangkan fitur backend serta frontend untuk ekosistem web Indonesian Tennis Society menggunakan Node.js, Next.js, dan PostgreSQL.',
+      'Mengidentifikasi, melakukan debugging, dan menyelesaikan bug pada logika bisnis sistem untuk menjaga stabilitas dan performa aplikasi.',
+      'Berkolaborasi aktif dengan Project Manager dalam perencanaan sprint untuk memastikan penyelesaian fitur tepat waktu.',
+    ],
+  },
+  {
+    company: "Sanggar Seni Saung Dji'ih",
+    role: 'Software Engineer & Pengembang Sistem (Proyek Internal)',
+    period: 'Agustus 2026 – Sekarang',
+    points: [
+      'Merancang arsitektur sistem backend dan menentukan tech stack utama untuk digitalisasi ekosistem operasional sanggar.',
+      'Membangun fitur manajemen kegiatan dan keanggotaan guna meningkatkan efisiensi operasional dan administrasi organisasi.',
+    ],
+  },
+];
+
+export { projectImages, projects, certificates, skills, contactInfo, education, experience };

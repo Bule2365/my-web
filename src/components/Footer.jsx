@@ -1,49 +1,49 @@
 import React from 'react';
-import { motion } from 'framer-motion';
+import Icon from './Icon';
 import { contactInfo } from '../data';
+
+const socials = [
+  { href: contactInfo.github, label: 'GitHub Daffa', icon: 'github' },
+  { href: contactInfo.linkedin, label: 'LinkedIn Daffa', icon: 'linkedin' },
+  { href: contactInfo.whatsapp, label: 'WhatsApp Daffa', icon: 'whatsapp' },
+  {
+    href: `mailto:${contactInfo.email}?subject=Ajakan%20Kerjasama%20Backend%20Development`,
+    label: 'Email Daffa',
+    icon: 'mail',
+  },
+];
 
 export default function Footer() {
   return (
-    <footer className="footer py-12 border-t border-border">
+    <footer className="border-t border-border py-12">
       <div className="container">
-        <motion.div
-          className="footer__content flex flex-col items-center gap-4 text-center"
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.5 }}
-        >
-          <div className="footer__social flex gap-3">
-            <a
-              href={contactInfo.github}
-              target="_blank"
-              rel="noopener"
-              aria-label="GitHub Daffa"
-              className="flex items-center justify-center w-10 h-10 text-text-secondary border border-border rounded-full hover:text-text hover:border-border-hover hover:bg-surface-2 transition-all"
-            >
-              <i className="bi bi-github text-lg" aria-hidden="true" />
-            </a>
-            <a
-              href={contactInfo.linkedin}
-              target="_blank"
-              rel="noopener"
-              aria-label="LinkedIn Daffa"
-              className="flex items-center justify-center w-10 h-10 text-text-secondary border border-border rounded-full hover:text-text hover:border-border-hover hover:bg-surface-2 transition-all"
-            >
-              <i className="bi bi-linkedin text-lg" aria-hidden="true" />
-            </a>
-            <a
-              href={`mailto:${contactInfo.email}?subject=Ajakan%20Kerjasama%20Backend%20Development`}
-              aria-label="Email Daffa"
-              className="flex items-center justify-center w-10 h-10 text-text-secondary border border-border rounded-full hover:text-text hover:border-border-hover hover:bg-surface-2 transition-all"
-            >
-              <i className="bi bi-envelope text-lg" aria-hidden="true" />
-            </a>
+        <div className="flex flex-col items-center gap-4 text-center">
+          <a href="#hero" className="text-base font-semibold text-text hover:opacity-80">
+            Daffa Aria
+          </a>
+          <p className="max-w-md text-sm text-text-secondary">
+            Junior Backend Developer — membangun API yang cepat, sistem yang stabil, dan solusi
+            yang menyelesaikan masalah nyata.
+          </p>
+          <div className="flex gap-3">
+            {socials.map((social) => (
+              <a
+                key={social.label}
+                href={social.href}
+                {...(social.icon === 'mail'
+                  ? {}
+                  : { target: '_blank', rel: 'noopener noreferrer' })}
+                aria-label={social.label}
+                className="flex h-11 w-11 items-center justify-center rounded-full border border-border text-text-secondary transition-colors hover:border-border-hover hover:bg-surface-2 hover:text-text focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent"
+              >
+                <Icon name={social.icon} size={18} />
+              </a>
+            ))}
           </div>
-          <p className="footer__copy text-xs text-text-tertiary">
+          <p className="text-xs text-text-tertiary">
             &copy; {new Date().getFullYear()} Muhammad Daffa Aria Firmansyah
           </p>
-        </motion.div>
+        </div>
       </div>
     </footer>
   );

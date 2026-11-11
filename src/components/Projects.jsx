@@ -1,311 +1,160 @@
-import React, { useState, useEffect, useCallback, useRef } from "react";
-import { motion, AnimatePresence, useReducedMotion } from "framer-motion";
-import ScrollReveal from "./ScrollReveal";
-import { projectImages } from "../data";
-import { assetUrl } from "../utils/assetUrl";
+import React, { useCallback, useEffect, useState } from 'react';
+import { AnimatePresence } from 'framer-motion';
+import ScrollReveal from './ScrollReveal';
+import Icon from './Icon';
+import Lightbox from './Lightbox';
+import { projectImages, projects } from '../data';
 
-const projects = [
-  {
-    id: "ai-assistant",
-    tags: ["Python", "FastAPI", "AI/LLM"],
-    title: "AI Code Review Assistant (v1.5)",
-    desc: "AI-powered code review dan automation dashboard yang mengintegrasikan Gemini 2.5 Flash dengan backend FastAPI untuk diagnosis kode secara otonom.",
-    details: [
-      "Diagnosis otomatis: security review, performance, code style, complexity",
-      "AST Python untuk validasi sintaks lokal sebelum analisis AI",
-      "Pipeline API & CORS aman untuk .py, .js, .jsx",
-    ],
-    github: "https://github.com/Bule2365/AI-code-review-assistant",
-  },
-  {
-    id: "realtime-analytics",
-    tags: ["Python", "FastAPI", "Machine Learning"],
-    title: "Intelligent Search & Recommendation Engine",
-    desc: "Search engine dan recommendation system e-commerce hybrid yang menggabungkan BM25, semantic search, dan collaborative filtering.",
-    details: [
-      "BM25 search latency rata-rata 4,6ms per query pada 2.000 produk",
-      "Hybrid search atasi vocabulary mismatch",
-      "Cold start fallback tanpa error atau hasil kosong",
-    ],
-    github:
-      "https://github.com/Bule2365/intelligent-search-recommendation-engine",
-  },
-];
+const EMPTY_IMAGES = [];
 
 export default function Projects() {
-  const reduceMotion = useReducedMotion();
-  const [lightboxProject, setLightboxProject] = useState(null);
+  const [activeProjectId, setActiveProjectId] = useState(null);
   const [lightboxIndex, setLightboxIndex] = useState(0);
-  const lightboxRef = useRef(null);
-  const lastFocusedEl = useRef(null);
+
+  const images = activeProjectId ? projectImages[activeProjectId] || EMPTY_IMAGES : EMPTY_IMAGES;
+  const imageCount = images.length;
 
   const openLightbox = useCallback((projectId) => {
     setLightboxIndex(0);
-    setLightboxProject(projectId);
+    setActiveProjectId(projectId);
   }, []);
 
   const closeLightbox = useCallback(() => {
-    setLightboxProject(null);
+    setActiveProjectId(null);
   }, []);
 
   const nextImage = useCallback(() => {
-    setLightboxIndex(
-      (prev) => (prev + 1) % (projectImages[lightboxProject]?.length || 1),
-    );
-  }, [lightboxProject]);
+    setLightboxIndex((current) => (current + 1) % (imageCount || 1));
+  }, [imageCount]);
 
   const prevImage = useCallback(() => {
-    setLightboxIndex((prev) => {
-      const len = projectImages[lightboxProject]?.length || 1;
-      return (prev - 1 + len) % len;
-    });
-  }, [lightboxProject]);
+    setLightboxIndex((current) => (current - 1 + (imageCount || 1)) % (imageCount || 1));
+  }, [imageCount]);
 
   useEffect(() => {
-    if (lightboxProject) {
-      lastFocusedEl.current = document.activeElement;
+    if (!activeProjectId || imageCount === 0) return;
+    const next = images[(lightboxIndex + 1) % imageCount];
+    if (next?.src) {
+      const preload = new Image();
+      preload.src = next.src;
     }
-  }, [lightboxProject]);
-
-  useEffect(() => {
-    if (lightboxProject && lightboxRef.current) {
-      const closeButton = lightboxRef.current.querySelector(".lightbox__close");
-      if (closeButton) {
-        closeButton.focus();
-      }
-    }
-  }, [lightboxProject]);
-
-  useEffect(() => {
-    if (!lightboxProject && lastFocusedEl.current) {
-      lastFocusedEl.current.focus();
-      lastFocusedEl.current = null;
-    }
-  }, [lightboxProject]);
-
-  useEffect(() => {
-    if (!lightboxProject) return;
-
-    const handleKey = (e) => {
-      if (e.key === "Escape") {
-        closeLightbox();
-      }
-
-      if (e.key === "ArrowRight") {
-        nextImage();
-      }
-
-      if (e.key === "ArrowLeft") {
-        prevImage();
-      }
-    };
-
-    window.addEventListener("keydown", handleKey);
-    return () => window.removeEventListener("keydown", handleKey);
-  }, [lightboxProject, closeLightbox, nextImage, prevImage]);
-
-  const currentImages = lightboxProject ? projectImages[lightboxProject] : [];
+  }, [activeProjectId, lightboxIndex, images, imageCount]);
 
   return (
-    <section className="section" id="proyek">
+    <section className="section section-tint" id="proyek">
       <div className="container">
         <ScrollReveal>
           <div className="section__header">
+            <p className="mb-2 text-xs font-semibold uppercase tracking-[0.2em] text-accent">
+              Proyek
+            </p>
             <h2 className="section__title">Proyek Unggulan</h2>
             <p className="section__subtitle">
-              Proyek nyata yang menunjukkan kemampuan teknis dan cara saya
-              menyelesaikan masalah
+              Proyek nyata yang menunjukkan kemampuan teknis dan cara saya menyelesaikan masalah.
             </p>
           </div>
         </ScrollReveal>
 
-        <div className="projects__grid grid grid-cols-1 lg:grid-cols-2 gap-8">
-          {projects.map((project, i) => (
-            <ScrollReveal key={project.id}>
-              <article
-                className="project-card bg-surface border border-border rounded-2xl overflow-hidden group-focus-within hover:border-border-hover hover:shadow-lg transition-all duration-300"
-                style={reduceMotion ? {} : undefined}
-              >
-                <div className="project-card__image relative overflow-hidden aspect-video bg-surface-2 border-b border-border">
-                  <img
-                    src={assetUrl(
-                      `assets/images/projects/${project.id}/a.webp`,
-                    )}
-                    alt={`${project.title} — tampilan utama`}
-                    width="800"
-                    height="450"
-                    loading="lazy"
-                    className="w-full h-full object-cover transition-transform duration-300 hover:scale-105"
-                    style={reduceMotion ? {} : undefined}
-                  />
-                  <div
-                    className="project-card__overlay absolute inset-0 z-2 flex items-center justify-center gap-3 bg-black/40 opacity-0 group-focus-within:opacity-100 hover:opacity-100 transition-opacity duration-300"
-                    style={reduceMotion ? {} : undefined}
-                  >
-                    <button
-                      className="btn btn--ghost btn--small text-white/90 border-white/20 backdrop-blur-sm hover:bg-white/15 hover:text-white hover:border-white/30"
-                      aria-label="Lihat galeri"
-                      onClick={() => openLightbox(project.id)}
+        <div className="flex flex-col gap-8">
+          {projects.map((project, index) => {
+            const gallery = projectImages[project.id] || [];
+            const reversed = index % 2 === 1;
+
+            return (
+              <ScrollReveal key={project.id}>
+                <article className="group overflow-hidden rounded-2xl border border-border bg-surface transition-colors hover:border-border-hover">
+                  <div className="grid lg:grid-cols-2">
+                    <div
+                      className={`relative aspect-video overflow-hidden border-b border-border bg-surface-2 lg:aspect-auto lg:min-h-full ${
+                        reversed ? 'lg:order-2 lg:border-b-0 lg:border-l' : 'lg:border-b-0 lg:border-r'
+                      }`}
                     >
-                      <i className="bi bi-images" aria-hidden="true" /> Lihat
-                      Galeri
-                    </button>
-                    <a
-                      href={project.github}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="btn btn--ghost btn--small text-white/90 border-white/20 backdrop-blur-sm hover:bg-white/15 hover:text-white hover:border-white/30"
-                      aria-label="Buka repositori di GitHub"
-                      onClick={(e) => e.stopPropagation()}
-                    >
-                      <i className="bi bi-github" aria-hidden="true" /> GitHub
-                    </a>
-                  </div>
-                </div>
-                <div className="project-card__body p-6">
-                  <div className="project-card__tags flex flex-wrap gap-2 mb-3">
-                    {project.tags.map((tag) => (
-                      <span key={tag} className="tag">
-                        {tag}
+                      <img
+                        src={gallery[0]?.src}
+                        alt={`${project.title} — tampilan utama`}
+                        width="960"
+                        height="540"
+                        loading="lazy"
+                        className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-[1.02]"
+                      />
+                      <span className="absolute left-4 top-4 inline-flex items-center gap-1.5 rounded-full bg-black/60 px-3 py-1 text-xs font-medium text-white backdrop-blur-sm">
+                        <Icon name="images" size={13} />
+                        {gallery.length} screenshot
                       </span>
-                    ))}
+                    </div>
+
+                    <div className="flex flex-col justify-center p-6 sm:p-8">
+                      <div className="flex flex-wrap gap-2">
+                        {project.tags.map((tag) => (
+                          <span key={tag} className="tag">
+                            {tag}
+                          </span>
+                        ))}
+                      </div>
+
+                      <h3 className="mt-4 text-xl font-bold text-text sm:text-2xl">{project.title}</h3>
+                      <p className="mt-3 text-sm leading-relaxed text-text-secondary sm:text-base">
+                        {project.desc}
+                      </p>
+
+                      <div className="mt-5 inline-flex w-fit items-baseline gap-2 rounded-xl border border-accent-border bg-accent-subtle px-4 py-2.5">
+                        <span className="text-xl font-bold text-gradient sm:text-2xl">
+                          {project.metric.value}
+                        </span>
+                        <span className="text-xs text-text-secondary">{project.metric.label}</span>
+                      </div>
+
+                      <ul className="mt-5 flex flex-col gap-2">
+                        {project.details.map((detail) => (
+                          <li key={detail} className="flex items-start gap-2 text-sm text-text-secondary">
+                            <Icon name="check" size={16} className="mt-0.5 text-accent" />
+                            <span>{detail}</span>
+                          </li>
+                        ))}
+                      </ul>
+
+                      <div className="mt-6 flex flex-wrap gap-2">
+                        <button
+                          type="button"
+                          onClick={() => openLightbox(project.id)}
+                          className="inline-flex min-h-11 items-center justify-center gap-2 rounded-lg border border-border bg-surface-2 px-4 py-2 text-sm font-medium text-text transition-colors hover:border-border-hover"
+                        >
+                          <Icon name="images" size={16} />
+                          Lihat Galeri
+                          <span className="text-text-tertiary">({gallery.length})</span>
+                        </button>
+                        <a
+                          href={project.github}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="inline-flex min-h-11 items-center justify-center gap-2 rounded-lg border border-accent-border px-4 py-2 text-sm font-medium text-accent transition-colors hover:bg-accent-subtle"
+                        >
+                          <Icon name="github" size={16} />
+                          GitHub
+                          <Icon name="external-link" size={14} />
+                        </a>
+                      </div>
+                    </div>
                   </div>
-                  <h3 className="project-card__title text-xl font-bold mb-3">
-                    {project.title}
-                  </h3>
-                  <p className="project-card__desc text-text-secondary mb-4">
-                    {project.desc}
-                  </p>
-                  <ul className="project-card__details flex flex-col gap-2">
-                    {project.details.map((d) => (
-                      <li
-                        key={d}
-                        className="relative pl-4 text-sm text-text-tertiary leading-relaxed"
-                      >
-                        <span className="absolute left-0 top-2 w-[4px] h-[4px] rounded-full bg-accent" />
-                        {d}
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-              </article>
-            </ScrollReveal>
-          ))}
+                </article>
+              </ScrollReveal>
+            );
+          })}
         </div>
       </div>
 
-      <Lightbox
-        images={currentImages}
-        index={lightboxIndex}
-        isOpen={!!lightboxProject}
-        onClose={closeLightbox}
-        onNext={nextImage}
-        onPrev={prevImage}
-        lightboxRef={lightboxRef}
-      />
+      <AnimatePresence>
+        {activeProjectId && (
+          <Lightbox
+            key="project-lightbox"
+            images={images}
+            index={lightboxIndex}
+            onClose={closeLightbox}
+            onNext={nextImage}
+            onPrev={prevImage}
+          />
+        )}
+      </AnimatePresence>
     </section>
-  );
-}
-
-function Lightbox({
-  images,
-  index,
-  isOpen,
-  onClose,
-  onNext,
-  onPrev,
-  lightboxRef,
-}) {
-  const [touchStart, setTouchStart] = useState(0);
-
-  useEffect(() => {
-    if (isOpen) {
-      document.body.style.overflow = "hidden";
-    } else {
-      document.body.style.overflow = "";
-    }
-    return () => {
-      document.body.style.overflow = "";
-    };
-  }, [isOpen]);
-
-  if (!isOpen) return null;
-
-  const current = images[index];
-  const total = images.length;
-
-  return (
-    <motion.div
-      className={`lightbox fixed inset-0 z-[200] flex items-center justify-center ${isOpen ? "active" : ""}`}
-      role="dialog"
-      aria-modal="true"
-      aria-label="Galeri Gambar"
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      exit={{ opacity: 0 }}
-      transition={{ duration: 0.2 }}
-      onClick={onClose}
-    >
-      <div className="lightbox__backdrop absolute inset-0 bg-black/90" />
-      <div
-        className="lightbox__container relative w-[90vw] max-w-[1000px] max-h-[85vh] flex flex-col items-center"
-        onClick={(e) => e.stopPropagation()}
-      >
-        <button
-          ref={lightboxRef}
-          className="lightbox__close absolute -top-10 right-0 flex items-center justify-center w-11 h-11 text-text-secondary bg-white/10 rounded-full hover:text-white hover:bg-white/20 transition-colors z-[2]"
-          aria-label="Tutup galeri"
-          type="button"
-          onClick={onClose}
-        >
-          <i className="bi bi-x-lg text-xl" aria-hidden="true" />
-        </button>
-
-        <button
-          className="lightbox__nav lightbox__prev absolute left-[-3.5rem] top-1/2 -translate-y-1/2 flex items-center justify-center w-11 h-11 text-text-secondary bg-white/10 rounded-full hover:text-white hover:bg-white/20 transition-colors z-[2] hidden md:flex"
-          aria-label="Gambar sebelumnya"
-          type="button"
-          onClick={onPrev}
-        >
-          <i className="bi bi-chevron-left text-xl" aria-hidden="true" />
-        </button>
-
-        <button
-          className="lightbox__nav lightbox__next absolute right-[-3.5rem] top-1/2 -translate-y-1/2 flex items-center justify-center w-11 h-11 text-text-secondary bg-white/10 rounded-full hover:text-white hover:bg-white/20 transition-colors z-[2] hidden md:flex"
-          aria-label="Gambar berikutnya"
-          type="button"
-          onClick={onNext}
-        >
-          <i className="bi bi-chevron-right text-xl" aria-hidden="true" />
-        </button>
-
-        <figure className="lightbox__figure flex flex-col items-center w-full">
-          <AnimatePresence mode="wait">
-            <motion.img
-              key={index}
-              src={current?.src || ""}
-              alt={current?.alt || ""}
-              width={1200}
-              height={800}
-              className="lightbox__image max-w-full max-h-[75vh] object-contain rounded-lg"
-              initial={{ opacity: 0, x: 50 }}
-              animate={{ opacity: 1, x: 0 }}
-              exit={{ opacity: 0, x: -50 }}
-              transition={{ duration: 0.3 }}
-              onTouchStart={(e) => setTouchStart(e.changedTouches[0].screenX)}
-              onTouchEnd={(e) => {
-                const dx = e.changedTouches[0].screenX - touchStart;
-                if (Math.abs(dx) > 50) {
-                  dx > 0 ? onPrev() : onNext();
-                }
-              }}
-            />
-          </AnimatePresence>
-          <figcaption className="lightbox__counter mt-3 text-sm text-text-tertiary">
-            {index + 1} / {total}
-          </figcaption>
-        </figure>
-      </div>
-    </motion.div>
   );
 }

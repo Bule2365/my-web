@@ -40,52 +40,6 @@ The content is organized as follows:
 </file_summary>
 
 <directory_structure>
-assets/
-  certificates/
-    BuildanAIAgent_Badge20260715-20-m898ux.pdf
-    Certificate-of-completion-Claude-101.pdf
-    Certificate-of-Completion-Introduction-to-Information-Security.pdf
-    Intelligent_by_Design_build_and_AI_agent.pdf
-    Introduction_to_Large_Language_Models.pdf
-    Lab_Troubleshoot_your_code_using_ibm_bob.pdf
-    Muhammad Daffa Aria Firmansyah E-Certificate SC AI for Work Productivity Juni 2026.pdf
-    muhammad-daffa-aria-firmansyah_microsoft-excel-basic.pdf
-    muhammad-daffa-aria-firmansyah_microsoft-word.pdf
-  icons/
-    favicon.svg
-  images/
-    projects/
-      ai-assistant/
-        a.png
-        a.webp
-        b.png
-        b.webp
-        c.png
-        c.webp
-        d.png
-        d.webp
-      realtime-analytics/
-        a.png
-        a.webp
-        b.png
-        b.webp
-        c.png
-        c.webp
-        d.png
-        d.webp
-        e.png
-        e.webp
-        f.png
-        f.webp
-        g.png
-        g.webp
-    about-collaboration.jpg
-    about-collaboration.webp
-    profile.jpg
-    profile.webp
-documents/
-  CV-Daffa_v5.pdf
-  CV-Daffa_v6.pdf
 public/
   assets/
     certificates/
@@ -103,35 +57,26 @@ public/
     images/
       projects/
         ai-assistant/
-          a.png
           a.webp
-          b.png
           b.webp
-          c.png
           c.webp
-          d.png
           d.webp
-        realtime-analytics/
-          a.png
+        intelligent-search/
           a.webp
-          b.png
           b.webp
-          c.png
           c.webp
-          d.png
           d.webp
-          e.png
           e.webp
-          f.png
           f.webp
-          g.png
           g.webp
-      about-collaboration.jpg
       about-collaboration.webp
-      profile.jpg
+      og-image.png
       profile.webp
   documents/
     CV-Daffa_v6.pdf
+  google3935b0c3f9d63e31.html
+  robots.txt
+  sitemap.xml
 src/
   components/
     About.jsx
@@ -141,26 +86,29 @@ src/
     CTAButton.jsx
     Footer.jsx
     Hero.jsx
+    Icon.jsx
+    Journey.jsx
+    Lightbox.jsx
+    Modal.jsx
     Navbar.jsx
+    PdfPreview.jsx
     Projects.jsx
     ScrollReveal.jsx
     Skills.jsx
+    ThemeToggle.jsx
   data/
     index.js
+  hooks/
+    useBodyScrollLock.js
   utils/
     assetUrl.js
   App.jsx
   index.css
   main.jsx
-  theme.js
-google3935b0c3f9d63e31.html
+  theme.jsx
 index.html
 package.json
 postcss.config.js
-robots.txt
-script.js
-sitemap.xml
-style.css
 tailwind.config.js
 vite.config.js
 </directory_structure>
@@ -168,22 +116,835 @@ vite.config.js
 <files>
 This section contains the contents of the repository's files.
 
-<file path="assets/icons/favicon.svg">
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" fill="none">
-  <rect width="64" height="64" rx="18" fill="#050816" />
-  <rect x="6" y="6" width="52" height="52" rx="14" fill="url(#paint0_linear)" />
-  <path
-    d="M22 18H33.5C42.3366 18 49.5 25.1634 49.5 34C49.5 42.8366 42.3366 50 33.5 50H22V18ZM29.5 25V43H33.1C38.0153 43 42 38.9706 42 34C42 29.0294 38.0153 25 33.1 25H29.5Z"
-    fill="white"
-  />
-  <defs>
-    <linearGradient id="paint0_linear" x1="6" y1="6" x2="58" y2="58" gradientUnits="userSpaceOnUse">
-      <stop stop-color="#2563EB" />
-      <stop offset="0.5" stop-color="#7C3AED" />
-      <stop offset="1" stop-color="#06B6D4" />
-    </linearGradient>
-  </defs>
-</svg>
+<file path="public/google3935b0c3f9d63e31.html">
+google-site-verification: google3935b0c3f9d63e31.html
+</file>
+
+<file path="public/robots.txt">
+User-agent: *
+Allow: /
+
+Sitemap: https://bule2365.github.io/my-web/sitemap.xml
+
+# Google Search Console verification
+User-agent: Googlebot
+Allow: /
+</file>
+
+<file path="public/sitemap.xml">
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url>
+    <loc>https://bule2365.github.io/my-web/</loc>
+    <lastmod>2026-11-11</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>1.0</priority>
+  </url>
+</urlset>
+</file>
+
+<file path="src/components/Icon.jsx">
+import React from 'react';
+
+const strokeIcons = {
+  sun: (
+    <>
+      <circle cx="12" cy="12" r="4" />
+      <path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41" />
+    </>
+  ),
+  moon: <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" />,
+  download: (
+    <>
+      <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
+      <path d="m7 10 5 5 5-5M12 15V3" />
+    </>
+  ),
+  'arrow-up': (
+    <>
+      <path d="M12 19V5" />
+      <path d="m5 12 7-7 7 7" />
+    </>
+  ),
+  'arrow-right': (
+    <>
+      <path d="M5 12h14" />
+      <path d="m12 5 7 7-7 7" />
+    </>
+  ),
+  'external-link': (
+    <>
+      <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" />
+      <path d="M15 3h6v6M10 14 21 3" />
+    </>
+  ),
+  images: (
+    <>
+      <rect x="3" y="3" width="18" height="18" rx="2" />
+      <circle cx="8.5" cy="8.5" r="1.5" />
+      <path d="m21 15-5-5L5 21" />
+    </>
+  ),
+  x: <path d="M18 6 6 18M6 6l12 12" />,
+  'chevron-left': <path d="m15 18-6-6 6-6" />,
+  'chevron-right': <path d="m9 18 6-6-6-6" />,
+  award: (
+    <>
+      <circle cx="12" cy="8" r="6" />
+      <path d="M8.21 13.89 7 23l5-3 5 3-1.21-9.12" />
+    </>
+  ),
+  building: (
+    <>
+      <path d="M4 21V5a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v16" />
+      <path d="M16 8h2a2 2 0 0 1 2 2v11M2 21h20" />
+      <path d="M8 7h2M8 11h2M8 15h2" />
+    </>
+  ),
+  calendar: (
+    <>
+      <rect x="3" y="4" width="18" height="18" rx="2" />
+      <path d="M16 2v4M8 2v4M3 10h18" />
+    </>
+  ),
+  eye: (
+    <>
+      <path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7S2 12 2 12z" />
+      <circle cx="12" cy="12" r="3" />
+    </>
+  ),
+  mail: (
+    <>
+      <rect x="2" y="4" width="20" height="16" rx="2" />
+      <path d="m22 6-10 7L2 6" />
+    </>
+  ),
+  copy: (
+    <>
+      <rect x="9" y="9" width="13" height="13" rx="2" />
+      <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1" />
+    </>
+  ),
+  check: <path d="m20 6-11 11-5-5" />,
+  code: (
+    <>
+      <path d="m16 18 6-6-6-6M8 6l-6 6 6 6" />
+    </>
+  ),
+  database: (
+    <>
+      <ellipse cx="12" cy="5" rx="9" ry="3" />
+      <path d="M21 12c0 1.66-4.03 3-9 3s-9-1.34-9-3" />
+      <path d="M3 5v14c0 1.66 4.03 3 9 3s9-1.34 9-3V5" />
+    </>
+  ),
+  layers: (
+    <>
+      <path d="m12 2 10 5-10 5L2 7l10-5z" />
+      <path d="m2 12 10 5 10-5M2 17l10 5 10-5" />
+    </>
+  ),
+  wrench: (
+    <path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z" />
+  ),
+  target: (
+    <>
+      <circle cx="12" cy="12" r="10" />
+      <circle cx="12" cy="12" r="6" />
+      <circle cx="12" cy="12" r="2" />
+    </>
+  ),
+  sparkles: (
+    <>
+      <path d="m12 3 1.9 5.6L19.5 10l-5.6 1.9L12 17.5l-1.9-5.6L4.5 10l5.6-1.4L12 3z" />
+      <path d="M19 15l.8 2.2L22 18l-2.2.8L19 21l-.8-2.2L16 18l2.2-.8L19 15z" />
+    </>
+  ),
+  briefcase: (
+    <>
+      <rect x="2" y="7" width="20" height="14" rx="2" />
+      <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16" />
+    </>
+  ),
+  'graduation-cap': (
+    <>
+      <path d="M22 10 12 5 2 10l10 5 10-5z" />
+      <path d="M6 12v5c3 3 9 3 12 0v-5" />
+    </>
+  ),
+  'map-pin': (
+    <>
+      <path d="M20 10c0 6-8 12-8 12S4 16 4 10a8 8 0 0 1 16 0z" />
+      <circle cx="12" cy="10" r="3" />
+    </>
+  ),
+  'file-text': (
+    <>
+      <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" />
+      <path d="M14 2v6h6M16 13H8M16 17H8M10 9H8" />
+    </>
+  ),
+  clock: (
+    <>
+      <circle cx="12" cy="12" r="10" />
+      <path d="M12 6v6l4 2" />
+    </>
+  ),
+  cpu: (
+    <>
+      <rect x="4" y="4" width="16" height="16" rx="2" />
+      <rect x="9" y="9" width="6" height="6" />
+      <path d="M9 1v3M15 1v3M9 20v3M15 20v3M20 9h3M20 14h3M1 9h3M1 14h3" />
+    </>
+  ),
+  network: (
+    <>
+      <circle cx="12" cy="5" r="3" />
+      <circle cx="5" cy="19" r="3" />
+      <circle cx="19" cy="19" r="3" />
+      <path d="M12 8v3M6.5 16.5 10 12M17.5 16.5 14 12" />
+    </>
+  ),
+  shield: <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />,
+};
+
+const fillIcons = {
+  github: (
+    <path d="M12 .5C5.73.5.75 5.48.75 11.75c0 4.97 3.22 9.18 7.69 10.67.56.1.77-.24.77-.54 0-.27-.01-.99-.02-1.94-3.13.68-3.79-1.51-3.79-1.51-.51-1.3-1.25-1.65-1.25-1.65-1.02-.7.08-.69.08-.69 1.13.08 1.72 1.16 1.72 1.16 1 .1.72 1.58 2.94 1.13.09-.73.39-1.23.71-1.51-2.5-.28-5.13-1.25-5.13-5.56 0-1.23.44-2.23 1.16-3.02-.12-.28-.5-1.43.11-2.98 0 0 .95-.3 3.1 1.15.9-.25 1.86-.37 2.82-.38.96.01 1.92.13 2.82.38 2.15-1.45 3.1-1.15 3.1-1.15.61 1.55.23 2.7.11 2.98.72.79 1.16 1.79 1.16 3.02 0 4.32-2.63 5.28-5.14 5.55.4.34.76 1.02.76 2.06 0 1.49-.01 2.69-.01 3.05 0 .3.2.65.78.54a11.26 11.26 0 0 0 7.68-10.67C23.25 5.48 18.27.5 12 .5z" />
+  ),
+  linkedin: (
+    <path d="M20.45 20.45h-3.55v-5.57c0-1.33-.03-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.35V9h3.41v1.56h.05c.47-.89 1.62-1.83 3.33-1.83 3.56 0 4.22 2.34 4.22 5.38v6.34zM5.34 7.43a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12zM7.12 20.45H3.56V9h3.56v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.72v20.56C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.72V1.72C24 .77 23.2 0 22.22 0z" />
+  ),
+  whatsapp: (
+    <path d="M17.47 14.38c-.3-.15-1.76-.87-2.03-.97-.27-.1-.47-.15-.67.15-.2.3-.77.97-.94 1.16-.17.2-.35.22-.64.08-.3-.15-1.26-.46-2.39-1.47-.88-.79-1.48-1.76-1.65-2.06-.17-.3-.02-.46.13-.61.13-.13.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.02-.52-.08-.15-.67-1.61-.92-2.21-.24-.58-.49-.5-.67-.51-.17-.01-.37-.01-.57-.01-.2 0-.52.07-.79.37-.27.3-1.04 1.02-1.04 2.48 0 1.46 1.07 2.88 1.21 3.07.15.2 2.1 3.2 5.08 4.49.71.3 1.26.49 1.69.62.71.23 1.36.2 1.87.12.57-.09 1.76-.72 2.01-1.41.25-.69.25-1.29.17-1.41-.07-.12-.27-.2-.57-.35zM12.05 21.79h-.01a9.87 9.87 0 0 1-5.03-1.38l-.36-.21-3.74.98 1-3.65-.24-.37a9.86 9.86 0 0 1-1.51-5.26c0-5.45 4.44-9.88 9.89-9.88 2.64 0 5.12 1.03 6.99 2.9a9.83 9.83 0 0 1 2.89 6.99c0 5.45-4.44 9.88-9.88 9.88zm8.41-18.29A11.82 11.82 0 0 0 12.05 0C5.5 0 .16 5.34.16 11.89c0 2.1.55 4.14 1.59 5.95L.06 24l6.3-1.65a11.88 11.88 0 0 0 5.68 1.45h.01c6.55 0 11.89-5.34 11.89-11.89 0-3.18-1.24-6.17-3.48-8.41z" />
+  ),
+};
+
+export default function Icon({
+  name,
+  className = '',
+  size = 20,
+  strokeWidth = 1.8,
+  title,
+  ...props
+}) {
+  const isFill = Boolean(fillIcons[name]);
+  const content = isFill ? fillIcons[name] : strokeIcons[name];
+
+  if (!content) return null;
+
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      viewBox="0 0 24 24"
+      width={size}
+      height={size}
+      fill={isFill ? 'currentColor' : 'none'}
+      stroke={isFill ? 'none' : 'currentColor'}
+      strokeWidth={isFill ? undefined : strokeWidth}
+      strokeLinecap={isFill ? undefined : 'round'}
+      strokeLinejoin={isFill ? undefined : 'round'}
+      className={`inline-block shrink-0 ${className}`.trim()}
+      aria-hidden={title ? undefined : 'true'}
+      role={title ? 'img' : undefined}
+      focusable="false"
+      {...props}
+    >
+      {title ? <title>{title}</title> : null}
+      {content}
+    </svg>
+  );
+}
+</file>
+
+<file path="src/components/Journey.jsx">
+import React from 'react';
+import ScrollReveal from './ScrollReveal';
+import Icon from './Icon';
+import { education, experience } from '../data';
+
+function TimelineItem({ icon, title, subtitle, period, points }) {
+  return (
+    <li className="relative pl-12">
+      <span
+        className="absolute left-0 top-1 flex h-9 w-9 items-center justify-center rounded-full border border-border bg-surface-2 text-accent"
+        aria-hidden="true"
+      >
+        <Icon name={icon} size={17} />
+      </span>
+      <div className="rounded-xl border border-border bg-surface/70 p-5">
+        <div className="flex flex-wrap items-start justify-between gap-2">
+          <div>
+            <h3 className="font-semibold text-text">{title}</h3>
+            <p className="mt-0.5 text-sm text-text-secondary">{subtitle}</p>
+          </div>
+          <span className="inline-flex items-center gap-1.5 rounded-full border border-border bg-surface-2 px-2.5 py-1 text-xs text-text-tertiary">
+            <Icon name="calendar" size={12} />
+            {period}
+          </span>
+        </div>
+        {points?.length ? (
+          <ul className="mt-4 flex flex-col gap-2">
+            {points.map((point) => (
+              <li
+                key={point}
+                className="relative pl-4 text-sm leading-relaxed text-text-secondary"
+              >
+                <span className="absolute left-0 top-2 h-1 w-1 rounded-full bg-accent" />
+                {point}
+              </li>
+            ))}
+          </ul>
+        ) : null}
+      </div>
+    </li>
+  );
+}
+
+export default function Journey() {
+  return (
+    <section className="section section-tint" id="perjalanan">
+      <div className="container">
+        <ScrollReveal>
+          <div className="section__header">
+            <p className="mb-2 text-xs font-semibold uppercase tracking-[0.2em] text-accent">
+              Perjalanan
+            </p>
+            <h2 className="section__title">Pendidikan &amp; Pengalaman</h2>
+            <p className="section__subtitle">
+              Latar belakang akademik dan pengalaman kerja yang membentuk cara saya membangun
+              perangkat lunak.
+            </p>
+          </div>
+        </ScrollReveal>
+
+        <div className="grid gap-10 lg:grid-cols-2 lg:gap-14">
+          <div>
+            <ScrollReveal>
+              <h3 className="mb-6 flex items-center gap-2 text-sm font-semibold uppercase tracking-[0.18em] text-text-tertiary">
+                <Icon name="graduation-cap" size={17} className="text-accent" /> Pendidikan
+              </h3>
+            </ScrollReveal>
+            <ScrollReveal>
+              <ol className="relative flex flex-col gap-6 border-l border-border pl-1">
+                {education.map((item) => (
+                  <TimelineItem
+                    key={item.institution}
+                    icon="graduation-cap"
+                    title={item.institution}
+                    subtitle={item.degree + (item.note ? ` — ${item.note}` : '')}
+                    period={item.period}
+                  />
+                ))}
+              </ol>
+            </ScrollReveal>
+          </div>
+
+          <div>
+            <ScrollReveal>
+              <h3 className="mb-6 flex items-center gap-2 text-sm font-semibold uppercase tracking-[0.18em] text-text-tertiary">
+                <Icon name="briefcase" size={17} className="text-accent" /> Pengalaman
+              </h3>
+            </ScrollReveal>
+            <ScrollReveal>
+              <ol className="relative flex flex-col gap-6 border-l border-border pl-1">
+                {experience.map((item) => (
+                  <TimelineItem
+                    key={item.company}
+                    icon="briefcase"
+                    title={item.company}
+                    subtitle={item.role}
+                    period={item.period}
+                    points={item.points}
+                  />
+                ))}
+              </ol>
+            </ScrollReveal>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+</file>
+
+<file path="src/components/Lightbox.jsx">
+import React, { useEffect, useState } from 'react';
+import { AnimatePresence, motion, useReducedMotion } from 'framer-motion';
+import Icon from './Icon';
+import Modal from './Modal';
+
+export default function Lightbox({ images, index, onClose, onNext, onPrev }) {
+  const reduceMotion = useReducedMotion();
+  const [touchStart, setTouchStart] = useState(null);
+  const [failed, setFailed] = useState(false);
+  const current = images[index];
+  const total = images.length;
+
+  useEffect(() => {
+    setFailed(false);
+  }, [index, current?.src]);
+
+  useEffect(() => {
+    const handleKeydown = (event) => {
+      if (event.key === 'ArrowRight') {
+        event.preventDefault();
+        onNext();
+      }
+
+      if (event.key === 'ArrowLeft') {
+        event.preventDefault();
+        onPrev();
+      }
+    };
+
+    document.addEventListener('keydown', handleKeydown);
+    return () => document.removeEventListener('keydown', handleKeydown);
+  }, [onNext, onPrev]);
+
+  return (
+    <Modal
+      onClose={onClose}
+      label="Galeri gambar proyek"
+      panelClassName="max-w-5xl"
+      backdropClassName="bg-black/90 backdrop-blur-sm"
+    >
+      <div className="relative">
+        <div className="mb-3 flex items-center justify-between gap-3">
+          <p className="text-sm text-white/70" aria-live="polite">
+            Gambar {index + 1} dari {total}
+          </p>
+          <button
+            type="button"
+            onClick={onClose}
+            aria-label="Tutup galeri"
+            className="flex h-11 w-11 items-center justify-center rounded-full bg-white/10 text-white/80 transition-colors hover:bg-white/20 hover:text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-white"
+          >
+            <Icon name="x" size={20} />
+          </button>
+        </div>
+
+        <div className="relative">
+          <AnimatePresence mode="wait" initial={false}>
+            {failed ? (
+              <motion.div
+                key={`fallback-${index}`}
+                className="mx-auto flex min-h-[40vh] max-w-3xl flex-col items-center justify-center gap-3 rounded-lg border border-white/15 bg-white/5 p-8 text-center"
+                initial={reduceMotion ? false : { opacity: 0 }}
+                animate={{ opacity: 1 }}
+                exit={reduceMotion ? undefined : { opacity: 0 }}
+                transition={{ duration: reduceMotion ? 0 : 0.25 }}
+              >
+                <Icon name="images" size={32} className="text-white/40" />
+                <p className="text-sm text-white/70">Gambar tidak dapat dimuat.</p>
+                {current?.src ? (
+                  <a
+                    href={current.src}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-sm font-medium text-white underline underline-offset-2"
+                  >
+                    Buka gambar di tab baru
+                  </a>
+                ) : null}
+              </motion.div>
+            ) : (
+              <motion.img
+                key={index}
+                src={current?.src || ''}
+                alt={current?.alt || ''}
+                width={1200}
+                height={800}
+                className="mx-auto max-h-[70vh] w-auto max-w-full rounded-lg object-contain shadow-2xl"
+                initial={reduceMotion ? false : { opacity: 0, x: 40 }}
+                animate={{ opacity: 1, x: 0 }}
+                exit={reduceMotion ? undefined : { opacity: 0, x: -40 }}
+                transition={{ duration: reduceMotion ? 0 : 0.25 }}
+                onError={() => setFailed(true)}
+                onTouchStart={(event) => setTouchStart(event.changedTouches[0].screenX)}
+                onTouchEnd={(event) => {
+                  if (touchStart === null) return;
+                  const dx = event.changedTouches[0].screenX - touchStart;
+                  setTouchStart(null);
+                  if (Math.abs(dx) > 50) {
+                    if (dx > 0) onPrev();
+                    else onNext();
+                  }
+                }}
+              />
+            )}
+          </AnimatePresence>
+
+          <button
+            type="button"
+            onClick={onPrev}
+            aria-label="Gambar sebelumnya"
+            className="absolute left-2 top-1/2 hidden h-11 w-11 -translate-y-1/2 items-center justify-center rounded-full bg-black/50 text-white/80 transition-colors hover:bg-black/70 hover:text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-white sm:flex"
+          >
+            <Icon name="chevron-left" size={22} />
+          </button>
+          <button
+            type="button"
+            onClick={onNext}
+            aria-label="Gambar berikutnya"
+            className="absolute right-2 top-1/2 hidden h-11 w-11 -translate-y-1/2 items-center justify-center rounded-full bg-black/50 text-white/80 transition-colors hover:bg-black/70 hover:text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-white sm:flex"
+          >
+            <Icon name="chevron-right" size={22} />
+          </button>
+        </div>
+
+        <div className="mt-3 flex items-center justify-center gap-3 sm:hidden">
+          <button
+            type="button"
+            onClick={onPrev}
+            aria-label="Gambar sebelumnya"
+            className="flex h-11 w-11 items-center justify-center rounded-full bg-white/10 text-white/80 transition-colors hover:bg-white/20 hover:text-white"
+          >
+            <Icon name="chevron-left" size={22} />
+          </button>
+          <button
+            type="button"
+            onClick={onNext}
+            aria-label="Gambar berikutnya"
+            className="flex h-11 w-11 items-center justify-center rounded-full bg-white/10 text-white/80 transition-colors hover:bg-white/20 hover:text-white"
+          >
+            <Icon name="chevron-right" size={22} />
+          </button>
+        </div>
+      </div>
+    </Modal>
+  );
+}
+</file>
+
+<file path="src/components/Modal.jsx">
+import React, { useEffect, useRef } from 'react';
+import { motion, useReducedMotion } from 'framer-motion';
+import useBodyScrollLock from '../hooks/useBodyScrollLock';
+
+const FOCUSABLE_SELECTOR = [
+  'a[href]',
+  'button:not([disabled])',
+  'input:not([disabled])',
+  'select:not([disabled])',
+  'textarea:not([disabled])',
+  '[tabindex]:not([tabindex="-1"])',
+].join(',');
+
+export default function Modal({
+  children,
+  onClose,
+  label,
+  panelClassName = '',
+  backdropClassName = 'bg-black/85 backdrop-blur-sm',
+}) {
+  const panelRef = useRef(null);
+  const previouslyFocused = useRef(null);
+  const reduceMotion = useReducedMotion();
+
+  useBodyScrollLock(true);
+
+  useEffect(() => {
+    previouslyFocused.current = document.activeElement;
+    const panel = panelRef.current;
+
+    const getFocusable = () =>
+      panel
+        ? Array.from(panel.querySelectorAll(FOCUSABLE_SELECTOR)).filter(
+            (element) => element.offsetParent !== null,
+          )
+        : [];
+
+    const first = getFocusable()[0];
+    first?.focus();
+
+    const handleKeydown = (event) => {
+      if (event.key === 'Escape') {
+        event.stopPropagation();
+        onClose();
+        return;
+      }
+
+      if (event.key !== 'Tab') return;
+
+      const items = getFocusable();
+      if (items.length === 0) {
+        event.preventDefault();
+        panel?.focus();
+        return;
+      }
+
+      const firstItem = items[0];
+      const lastItem = items[items.length - 1];
+
+      if (event.shiftKey && document.activeElement === firstItem) {
+        event.preventDefault();
+        lastItem.focus();
+      } else if (!event.shiftKey && document.activeElement === lastItem) {
+        event.preventDefault();
+        firstItem.focus();
+      }
+    };
+
+    document.addEventListener('keydown', handleKeydown);
+
+    return () => {
+      document.removeEventListener('keydown', handleKeydown);
+      const previous = previouslyFocused.current;
+      if (previous && typeof previous.focus === 'function' && document.contains(previous)) {
+        previous.focus();
+      }
+    };
+  }, [onClose]);
+
+  return (
+    <motion.div
+      className="fixed inset-0 z-[200] flex items-center justify-center p-4 sm:p-6"
+      role="dialog"
+      aria-modal="true"
+      aria-label={label}
+      initial={reduceMotion ? false : { opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={reduceMotion ? undefined : { opacity: 0 }}
+      transition={{ duration: reduceMotion ? 0 : 0.2 }}
+    >
+      <div
+        className={`absolute inset-0 ${backdropClassName}`}
+        onClick={onClose}
+        aria-hidden="true"
+      />
+      <motion.div
+        ref={panelRef}
+        tabIndex={-1}
+        onClick={(event) => event.stopPropagation()}
+        className={`relative z-10 w-full outline-none ${panelClassName}`.trim()}
+        initial={reduceMotion ? false : { opacity: 0, scale: 0.97, y: 8 }}
+        animate={{ opacity: 1, scale: 1, y: 0 }}
+        exit={reduceMotion ? undefined : { opacity: 0, scale: 0.97, y: 8 }}
+        transition={{ duration: reduceMotion ? 0 : 0.2, ease: 'easeOut' }}
+      >
+        {children}
+      </motion.div>
+    </motion.div>
+  );
+}
+</file>
+
+<file path="src/components/PdfPreview.jsx">
+import React from 'react';
+import Icon from './Icon';
+import Modal from './Modal';
+
+export default function PdfPreview({ certificate, onClose }) {
+  if (!certificate) return null;
+
+  return (
+    <Modal
+      onClose={onClose}
+      label={`Pratinjau sertifikat ${certificate.title}`}
+      panelClassName="max-w-4xl"
+      backdropClassName="bg-black/85 backdrop-blur-sm"
+    >
+      <div className="overflow-hidden rounded-2xl border border-border bg-surface shadow-2xl">
+        <div className="flex flex-wrap items-center justify-between gap-3 border-b border-border p-4">
+          <div className="min-w-0">
+            <h3 className="truncate text-base font-semibold text-text">{certificate.title}</h3>
+            <p className="text-sm text-text-secondary">{certificate.issuer}</p>
+          </div>
+          <div className="flex items-center gap-2">
+            <a
+              href={certificate.file}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex min-h-11 items-center gap-2 rounded-lg border border-border px-4 py-2 text-sm font-medium text-text transition-colors hover:border-border-hover hover:bg-surface-2"
+            >
+              <Icon name="external-link" size={16} /> Buka
+            </a>
+            <a
+              href={certificate.file}
+              download={`${certificate.title}.pdf`}
+              className="inline-flex min-h-11 items-center gap-2 rounded-lg border border-accent-border px-4 py-2 text-sm font-medium text-accent transition-colors hover:bg-accent-subtle"
+            >
+              <Icon name="download" size={16} /> Unduh
+            </a>
+            <button
+              type="button"
+              onClick={onClose}
+              aria-label="Tutup pratinjau"
+              className="flex h-11 w-11 items-center justify-center rounded-lg border border-border text-text-secondary transition-colors hover:border-border-hover hover:text-text"
+            >
+              <Icon name="x" size={18} />
+            </button>
+          </div>
+        </div>
+        <object
+          data={`${certificate.file}#view=FitH`}
+          type="application/pdf"
+          className="h-[68vh] w-full bg-surface-2"
+          aria-label={`Dokumen PDF ${certificate.title}`}
+        >
+          <div className="flex h-[50vh] flex-col items-center justify-center gap-3 p-8 text-center">
+            <Icon name="file-text" size={32} className="text-text-tertiary" />
+            <p className="text-sm text-text-secondary">
+              Pratinjau PDF tidak tersedia di perangkat ini.
+            </p>
+            <a
+              href={certificate.file}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-sm font-medium text-accent hover:underline"
+            >
+              Buka sertifikat di tab baru
+            </a>
+          </div>
+        </object>
+      </div>
+    </Modal>
+  );
+}
+</file>
+
+<file path="src/components/ThemeToggle.jsx">
+import React from 'react';
+import { motion, useReducedMotion } from 'framer-motion';
+import Icon from './Icon';
+import { useTheme } from '../theme';
+
+export default function ThemeToggle({ className = '' }) {
+  const { theme, toggleTheme } = useTheme();
+  const reduceMotion = useReducedMotion();
+  const isDark = theme === 'dark';
+
+  return (
+    <button
+      type="button"
+      aria-label={isDark ? 'Aktifkan tema terang' : 'Aktifkan tema gelap'}
+      aria-pressed={!isDark}
+      onClick={toggleTheme}
+      title={isDark ? 'Aktifkan tema terang' : 'Aktifkan tema gelap'}
+      className={[
+        'inline-flex h-11 w-11 items-center justify-center rounded-lg border border-border',
+        'text-text-secondary transition-colors hover:border-border-hover hover:text-text',
+        'focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent',
+        className,
+      ].join(' ')}
+    >
+      <motion.span
+        key={theme}
+        initial={reduceMotion ? false : { opacity: 0, rotate: isDark ? -90 : 90 }}
+        animate={{ opacity: 1, rotate: 0 }}
+        transition={{ duration: reduceMotion ? 0 : 0.2 }}
+        className="flex"
+      >
+        <Icon name={isDark ? 'sun' : 'moon'} size={18} />
+      </motion.span>
+    </button>
+  );
+}
+</file>
+
+<file path="src/hooks/useBodyScrollLock.js">
+import { useEffect } from 'react';
+
+let lockCount = 0;
+let previousOverflow = '';
+
+/**
+ * Mengunci scroll body dengan aman ketika beberapa dialog (drawer/lightbox)
+ * mungkin terbuka di waktu yang sama. Nilai overflow sebelumnya dipulihkan
+ * setelah pengunci terakhir dilepas.
+ */
+export default function useBodyScrollLock(locked) {
+  useEffect(() => {
+    if (!locked) return undefined;
+
+    if (lockCount === 0) {
+      previousOverflow = document.body.style.overflow;
+      document.body.style.overflow = 'hidden';
+    }
+    lockCount += 1;
+
+    return () => {
+      lockCount = Math.max(0, lockCount - 1);
+      if (lockCount === 0) {
+        document.body.style.overflow = previousOverflow;
+      }
+    };
+  }, [locked]);
+}
+</file>
+
+<file path="src/theme.jsx">
+import React, { createContext, useCallback, useContext, useEffect, useMemo, useState } from 'react';
+
+const DARK_COLOR = '#0a0a0b';
+const LIGHT_COLOR = '#fafafa';
+
+export function readTheme() {
+  try {
+    const saved = window.localStorage.getItem('theme');
+    if (saved === 'light' || saved === 'dark') return saved;
+  } catch {
+    // Storage dapat diblokir; lanjutkan dengan preferensi OS.
+  }
+
+  try {
+    return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+  } catch {
+    return 'dark';
+  }
+}
+
+export function applyTheme(theme, { persist = true } = {}) {
+  const safeTheme = theme === 'light' ? 'light' : 'dark';
+  document.documentElement.dataset.theme = safeTheme;
+
+  const meta = document.querySelector('meta[name="theme-color"]');
+  if (meta) {
+    meta.setAttribute('content', safeTheme === 'light' ? LIGHT_COLOR : DARK_COLOR);
+  }
+
+  if (persist) {
+    try {
+      window.localStorage.setItem('theme', safeTheme);
+    } catch {
+      // Tema tetap aktif untuk sesi ini meskipun tidak dapat disimpan.
+    }
+  }
+}
+
+const ThemeContext = createContext(null);
+
+export function ThemeProvider({ children }) {
+  const [theme, setTheme] = useState(() => {
+    const fromDom = document.documentElement.dataset.theme;
+    if (fromDom === 'light' || fromDom === 'dark') return fromDom;
+    return readTheme();
+  });
+
+  useEffect(() => {
+    applyTheme(theme);
+  }, [theme]);
+
+  const toggleTheme = useCallback(() => {
+    setTheme((current) => (current === 'dark' ? 'light' : 'dark'));
+  }, []);
+
+  const value = useMemo(
+    () => ({ theme, setTheme, toggleTheme, isDark: theme === 'dark' }),
+    [theme, toggleTheme],
+  );
+
+  return <ThemeContext.Provider value={value}>{children}</ThemeContext.Provider>;
+}
+
+export function useTheme() {
+  const context = useContext(ThemeContext);
+  if (!context) {
+    throw new Error('useTheme harus dipakai di dalam ThemeProvider');
+  }
+  return context;
+}
 </file>
 
 <file path="public/assets/icons/favicon.svg">
@@ -207,6 +968,14 @@ This section contains the contents of the repository's files.
 <file path="src/components/About.jsx">
 import React from 'react';
 import ScrollReveal from './ScrollReveal';
+import Icon from './Icon';
+import { assetUrl } from '../utils/assetUrl';
+
+const highlights = [
+  { icon: 'wrench', label: 'Problem solving teknis' },
+  { icon: 'network', label: 'Sistem backend & automation' },
+  { icon: 'cpu', label: 'AI & solusi digital' },
+];
 
 export default function About() {
   return (
@@ -214,33 +983,66 @@ export default function About() {
       <div className="container">
         <ScrollReveal>
           <div className="section__header">
+            <p className="mb-2 text-xs font-semibold uppercase tracking-[0.2em] text-accent">Tentang</p>
             <h2 className="section__title">Tentang Saya</h2>
-            <p className="section__subtitle">Pendekatan, fokus, dan nilai yang saya bawa dalam setiap proyek</p>
+            <p className="section__subtitle">
+              Pendekatan, fokus, dan nilai yang saya bawa dalam setiap proyek
+            </p>
           </div>
         </ScrollReveal>
 
-        <ScrollReveal>
-          <div className="about__content max-w-xl">
-            <p className="about__text text-text-secondary mb-4">
-              Saya <strong>Junior Backend Developer</strong> yang fokus pada hasil nyata: API yang cepat, sistem yang stabil, dan kode yang terstruktur. Pendekatan saya: pahami masalah dulu, baru tulis kode. Saya percaya sistem yang baik lahir dari kejelasan tujuan, struktur yang rapi, dan eksekusi yang konsisten.
-            </p>
-            <p className="about__text text-text-secondary mb-6">
-              Saat ini saya aktif membangun proyek mandiri — intelligent search engine, AI code review assistant, dan aplikasi web berbasis Laravel — sambil memperdalam AI, automation, dan software engineering melalui sertifikasi dan eksperimen langsung.
-            </p>
-            <div className="about__highlights grid grid-cols-1 sm:grid-cols-3 gap-4">
-              {[
-                { icon: 'bi-gear-wide-connected', label: 'Problem solving teknis' },
-                { icon: 'bi-diagram-3', label: 'Sistem backend & automation' },
-                { icon: 'bi-cpu', label: 'AI & solusi digital' },
-              ].map((item) => (
-                <div key={item.label} className="about__highlight inline-flex items-center gap-3 text-sm font-medium text-text">
-                  <i className={`${item.icon} text-accent text-lg flex-shrink-0`} aria-hidden="true" />
-                  {item.label}
-                </div>
-              ))}
+        <div className="grid items-center gap-10 lg:grid-cols-[1.05fr_0.95fr] lg:gap-14">
+          <ScrollReveal>
+            <div className="max-w-2xl">
+              <p className="text-base text-text-secondary">
+                Saya <strong>Junior Backend Developer</strong> yang fokus pada hasil nyata: API
+                yang cepat, sistem yang stabil, dan kode yang terstruktur. Pendekatan saya: pahami
+                masalah dulu, baru tulis kode. Saya percaya sistem yang baik lahir dari kejelasan
+                tujuan, struktur yang rapi, dan eksekusi yang konsisten.
+              </p>
+              <p className="mt-4 text-base text-text-secondary">
+                Saat ini saya aktif membangun proyek mandiri — intelligent search engine, AI code
+                review assistant, dan aplikasi web berbasis Laravel — sambil memperdalam AI,
+                automation, dan software engineering melalui sertifikasi dan eksperimen langsung.
+              </p>
+
+              <div className="mt-7 grid grid-cols-1 gap-3 sm:grid-cols-3">
+                {highlights.map((item) => (
+                  <div
+                    key={item.label}
+                    className="flex items-center gap-3 rounded-xl border border-border bg-surface/70 p-3 text-sm font-medium text-text"
+                  >
+                    <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-accent-subtle text-accent">
+                      <Icon name={item.icon} size={18} />
+                    </span>
+                    {item.label}
+                  </div>
+                ))}
+              </div>
             </div>
-          </div>
-        </ScrollReveal>
+          </ScrollReveal>
+
+          <ScrollReveal>
+            <figure className="relative mx-auto w-full max-w-md">
+              <div
+                className="absolute -inset-2 rounded-3xl bg-gradient-to-br from-accent/25 via-accent-2/20 to-accent-3/20 blur-xl"
+                aria-hidden="true"
+              />
+              <img
+                src={assetUrl('assets/images/about-collaboration.webp')}
+                alt="Daffa berkolaborasi saat mengerjakan proyek"
+                width="720"
+                height="540"
+                loading="lazy"
+                className="relative w-full rounded-2xl border border-border object-cover shadow-lg"
+              />
+              <figcaption className="relative mt-4 flex items-center gap-2 text-xs text-text-tertiary">
+                <Icon name="map-pin" size={14} className="text-accent" />
+                Berbasis di Cinere, Depok — terbuka untuk kerja remote maupun hybrid.
+              </figcaption>
+            </figure>
+          </ScrollReveal>
+        </div>
       </div>
     </section>
   );
@@ -249,15 +1051,25 @@ export default function About() {
 
 <file path="src/components/BackToTop.jsx">
 import React, { useEffect, useState } from 'react';
+import Icon from './Icon';
 
-function BackToTop() {
+export default function BackToTop() {
   const [visible, setVisible] = useState(false);
 
   useEffect(() => {
-    const updateVisibility = () => setVisible(window.scrollY > 400);
+    const updateVisibility = () => {
+      const nearBottom =
+        window.innerHeight + window.scrollY >= document.documentElement.scrollHeight - 320;
+      setVisible(window.scrollY > 400 && !nearBottom);
+    };
+
     updateVisibility();
     window.addEventListener('scroll', updateVisibility, { passive: true });
-    return () => window.removeEventListener('scroll', updateVisibility);
+    window.addEventListener('resize', updateVisibility);
+    return () => {
+      window.removeEventListener('scroll', updateVisibility);
+      window.removeEventListener('resize', updateVisibility);
+    };
   }, []);
 
   const scrollToTop = () => {
@@ -273,79 +1085,190 @@ function BackToTop() {
       tabIndex={visible ? 0 : -1}
       onClick={scrollToTop}
       className={[
-        'backtotop fixed bottom-6 right-6 z-50 flex h-11 w-11 items-center justify-center',
-        'rounded-full border border-border bg-surface-2 text-text-secondary transition-all duration-300',
-        'hover:border-border-hover hover:text-text focus-visible:outline focus-visible:outline-2 focus-visible:outline-accent',
-        visible ? 'visible translate-y-0 opacity-100' : 'invisible translate-y-2 opacity-0 pointer-events-none',
+        'fixed bottom-6 right-6 z-50 flex h-11 w-11 items-center justify-center',
+        'rounded-full border border-border bg-surface-2 text-text-secondary shadow-md transition-all duration-300',
+        'hover:border-border-hover hover:text-text focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent',
+        visible
+          ? 'visible translate-y-0 opacity-100'
+          : 'invisible translate-y-2 opacity-0 pointer-events-none',
       ].join(' ')}
     >
-      <i className="bi bi-chevron-up text-lg" aria-hidden="true" />
+      <Icon name="arrow-up" size={19} />
     </button>
   );
 }
-
-export default BackToTop;
 </file>
 
 <file path="src/components/Contact.jsx">
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import ScrollReveal from './ScrollReveal';
 import CTAButton from './CTAButton';
+import Icon from './Icon';
 import { contactInfo } from '../data';
 
+const mailto = `mailto:${contactInfo.email}?subject=Ajakan%20Kerjasama%20Backend%20Development&body=Halo%20Daffa%2C%0A%0ASaya%20tertarik%20untuk%20berdiskusi%20mengenai%20peluang%20kerja%20sama%20backend%20development.%0A%0AMohon%20informasinya%20lebih%20lanjut.%0A%0ATerima%20kasih.%0A%0ASalam%2C%0A%5BNama%20Pengirim%5D`;
+
+function displayUrl(url) {
+  return url.replace(/^https?:\/\//, '').replace(/\/$/, '');
+}
+
 export default function Contact() {
-  const mailto = `mailto:${contactInfo.email}?subject=Ajakan%20Kerjasama%20Backend%20Development&body=Halo%20Daffa%2C%0A%0ASaya%20tertarik%20untuk%20berdiskusi%20mengenai%20peluang%20kerja%20sama%20backend%20development.%0A%0AMohon%20informasinya%20lebih%20lanjut.%0A%0ATerima%20kasih.%0A%0ASalam%2C%0A%5BNama%20Pengirim%5D`;
+  const [copied, setCopied] = useState(false);
+
+  useEffect(() => {
+    if (!copied) return undefined;
+    const timer = window.setTimeout(() => setCopied(false), 2200);
+    return () => window.clearTimeout(timer);
+  }, [copied]);
+
+  const copyEmail = async () => {
+    // Tampilkan umpan balik segera; kembalikan bila kedua mekanisme gagal.
+    setCopied(true);
+
+    try {
+      await navigator.clipboard.writeText(contactInfo.email);
+      return;
+    } catch {
+      // Clipboard API bisa diblokir; gunakan fallback lama.
+    }
+
+    let textarea;
+    try {
+      textarea = document.createElement('textarea');
+      textarea.value = contactInfo.email;
+      textarea.setAttribute('readonly', '');
+      textarea.style.position = 'fixed';
+      textarea.style.opacity = '0';
+      document.body.appendChild(textarea);
+      textarea.select();
+      const copiedNow = document.execCommand('copy');
+      if (!copiedNow) setCopied(false);
+    } catch {
+      setCopied(false);
+    } finally {
+      textarea?.remove();
+    }
+  };
+
+  const items = [
+    {
+      icon: 'mail',
+      label: 'Email',
+      value: contactInfo.email,
+      href: mailto,
+    },
+    {
+      icon: 'whatsapp',
+      label: 'WhatsApp',
+      value: contactInfo.phone,
+      href: contactInfo.whatsapp,
+      external: true,
+    },
+    {
+      icon: 'linkedin',
+      label: 'LinkedIn',
+      value: displayUrl(contactInfo.linkedin),
+      href: contactInfo.linkedin,
+      external: true,
+    },
+    {
+      icon: 'github',
+      label: 'GitHub',
+      value: displayUrl(contactInfo.github),
+      href: contactInfo.github,
+      external: true,
+    },
+    {
+      icon: 'map-pin',
+      label: 'Lokasi',
+      value: contactInfo.location,
+    },
+  ];
 
   return (
     <section className="section" id="kontak">
       <div className="container">
         <ScrollReveal>
           <div className="section__header">
+            <p className="mb-2 text-xs font-semibold uppercase tracking-[0.2em] text-accent">
+              Kontak
+            </p>
             <h2 className="section__title">Hubungi Saya</h2>
-            <p className="section__subtitle">Tertarik berkolaborasi? Jangan ragu untuk menghubungi</p>
+            <p className="section__subtitle">
+              Tertarik berkolaborasi? Pilih kanal yang paling nyaman untuk Anda.
+            </p>
           </div>
         </ScrollReveal>
 
         <ScrollReveal>
-          <div className="contact__content grid grid-cols-1 lg:grid-cols-2 gap-10">
-            <div className="contact__info flex flex-col gap-6">
-              <div className="contact__item flex items-start gap-4">
-                <i className="bi bi-envelope text-accent flex-shrink-0 text-xl mt-[2px]" aria-hidden="true" />
-                <div>
-                  <p className="contact__item-label text-xs font-medium text-text-tertiary uppercase tracking-widest mb-1">Email</p>
-                  <a href={mailto} className="contact__item-value font-medium hover:text-accent transition-colors">
-                    {contactInfo.email}
+          <div className="grid grid-cols-1 gap-8 lg:grid-cols-[0.95fr_1.05fr] lg:gap-12">
+            <div className="flex flex-col gap-5">
+              {items.map((item) => {
+                const content = (
+                  <>
+                    <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-accent-subtle text-accent">
+                      <Icon name={item.icon} size={19} />
+                    </span>
+                    <span className="min-w-0">
+                      <span className="block text-xs font-medium uppercase tracking-widest text-text-tertiary">
+                        {item.label}
+                      </span>
+                      <span className="mt-0.5 block truncate font-medium text-text">
+                        {item.value}
+                      </span>
+                    </span>
+                  </>
+                );
+
+                return item.href ? (
+                  <a
+                    key={item.label}
+                    href={item.href}
+                    {...(item.external
+                      ? { target: '_blank', rel: 'noopener noreferrer' }
+                      : {})}
+                    className="flex items-start gap-4 rounded-xl transition-colors hover:text-accent"
+                  >
+                    {content}
                   </a>
-                </div>
-              </div>
-              <div className="contact__item flex items-start gap-4">
-                <i className="bi bi-linkedin text-accent flex-shrink-0 text-xl mt-[2px]" aria-hidden="true" />
-                <div>
-                  <p className="contact__item-label text-xs font-medium text-text-tertiary uppercase tracking-widest mb-1">LinkedIn</p>
-                  <a href={contactInfo.linkedin} target="_blank" rel="noopener" className="contact__item-value font-medium hover:text-accent transition-colors">
-                    linkedin.com/in/leaddaf
-                  </a>
-                </div>
-              </div>
-              <div className="contact__item flex items-start gap-4">
-                <i className="bi bi-github text-accent flex-shrink-0 text-xl mt-[2px]" aria-hidden="true" />
-                <div>
-                  <p className="contact__item-label text-xs font-medium text-text-tertiary uppercase tracking-widest mb-1">GitHub</p>
-                  <a href={contactInfo.github} target="_blank" rel="noopener" className="contact__item-value font-medium hover:text-accent transition-colors">
-                    github.com/Bule2365
-                  </a>
-                </div>
-              </div>
+                ) : (
+                  <div key={item.label} className="flex items-start gap-4">
+                    {content}
+                  </div>
+                );
+              })}
             </div>
 
-            <div className="contact__cta p-8 bg-surface border border-border rounded-2xl flex flex-col justify-center">
-              <h3 className="contact__cta-title text-xl font-semibold mb-3">Siap untuk Kolaborasi?</h3>
-              <p className="contact__cta-text text-text-secondary mb-6 max-w-[440px]">
-                Saya selalu terbuka untuk proyek baru, ide segar, dan kesempatan belajar. Jika Anda mencari backend developer yang serius dan detail-oriented, mari bicara.
+            <div className="flex flex-col justify-center rounded-2xl border border-border bg-surface p-6 sm:p-8">
+              <h3 className="text-xl font-semibold text-text">Siap untuk Kolaborasi?</h3>
+              <p className="mt-3 max-w-[440px] text-text-secondary">
+                Saya selalu terbuka untuk proyek baru, ide segar, dan kesempatan belajar. Jika
+                Anda mencari backend developer yang serius dan detail-oriented, mari bicara.
               </p>
-              <CTAButton href={mailto} variant="primary">
-                <i className="bi bi-envelope" aria-hidden="true" /> Kirim Email
-              </CTAButton>
+
+              <div className="mt-6 flex flex-wrap gap-2">
+                <CTAButton href={mailto} variant="primary">
+                  <Icon name="mail" size={17} /> Kirim Email
+                </CTAButton>
+                <button
+                  type="button"
+                  onClick={copyEmail}
+                  aria-live="polite"
+                  className="inline-flex min-h-11 items-center justify-center gap-2 rounded-lg border border-border bg-surface-2 px-5 py-3 text-sm font-medium text-text transition-colors hover:border-border-hover focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent"
+                >
+                  <Icon name={copied ? 'check' : 'copy'} size={17} />
+                  {copied ? 'Email tersalin' : 'Salin email'}
+                </button>
+                <a
+                  href={contactInfo.whatsapp}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex min-h-11 items-center justify-center gap-2 rounded-lg border border-emerald-600/30 px-5 py-3 text-sm font-medium text-emerald-500 transition-colors hover:bg-emerald-500/10 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-emerald-500"
+                >
+                  <Icon name="whatsapp" size={17} /> WhatsApp
+                </a>
+              </div>
+
             </div>
           </div>
         </ScrollReveal>
@@ -357,51 +1280,51 @@ export default function Contact() {
 
 <file path="src/components/Footer.jsx">
 import React from 'react';
-import { motion } from 'framer-motion';
+import Icon from './Icon';
 import { contactInfo } from '../data';
+
+const socials = [
+  { href: contactInfo.github, label: 'GitHub Daffa', icon: 'github' },
+  { href: contactInfo.linkedin, label: 'LinkedIn Daffa', icon: 'linkedin' },
+  { href: contactInfo.whatsapp, label: 'WhatsApp Daffa', icon: 'whatsapp' },
+  {
+    href: `mailto:${contactInfo.email}?subject=Ajakan%20Kerjasama%20Backend%20Development`,
+    label: 'Email Daffa',
+    icon: 'mail',
+  },
+];
 
 export default function Footer() {
   return (
-    <footer className="footer py-12 border-t border-border">
+    <footer className="border-t border-border py-12">
       <div className="container">
-        <motion.div
-          className="footer__content flex flex-col items-center gap-4 text-center"
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.5 }}
-        >
-          <div className="footer__social flex gap-3">
-            <a
-              href={contactInfo.github}
-              target="_blank"
-              rel="noopener"
-              aria-label="GitHub Daffa"
-              className="flex items-center justify-center w-10 h-10 text-text-secondary border border-border rounded-full hover:text-text hover:border-border-hover hover:bg-surface-2 transition-all"
-            >
-              <i className="bi bi-github text-lg" aria-hidden="true" />
-            </a>
-            <a
-              href={contactInfo.linkedin}
-              target="_blank"
-              rel="noopener"
-              aria-label="LinkedIn Daffa"
-              className="flex items-center justify-center w-10 h-10 text-text-secondary border border-border rounded-full hover:text-text hover:border-border-hover hover:bg-surface-2 transition-all"
-            >
-              <i className="bi bi-linkedin text-lg" aria-hidden="true" />
-            </a>
-            <a
-              href={`mailto:${contactInfo.email}?subject=Ajakan%20Kerjasama%20Backend%20Development`}
-              aria-label="Email Daffa"
-              className="flex items-center justify-center w-10 h-10 text-text-secondary border border-border rounded-full hover:text-text hover:border-border-hover hover:bg-surface-2 transition-all"
-            >
-              <i className="bi bi-envelope text-lg" aria-hidden="true" />
-            </a>
+        <div className="flex flex-col items-center gap-4 text-center">
+          <a href="#hero" className="text-base font-semibold text-text hover:opacity-80">
+            Daffa Aria
+          </a>
+          <p className="max-w-md text-sm text-text-secondary">
+            Junior Backend Developer — membangun API yang cepat, sistem yang stabil, dan solusi
+            yang menyelesaikan masalah nyata.
+          </p>
+          <div className="flex gap-3">
+            {socials.map((social) => (
+              <a
+                key={social.label}
+                href={social.href}
+                {...(social.icon === 'mail'
+                  ? {}
+                  : { target: '_blank', rel: 'noopener noreferrer' })}
+                aria-label={social.label}
+                className="flex h-11 w-11 items-center justify-center rounded-full border border-border text-text-secondary transition-colors hover:border-border-hover hover:bg-surface-2 hover:text-text focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent"
+              >
+                <Icon name={social.icon} size={18} />
+              </a>
+            ))}
           </div>
-          <p className="footer__copy text-xs text-text-tertiary">
+          <p className="text-xs text-text-tertiary">
             &copy; {new Date().getFullYear()} Muhammad Daffa Aria Firmansyah
           </p>
-        </motion.div>
+        </div>
       </div>
     </footer>
   );
@@ -411,14 +1334,18 @@ export default function Footer() {
 <file path="src/components/Skills.jsx">
 import React from 'react';
 import ScrollReveal from './ScrollReveal';
+import Icon from './Icon';
 import { skills } from '../data';
 
-const skillGroups = [
-  { title: 'Bahasa Pemrograman', items: skills.languages },
-  { title: 'Database', items: skills.databases },
-  { title: 'Framework', items: skills.frameworks },
-  { title: 'Tools', items: skills.tools },
-  { title: 'Fokus Utama', items: skills.focus, accent: true },
+const primaryGroups = [
+  { title: 'Bahasa Pemrograman', icon: 'code', items: skills.languages },
+  { title: 'Framework', icon: 'layers', items: skills.frameworks },
+  { title: 'Database', icon: 'database', items: skills.databases },
+];
+
+const supportGroups = [
+  { title: 'Tools & Platform', icon: 'wrench', items: skills.tools },
+  { title: 'Fokus Utama', icon: 'target', items: skills.focus, accent: true },
 ];
 
 export default function Skills() {
@@ -427,32 +1354,63 @@ export default function Skills() {
       <div className="container">
         <ScrollReveal>
           <div className="section__header">
+            <p className="mb-2 text-xs font-semibold uppercase tracking-[0.2em] text-accent">
+              Keahlian
+            </p>
             <h2 className="section__title">Keahlian Teknis</h2>
-            <p className="section__subtitle">Teknologi dan tools yang saya gunakan sehari-hari</p>
+            <p className="section__subtitle">
+              Teknologi yang saya gunakan sehari-hari untuk membangun backend dan sistem
+              otomasi.
+            </p>
           </div>
         </ScrollReveal>
 
-        <ScrollReveal>
-          <div className="skills__grid grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-            {skillGroups.map((group) => (
-              <div key={group.title} className="skill__group p-6 bg-surface border border-border rounded-xl">
-                <h3 className="skill__group-title text-xs font-semibold text-text-tertiary uppercase tracking-widest mb-4">
-                  {group.title}
-                </h3>
-                <div className="skill__chips flex flex-wrap gap-2">
+        <div className="grid gap-4 md:grid-cols-3">
+          {primaryGroups.map((group) => (
+            <ScrollReveal key={group.title}>
+              <div className="h-full rounded-2xl border border-border bg-surface p-6 transition-colors hover:border-border-hover">
+                <div className="mb-4 flex items-center gap-3">
+                  <span className="flex h-10 w-10 items-center justify-center rounded-lg bg-accent-subtle text-accent">
+                    <Icon name={group.icon} size={19} />
+                  </span>
+                  <h3 className="text-sm font-semibold text-text">{group.title}</h3>
+                </div>
+                <div className="flex flex-wrap gap-2">
                   {group.items.map((item) => (
                     <span
                       key={item}
-                      className={`chip ${group.accent ? 'chip--accent' : ''}`}
+                      className="inline-flex items-center rounded-lg border border-border bg-surface-2 px-3 py-1.5 text-sm font-medium text-text-secondary"
                     >
                       {item}
                     </span>
                   ))}
                 </div>
               </div>
-            ))}
-          </div>
-        </ScrollReveal>
+            </ScrollReveal>
+          ))}
+        </div>
+
+        <div className="mt-4 grid gap-4 md:grid-cols-2">
+          {supportGroups.map((group) => (
+            <ScrollReveal key={group.title}>
+              <div className="h-full rounded-xl border border-border bg-surface/60 p-5">
+                <div className="mb-3 flex items-center gap-2">
+                  <Icon name={group.icon} size={16} className="text-text-tertiary" />
+                  <h3 className="text-xs font-semibold uppercase tracking-[0.18em] text-text-tertiary">
+                    {group.title}
+                  </h3>
+                </div>
+                <div className="flex flex-wrap gap-2">
+                  {group.items.map((item) => (
+                    <span key={item} className={`chip ${group.accent ? 'chip--accent' : ''}`}>
+                      {item}
+                    </span>
+                  ))}
+                </div>
+              </div>
+            </ScrollReveal>
+          ))}
+        </div>
       </div>
     </section>
   );
@@ -464,42 +1422,9 @@ const BASE_URL = import.meta.env.BASE_URL || '/';
 
 export function assetUrl(path) {
   const normalizedPath = String(path ?? '').replace(/^\/+/, '');
-  return `${BASE_URL}${normalizedPath}`;
+  // encodeURI meng-encode spasi dan karakter non-ASCII tanpa merusak slash.
+  return encodeURI(`${BASE_URL}${normalizedPath}`);
 }
-</file>
-
-<file path="src/theme.js">
-export function readTheme() {
-  try {
-    const saved = window.localStorage.getItem('theme');
-    if (saved === 'light' || saved === 'dark') return saved;
-  } catch {
-    // Storage dapat diblokir; lanjutkan dengan preferensi OS.
-  }
-
-  try {
-    return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
-  } catch {
-    return 'dark';
-  }
-}
-
-export function applyTheme(theme, { persist = true } = {}) {
-  const safeTheme = theme === 'light' ? 'light' : 'dark';
-  document.documentElement.dataset.theme = safeTheme;
-
-  if (persist) {
-    try {
-      window.localStorage.setItem('theme', safeTheme);
-    } catch {
-      // Tema tetap aktif untuk sesi ini meskipun tidak dapat disimpan.
-    }
-  }
-}
-</file>
-
-<file path="google3935b0c3f9d63e31.html">
-google-site-verification: google3935b0c3f9d63e31.html
 </file>
 
 <file path="package.json">
@@ -551,99 +1476,6 @@ export default defineConfig({
   plugins: [react()],
   base: '/my-web/',
 });
-</file>
-
-<file path="src/components/Certificates.jsx">
-import React, { useState } from 'react';
-import ScrollReveal from './ScrollReveal';
-import CTAButton from './CTAButton';
-import { certificates } from '../data';
-
-const filters = ['all', 'ai', 'productivity', 'security', 'microsoft'];
-
-const filterLabels = {
-  all: 'Semua',
-  ai: 'AI',
-  productivity: 'Productivity',
-  security: 'Security',
-  microsoft: 'Microsoft',
-};
-
-export default function Certificates() {
-  const [activeFilter, setActiveFilter] = useState('all');
-
-  const filtered = activeFilter === 'all'
-    ? certificates
-    : certificates.filter((c) => c.category === activeFilter);
-
-  return (
-    <section className="section" id="sertifikat">
-      <div className="container">
-        <ScrollReveal>
-          <div className="section__header">
-            <h2 className="section__title">Sertifikat</h2>
-            <p className="section__subtitle">Bukti kompetensi dan pembelajaran berkelanjutan</p>
-          </div>
-        </ScrollReveal>
-
-        <ScrollReveal>
-          <div className="certs__filters flex flex-wrap gap-2 mb-8" role="group" aria-label="Filter sertifikat">
-            {filters.map((f) => (
-              <button
-                key={f}
-                type="button"
-                className={`certs__filter px-4 py-2 text-sm font-medium rounded-full border border-border text-text-secondary transition-all hover:text-text hover:border-border-hover ${
-                  activeFilter === f ? 'text-white bg-accent border-accent' : ''
-                }`}
-                aria-pressed={activeFilter === f}
-                onClick={() => setActiveFilter(f)}
-              >
-                {filterLabels[f]}
-              </button>
-            ))}
-          </div>
-          <div className="sr-only" aria-live="polite">
-            Menampilkan {filtered.length} sertifikat
-          </div>
-        </ScrollReveal>
-
-        <ScrollReveal>
-               {filtered.length === 0 ? (
-                 <div className="text-center text-text-secondary py-12">
-                   <p>Tidak ada sertifikat pada kategori ini.</p>
-                 </div>
-               ) : (
-                 <div className="certs__grid grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-                   {filtered.map((cert) => (
-                     <div key={cert.id} className="cert-card p-6 bg-surface border border-border rounded-xl hover:border-border-hover hover:shadow-md hover:-translate-y-1 transition-all duration-300" style={reduceMotion ? {} : undefined}>
-                   <div className="cert-card__icon flex items-center justify-center w-10 h-10 rounded-lg bg-accent-subtle text-accent text-xl mb-4">
-                     <i className="bi bi-award-fill" aria-hidden="true" />
-                   </div>
-                   <h3 className="cert-card__title font-semibold mb-1">{cert.title}</h3>
-                   <div className="cert-card__issuer flex items-center gap-2 text-sm text-text-secondary mb-1">
-                     <i className="bi bi-building text-xs" aria-hidden="true" />
-                     {cert.issuer}
-                   </div>
-                   {cert.date && (
-                     <div className="cert-card__date flex items-center gap-2 text-xs text-text-tertiary mb-4">
-                       <i className="bi bi-calendar3" aria-hidden="true" />
-                       {cert.date}
-                     </div>
-                   )}
-                   <div className="cert-card__actions">
-                     <CTAButton href={cert.image} variant="outline" className="text-xs px-3 py-1.5" target="_blank" rel="noopener noreferrer">
-                       <i className="bi bi-eye" aria-hidden="true" /> Lihat Sertifikat
-                     </CTAButton>
-                   </div>
-                 </div>
-               ))}
-             </div>
-           )}
-        </ScrollReveal>
-      </div>
-    </section>
-  );
-}
 </file>
 
 <file path="src/components/CTAButton.jsx">
@@ -701,95 +1533,145 @@ export default function CTAButton({
 import React from 'react';
 import { motion, useReducedMotion } from 'framer-motion';
 import CTAButton from './CTAButton';
+import Icon from './Icon';
 import { assetUrl } from '../utils/assetUrl';
 
-const fadeUp = {
-  hidden: { opacity: 0, y: 40 },
-  visible: { opacity: 1, y: 0, transition: { duration: 0.7, ease: [0.25, 0.46, 0.45, 0.94] } },
-};
-
-const staggerChildren = {
-  visible: {
-    transition: { staggerChildren: 0.1, delayChildren: 0.2 },
-  },
-};
+const ease = [0.25, 0.46, 0.45, 0.94];
 
 export default function Hero() {
   const reduceMotion = useReducedMotion();
 
+  const fadeUp = {
+    hidden: { opacity: reduceMotion ? 1 : 0, y: reduceMotion ? 0 : 28 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: { duration: reduceMotion ? 0 : 0.65, ease },
+    },
+  };
+
+  const stagger = {
+    hidden: {},
+    visible: {
+      transition: reduceMotion ? { duration: 0 } : { staggerChildren: 0.08, delayChildren: 0.12 },
+    },
+  };
+
   return (
-    <section className="hero min-h-screen flex items-center pt-20" id="hero">
+    <section
+      id="hero"
+      className="relative flex min-h-[100svh] items-center overflow-hidden pb-16 pt-24 sm:pt-28"
+    >
+      <div className="pointer-events-none absolute inset-0 -z-10" aria-hidden="true">
+        <div className="absolute -right-24 top-10 h-72 w-72 rounded-full bg-accent/20 blur-3xl" />
+        <div className="absolute bottom-0 right-1/4 h-64 w-64 rounded-full bg-accent-2/15 blur-3xl" />
+        <div className="absolute left-1/2 top-1/3 h-56 w-56 -translate-x-1/2 rounded-full bg-accent-3/10 blur-3xl" />
+      </div>
+
       <div className="container">
         <motion.div
-          className="hero__content grid grid-cols-1 lg:grid-cols-[1fr_auto] gap-10 items-center"
-          variants={staggerChildren}
-          initial="hidden"
+          variants={stagger}
+          initial={reduceMotion ? false : 'hidden'}
           animate="visible"
-          transition={reduceMotion ? { duration: 0 } : undefined}
+          className="grid grid-cols-1 items-center gap-10 lg:grid-cols-[1.15fr_0.85fr] lg:gap-14"
         >
-          <motion.div className="hero__content" variants={fadeUp} transition={reduceMotion ? { duration: 0 } : undefined}>
+          <div>
+            <motion.div variants={fadeUp}>
+              <span className="inline-flex items-center gap-2 rounded-full border border-accent-border bg-accent-subtle px-3 py-1.5 text-xs font-medium text-accent">
+                <span className="relative flex h-2 w-2">
+                  <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-emerald-400 opacity-60" />
+                  <span className="relative inline-flex h-2 w-2 rounded-full bg-emerald-400" />
+                </span>
+                Terbuka untuk peluang kerja
+              </span>
+            </motion.div>
+
             <motion.p
-              className="hero__greeting text-sm font-medium text-accent uppercase tracking-widest mb-3"
               variants={fadeUp}
-              transition={reduceMotion ? { duration: 0 } : undefined}
+              className="mt-5 text-sm font-medium uppercase tracking-[0.2em] text-text-tertiary"
             >
-              Daffa Aria
+              Daffa Aria — Cinere, Depok
             </motion.p>
+
             <motion.h1
-              className="hero__title text-4xl md:text-5xl lg:text-6xl font-bold leading-tight mb-4"
               variants={fadeUp}
-              transition={reduceMotion ? { duration: 0 } : undefined}
+              className="mt-3 max-w-3xl text-4xl font-bold leading-[1.05] tracking-tight text-balance md:text-5xl lg:text-6xl"
             >
-              Junior Backend Developer
+              Junior <span className="text-gradient">Backend Developer</span>
             </motion.h1>
+
             <motion.p
-              className="hero__desc text-lg text-text-secondary max-w-md mb-6"
               variants={fadeUp}
-              transition={reduceMotion ? { duration: 0 } : undefined}
+              className="mt-5 max-w-xl text-lg text-text-secondary"
             >
-              Bangun backend yang tangguh. Selesaikan masalah yang sebenarnya.
+              Bangun backend yang tangguh. Selesaikan masalah yang sebenarnya — API cepat,
+              sistem stabil, dan kode yang mudah dirawat.
             </motion.p>
-            <motion.div
-              className="hero__tech flex flex-wrap gap-2 mb-8"
-              variants={fadeUp}
-              transition={reduceMotion ? { duration: 0 } : undefined}
-            >
+
+            <motion.div variants={fadeUp} className="mt-6 flex flex-wrap gap-2">
               {['Python', 'FastAPI', 'Laravel', 'AI Automation'].map((tag) => (
-                <span key={tag} className="chip">{tag}</span>
+                <span key={tag} className="chip">
+                  <Icon name="code" size={13} className="text-accent" />
+                  {tag}
+                </span>
               ))}
             </motion.div>
-            <motion.div
-              className="hero__actions flex flex-wrap gap-3"
-              variants={fadeUp}
-              transition={reduceMotion ? { duration: 0 } : undefined}
-            >
-              <CTAButton href="#proyek" variant="primary">Lihat Proyek</CTAButton>
-              <CTAButton href={assetUrl('documents/CV-Daffa_v6.pdf')} variant="secondary" download="CV-Daffa_v6.pdf">
-                <i className="bi bi-download" aria-hidden="true" />
-                Unduh CV
+
+            <motion.div variants={fadeUp} className="mt-8 flex flex-wrap gap-3">
+              <CTAButton href="#proyek" variant="primary">
+                <Icon name="arrow-right" size={17} /> Lihat Proyek
+              </CTAButton>
+              <CTAButton
+                href={assetUrl('documents/CV-Daffa_v6.pdf')}
+                variant="secondary"
+                download="CV-Daffa_v6.pdf"
+              >
+                <Icon name="download" size={17} /> Unduh CV
               </CTAButton>
             </motion.div>
-          </motion.div>
 
-          <motion.div
-            className="hero__image flex justify-center"
-          >
-            <motion.div
-              className="hero__image-wrapper w-56 h-56 lg:w-72 lg:h-72 rounded-2xl overflow-hidden border border-border shadow-lg"
-              initial={{ opacity: 0, scale: 0.8 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.8, delay: 0.4, ease: 'easeOut' }}
+            <motion.dl
+              variants={fadeUp}
+              className="mt-10 grid max-w-lg grid-cols-3 divide-x divide-border rounded-xl border border-border bg-surface/70 p-1"
             >
-              <img
-                src={assetUrl('assets/images/profile.webp')}
-                alt="Foto profil Daffa Aria"
-                width="320"
-                height="320"
-                loading="eager"
-                fetchPriority="high"
-                className="w-full h-full object-cover"
+              {[
+                { value: '2', label: 'proyek unggulan' },
+                { value: '9', label: 'sertifikasi' },
+                { value: '4,6ms', label: 'per query' },
+              ].map((stat) => (
+                <div key={stat.label} className="px-3 py-3 text-center sm:px-4">
+                  <dt className="text-lg font-bold text-text sm:text-xl">{stat.value}</dt>
+                  <dd className="mt-0.5 text-[11px] leading-tight text-text-tertiary sm:text-xs">
+                    {stat.label}
+                  </dd>
+                </div>
+              ))}
+            </motion.dl>
+          </div>
+
+          <motion.div variants={fadeUp} className="flex justify-center lg:justify-end">
+            <div className="relative">
+              <div
+                className="absolute -inset-3 rounded-[2rem] bg-gradient-to-br from-accent via-accent-2 to-accent-3 opacity-25 blur-2xl"
+                aria-hidden="true"
               />
-            </motion.div>
+              <motion.div
+                initial={reduceMotion ? false : { opacity: 0, scale: 0.9 }}
+                animate={{ opacity: 1, scale: 1 }}
+                transition={{ duration: reduceMotion ? 0 : 0.7, delay: reduceMotion ? 0 : 0.25 }}
+                className="relative h-60 w-60 overflow-hidden rounded-[1.75rem] border border-border bg-surface shadow-lg sm:h-72 sm:w-72 lg:h-80 lg:w-80"
+              >
+                <img
+                  src={assetUrl('assets/images/profile.webp')}
+                  alt="Foto profil Daffa Aria"
+                  width="420"
+                  height="420"
+                  loading="eager"
+                  fetchPriority="high"
+                  className="h-full w-full object-cover"
+                />
+              </motion.div>
+            </div>
           </motion.div>
         </motion.div>
       </div>
@@ -800,13 +1682,15 @@ export default function Hero() {
 
 <file path="src/components/Navbar.jsx">
 import React, { useState, useEffect, useCallback, useRef } from 'react';
-import { motion, AnimatePresence, useReducedMotion } from 'framer-motion';
-import { contactInfo } from '../data';
+import { AnimatePresence, motion, useReducedMotion } from 'framer-motion';
 import { assetUrl } from '../utils/assetUrl';
-import { readTheme, applyTheme } from '../theme';
+import ThemeToggle from './ThemeToggle';
+import Icon from './Icon';
+import useBodyScrollLock from '../hooks/useBodyScrollLock';
 
 const navLinks = [
   { href: '#tentang', label: 'Tentang' },
+  { href: '#perjalanan', label: 'Perjalanan' },
   { href: '#keahlian', label: 'Keahlian' },
   { href: '#proyek', label: 'Proyek' },
   { href: '#sertifikat', label: 'Sertifikat' },
@@ -814,35 +1698,25 @@ const navLinks = [
   { href: '#kontak', label: 'Kontak' },
 ];
 
+const SECTION_IDS = ['hero', 'tentang', 'perjalanan', 'keahlian', 'proyek', 'sertifikat', 'kontak'];
 const SCROLL_OFFSET = 96;
-
-function useBodyScrollLock(lock) {
-  useEffect(() => {
-    if (!lock) {
-      return;
-    }
-    const prevOverflow = document.body.style.overflow;
-    document.body.style.overflow = 'hidden';
-    return () => {
-      document.body.style.overflow = prevOverflow;
-    };
-  }, [lock]);
-}
 
 function useMediaQuery(query) {
   const [matches, setMatches] = useState(false);
 
   useEffect(() => {
     const media = window.matchMedia(query);
+    const handleChange = () => setMatches(media.matches);
+
+    handleChange();
+
     if (media.addEventListener) {
-      media.addEventListener('change', () => setMatches(media.matches));
-      setMatches(media.matches);
-      return () => media.removeEventListener('change', () => setMatches(media.matches));
-    } else {
-      media.addListener(() => setMatches(media.matches));
-      setMatches(media.matches);
-      return () => media.removeListener(() => setMatches(media.matches));
+      media.addEventListener('change', handleChange);
+      return () => media.removeEventListener('change', handleChange);
     }
+
+    media.addListener(handleChange);
+    return () => media.removeListener(handleChange);
   }, [query]);
 
   return matches;
@@ -854,18 +1728,22 @@ export default function Navbar() {
   const [activeSection, setActiveSection] = useState('');
   const menuRef = useRef(null);
   const toggleRef = useRef(null);
+  const restoreFocusRef = useRef(false);
+  const wasOpenRef = useRef(false);
   const isDesktop = useMediaQuery('(min-width: 768px)');
+  const reduceMotion = useReducedMotion();
 
   useBodyScrollLock(isOpen && !isDesktop);
 
-  const openMenu = useCallback(() => setIsOpen(true), []);
-  const closeMenu = useCallback(() => setIsOpen(false), []);
-  const toggleMenu = useCallback(() => setIsOpen((prev) => !prev), []);
+  const closeMenu = useCallback(({ restoreFocus = false } = {}) => {
+    restoreFocusRef.current = restoreFocus;
+    setIsOpen(false);
+  }, []);
+
+  const toggleMenu = useCallback(() => setIsOpen((current) => !current), []);
 
   useEffect(() => {
-    const handleScroll = () => {
-      setScrolled(window.scrollY > 40);
-    };
+    const handleScroll = () => setScrolled(window.scrollY > 40);
     handleScroll();
     window.addEventListener('scroll', handleScroll, { passive: true });
     return () => window.removeEventListener('scroll', handleScroll);
@@ -873,36 +1751,47 @@ export default function Navbar() {
 
   useEffect(() => {
     const sections = SECTION_IDS.map((id) => document.getElementById(id)).filter(Boolean);
+    let frame = null;
 
     const updateActive = () => {
       let current = '';
       const scrollPos = window.scrollY + SCROLL_OFFSET;
-      for (let i = 0; i < sections.length; i++) {
-        const section = sections[i];
+
+      sections.forEach((section) => {
         const sectionTop = section.offsetTop;
         const sectionBottom = sectionTop + section.offsetHeight;
         if (scrollPos >= sectionTop && scrollPos < sectionBottom) {
           current = section.id;
         }
-      }
+      });
+
       if (!current && sections.length > 0) {
         const firstTop = sections[0].offsetTop;
-        const lastBottom = sections[sections.length - 1].offsetTop + sections[sections.length - 1].offsetHeight;
-        if (window.scrollY < firstTop) {
-          current = 'hero';
-        } else if (window.scrollY >= lastBottom - SCROLL_OFFSET) {
-          current = 'kontak';
-        }
+        const last = sections[sections.length - 1];
+        const lastBottom = last.offsetTop + last.offsetHeight;
+        if (window.scrollY < firstTop) current = 'hero';
+        else if (window.scrollY >= lastBottom - SCROLL_OFFSET) current = 'kontak';
       }
+
       setActiveSection(current);
     };
 
+    const handleScroll = () => {
+      if (frame !== null) return;
+      frame = window.requestAnimationFrame(() => {
+        updateActive();
+        frame = null;
+      });
+    };
+
     updateActive();
-    window.addEventListener('scroll', updateActive, { passive: true });
-    window.addEventListener('resize', updateActive);
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    window.addEventListener('resize', handleScroll);
+
     return () => {
-      window.removeEventListener('scroll', updateActive);
-      window.removeEventListener('resize', updateActive);
+      window.removeEventListener('scroll', handleScroll);
+      window.removeEventListener('resize', handleScroll);
+      if (frame !== null) window.cancelAnimationFrame(frame);
     };
   }, []);
 
@@ -913,52 +1802,118 @@ export default function Navbar() {
   }, [isOpen, isDesktop, closeMenu]);
 
   useEffect(() => {
-    const handleKeydown = (e) => {
-      if (e.key === 'Escape' && isOpen) {
-        closeMenu();
+    if (isOpen) {
+      wasOpenRef.current = true;
+      const timer = window.setTimeout(() => {
+        const firstControl = menuRef.current?.querySelector('a[href], button:not([disabled])');
+        firstControl?.focus();
+      }, 30);
+      return () => window.clearTimeout(timer);
+    }
+
+    if (wasOpenRef.current) {
+      wasOpenRef.current = false;
+      if (restoreFocusRef.current) {
+        restoreFocusRef.current = false;
+        toggleRef.current?.focus();
+      }
+    }
+    return undefined;
+  }, [isOpen]);
+
+  useEffect(() => {
+    if (!isOpen || isDesktop) return undefined;
+
+    const handleKeydown = (event) => {
+      if (event.key === 'Escape') {
+        event.preventDefault();
+        closeMenu({ restoreFocus: true });
+        return;
+      }
+
+      if (event.key !== 'Tab') return;
+
+      const menu = menuRef.current;
+      if (!menu) return;
+
+      const items = Array.from(menu.querySelectorAll('a[href], button:not([disabled])')).filter(
+        (element) => element.offsetParent !== null,
+      );
+
+      if (items.length === 0) {
+        event.preventDefault();
+        return;
+      }
+
+      const firstItem = items[0];
+      const lastItem = items[items.length - 1];
+
+      if (event.shiftKey && document.activeElement === firstItem) {
+        event.preventDefault();
+        lastItem.focus();
+      } else if (!event.shiftKey && document.activeElement === lastItem) {
+        event.preventDefault();
+        firstItem.focus();
       }
     };
+
     document.addEventListener('keydown', handleKeydown);
     return () => document.removeEventListener('keydown', handleKeydown);
-  }, [isOpen, closeMenu]);
+  }, [isOpen, isDesktop, closeMenu]);
 
-  const handleNavClick = (href) => {
+  useEffect(() => {
+    if (!isOpen || isDesktop) return undefined;
+
+    const regions = [document.querySelector('main'), document.querySelector('footer')].filter(Boolean);
+    regions.forEach((region) => region.setAttribute('inert', ''));
+
+    return () => {
+      regions.forEach((region) => region.removeAttribute('inert'));
+    };
+  }, [isOpen, isDesktop]);
+
+  const handleNavClick = () => {
     closeMenu();
   };
 
-  const reduceMotion = useReducedMotion();
-
   return (
     <header
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        scrolled ? 'bg-bg/85 backdrop-blur-md shadow-sm' : 'bg-transparent'
+      className={`fixed inset-x-0 top-0 z-50 transition-all duration-300 ${
+        scrolled ? 'border-b border-border bg-bg/85 backdrop-blur-md' : 'bg-transparent'
       }`}
     >
-      <nav className="container flex items-center justify-between py-4" aria-label="Navigasi utama">
-        <a href="#hero" className="text-lg font-semibold tracking-tight opacity-80 hover:opacity-100 transition-opacity">
+      <nav className="container flex items-center justify-between py-3" aria-label="Navigasi utama">
+        <a
+          href="#hero"
+          onClick={handleNavClick}
+          className="text-lg font-semibold tracking-tight text-text transition-opacity hover:opacity-80"
+        >
           Daffa Aria
         </a>
 
         <div className="flex items-center gap-2">
-          <ul className="hidden md:flex items-center gap-1">
-            {navLinks.map((link) => (
-              <li key={link.href}>
-                <a
-                  href={link.href}
-                  target={link.isExternal ? '_blank' : undefined}
-                  rel={link.isExternal ? 'noopener noreferrer' : undefined}
-                  onClick={() => handleNavClick(link.href)}
-                  aria-current={activeSection === link.href.slice(1) && !link.isExternal ? 'location' : undefined}
-                  className={`block px-3 py-2 text-sm font-medium rounded-lg transition-colors ${
-                    activeSection === link.href.slice(1) && !link.isExternal
-                      ? 'text-white bg-surface-2'
-                      : 'text-text-secondary hover:text-text hover:bg-surface-2'
-                  }`}
-                >
-                  {link.label}
-                </a>
-              </li>
-            ))}
+          <ul className="hidden items-center gap-1 md:flex">
+            {navLinks.map((link) => {
+              const isActive = activeSection === link.href.slice(1) && !link.isExternal;
+              return (
+                <li key={link.href}>
+                  <a
+                    href={link.href}
+                    target={link.isExternal ? '_blank' : undefined}
+                    rel={link.isExternal ? 'noopener noreferrer' : undefined}
+                    onClick={handleNavClick}
+                    aria-current={isActive ? 'location' : undefined}
+                    className={`block rounded-lg px-3 py-2 text-sm font-medium transition-colors ${
+                      isActive
+                        ? 'bg-surface-2 text-text'
+                        : 'text-text-secondary hover:bg-surface-2 hover:text-text'
+                    }`}
+                  >
+                    {link.label}
+                  </a>
+                </li>
+              );
+            })}
           </ul>
 
           <ThemeToggle />
@@ -966,24 +1921,26 @@ export default function Navbar() {
           <button
             ref={toggleRef}
             type="button"
-            className="md:hidden flex flex-col gap-[5px] p-2 z-50 relative"
+            className={`relative z-50 flex h-11 w-11 flex-col items-center justify-center gap-[5px] p-2 md:hidden ${
+              isOpen ? 'invisible' : ''
+            }`}
             onClick={toggleMenu}
             aria-label={isOpen ? 'Tutup menu' : 'Buka menu'}
             aria-controls="nav-menu"
             aria-expanded={isOpen}
           >
             <span
-              className={`block w-[22px] h-[2px] bg-text rounded-[2px] transition-all duration-300 ${
+              className={`block h-[2px] w-[22px] rounded-[2px] bg-text transition-all duration-300 ${
                 isOpen ? 'translate-y-[7px] rotate-45' : ''
               }`}
             />
             <span
-              className={`block w-[22px] h-[2px] bg-text rounded-[2px] transition-all duration-300 ${
+              className={`block h-[2px] w-[22px] rounded-[2px] bg-text transition-all duration-300 ${
                 isOpen ? 'opacity-0' : ''
               }`}
             />
             <span
-              className={`block w-[22px] h-[2px] bg-text rounded-[2px] transition-all duration-300 ${
+              className={`block h-[2px] w-[22px] rounded-[2px] bg-text transition-all duration-300 ${
                 isOpen ? '-translate-y-[7px] -rotate-45' : ''
               }`}
             />
@@ -992,347 +1949,73 @@ export default function Navbar() {
       </nav>
 
       <AnimatePresence>
-        {isOpen && (
-          <motion.div
+        {isOpen && !isDesktop && (
+          <motion.button
+            key="nav-backdrop"
+            type="button"
+            tabIndex={-1}
+            aria-label="Tutup menu"
+            onClick={() => closeMenu({ restoreFocus: true })}
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: reduceMotion ? 0 : 0.2 }}
+            className="fixed inset-0 z-30 cursor-default bg-black/50 md:hidden"
+          />
+        )}
+      </AnimatePresence>
+
+      <AnimatePresence>
+        {isOpen && !isDesktop && (
+          <motion.nav
+            key="nav-drawer"
             id="nav-menu"
             ref={menuRef}
+            aria-label="Navigasi mobile"
             initial={{ opacity: 0, x: '100%' }}
             animate={{ opacity: 1, x: 0 }}
             exit={{ opacity: 0, x: '100%' }}
             transition={{ duration: reduceMotion ? 0 : 0.2, ease: 'easeInOut' }}
-            className="md:hidden fixed inset-y-0 right-0 z-40 w-64 bg-bg/95 backdrop-blur-lg flex flex-col gap-4 p-6 pt-16"
-            onClick={(e) => e.target === e.currentTarget && closeMenu()}
+            className="fixed inset-y-0 right-0 z-40 flex w-72 max-w-[85vw] flex-col gap-2 border-l border-border bg-bg/95 p-6 pt-20 backdrop-blur-lg md:hidden"
           >
-            {navLinks.map((link) => (
-              <a
-                key={link.href}
-                href={link.href}
-                target={link.isExternal ? '_blank' : undefined}
-                rel={link.isExternal ? 'noopener noreferrer' : undefined}
-                onClick={() => handleNavClick(link.href)}
-                aria-current={activeSection === link.href.slice(1) && !link.isExternal ? 'location' : undefined}
-                className="text-lg font-medium text-text-secondary hover:text-white transition-colors"
-              >
-                {link.label}
-              </a>
-            ))}
-            <div className="mt-auto pt-4">
+            <button
+              type="button"
+              onClick={() => closeMenu({ restoreFocus: true })}
+              aria-label="Tutup menu"
+              className="absolute right-4 top-4 flex h-11 w-11 items-center justify-center rounded-lg border border-border text-text-secondary transition-colors hover:border-border-hover hover:text-text"
+            >
+              <Icon name="x" size={18} />
+            </button>
+
+            {navLinks.map((link) => {
+              const isActive = activeSection === link.href.slice(1) && !link.isExternal;
+              return (
+                <a
+                  key={link.href}
+                  href={link.href}
+                  target={link.isExternal ? '_blank' : undefined}
+                  rel={link.isExternal ? 'noopener noreferrer' : undefined}
+                  onClick={handleNavClick}
+                  aria-current={isActive ? 'location' : undefined}
+                  className={`rounded-lg px-4 py-3 text-base font-medium transition-colors ${
+                    isActive
+                      ? 'bg-surface-2 text-text'
+                      : 'text-text-secondary hover:bg-surface-2 hover:text-text'
+                  }`}
+                >
+                  {link.label}
+                </a>
+              );
+            })}
+
+            <div className="mt-auto border-t border-border pt-4">
+              <p className="mb-2 text-xs uppercase tracking-widest text-text-tertiary">Tema</p>
               <ThemeToggle />
             </div>
-          </motion.div>
+          </motion.nav>
         )}
       </AnimatePresence>
     </header>
-  );
-}
-
-const SECTION_IDS = ['hero', 'tentang', 'keahlian', 'proyek', 'sertifikat', 'kontak'];
-
-function ThemeToggle() {
-  const [theme, setTheme] = useState(readTheme);
-
-  useEffect(() => {
-    applyTheme(theme);
-  }, [theme]);
-
-  const toggle = () => {
-    const next = theme === 'dark' ? 'light' : 'dark';
-    setTheme(next);
-  };
-
-  return (
-    <button
-      type="button"
-      aria-label={theme === 'dark' ? 'Aktifkan tema terang' : 'Aktifkan tema gelap'}
-      aria-pressed={theme === 'light'}
-      onClick={toggle}
-      className="inline-flex items-center justify-center w-10 h-10 rounded-lg text-text-secondary border border-border hover:text-text hover:border-border-hover focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent transition-colors"
-    >
-      <motion.i
-        key={theme}
-        initial={{ opacity: 0, rotate: theme === 'dark' ? -90 : 90 }}
-        animate={{ opacity: 1, rotate: 0 }}
-        transition={{ duration: 0.2 }}
-        className={`bi text-lg ${theme === 'dark' ? 'bi-moon-fill' : 'bi-sun-fill'}`}
-      />
-    </button>
-  );
-}
-</file>
-
-<file path="src/components/Projects.jsx">
-import React, { useState, useEffect, useCallback, useRef } from 'react';
-import { motion, AnimatePresence, useReducedMotion } from 'framer-motion';
-import ScrollReveal from './ScrollReveal';
-import { projectImages } from '../data';
-import { assetUrl } from '../utils/assetUrl';
-
-const projects = [
-  {
-    id: 'ai-assistant',
-    tags: ['Python', 'FastAPI', 'AI/LLM'],
-    title: 'AI Code Review Assistant (v1.5)',
-    desc: 'AI-powered code review dan automation dashboard yang mengintegrasikan Gemini 2.5 Flash dengan backend FastAPI untuk diagnosis kode secara otonom.',
-    details: [
-      'Diagnosis otomatis: security review, performance, code style, complexity',
-      'AST Python untuk validasi sintaks lokal sebelum analisis AI',
-      'Pipeline API & CORS aman untuk .py, .js, .jsx',
-    ],
-    github: 'https://github.com/Bule2365/AI-code-review-assistant',
-  },
-  {
-    id: 'realtime-analytics',
-    tags: ['Python', 'FastAPI', 'Machine Learning'],
-    title: 'Intelligent Search & Recommendation Engine',
-    desc: 'Search engine dan recommendation system e-commerce hybrid yang menggabungkan BM25, semantic search, dan collaborative filtering.',
-    details: [
-      'BM25 search latency rata-rata 4,6ms per query pada 2.000 produk',
-      'Hybrid search atasi vocabulary mismatch',
-      'Cold start fallback tanpa error atau hasil kosong',
-    ],
-    github: 'https://github.com/Bule2365/intelligent-search-recommendation-engine',
-  },
-];
-
-export default function Projects() {
-  const [lightboxProject, setLightboxProject] = useState(null);
-  const [lightboxIndex, setLightboxIndex] = useState(0);
-  const lightboxRef = useRef(null);
-  const lastFocusedEl = useRef(null);
-
-  const openLightbox = useCallback((projectId) => {
-    setLightboxIndex(0);
-    setLightboxProject(projectId);
-  }, []);
-
-  const closeLightbox = useCallback(() => {
-    setLightboxProject(null);
-  }, []);
-
-  const nextImage = useCallback(() => {
-    setLightboxIndex((prev) => (prev + 1) % (projectImages[lightboxProject]?.length || 1));
-  }, [lightboxProject]);
-
-  const prevImage = useCallback(() => {
-    setLightboxIndex((prev) => {
-      const len = projectImages[lightboxProject]?.length || 1;
-      return (prev - 1 + len) % len;
-    });
-  }, [lightboxProject]);
-
-  useEffect(() => {
-    if (lightboxProject) {
-      lastFocusedEl.current = document.activeElement;
-    }
-  }, [lightboxProject]);
-
-  useEffect(() => {
-    if (lightboxProject && lightboxRef.current) {
-      const closeButton = lightboxRef.current.querySelector('.lightbox__close');
-      if (closeButton) {
-        closeButton.focus();
-      }
-    }
-  }, [lightboxProject]);
-
-  useEffect(() => {
-    if (!lightboxProject && lastFocusedEl.current) {
-      lastFocusedEl.current.focus();
-      lastFocusedEl.current = null;
-    }
-  }, [lightboxProject]);
-
-  useEffect(() => {
-    if (!lightboxProject) return;
-
-    const handleKey = (e) => {
-      if (e.key === 'Escape') {
-        closeLightbox();
-      }
-
-      if (e.key === 'ArrowRight') {
-        nextImage();
-      }
-
-      if (e.key === 'ArrowLeft') {
-        prevImage();
-      }
-    };
-
-    window.addEventListener('keydown', handleKey);
-    return () => window.removeEventListener('keydown', handleKey);
-  }, [lightboxProject, closeLightbox, nextImage, prevImage]);
-
-  const currentImages = lightboxProject ? projectImages[lightboxProject] : [];
-
-  return (
-    <section className="section" id="proyek">
-      <div className="container">
-        <ScrollReveal>
-          <div className="section__header">
-            <h2 className="section__title">Proyek Unggulan</h2>
-            <p className="section__subtitle">Proyek nyata yang menunjukkan kemampuan teknis dan cara saya menyelesaikan masalah</p>
-          </div>
-        </ScrollReveal>
-
-        <div className="projects__grid grid grid-cols-1 lg:grid-cols-2 gap-8">
-          {projects.map((project, i) => (
-            <ScrollReveal key={project.id}>
-              <article className="project-card bg-surface border border-border rounded-2xl overflow-hidden group-focus-within hover:border-border-hover hover:shadow-lg transition-all duration-300" style={reduceMotion ? {} : undefined}>
-                <div className="project-card__image relative overflow-hidden aspect-video bg-surface-2 border-b border-border">
-                  <img
-                    src={assetUrl(`assets/images/projects/${project.id}/a.webp`)}
-                    alt={`${project.title} — tampilan utama`}
-                    width="800"
-                    height="450"
-                    loading="lazy"
-                    className="w-full h-full object-cover transition-transform duration-300 hover:scale-105" style={reduceMotion ? {} : undefined}
-                  />
-                   <div className="project-card__overlay absolute inset-0 z-2 flex items-center justify-center gap-3 bg-black/40 opacity-0 group-focus-within:opacity-100 hover:opacity-100 transition-opacity duration-300" style={reduceMotion ? {} : undefined}>
-                    <button
-                      className="btn btn--ghost btn--small text-white/90 border-white/20 backdrop-blur-sm hover:bg-white/15 hover:text-white hover:border-white/30"
-                      aria-label="Lihat galeri"
-                      onClick={() => openLightbox(project.id)}
-                    >
-                      <i className="bi bi-images" aria-hidden="true" /> Lihat Galeri
-                    </button>
-                    <a
-                      href={project.github}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="btn btn--ghost btn--small text-white/90 border-white/20 backdrop-blur-sm hover:bg-white/15 hover:text-white hover:border-white/30"
-                      aria-label="Buka repositori di GitHub"
-                      onClick={(e) => e.stopPropagation()}
-                    >
-                      <i className="bi bi-github" aria-hidden="true" /> GitHub
-                    </a>
-                  </div>
-                </div>
-                <div className="project-card__body p-6">
-                  <div className="project-card__tags flex flex-wrap gap-2 mb-3">
-                    {project.tags.map((tag) => (
-                      <span key={tag} className="tag">{tag}</span>
-                    ))}
-                  </div>
-                  <h3 className="project-card__title text-xl font-bold mb-3">{project.title}</h3>
-                  <p className="project-card__desc text-text-secondary mb-4">{project.desc}</p>
-                  <ul className="project-card__details flex flex-col gap-2">
-                    {project.details.map((d) => (
-                      <li key={d} className="relative pl-4 text-sm text-text-tertiary leading-relaxed">
-                        <span className="absolute left-0 top-2 w-[4px] h-[4px] rounded-full bg-accent" />
-                        {d}
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-              </article>
-            </ScrollReveal>
-          ))}
-        </div>
-      </div>
-
-      <Lightbox
-        images={currentImages}
-        index={lightboxIndex}
-        isOpen={!!lightboxProject}
-        onClose={closeLightbox}
-        onNext={nextImage}
-        onPrev={prevImage}
-        lightboxRef={lightboxRef}
-      />
-    </section>
-  );
-}
-
-function Lightbox({ images, index, isOpen, onClose, onNext, onPrev, lightboxRef }) {
-  const [touchStart, setTouchStart] = useState(0);
-
-  useEffect(() => {
-    if (isOpen) {
-      document.body.style.overflow = 'hidden';
-    } else {
-      document.body.style.overflow = '';
-    }
-    return () => {
-      document.body.style.overflow = '';
-    };
-  }, [isOpen]);
-
-  if (!isOpen) return null;
-
-  const current = images[index];
-  const total = images.length;
-
-  return (
-    <motion.div
-      className={`lightbox fixed inset-0 z-[200] flex items-center justify-center ${isOpen ? 'active' : ''}`}
-      role="dialog"
-      aria-modal="true"
-      aria-label="Galeri Gambar"
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      exit={{ opacity: 0 }}
-      transition={{ duration: 0.2 }}
-      onClick={onClose}
-    >
-      <div className="lightbox__backdrop absolute inset-0 bg-black/90" />
-      <div className="lightbox__container relative w-[90vw] max-w-[1000px] max-h-[85vh] flex flex-col items-center" onClick={(e) => e.stopPropagation()}>
-        <button
-          ref={lightboxRef}
-          className="lightbox__close absolute -top-10 right-0 flex items-center justify-center w-11 h-11 text-text-secondary bg-white/10 rounded-full hover:text-white hover:bg-white/20 transition-colors z-[2]"
-          aria-label="Tutup galeri"
-          type="button"
-          onClick={onClose}
-        >
-          <i className="bi bi-x-lg text-xl" aria-hidden="true" />
-        </button>
-
-        <button
-          className="lightbox__nav lightbox__prev absolute left-[-3.5rem] top-1/2 -translate-y-1/2 flex items-center justify-center w-11 h-11 text-text-secondary bg-white/10 rounded-full hover:text-white hover:bg-white/20 transition-colors z-[2] hidden md:flex"
-          aria-label="Gambar sebelumnya"
-          type="button"
-          onClick={onPrev}
-        >
-          <i className="bi bi-chevron-left text-xl" aria-hidden="true" />
-        </button>
-
-        <button
-          className="lightbox__nav lightbox__next absolute right-[-3.5rem] top-1/2 -translate-y-1/2 flex items-center justify-center w-11 h-11 text-text-secondary bg-white/10 rounded-full hover:text-white hover:bg-white/20 transition-colors z-[2] hidden md:flex"
-          aria-label="Gambar berikutnya"
-          type="button"
-          onClick={onNext}
-        >
-          <i className="bi bi-chevron-right text-xl" aria-hidden="true" />
-        </button>
-
-        <figure className="lightbox__figure flex flex-col items-center w-full">
-          <AnimatePresence mode="wait">
-            <motion.img
-              key={index}
-              src={current?.src || ''}
-              alt={current?.alt || ''}
-              width={1200}
-              height={800}
-              className="lightbox__image max-w-full max-h-[75vh] object-contain rounded-lg"
-              initial={{ opacity: 0, x: 50 }}
-              animate={{ opacity: 1, x: 0 }}
-              exit={{ opacity: 0, x: -50 }}
-              transition={{ duration: 0.3 }}
-              onTouchStart={(e) => setTouchStart(e.changedTouches[0].screenX)}
-              onTouchEnd={(e) => {
-                const dx = e.changedTouches[0].screenX - touchStart;
-                if (Math.abs(dx) > 50) {
-                  dx > 0 ? onPrev() : onNext();
-                }
-              }}
-            />
-          </AnimatePresence>
-          <figcaption className="lightbox__counter mt-3 text-sm text-text-tertiary">
-            {index + 1} / {total}
-          </figcaption>
-        </figure>
-      </div>
-    </motion.div>
   );
 }
 </file>
@@ -1341,51 +2024,40 @@ function Lightbox({ images, index, isOpen, onClose, onNext, onPrev, lightboxRef 
 import React from 'react';
 import { motion, useReducedMotion } from 'framer-motion';
 
-const containerVariants = {
-  hidden: { opacity: 0 },
-  visible: {
-    opacity: 1,
-    transition: {
-      staggerChildren: 0.1,
-      delayChildren: 0.1,
-    },
-  },
-};
-
-const itemVariants = {
-  hidden: { opacity: 0, y: 30 },
-  visible: {
-    opacity: 1,
-    y: 0,
-    transition: {
-      duration: 0.6,
-      ease: [0.25, 0.46, 0.45, 0.94],
-    },
-  },
-};
+const EASE = [0.25, 0.46, 0.45, 0.94];
 
 export default function ScrollReveal({ children, className = '' }) {
   const reduceMotion = useReducedMotion();
 
+  const containerVariants = {
+    hidden: { opacity: reduceMotion ? 1 : 0 },
+    visible: {
+      opacity: 1,
+      transition: reduceMotion
+        ? { duration: 0 }
+        : { staggerChildren: 0.1, delayChildren: 0.1 },
+    },
+  };
+
+  const itemVariants = {
+    hidden: { opacity: reduceMotion ? 1 : 0, y: reduceMotion ? 0 : 30 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: reduceMotion ? { duration: 0 } : { duration: 0.6, ease: EASE },
+    },
+  };
+
   return (
     <motion.div
       variants={containerVariants}
-      initial="hidden"
+      initial={reduceMotion ? false : 'hidden'}
       whileInView="visible"
       viewport={{ once: true, amount: 0.15 }}
       className={className}
-      animate={reduceMotion ? 'visible' : 'visible'}
-      transition={reduceMotion ? { duration: 0 } : undefined}
     >
-      {React.Children.map(children, (child, i) => (
-        <motion.div
-          variants={itemVariants}
-          custom={i}
-          animate={reduceMotion ? 'visible' : 'visible'}
-          transition={reduceMotion ? { duration: 0 } : undefined}
-        >
-          {child}
-        </motion.div>
+      {React.Children.map(children, (child) => (
+        <motion.div variants={itemVariants}>{child}</motion.div>
       ))}
     </motion.div>
   );
@@ -1402,107 +2074,176 @@ const projectImages = {
     { src: assetUrl('assets/images/projects/ai-assistant/c.webp'), alt: 'AI Code Review Assistant — output analisis' },
     { src: assetUrl('assets/images/projects/ai-assistant/d.webp'), alt: 'AI Code Review Assistant — dashboard' },
   ],
-  'realtime-analytics': [
-    { src: assetUrl('assets/images/projects/realtime-analytics/a.webp'), alt: 'Intelligent Search & Recommendation Engine — tampilan utama' },
-    { src: assetUrl('assets/images/projects/realtime-analytics/b.webp'), alt: 'Intelligent Search & Recommendation Engine — visualisasi hasil' },
-    { src: assetUrl('assets/images/projects/realtime-analytics/c.webp'), alt: 'Intelligent Search & Recommendation Engine — monitoring panel' },
-    { src: assetUrl('assets/images/projects/realtime-analytics/d.webp'), alt: 'Intelligent Search & Recommendation Engine — konfigurasi' },
-    { src: assetUrl('assets/images/projects/realtime-analytics/e.webp'), alt: 'Intelligent Search & Recommendation Engine — laporan' },
-    { src: assetUrl('assets/images/projects/realtime-analytics/f.webp'), alt: 'Intelligent Search & Recommendation Engine — detail metrik' },
-    { src: assetUrl('assets/images/projects/realtime-analytics/g.webp'), alt: 'Intelligent Search & Recommendation Engine — ringkasan' },
+  'intelligent-search': [
+    { src: assetUrl('assets/images/projects/intelligent-search/a.webp'), alt: 'Intelligent Search & Recommendation Engine — tampilan utama' },
+    { src: assetUrl('assets/images/projects/intelligent-search/b.webp'), alt: 'Intelligent Search & Recommendation Engine — visualisasi hasil' },
+    { src: assetUrl('assets/images/projects/intelligent-search/c.webp'), alt: 'Intelligent Search & Recommendation Engine — panel metrik' },
+    { src: assetUrl('assets/images/projects/intelligent-search/d.webp'), alt: 'Intelligent Search & Recommendation Engine — konfigurasi' },
+    { src: assetUrl('assets/images/projects/intelligent-search/e.webp'), alt: 'Intelligent Search & Recommendation Engine — laporan' },
+    { src: assetUrl('assets/images/projects/intelligent-search/f.webp'), alt: 'Intelligent Search & Recommendation Engine — detail metrik' },
+    { src: assetUrl('assets/images/projects/intelligent-search/g.webp'), alt: 'Intelligent Search & Recommendation Engine — ringkasan' },
   ],
 };
+
+const projects = [
+  {
+    id: 'ai-assistant',
+    tags: ['Python', 'FastAPI', 'AI/LLM'],
+    title: 'AI Code Review Assistant (v1.5)',
+    desc: 'AI-powered code review dan automation dashboard yang mengintegrasikan Gemini 2.5 Flash dengan backend FastAPI untuk diagnosis kode secara otonom.',
+    details: [
+      'Diagnosis otomatis: security review, performance, code style, complexity',
+      'AST Python untuk validasi sintaks lokal sebelum analisis AI',
+      'Pipeline API & CORS aman untuk .py, .js, .jsx',
+    ],
+    metric: { value: '4', label: 'jenis review otomatis' },
+    github: 'https://github.com/Bule2365/AI-code-review-assistant',
+  },
+  {
+    id: 'intelligent-search',
+    tags: ['Python', 'FastAPI', 'Machine Learning'],
+    title: 'Intelligent Search & Recommendation Engine',
+    desc: 'Search engine dan recommendation system e-commerce hybrid yang menggabungkan BM25, semantic search, dan collaborative filtering.',
+    details: [
+      'BM25 search latency rata-rata 4,6ms per query pada 2.000 produk',
+      'Hybrid search atasi vocabulary mismatch',
+      'Cold start fallback tanpa error atau hasil kosong',
+    ],
+    metric: { value: '4,6ms', label: 'rata-rata per query pada 2.000 produk' },
+    github: 'https://github.com/Bule2365/intelligent-search-recommendation-engine',
+  },
+];
 
 const certificates = [
   {
     id: 1,
     title: 'Build an AI Agent',
     issuer: 'IBM SkillsBuild',
-    date: 'Juli 2026',
+    date: '2026-07-15',
     category: 'ai',
-    image: assetUrl('assets/certificates/BuildanAIAgent_Badge20260715-20-m898ux.pdf'),
+    file: assetUrl('assets/certificates/BuildanAIAgent_Badge20260715-20-m898ux.pdf'),
   },
   {
     id: 2,
     title: 'Claude 101',
     issuer: 'Anthropic Courses',
-    date: null,
+    date: '2026-07',
     category: 'ai',
-    image: assetUrl('assets/certificates/Certificate-of-completion-Claude-101.pdf'),
+    file: assetUrl('assets/certificates/Certificate-of-completion-Claude-101.pdf'),
   },
   {
     id: 3,
     title: 'Intelligent by Design: Build an AI Agent',
     issuer: 'IBM SkillsBuild',
-    date: null,
+    date: '2026-07-15',
     category: 'ai',
-    image: assetUrl('assets/certificates/Intelligent_by_Design_build_and_AI_agent.pdf'),
+    file: assetUrl('assets/certificates/Intelligent_by_Design_build_and_AI_agent.pdf'),
   },
   {
     id: 4,
     title: 'Introduction to Large Language Models',
     issuer: 'IBM SkillsBuild',
-    date: null,
+    date: '2026-07-14',
     category: 'ai',
-    image: assetUrl('assets/certificates/Introduction_to_Large_Language_Models.pdf'),
+    file: assetUrl('assets/certificates/Introduction_to_Large_Language_Models.pdf'),
   },
   {
     id: 5,
     title: 'Troubleshoot Your Code Using IBM Bob',
     issuer: 'IBM SkillsBuild',
-    date: null,
+    date: '2026-07-14',
     category: 'ai',
-    image: assetUrl('assets/certificates/Lab_Troubleshoot_your_code_using_ibm_bob.pdf'),
+    file: assetUrl('assets/certificates/Lab_Troubleshoot_your_code_using_ibm_bob.pdf'),
   },
   {
     id: 6,
     title: 'AI for Work Productivity',
     issuer: 'MySkill',
-    date: 'Juni 2026',
+    date: '2026-06-12',
     category: 'productivity',
-    image: assetUrl('assets/certificates/Muhammad Daffa Aria Firmansyah E-Certificate SC AI for Work Productivity Juni 2026.pdf'),
+    file: assetUrl('assets/certificates/Muhammad Daffa Aria Firmansyah E-Certificate SC AI for Work Productivity Juni 2026.pdf'),
   },
   {
     id: 7,
     title: 'Introduction to Information Security',
     issuer: 'IBM SkillsBuild',
-    date: null,
+    date: '2026-06-17',
     category: 'security',
-    image: assetUrl('assets/certificates/Certificate-of-Completion-Introduction-to-Information-Security.pdf'),
+    file: assetUrl('assets/certificates/Certificate-of-Completion-Introduction-to-Information-Security.pdf'),
   },
   {
     id: 8,
     title: 'Microsoft Excel Basic',
     issuer: 'Microsoft',
-    date: null,
+    date: '2026-06-03',
     category: 'microsoft',
-    image: assetUrl('assets/certificates/muhammad-daffa-aria-firmansyah_microsoft-excel-basic.pdf'),
+    file: assetUrl('assets/certificates/muhammad-daffa-aria-firmansyah_microsoft-excel-basic.pdf'),
   },
   {
     id: 9,
     title: 'Microsoft Word',
     issuer: 'Microsoft',
-    date: null,
+    date: '2026-06-17',
     category: 'microsoft',
-    image: assetUrl('assets/certificates/muhammad-daffa-aria-firmansyah_microsoft-word.pdf'),
+    file: assetUrl('assets/certificates/muhammad-daffa-aria-firmansyah_microsoft-word.pdf'),
   },
 ];
 
 const skills = {
   languages: ['Python', 'PHP', 'JavaScript'],
-  databases: ['MySQL', 'SQLite'],
-  frameworks: ['FastAPI', 'Laravel', 'Django', 'Node.js'],
-  tools: ['Git', 'GitHub', 'VS Code', 'WSL'],
+  databases: ['MySQL', 'SQLite', 'PostgreSQL'],
+  frameworks: ['FastAPI', 'Laravel', 'Django', 'Node.js', 'Next.js'],
+  tools: ['Git', 'GitHub', 'VS Code', 'Docker', 'WSL'],
   focus: ['Backend Development', 'AI & Automation', 'System Design', 'Problem Solving'],
 };
 
 const contactInfo = {
   email: 'ariadaffa127@gmail.com',
+  phone: '+62 815-2365-1797',
+  whatsapp: 'https://wa.me/6281523651797',
+  location: 'Cinere, Depok',
   linkedin: 'https://linkedin.com/in/leaddaf',
   github: 'https://github.com/Bule2365',
 };
 
-export { projectImages, certificates, skills, contactInfo };
+const education = [
+  {
+    institution: 'Institut Bisnis dan Informatika Kosgoro 1957',
+    degree: 'S1 Teknik Informatika',
+    period: '2025 – Sekarang',
+    note: 'Penerima Beasiswa Prestasi',
+  },
+  {
+    institution: 'Sekolah Menengah Kejuruan Informatika Utama',
+    degree: 'Pengembangan Perangkat Lunak dan Gim',
+    period: '2022 – 2025',
+    note: null,
+  },
+];
+
+const experience = [
+  {
+    company: 'PT Prima Gemilang Futuristik',
+    role: 'Full Stack Developer (Magang — Flexible Remote)',
+    period: 'September 2026 – Sekarang',
+    points: [
+      'Merancang dan mengembangkan fitur backend serta frontend untuk ekosistem web Indonesian Tennis Society menggunakan Node.js, Next.js, dan PostgreSQL.',
+      'Mengidentifikasi, melakukan debugging, dan menyelesaikan bug pada logika bisnis sistem untuk menjaga stabilitas dan performa aplikasi.',
+      'Berkolaborasi aktif dengan Project Manager dalam perencanaan sprint untuk memastikan penyelesaian fitur tepat waktu.',
+    ],
+  },
+  {
+    company: "Sanggar Seni Saung Dji'ih",
+    role: 'Software Engineer & Pengembang Sistem (Proyek Internal)',
+    period: 'Agustus 2026 – Sekarang',
+    points: [
+      'Merancang arsitektur sistem backend dan menentukan tech stack utama untuk digitalisasi ekosistem operasional sanggar.',
+      'Membangun fitur manajemen kegiatan dan keanggotaan guna meningkatkan efisiensi operasional dan administrasi organisasi.',
+    ],
+  },
+];
+
+export { projectImages, projects, certificates, skills, contactInfo, education, experience };
 </file>
 
 <file path="src/index.css">
@@ -1510,20 +2251,31 @@ export { projectImages, certificates, skills, contactInfo };
 @tailwind components;
 @tailwind utilities;
 
+/* ============================================
+   DESIGN TOKENS
+   ============================================ */
 :root {
   --color-bg: #0a0a0b;
   --color-surface: #111113;
   --color-surface-2: #1a1a1d;
   --color-border: rgba(255, 255, 255, 0.08);
-  --color-border-hover: rgba(255, 255, 255, 0.14);
+  --color-border-hover: rgba(255, 255, 255, 0.16);
   --color-text: #fafafa;
   --color-text-secondary: #a1a1aa;
-  --color-text-tertiary: #71717a;
+  /* Dinaikkan dari #71717a agar lolos kontras AA untuk teks kecil. */
+  --color-text-tertiary: #8b8b94;
   --color-accent: #3b82f6;
   --color-accent-hover: #2563eb;
   --color-accent-subtle: rgba(59, 130, 246, 0.1);
   --color-accent-border: rgba(59, 130, 246, 0.25);
+  --color-accent-2: #7c3aed;
+  --color-accent-3: #06b6d4;
   --color-bg-rgb: 10 10 11;
+  --color-surface-rgb: 17 17 19;
+  --color-surface-2-rgb: 26 26 29;
+  --color-accent-rgb: 59 130 246;
+  --color-accent-2-rgb: 124 58 237;
+  --color-accent-3-rgb: 6 182 212;
   --font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
   --radius-sm: 6px;
   --radius-md: 8px;
@@ -1542,125 +2294,266 @@ export { projectImages, certificates, skills, contactInfo };
   --color-surface: #ffffff;
   --color-surface-2: #f1f1f3;
   --color-border: rgba(0, 0, 0, 0.08);
-  --color-border-hover: rgba(0, 0, 0, 0.15);
+  --color-border-hover: rgba(0, 0, 0, 0.16);
   --color-text: #18181b;
   --color-text-secondary: #52525b;
-  --color-text-tertiary: #71717a;
+  --color-text-tertiary: #6b6b75;
   --color-accent: #2563eb;
   --color-accent-hover: #1d4ed8;
   --color-accent-subtle: rgba(37, 99, 235, 0.08);
   --color-accent-border: rgba(37, 99, 235, 0.2);
+  --color-accent-2: #6d28d9;
+  --color-accent-3: #0891b2;
   --color-bg-rgb: 250 250 250;
+  --color-surface-rgb: 255 255 255;
+  --color-surface-2-rgb: 241 241 243;
+  --color-accent-rgb: 37 99 235;
+  --color-accent-2-rgb: 109 40 217;
+  --color-accent-3-rgb: 8 145 178;
   --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.06);
   --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.08);
   --shadow-lg: 0 8px 30px rgba(0, 0, 0, 0.1);
 }
 
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+/* ============================================
+   BASE
+   ============================================ */
+@layer base {
+  * {
+    box-sizing: border-box;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 6rem;
+  }
+
+  section[id] {
+    scroll-margin-top: 6rem;
+  }
+
+  body {
+    margin: 0;
+    font-family: var(--font-family);
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
+    color: var(--color-text);
+    background: var(--color-bg);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    overflow-x: hidden;
+    transition: background var(--transition-base), color var(--transition-base);
+  }
+
+  img {
+    display: block;
+    max-width: 100%;
+    height: auto;
+  }
+
+  a {
+    color: inherit;
+    text-decoration: none;
+  }
+
+  button {
+    font: inherit;
+    color: inherit;
+    background: none;
+    border: none;
+    cursor: pointer;
+  }
+
+  ul,
+  ol {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    margin: 0;
+    font-weight: 600;
+    line-height: 1.15;
+    letter-spacing: -0.025em;
+  }
+
+  p {
+    margin: 0;
+    line-height: 1.6;
+  }
+
+  strong {
+    font-weight: 600;
+    color: var(--color-text);
+  }
+
+  ::selection {
+    background: var(--color-accent);
+    color: #fff;
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--color-accent);
+    outline-offset: 2px;
+  }
+
+  ::-webkit-scrollbar {
+    width: 8px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: var(--color-bg);
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: var(--color-surface-2);
+    border-radius: 4px;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: var(--color-text-tertiary);
+  }
 }
 
-html {
-  scroll-behavior: smooth;
-  scroll-padding-top: 6rem;
+/* ============================================
+   COMPONENTS
+   ============================================ */
+@layer components {
+  .container {
+    width: 100%;
+    max-width: 1120px;
+    margin-inline: auto;
+    padding-inline: clamp(1.25rem, 4vw, 2rem);
+  }
+
+  .section {
+    padding-block: clamp(4.5rem, 9vw, 7rem);
+  }
+
+  .section__header {
+    margin-bottom: clamp(2rem, 5vw, 3.25rem);
+  }
+
+  .section__title {
+    font-size: clamp(2rem, 4vw, 2.875rem);
+    font-weight: 700;
+    line-height: 1.08;
+    letter-spacing: -0.03em;
+  }
+
+  .section__subtitle {
+    margin-top: 0.75rem;
+    max-width: 42rem;
+    font-size: 1.0625rem;
+    color: var(--color-text-secondary);
+  }
+
+  .chip {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.375rem;
+    padding: 0.25rem 0.75rem;
+    font-size: 0.75rem;
+    font-weight: 500;
+    color: var(--color-text-secondary);
+    background: var(--color-surface-2);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-full);
+  }
+
+  .chip--accent {
+    color: var(--color-accent);
+    background: var(--color-accent-subtle);
+    border-color: var(--color-accent-border);
+  }
+
+  .tag {
+    display: inline-flex;
+    align-items: center;
+    padding: 0.2rem 0.6rem;
+    font-size: 0.75rem;
+    font-weight: 500;
+    color: var(--color-accent);
+    background: var(--color-accent-subtle);
+    border-radius: var(--radius-full);
+  }
+
+  .skip-link {
+    position: absolute;
+    top: -100%;
+    left: 1rem;
+    z-index: 9999;
+    padding: 0.75rem 1.5rem;
+    font-weight: 500;
+    color: #fff;
+    background: var(--color-accent);
+    border-radius: var(--radius-md);
+    transition: top var(--transition-fast);
+  }
+
+  .skip-link:focus {
+    top: 1rem;
+  }
+
+  .text-gradient {
+    background: linear-gradient(
+      100deg,
+      var(--color-accent) 0%,
+      var(--color-accent-2) 52%,
+      var(--color-accent-3) 100%
+    );
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+
+  .rule-gradient {
+    height: 1px;
+    background: linear-gradient(
+      90deg,
+      transparent,
+      var(--color-accent) 25%,
+      var(--color-accent-2) 55%,
+      var(--color-accent-3) 80%,
+      transparent
+    );
+    opacity: 0.55;
+  }
+
+  .section-tint {
+    background:
+      linear-gradient(180deg, rgba(59, 130, 246, 0.04), transparent 45%),
+      var(--color-bg);
+  }
 }
 
-section[id] {
-  scroll-margin-top: 6rem;
+/* ============================================
+   UTILITIES
+   ============================================ */
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: auto;
   }
-}
 
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
-html {
-  scroll-behavior: smooth;
-}
-
-body {
-  font-family: var(--font-family);
-  font-size: 1rem;
-  font-weight: 400;
-  line-height: 1.5;
-  color: var(--color-text);
-  background: var(--color-bg);
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  overflow-x: hidden;
-  transition: background var(--transition-base), color var(--transition-base);
-}
-
-img {
-  display: block;
-  max-width: 100%;
-  height: auto;
-}
-
-a {
-  color: inherit;
-  text-decoration: none;
-}
-
-button {
-  font: inherit;
-  color: inherit;
-  background: none;
-  border: none;
-  cursor: pointer;
-}
-
-ul, ol {
-  list-style: none;
-}
-
-h1, h2, h3, h4 {
-  font-weight: 600;
-  line-height: 1.15;
-  letter-spacing: -0.025em;
-}
-
-p {
-  line-height: 1.6;
-}
-
-strong {
-  font-weight: 600;
-  color: var(--color-text);
-}
-
-::selection {
-  background: var(--color-accent);
-  color: #fff;
-}
-
-:focus-visible {
-  outline: 2px solid var(--color-accent);
-  outline-offset: 2px;
-}
-
-/* Scrollbar */
-::-webkit-scrollbar {
-  width: 8px;
-}
-::-webkit-scrollbar-track {
-  background: var(--color-bg);
-}
-::-webkit-scrollbar-thumb {
-  background: var(--color-surface-2);
-  border-radius: 4px;
-}
-::-webkit-scrollbar-thumb:hover {
-  background: var(--color-text-tertiary);
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
 }
 </file>
 
@@ -1668,16 +2561,15 @@ strong {
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import App from './App';
+import { ThemeProvider } from './theme';
 import './index.css';
-import '../style.css';
-import { readTheme, applyTheme } from './theme';
-
-applyTheme(readTheme(), { persist: false });
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
-    <App />
-  </React.StrictMode>
+    <ThemeProvider>
+      <App />
+    </ThemeProvider>
+  </React.StrictMode>,
 );
 </file>
 
@@ -1685,27 +2577,33 @@ ReactDOM.createRoot(document.getElementById('root')).render(
 /** @type {import('tailwindcss').Config} */
 export default {
   content: ['./index.html', './src/**/*.{js,jsx}'],
-  darkMode: 'class',
+  // Tema dikendalikan oleh atribut `data-theme` pada <html>, bukan class.
+  darkMode: ['selector', '[data-theme="dark"]'],
   theme: {
     extend: {
       colors: {
         bg: 'rgb(var(--color-bg-rgb) / <alpha-value>)',
-        surface: 'var(--color-surface)',
-        'surface-2': 'var(--color-surface-2)',
+        surface: 'rgb(var(--color-surface-rgb) / <alpha-value>)',
+        'surface-2': 'rgb(var(--color-surface-2-rgb) / <alpha-value>)',
         border: 'var(--color-border)',
         'border-hover': 'var(--color-border-hover)',
         text: 'var(--color-text)',
         'text-secondary': 'var(--color-text-secondary)',
         'text-tertiary': 'var(--color-text-tertiary)',
         accent: {
-          DEFAULT: 'var(--color-accent)',
+          DEFAULT: 'rgb(var(--color-accent-rgb) / <alpha-value>)',
           hover: 'var(--color-accent-hover)',
           subtle: 'var(--color-accent-subtle)',
           border: 'var(--color-accent-border)',
+          2: 'rgb(var(--color-accent-2-rgb) / <alpha-value>)',
+          3: 'rgb(var(--color-accent-3-rgb) / <alpha-value>)',
         },
       },
       fontFamily: {
         sans: ['Inter', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'sans-serif'],
+      },
+      maxWidth: {
+        content: '1120px',
       },
     },
   },
@@ -1713,23 +2611,374 @@ export default {
 };
 </file>
 
-<file path="robots.txt">
-User-agent: *
-Allow: /
+<file path="src/components/Certificates.jsx">
+import React, { useCallback, useState } from 'react';
+import { AnimatePresence } from 'framer-motion';
+import ScrollReveal from './ScrollReveal';
+import Icon from './Icon';
+import PdfPreview from './PdfPreview';
+import { certificates } from '../data';
 
-Sitemap: https://bule2365.github.io/my-web/sitemap.xml
+const filters = ['all', 'ai', 'productivity', 'security', 'microsoft'];
 
-# Google Search Console verification
-User-agent: Googlebot
-Allow: /
+const filterLabels = {
+  all: 'Semua',
+  ai: 'AI',
+  productivity: 'Productivity',
+  security: 'Security',
+  microsoft: 'Microsoft',
+};
+
+const MONTHS = [
+  'Januari',
+  'Februari',
+  'Maret',
+  'April',
+  'Mei',
+  'Juni',
+  'Juli',
+  'Agustus',
+  'September',
+  'Oktober',
+  'November',
+  'Desember',
+];
+
+function formatDate(value) {
+  if (!value) return null;
+  const [year, month, day] = value.split('-').map(Number);
+  const monthName = MONTHS[month - 1] ?? '';
+  return day ? `${day} ${monthName} ${year}` : `${monthName} ${year}`;
+}
+
+const sortedCertificates = [...certificates].sort((a, b) => {
+  if (a.date && b.date) return b.date.localeCompare(a.date);
+  if (a.date) return -1;
+  if (b.date) return 1;
+  return a.title.localeCompare(b.title);
+});
+
+export default function Certificates() {
+  const [activeFilter, setActiveFilter] = useState('all');
+  const [previewCertificate, setPreviewCertificate] = useState(null);
+
+  const filtered =
+    activeFilter === 'all'
+      ? sortedCertificates
+      : sortedCertificates.filter((certificate) => certificate.category === activeFilter);
+
+  const counts = filters.reduce((accumulator, filter) => {
+    accumulator[filter] =
+      filter === 'all'
+        ? sortedCertificates.length
+        : sortedCertificates.filter((certificate) => certificate.category === filter).length;
+    return accumulator;
+  }, {});
+
+  const closePreview = useCallback(() => setPreviewCertificate(null), []);
+
+  return (
+    <section className="section" id="sertifikat">
+      <div className="container">
+        <ScrollReveal>
+          <div className="section__header">
+            <p className="mb-2 text-xs font-semibold uppercase tracking-[0.2em] text-accent">
+              Sertifikat
+            </p>
+            <h2 className="section__title">Sertifikat</h2>
+            <p className="section__subtitle">
+              Bukti kompetensi dan pembelajaran berkelanjutan — terbaru lebih dulu.
+            </p>
+          </div>
+        </ScrollReveal>
+
+        <ScrollReveal>
+          <div className="mb-6 flex flex-wrap items-center justify-between gap-4">
+            <div className="flex flex-wrap gap-2" role="group" aria-label="Filter sertifikat">
+              {filters.map((filter) => {
+                const isActive = activeFilter === filter;
+                return (
+                  <button
+                    key={filter}
+                    type="button"
+                    aria-pressed={isActive}
+                    onClick={() => setActiveFilter(filter)}
+                    className={`inline-flex min-h-11 items-center gap-2 rounded-full border px-4 py-2 text-sm font-medium transition-colors ${
+                      isActive
+                        ? 'border-accent bg-accent text-white'
+                        : 'border-border text-text-secondary hover:border-border-hover hover:text-text'
+                    }`}
+                  >
+                    {filterLabels[filter]}
+                    <span
+                      className={`rounded-full px-1.5 py-0.5 text-[11px] ${
+                        isActive ? 'bg-white/20 text-white' : 'bg-surface-2 text-text-tertiary'
+                      }`}
+                    >
+                      {counts[filter]}
+                    </span>
+                  </button>
+                );
+              })}
+            </div>
+
+            <p className="text-sm text-text-tertiary" aria-live="polite">
+              Menampilkan {filtered.length} dari {sortedCertificates.length} sertifikat
+            </p>
+          </div>
+        </ScrollReveal>
+
+        <ScrollReveal>
+          {filtered.length === 0 ? (
+            <div className="rounded-2xl border border-border bg-surface py-12 text-center text-text-secondary">
+              <p>Tidak ada sertifikat pada kategori ini.</p>
+            </div>
+          ) : (
+            <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
+              {filtered.map((certificate) => {
+                const dateLabel = formatDate(certificate.date);
+                return (
+                  <article
+                    key={certificate.id}
+                    className="flex h-full flex-col rounded-2xl border border-border bg-surface p-5 transition-colors hover:border-border-hover"
+                  >
+                    <div className="mb-4 flex items-start justify-between gap-3">
+                      <span className="flex h-10 w-10 items-center justify-center rounded-lg bg-accent-subtle text-accent">
+                        <Icon name="award" size={19} />
+                      </span>
+                      <span className="rounded-full border border-border bg-surface-2 px-2.5 py-1 text-[11px] font-medium uppercase tracking-wide text-text-tertiary">
+                        {filterLabels[certificate.category] ?? certificate.category}
+                      </span>
+                    </div>
+
+                    <h3 className="text-base font-semibold leading-snug text-text">
+                      {certificate.title}
+                    </h3>
+
+                    <div className="mt-2 flex items-center gap-2 text-sm text-text-secondary">
+                      <Icon name="building" size={14} className="text-text-tertiary" />
+                      {certificate.issuer}
+                    </div>
+
+                    <div className="mt-1 flex items-center gap-2 text-xs text-text-tertiary">
+                      <Icon name="calendar" size={13} />
+                      {dateLabel ? (
+                        <time dateTime={certificate.date}>{dateLabel}</time>
+                      ) : (
+                        <span>Tanggal tidak tercantum</span>
+                      )}
+                    </div>
+
+                    <div className="mt-auto flex flex-wrap gap-2 pt-5">
+                      <button
+                        type="button"
+                        onClick={() => setPreviewCertificate(certificate)}
+                        className="inline-flex min-h-11 items-center justify-center gap-1.5 rounded-lg border border-accent-border px-3 py-1.5 text-xs font-medium text-accent transition-colors hover:bg-accent-subtle"
+                      >
+                        <Icon name="eye" size={14} />
+                        Pratinjau
+                      </button>
+                      <a
+                        href={certificate.file}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex min-h-11 items-center justify-center gap-1.5 rounded-lg border border-border px-3 py-1.5 text-xs font-medium text-text-secondary transition-colors hover:border-border-hover hover:text-text"
+                      >
+                        <Icon name="external-link" size={14} />
+                        Buka PDF
+                      </a>
+                    </div>
+                  </article>
+                );
+              })}
+            </div>
+          )}
+        </ScrollReveal>
+      </div>
+
+      <AnimatePresence>
+        {previewCertificate && (
+          <PdfPreview
+            key="certificate-preview"
+            certificate={previewCertificate}
+            onClose={closePreview}
+          />
+        )}
+      </AnimatePresence>
+    </section>
+  );
+}
+</file>
+
+<file path="src/components/Projects.jsx">
+import React, { useCallback, useEffect, useState } from 'react';
+import { AnimatePresence } from 'framer-motion';
+import ScrollReveal from './ScrollReveal';
+import Icon from './Icon';
+import Lightbox from './Lightbox';
+import { projectImages, projects } from '../data';
+
+const EMPTY_IMAGES = [];
+
+export default function Projects() {
+  const [activeProjectId, setActiveProjectId] = useState(null);
+  const [lightboxIndex, setLightboxIndex] = useState(0);
+
+  const images = activeProjectId ? projectImages[activeProjectId] || EMPTY_IMAGES : EMPTY_IMAGES;
+  const imageCount = images.length;
+
+  const openLightbox = useCallback((projectId) => {
+    setLightboxIndex(0);
+    setActiveProjectId(projectId);
+  }, []);
+
+  const closeLightbox = useCallback(() => {
+    setActiveProjectId(null);
+  }, []);
+
+  const nextImage = useCallback(() => {
+    setLightboxIndex((current) => (current + 1) % (imageCount || 1));
+  }, [imageCount]);
+
+  const prevImage = useCallback(() => {
+    setLightboxIndex((current) => (current - 1 + (imageCount || 1)) % (imageCount || 1));
+  }, [imageCount]);
+
+  useEffect(() => {
+    if (!activeProjectId || imageCount === 0) return;
+    const next = images[(lightboxIndex + 1) % imageCount];
+    if (next?.src) {
+      const preload = new Image();
+      preload.src = next.src;
+    }
+  }, [activeProjectId, lightboxIndex, images, imageCount]);
+
+  return (
+    <section className="section section-tint" id="proyek">
+      <div className="container">
+        <ScrollReveal>
+          <div className="section__header">
+            <p className="mb-2 text-xs font-semibold uppercase tracking-[0.2em] text-accent">
+              Proyek
+            </p>
+            <h2 className="section__title">Proyek Unggulan</h2>
+            <p className="section__subtitle">
+              Proyek nyata yang menunjukkan kemampuan teknis dan cara saya menyelesaikan masalah.
+            </p>
+          </div>
+        </ScrollReveal>
+
+        <div className="flex flex-col gap-8">
+          {projects.map((project, index) => {
+            const gallery = projectImages[project.id] || [];
+            const reversed = index % 2 === 1;
+
+            return (
+              <ScrollReveal key={project.id}>
+                <article className="group overflow-hidden rounded-2xl border border-border bg-surface transition-colors hover:border-border-hover">
+                  <div className="grid lg:grid-cols-2">
+                    <div
+                      className={`relative aspect-video overflow-hidden border-b border-border bg-surface-2 lg:aspect-auto lg:min-h-full ${
+                        reversed ? 'lg:order-2 lg:border-b-0 lg:border-l' : 'lg:border-b-0 lg:border-r'
+                      }`}
+                    >
+                      <img
+                        src={gallery[0]?.src}
+                        alt={`${project.title} — tampilan utama`}
+                        width="960"
+                        height="540"
+                        loading="lazy"
+                        className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-[1.02]"
+                      />
+                      <span className="absolute left-4 top-4 inline-flex items-center gap-1.5 rounded-full bg-black/60 px-3 py-1 text-xs font-medium text-white backdrop-blur-sm">
+                        <Icon name="images" size={13} />
+                        {gallery.length} screenshot
+                      </span>
+                    </div>
+
+                    <div className="flex flex-col justify-center p-6 sm:p-8">
+                      <div className="flex flex-wrap gap-2">
+                        {project.tags.map((tag) => (
+                          <span key={tag} className="tag">
+                            {tag}
+                          </span>
+                        ))}
+                      </div>
+
+                      <h3 className="mt-4 text-xl font-bold text-text sm:text-2xl">{project.title}</h3>
+                      <p className="mt-3 text-sm leading-relaxed text-text-secondary sm:text-base">
+                        {project.desc}
+                      </p>
+
+                      <div className="mt-5 inline-flex w-fit items-baseline gap-2 rounded-xl border border-accent-border bg-accent-subtle px-4 py-2.5">
+                        <span className="text-xl font-bold text-gradient sm:text-2xl">
+                          {project.metric.value}
+                        </span>
+                        <span className="text-xs text-text-secondary">{project.metric.label}</span>
+                      </div>
+
+                      <ul className="mt-5 flex flex-col gap-2">
+                        {project.details.map((detail) => (
+                          <li key={detail} className="flex items-start gap-2 text-sm text-text-secondary">
+                            <Icon name="check" size={16} className="mt-0.5 text-accent" />
+                            <span>{detail}</span>
+                          </li>
+                        ))}
+                      </ul>
+
+                      <div className="mt-6 flex flex-wrap gap-2">
+                        <button
+                          type="button"
+                          onClick={() => openLightbox(project.id)}
+                          className="inline-flex min-h-11 items-center justify-center gap-2 rounded-lg border border-border bg-surface-2 px-4 py-2 text-sm font-medium text-text transition-colors hover:border-border-hover"
+                        >
+                          <Icon name="images" size={16} />
+                          Lihat Galeri
+                          <span className="text-text-tertiary">({gallery.length})</span>
+                        </button>
+                        <a
+                          href={project.github}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="inline-flex min-h-11 items-center justify-center gap-2 rounded-lg border border-accent-border px-4 py-2 text-sm font-medium text-accent transition-colors hover:bg-accent-subtle"
+                        >
+                          <Icon name="github" size={16} />
+                          GitHub
+                          <Icon name="external-link" size={14} />
+                        </a>
+                      </div>
+                    </div>
+                  </div>
+                </article>
+              </ScrollReveal>
+            );
+          })}
+        </div>
+      </div>
+
+      <AnimatePresence>
+        {activeProjectId && (
+          <Lightbox
+            key="project-lightbox"
+            images={images}
+            index={lightboxIndex}
+            onClose={closeLightbox}
+            onNext={nextImage}
+            onPrev={prevImage}
+          />
+        )}
+      </AnimatePresence>
+    </section>
+  );
+}
 </file>
 
 <file path="src/App.jsx">
 import React from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
 import About from './components/About';
+import Journey from './components/Journey';
 import Skills from './components/Skills';
 import Projects from './components/Projects';
 import Certificates from './components/Certificates';
@@ -1739,11 +2988,15 @@ import BackToTop from './components/BackToTop';
 
 export default function App() {
   return (
-    <div className="min-h-screen bg-bg text-text font-sans antialiased">
+    <div className="min-h-screen bg-bg font-sans text-text antialiased">
+      <a className="skip-link" href="#main">
+        Lewati ke konten utama
+      </a>
       <Navbar />
-      <main id="main">
+      <main id="main" tabIndex={-1} className="outline-none">
         <Hero />
         <About />
+        <Journey />
         <Skills />
         <Projects />
         <Certificates />
@@ -1756,1771 +3009,119 @@ export default function App() {
 }
 </file>
 
-<file path="sitemap.xml">
-<?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url>
-    <loc>https://bule2365.github.io/my-web/</loc>
-    <lastmod>2026-07-22</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>1.0</priority>
-  </url>
-  <url>
-    <loc>https://bule2365.github.io/my-web/google3935b0c3f9d63e31.html</loc>
-    <lastmod>2026-07-22</lastmod>
-    <changefreq>yearly</changefreq>
-    <priority>0.1</priority>
-  </url>
-</urlset>
-</file>
-
-<file path="script.js">
-(function () {
-  'use strict';
-
-  /* ==========================================
-     DATA
-     ========================================== */
-  const projectImages = {
-    'ai-assistant': [
-      { src: 'assets/images/projects/ai-assistant/a.webp', alt: 'AI Assistant — interface utama' },
-      { src: 'assets/images/projects/ai-assistant/b.webp', alt: 'AI Assistant — fitur interaksi' },
-      { src: 'assets/images/projects/ai-assistant/c.webp', alt: 'AI Assistant — output hasil' },
-      { src: 'assets/images/projects/ai-assistant/d.webp', alt: 'AI Assistant — dashboard' }
-    ],
-    'realtime-analytics': [
-      { src: 'assets/images/projects/realtime-analytics/a.webp', alt: 'Realtime Analytics — dashboard utama' },
-      { src: 'assets/images/projects/realtime-analytics/b.webp', alt: 'Realtime Analytics — visualisasi data' },
-      { src: 'assets/images/projects/realtime-analytics/c.webp', alt: 'Realtime Analytics — monitoring panel' },
-      { src: 'assets/images/projects/realtime-analytics/d.webp', alt: 'Realtime Analytics — konfigurasi' },
-      { src: 'assets/images/projects/realtime-analytics/e.webp', alt: 'Realtime Analytics — laporan' },
-      { src: 'assets/images/projects/realtime-analytics/f.webp', alt: 'Realtime Analytics — detail metrik' },
-      { src: 'assets/images/projects/realtime-analytics/g.webp', alt: 'Realtime Analytics — ringkasan' }
-    ]
-  };
-
-  const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-
-  function getScrollbarWidth() {
-    return window.innerWidth - document.documentElement.clientWidth;
-  }
-
-  function lockBodyScroll() {
-    var w = getScrollbarWidth();
-    document.body.style.setProperty('--scrollbar-width', w + 'px');
-    document.body.classList.add('no-scroll');
-  }
-
-  function unlockBodyScroll() {
-    document.body.classList.remove('no-scroll');
-    document.body.style.removeProperty('--scrollbar-width');
-  }
-
-  /* ==========================================
-     THEME
-     ========================================== */
-  var themeToggle = document.getElementById('themeToggle');
-  var htmlEl = document.documentElement;
-  var savedTheme = localStorage.getItem('theme');
-
-  function applyTheme(theme) {
-    if (theme === 'light') {
-      htmlEl.setAttribute('data-theme', 'light');
-    } else {
-      htmlEl.removeAttribute('data-theme');
-    }
-  }
-
-  if (savedTheme) {
-    applyTheme(savedTheme);
-  } else if (prefersDark) {
-    applyTheme('dark');
-  } else {
-    applyTheme('light');
-  }
-
-  if (themeToggle) {
-    themeToggle.addEventListener('click', function () {
-      var isLight = htmlEl.getAttribute('data-theme') === 'light';
-      if (isLight) {
-        htmlEl.removeAttribute('data-theme');
-        localStorage.setItem('theme', 'dark');
-      } else {
-        htmlEl.setAttribute('data-theme', 'light');
-        localStorage.setItem('theme', 'light');
-      }
-    });
-  }
-
-  /* ==========================================
-     HEADER SCROLL
-     ========================================== */
-  var header = document.getElementById('header');
-
-  function handleHeaderScroll() {
-    if (window.scrollY > 40) {
-      header.classList.add('scrolled');
-    } else {
-      header.classList.remove('scrolled');
-    }
-  }
-
-  window.addEventListener('scroll', handleHeaderScroll, { passive: true });
-  handleHeaderScroll();
-
-  /* ==========================================
-     MOBILE MENU
-     ========================================== */
-  var navToggle = document.getElementById('navToggle');
-  var navMenu = document.getElementById('nav-menu');
-  var navBackdrop = document.getElementById('navBackdrop');
-  var lastFocusedEl = null;
-
-  function openMenu() {
-    lastFocusedEl = document.activeElement;
-    navToggle.setAttribute('aria-expanded', 'true');
-    navToggle.setAttribute('aria-label', 'Tutup menu');
-    navMenu.classList.add('open');
-    if (navBackdrop) navBackdrop.classList.add('visible');
-    lockBodyScroll();
-    navMenu.querySelector('.nav__link')?.focus();
-  }
-
-  function closeMenu() {
-    navToggle.setAttribute('aria-expanded', 'false');
-    navToggle.setAttribute('aria-label', 'Buka menu');
-    navMenu.classList.remove('open');
-    if (navBackdrop) navBackdrop.classList.remove('visible');
-    unlockBodyScroll();
-    if (lastFocusedEl) lastFocusedEl.focus();
-  }
-
-  if (navToggle && navMenu) {
-    navToggle.addEventListener('click', function () {
-      var isOpen = this.getAttribute('aria-expanded') === 'true';
-      isOpen ? closeMenu() : openMenu();
-    });
-
-    if (navBackdrop) {
-      navBackdrop.addEventListener('click', closeMenu);
-    }
-
-    navMenu.querySelectorAll('.nav__link').forEach(function (link) {
-      link.addEventListener('click', function (e) {
-        var href = this.getAttribute('href');
-        if (href && href.startsWith('#') && href.length > 1) {
-          closeMenu();
-        }
-      });
-    });
-
-    document.addEventListener('keydown', function (e) {
-      if (e.key === 'Escape' && navMenu.classList.contains('open')) {
-        closeMenu();
-        e.preventDefault();
-      }
-
-      if (e.key === 'Tab' && navMenu.classList.contains('open')) {
-        var focusable = navMenu.querySelectorAll('.nav__link');
-        var first = focusable[0];
-        var last = focusable[focusable.length - 1];
-
-        if (e.shiftKey) {
-          if (document.activeElement === first) {
-            e.preventDefault();
-            last.focus();
-          }
-        } else {
-          if (document.activeElement === last) {
-            e.preventDefault();
-            first.focus();
-          }
-        }
-      }
-    });
-  }
-
-  /* ==========================================
-     ACTIVE NAV
-     ========================================== */
-  var sections = document.querySelectorAll('section[id]');
-  var navLinks = document.querySelectorAll('.nav__link');
-
-  function updateActiveNav() {
-    var current = '';
-    sections.forEach(function (section) {
-      var top = section.offsetTop - 120;
-      if (window.scrollY >= top) {
-        current = section.getAttribute('id');
-      }
-    });
-    navLinks.forEach(function (link) {
-      link.classList.remove('active');
-      if (link.getAttribute('href') === '#' + current) {
-        link.classList.add('active');
-      }
-    });
-  }
-
-  window.addEventListener('scroll', updateActiveNav, { passive: true });
-
-  /* ==========================================
-     BACK TO TOP
-     ========================================== */
-  var backToTop = document.getElementById('backToTop');
-
-  if (backToTop) {
-    window.addEventListener('scroll', function () {
-      if (window.scrollY > 400) {
-        backToTop.classList.add('visible');
-      } else {
-        backToTop.classList.remove('visible');
-      }
-    }, { passive: true });
-
-    backToTop.addEventListener('click', function () {
-      window.scrollTo({ top: 0, behavior: prefersReducedMotion ? 'auto' : 'smooth' });
-    });
-  }
-
-  /* ==========================================
-     SCROLL REVEAL
-     ========================================== */
-  if (!prefersReducedMotion) {
-    var revealEls = document.querySelectorAll(
-      '.section__header, .about__content, .skill__group, .project-card, .cert-card, .contact__content, .footer__content'
-    );
-
-    revealEls.forEach(function (el) {
-      el.classList.add('reveal');
-    });
-
-    var revealObserver = new IntersectionObserver(function (entries) {
-      entries.forEach(function (entry) {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('visible');
-          revealObserver.unobserve(entry.target);
-        }
-      });
-    }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
-
-    revealEls.forEach(function (el) {
-      revealObserver.observe(el);
-    });
-  }
-
-  /* ==========================================
-     CERTIFICATE FILTER
-     ========================================== */
-  var filterBtns = document.querySelectorAll('.certs__filter');
-  var certCards = document.querySelectorAll('.cert-card');
-
-  filterBtns.forEach(function (btn) {
-    btn.addEventListener('click', function () {
-      filterBtns.forEach(function (b) { b.classList.remove('active'); });
-      btn.classList.add('active');
-      var filter = btn.getAttribute('data-filter');
-      certCards.forEach(function (card) {
-        if (filter === 'all' || card.getAttribute('data-category') === filter) {
-          card.classList.remove('hidden');
-        } else {
-          card.classList.add('hidden');
-        }
-      });
-    });
-  });
-
-  /* ==========================================
-     LIGHTBOX
-     ========================================== */
-  var lightbox = document.getElementById('lightbox');
-  var lightboxImg = lightbox.querySelector('.lightbox__image');
-  var lightboxCounter = lightbox.querySelector('.lightbox__counter');
-  var lightboxClose = lightbox.querySelector('.lightbox__close');
-  var lightboxPrev = lightbox.querySelector('.lightbox__prev');
-  var lightboxNext = lightbox.querySelector('.lightbox__next');
-  var lightboxBackdrop = lightbox.querySelector('.lightbox__backdrop');
-
-  var currentProject = '';
-  var currentIndex = 0;
-  var lbLastFocused = null;
-
-  function openLightbox(projectId) {
-    if (!projectImages[projectId]) return;
-    lbLastFocused = document.activeElement;
-    currentProject = projectId;
-    currentIndex = 0;
-    showLightboxImage();
-    lightbox.classList.add('active');
-    lightbox.setAttribute('aria-hidden', 'false');
-    lockBodyScroll();
-    lightboxClose.focus();
-  }
-
-  function closeLightbox() {
-    lightbox.classList.remove('active');
-    lightbox.setAttribute('aria-hidden', 'true');
-    unlockBodyScroll();
-    if (lbLastFocused) lbLastFocused.focus();
-  }
-
-  function showLightboxImage() {
-    var images = projectImages[currentProject];
-    if (!images || !images[currentIndex]) return;
-    lightboxImg.src = images[currentIndex].src;
-    lightboxImg.alt = images[currentIndex].alt;
-    lightboxCounter.textContent = (currentIndex + 1) + ' / ' + images.length;
-  }
-
-  function nextImage() {
-    var images = projectImages[currentProject];
-    currentIndex = (currentIndex + 1) % images.length;
-    showLightboxImage();
-  }
-
-  function prevImage() {
-    var images = projectImages[currentProject];
-    currentIndex = (currentIndex - 1 + images.length) % images.length;
-    showLightboxImage();
-  }
-
-  document.querySelectorAll('[data-lightbox]').forEach(function (btn) {
-    btn.addEventListener('click', function () {
-      openLightbox(this.getAttribute('data-lightbox'));
-    });
-  });
-
-  if (lightboxClose) lightboxClose.addEventListener('click', closeLightbox);
-  if (lightboxBackdrop) lightboxBackdrop.addEventListener('click', closeLightbox);
-  if (lightboxNext) lightboxNext.addEventListener('click', nextImage);
-  if (lightboxPrev) lightboxPrev.addEventListener('click', prevImage);
-
-  document.addEventListener('keydown', function (e) {
-    if (!lightbox.classList.contains('active')) return;
-
-    if (e.key === 'Escape') {
-      closeLightbox();
-      e.preventDefault();
-    }
-
-    if (e.key === 'ArrowRight') nextImage();
-    if (e.key === 'ArrowLeft') prevImage();
-
-    if (e.key === 'Tab') {
-      var focusable = lightbox.querySelectorAll(
-        '.lightbox__close, .lightbox__prev, .lightbox__next, .lightbox__image'
-      );
-      var first = focusable[0];
-      var last = focusable[focusable.length - 1];
-
-      if (e.shiftKey) {
-        if (document.activeElement === first) {
-          e.preventDefault();
-          last.focus();
-        }
-      } else {
-        if (document.activeElement === last) {
-          e.preventDefault();
-          first.focus();
-        }
-      }
-    }
-  });
-
-  /* Touch swipe */
-  var touchStartX = 0;
-  lightbox.addEventListener('touchstart', function (e) {
-    touchStartX = e.changedTouches[0].screenX;
-  }, { passive: true });
-
-  lightbox.addEventListener('touchend', function (e) {
-    var dx = e.changedTouches[0].screenX - touchStartX;
-    if (Math.abs(dx) > 50) {
-      if (dx > 0) prevImage();
-      else nextImage();
-    }
-  }, { passive: true });
-
-  /* ==========================================
-     SMOOTH SCROLL
-     ========================================== */
-  document.querySelectorAll('a[href^="#"]').forEach(function (anchor) {
-    anchor.addEventListener('click', function (e) {
-      var targetId = this.getAttribute('href');
-      if (targetId === '#') return;
-      var target = document.querySelector(targetId);
-      if (target) {
-        e.preventDefault();
-        var offset = target.getBoundingClientRect().top + window.scrollY - 80;
-        window.scrollTo({
-          top: offset,
-          behavior: prefersReducedMotion ? 'auto' : 'smooth'
-        });
-      }
-    });
-  });
-
-  /* ==========================================
-     COPYRIGHT YEAR
-     ========================================== */
-  var yearEl = document.getElementById('year');
-  if (yearEl) {
-    yearEl.textContent = new Date().getFullYear();
-  }
-
-})();
-</file>
-
-<file path="style.css">
-/* ============================================
-   DESIGN SYSTEM
-   ============================================ */
-:root {
-  --color-bg: #0a0a0b;
-  --color-surface: #111113;
-  --color-surface-2: #1a1a1d;
-  --color-border: rgba(255, 255, 255, 0.08);
-  --color-border-hover: rgba(255, 255, 255, 0.14);
-  --color-text: #fafafa;
-  --color-text-secondary: #a1a1aa;
-  --color-text-tertiary: #71717a;
-  --color-accent: #3b82f6;
-  --color-accent-hover: #2563eb;
-  --color-accent-subtle: rgba(59, 130, 246, 0.1);
-  --color-accent-border: rgba(59, 130, 246, 0.25);
-
-  --font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-  --font-size-xs: 0.75rem;
-  --font-size-sm: 0.875rem;
-  --font-size-base: 1rem;
-  --font-size-lg: 1.125rem;
-  --font-size-xl: 1.25rem;
-  --font-size-2xl: 1.5rem;
-  --font-size-3xl: 1.875rem;
-  --font-size-4xl: clamp(2rem, 4vw, 3rem);
-  --font-size-5xl: clamp(2.5rem, 5vw, 4rem);
-  --font-weight-normal: 400;
-  --font-weight-medium: 500;
-  --font-weight-semibold: 600;
-  --font-weight-bold: 700;
-  --lineheight-tight: 1.15;
-  --lineheight-normal: 1.5;
-  --lineheight-relaxed: 1.6;
-
-  --space-1: 0.25rem;
-  --space-2: 0.5rem;
-  --space-3: 0.75rem;
-  --space-4: 1rem;
-  --space-5: 1.25rem;
-  --space-6: 1.5rem;
-  --space-8: 2rem;
-  --space-10: 2.5rem;
-  --space-12: 3rem;
-  --space-16: 4rem;
-  --space-20: 5rem;
-  --space-24: 6rem;
-  --space-32: 8rem;
-
-  --container-max: 1100px;
-  --container-padding: clamp(1.25rem, 4vw, 2rem);
-
-  --radius-sm: 6px;
-  --radius-md: 8px;
-  --radius-lg: 12px;
-  --radius-xl: 16px;
-  --radius-full: 9999px;
-
-  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.4);
-  --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.4);
-  --shadow-lg: 0 8px 30px rgba(0, 0, 0, 0.5);
-
-  --transition-fast: 150ms ease;
-  --transition-base: 250ms ease;
-
-  --z-header: 100;
-  --z-menu: 110;
-  --z-menu-toggle: 111;
-  --z-backdrop: 105;
-  --z-lightbox: 200;
-  --z-backtotop: 50;
-  --z-skip: 9999;
-}
-
-[data-theme="light"] {
-  --color-bg: #fafafa;
-  --color-surface: #ffffff;
-  --color-surface-2: #f1f1f3;
-  --color-border: rgba(0, 0, 0, 0.08);
-  --color-border-hover: rgba(0, 0, 0, 0.15);
-  --color-text: #18181b;
-  --color-text-secondary: #52525b;
-  --color-text-tertiary: #71717a;
-  --color-accent: #2563eb;
-  --color-accent-hover: #1d4ed8;
-  --color-accent-subtle: rgba(37, 99, 235, 0.08);
-  --color-accent-border: rgba(37, 99, 235, 0.2);
-  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.06);
-  --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.08);
-  --shadow-lg: 0 8px 30px rgba(0, 0, 0, 0.1);
-}
-
-/* ============================================
-   RESET & BASE
-   ============================================ */
-*,
-*::before,
-*::after {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
-html {
-  scroll-behavior: smooth;
-}
-
-body {
-  font-family: var(--font-family);
-  font-size: var(--font-size-base);
-  font-weight: var(--font-weight-normal);
-  line-height: var(--lineheight-normal);
-  color: var(--color-text);
-  background: var(--color-bg);
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  overflow-x: hidden;
-  transition: background var(--transition-base), color var(--transition-base);
-}
-
-body.no-scroll {
-  overflow: hidden;
-  padding-right: var(--scrollbar-width, 0px);
-}
-
-img {
-  display: block;
-  max-width: 100%;
-  height: auto;
-}
-
-a {
-  color: inherit;
-  text-decoration: none;
-}
-
-button {
-  font: inherit;
-  color: inherit;
-  background: none;
-  border: none;
-  cursor: pointer;
-}
-
-ul, ol {
-  list-style: none;
-}
-
-h1, h2, h3, h4 {
-  font-weight: var(--font-weight-semibold);
-  line-height: var(--lineheight-tight);
-  letter-spacing: -0.025em;
-}
-
-p {
-  line-height: var(--lineheight-relaxed);
-}
-
-strong {
-  font-weight: var(--font-weight-semibold);
-  color: var(--color-text);
-}
-
-::selection {
-  background: var(--color-accent);
-  color: #fff;
-}
-
-:focus-visible {
-  outline: 2px solid var(--color-accent);
-  outline-offset: 2px;
-}
-
-/* ============================================
-   SKIP LINK
-   ============================================ */
-.skip-link {
-  position: absolute;
-  top: -100%;
-  left: var(--space-4);
-  padding: var(--space-3) var(--space-6);
-  background: var(--color-accent);
-  color: #fff;
-  font-weight: var(--font-weight-medium);
-  border-radius: var(--radius-md);
-  z-index: var(--z-skip);
-  transition: top var(--transition-fast);
-}
-
-.skip-link:focus {
-  top: var(--space-4);
-}
-
-/* ============================================
-   CONTAINER
-   ============================================ */
-.container {
-  width: 100%;
-  max-width: var(--container-max);
-  margin: 0 auto;
-  padding: 0 var(--container-padding);
-}
-
-/* ============================================
-   SECTION
-   ============================================ */
-.section {
-  padding: var(--space-20) 0;
-}
-
-.section__header {
-  margin-bottom: var(--space-12);
-}
-
-.section__title {
-  font-size: var(--font-size-4xl);
-  font-weight: var(--font-weight-bold);
-  margin-bottom: var(--space-3);
-}
-
-.section__subtitle {
-  font-size: var(--font-size-lg);
-  color: var(--color-text-secondary);
-  max-width: 600px;
-}
-
-/* ============================================
-   BUTTONS
-   ============================================ */
-.btn {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: var(--space-2);
-  padding: var(--space-3) var(--space-6);
-  font-size: var(--font-size-sm);
-  font-weight: var(--font-weight-medium);
-  border-radius: var(--radius-lg);
-  transition: all var(--transition-fast);
-  white-space: nowrap;
-}
-
-.btn--primary {
-  background: var(--color-accent);
-  color: #fff;
-}
-
-.btn--primary:hover {
-  background: var(--color-accent-hover);
-}
-
-.btn--secondary {
-  background: var(--color-surface-2);
-  color: var(--color-text);
-  border: 1px solid var(--color-border);
-}
-
-.btn--secondary:hover {
-  border-color: var(--color-border-hover);
-}
-
-.btn--ghost {
-  background: transparent;
-  color: var(--color-text-secondary);
-  border: 1px solid var(--color-border);
-}
-
-.btn--ghost:hover {
-  color: var(--color-text);
-  border-color: var(--color-border-hover);
-}
-
-.btn--outline {
-  background: transparent;
-  color: var(--color-accent);
-  border: 1px solid var(--color-accent-border);
-}
-
-.btn--outline:hover {
-  background: var(--color-accent-subtle);
-  color: var(--color-accent-hover);
-  border-color: var(--color-accent);
-}
-
-.btn--small {
-  padding: var(--space-2) var(--space-4);
-  font-size: var(--font-size-xs);
-  border-radius: var(--radius-md);
-}
-
-/* ============================================
-   CHIP
-   ============================================ */
-.chip {
-  display: inline-flex;
-  align-items: center;
-  padding: var(--space-1) var(--space-3);
-  font-size: var(--font-size-xs);
-  font-weight: var(--font-weight-medium);
-  color: var(--color-text-secondary);
-  background: var(--color-surface-2);
-  border: 1px solid var(--color-border);
-  border-radius: var(--radius-full);
-}
-
-.chip--accent {
-  color: var(--color-accent);
-  background: var(--color-accent-subtle);
-  border-color: var(--color-accent-border);
-}
-
-/* ============================================
-   TAG
-   ============================================ */
-.tag {
-  display: inline-flex;
-  padding: 2px var(--space-2);
-  font-size: var(--font-size-xs);
-  font-weight: var(--font-weight-medium);
-  color: var(--color-accent);
-  background: var(--color-accent-subtle);
-  border-radius: var(--radius-full);
-}
-
-/* ============================================
-   NAVIGATION
-   ============================================ */
-.header {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  z-index: var(--z-header);
-  background: transparent;
-  transition: background var(--transition-base), box-shadow var(--transition-base);
-}
-
-.header.scrolled {
-  background: rgba(10, 10, 11, 0.85);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  box-shadow: 0 1px 0 var(--color-border);
-}
-
-[data-theme="light"] .header.scrolled {
-  background: rgba(250, 250, 250, 0.85);
-}
-
-.nav {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding-top: var(--space-4);
-  padding-bottom: var(--space-4);
-}
-
-.nav__logo {
-  font-size: var(--font-size-lg);
-  font-weight: var(--font-weight-semibold);
-  letter-spacing: -0.025em;
-  transition: opacity var(--transition-fast);
-}
-
-.nav__logo:hover {
-  opacity: 0.7;
-}
-
-.nav__right {
-  display: flex;
-  align-items: center;
-  gap: var(--space-2);
-}
-
-.nav__menu {
-  display: flex;
-  align-items: center;
-  gap: var(--space-1);
-}
-
-.nav__link {
-  display: block;
-  padding: var(--space-2) var(--space-3);
-  font-size: var(--font-size-sm);
-  font-weight: var(--font-weight-medium);
-  color: var(--color-text-secondary);
-  border-radius: var(--radius-md);
-  transition: color var(--transition-fast), background var(--transition-fast);
-}
-
-.nav__link:hover,
-.nav__link.active {
-  color: var(--color-text);
-  background: var(--color-surface-2);
-}
-
-/* Theme toggle */
-.theme-toggle {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 36px;
-  height: 36px;
-  border-radius: var(--radius-md);
-  color: var(--color-text-secondary);
-  border: 1px solid var(--color-border);
-  transition: all var(--transition-fast);
-  flex-shrink: 0;
-  position: relative;
-}
-
-.theme-toggle:hover {
-  color: var(--color-text);
-  border-color: var(--color-border-hover);
-}
-
-.theme-toggle__icon {
-  position: absolute;
-  font-size: 1.125rem;
-  transition: opacity var(--transition-fast), transform var(--transition-fast);
-}
-
-.theme-toggle__sun {
-  opacity: 1;
-  transform: rotate(0deg);
-}
-
-.theme-toggle__moon {
-  opacity: 0;
-  transform: rotate(90deg);
-}
-
-[data-theme="light"] .theme-toggle__sun {
-  opacity: 0;
-  transform: rotate(-90deg);
-}
-
-[data-theme="light"] .theme-toggle__moon {
-  opacity: 1;
-  transform: rotate(0deg);
-}
-
-/* Hamburger */
-.nav__toggle {
-  display: none;
-  flex-direction: column;
-  gap: 5px;
-  padding: var(--space-2);
-  z-index: var(--z-menu-toggle);
-}
-
-.nav__toggle-bar {
-  display: block;
-  width: 22px;
-  height: 2px;
-  background: var(--color-text);
-  border-radius: 2px;
-  transition: transform var(--transition-base), opacity var(--transition-fast);
-}
-
-.nav__toggle[aria-expanded="true"] .nav__toggle-bar:nth-child(1) {
-  transform: translateY(7px) rotate(45deg);
-}
-
-.nav__toggle[aria-expanded="true"] .nav__toggle-bar:nth-child(2) {
-  opacity: 0;
-}
-
-.nav__toggle[aria-expanded="true"] .nav__toggle-bar:nth-child(3) {
-  transform: translateY(-7px) rotate(-45deg);
-}
-
-/* Backdrop */
-.nav__backdrop {
-  position: fixed;
-  inset: 0;
-  z-index: var(--z-backdrop);
-  background: rgba(0, 0, 0, 0.5);
-  opacity: 0;
-  visibility: hidden;
-  transition: opacity var(--transition-base), visibility var(--transition-base);
-}
-
-[data-theme="light"] .nav__backdrop {
-  background: rgba(0, 0, 0, 0.25);
-}
-
-.nav__backdrop.visible {
-  opacity: 1;
-  visibility: visible;
-}
-
-/* Mobile menu */
-@media (max-width: 767px) {
-  .nav__toggle {
-    display: flex;
-  }
-
-  .nav__menu {
-    display: flex;
-    flex-direction: column;
-    position: fixed;
-    top: 0;
-    right: 0;
-    width: 280px;
-    height: 100vh;
-    height: 100dvh;
-    background: var(--color-bg);
-    padding: calc(env(safe-area-inset-top, 0px) + var(--space-20)) var(--space-6) calc(env(safe-area-inset-bottom, 0px) + var(--space-6));
-    gap: var(--space-1);
-    z-index: var(--z-menu);
-    transform: translateX(100%);
-    transition: transform var(--transition-base), box-shadow var(--transition-base);
-    box-shadow: none;
-    overflow-y: auto;
-  }
-
-  .nav__menu.open {
-    transform: translateX(0);
-    box-shadow: -8px 0 30px rgba(0, 0, 0, 0.3);
-  }
-
-  .nav__menu.open .nav__link {
-    font-size: var(--font-size-base);
-    padding: var(--space-3) var(--space-4);
-    text-align: left;
-  }
-
-  .theme-toggle {
-    z-index: var(--z-menu-toggle);
-  }
-}
-
-/* ============================================
-   HERO
-   ============================================ */
-.hero {
-  min-height: 100vh;
-  display: flex;
-  align-items: center;
-  padding-top: 5rem;
-}
-
-.hero__container {
-  width: 100%;
-}
-
-.hero__content {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: var(--space-10);
-  align-items: center;
-}
-
-.hero__greeting {
-  font-size: var(--font-size-sm);
-  font-weight: var(--font-weight-medium);
-  color: var(--color-accent);
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
-  margin-bottom: var(--space-3);
-}
-
-.hero__title {
-  font-size: var(--font-size-5xl);
-  font-weight: var(--font-weight-bold);
-  line-height: 1.08;
-  margin-bottom: var(--space-4);
-}
-
-.hero__desc {
-  font-size: var(--font-size-lg);
-  color: var(--color-text-secondary);
-  max-width: 480px;
-  margin-bottom: var(--space-6);
-}
-
-.hero__tech {
-  display: flex;
-  flex-wrap: wrap;
-  gap: var(--space-2);
-  margin-bottom: var(--space-8);
-}
-
-.hero__actions {
-  display: flex;
-  flex-wrap: wrap;
-  gap: var(--space-3);
-}
-
-.hero__image {
-  display: flex;
-  justify-content: center;
-}
-
-.hero__image-wrapper {
-  width: 260px;
-  height: 260px;
-  border-radius: var(--radius-xl);
-  overflow: hidden;
-  border: 2px solid var(--color-border);
-  box-shadow: var(--shadow-lg);
-}
-
-.hero__image-wrapper img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-
-@media (min-width: 768px) {
-  .hero__content {
-    grid-template-columns: 1fr auto;
-  }
-
-  .hero__image-wrapper {
-    width: 300px;
-    height: 300px;
-  }
-}
-
-@media (min-width: 1024px) {
-  .hero__image-wrapper {
-    width: 340px;
-    height: 340px;
-  }
-}
-
-@media (min-width: 1440px) {
-  .hero__image-wrapper {
-    width: 360px;
-    height: 360px;
-  }
-}
-
-/* ============================================
-   ABOUT
-   ============================================ */
-.about__content {
-  max-width: 720px;
-}
-
-.about__text {
-  font-size: var(--font-size-base);
-  color: var(--color-text-secondary);
-  margin-bottom: var(--space-4);
-}
-
-.about__text:last-of-type {
-  margin-bottom: var(--space-6);
-}
-
-.about__highlights {
-  display: flex;
-  flex-direction: column;
-  gap: var(--space-3);
-}
-
-.about__highlight {
-  display: inline-flex;
-  align-items: center;
-  gap: var(--space-3);
-  font-size: var(--font-size-sm);
-  font-weight: var(--font-weight-medium);
-  color: var(--color-text);
-}
-
-.about__highlight i {
-  color: var(--color-accent);
-  flex-shrink: 0;
-  font-size: 1.125rem;
-}
-
-/* ============================================
-   SKILLS
-   ============================================ */
-.skills__grid {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: var(--space-4);
-}
-
-.skill__group {
-  padding: var(--space-6);
-  background: var(--color-surface);
-  border: 1px solid var(--color-border);
-  border-radius: var(--radius-lg);
-}
-
-.skill__group-title {
-  font-size: var(--font-size-xs);
-  font-weight: var(--font-weight-semibold);
-  color: var(--color-text-tertiary);
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
-  margin-bottom: var(--space-4);
-}
-
-.skill__chips {
-  display: flex;
-  flex-wrap: wrap;
-  gap: var(--space-2);
-}
-
-@media (min-width: 600px) {
-  .skills__grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-}
-
-@media (min-width: 1024px) {
-  .skills__grid {
-    grid-template-columns: repeat(3, 1fr);
-  }
-}
-
-/* ============================================
-   PROJECTS
-   ============================================ */
-.projects__grid {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: var(--space-8);
-}
-
-.project-card {
-  background: var(--color-surface);
-  border: 1px solid var(--color-border);
-  border-radius: var(--radius-xl);
-  overflow: hidden;
-  transition: border-color var(--transition-base), box-shadow var(--transition-base);
-}
-
-.project-card:hover {
-  border-color: var(--color-border-hover);
-  box-shadow: var(--shadow-lg);
-}
-
-.project-card__image {
-  position: relative;
-  overflow: hidden;
-  aspect-ratio: 16 / 9;
-  background: var(--color-surface-2);
-  border-bottom: 1px solid var(--color-border);
-}
-
-.project-card__image img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  transition: transform var(--transition-base);
-}
-
-.project-card:hover .project-card__image img {
-  transform: scale(1.03);
-}
-
-.project-card__overlay {
-  position: absolute;
-  inset: 0;
-  z-index: 2;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: var(--space-3);
-  background: rgba(0, 0, 0, 0.5);
-  opacity: 0;
-  transition: opacity var(--transition-base);
-}
-
-.project-card:hover .project-card__overlay {
-  opacity: 1;
-}
-
-.project-card__overlay .btn--ghost {
-  color: rgba(255, 255, 255, 0.9);
-  border-color: rgba(255, 255, 255, 0.2);
-  backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px);
-}
-
-.project-card__overlay .btn--ghost:hover {
-  background: rgba(255, 255, 255, 0.15);
-  color: #fff;
-  border-color: rgba(255, 255, 255, 0.3);
-}
-
-.project-card__body {
-  padding: var(--space-6);
-}
-
-.project-card__tags {
-  display: flex;
-  flex-wrap: wrap;
-  gap: var(--space-2);
-  margin-bottom: var(--space-3);
-}
-
-.project-card__title {
-  font-size: var(--font-size-2xl);
-  font-weight: var(--font-weight-bold);
-  margin-bottom: var(--space-3);
-}
-
-.project-card__desc {
-  font-size: var(--font-size-base);
-  color: var(--color-text-secondary);
-  margin-bottom: var(--space-4);
-}
-
-.project-card__details {
-  display: flex;
-  flex-direction: column;
-  gap: var(--space-2);
-}
-
-.project-card__details li {
-  position: relative;
-  padding-left: var(--space-4);
-  font-size: var(--font-size-sm);
-  color: var(--color-text-tertiary);
-  line-height: var(--lineheight-relaxed);
-}
-
-.project-card__details li::before {
-  content: "";
-  position: absolute;
-  left: 0;
-  top: 8px;
-  width: 4px;
-  height: 4px;
-  border-radius: var(--radius-full);
-  background: var(--color-accent);
-}
-
-@media (min-width: 768px) {
-  .projects__grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-}
-
-@media (min-width: 1024px) {
-  .projects__grid {
-    grid-template-columns: 1fr;
-    gap: var(--space-10);
-  }
-
-  .project-card {
-    display: grid;
-    grid-template-columns: 1.2fr 1fr;
-  }
-
-  .project-card__image {
-    aspect-ratio: auto;
-    min-height: 100%;
-    border-bottom: none;
-    border-right: 1px solid var(--color-border);
-  }
-
-  .project-card__image img {
-    min-height: 100%;
-  }
-
-  .project-card__body {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-  }
-
-  .project-card:nth-child(even) .project-card__image {
-    order: 2;
-    border-right: none;
-    border-left: 1px solid var(--color-border);
-  }
-
-  .project-card:nth-child(even) .project-card__body {
-    order: 1;
-  }
-}
-
-/* ============================================
-   CERTIFICATES
-   ============================================ */
-.certs__filters {
-  display: flex;
-  flex-wrap: wrap;
-  gap: var(--space-2);
-  margin-bottom: var(--space-8);
-}
-
-.certs__filter {
-  padding: var(--space-2) var(--space-4);
-  font-size: var(--font-size-sm);
-  font-weight: var(--font-weight-medium);
-  color: var(--color-text-secondary);
-  border: 1px solid var(--color-border);
-  border-radius: var(--radius-full);
-  transition: all var(--transition-fast);
-}
-
-.certs__filter:hover {
-  color: var(--color-text);
-  border-color: var(--color-border-hover);
-}
-
-.certs__filter.active {
-  color: #fff;
-  background: var(--color-accent);
-  border-color: var(--color-accent);
-}
-
-.certs__grid {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: var(--space-4);
-}
-
-.cert-card {
-  display: flex;
-  flex-direction: column;
-  padding: var(--space-6);
-  background: var(--color-surface);
-  border: 1px solid var(--color-border);
-  border-radius: var(--radius-xl);
-  transition: border-color var(--transition-base), box-shadow var(--transition-base), transform var(--transition-base), opacity var(--transition-base);
-}
-
-.cert-card:hover {
-  border-color: var(--color-border-hover);
-  box-shadow: var(--shadow-md);
-  transform: translateY(-2px);
-}
-
-.cert-card.hidden {
-  display: none;
-}
-
-.cert-card__icon {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 40px;
-  height: 40px;
-  border-radius: var(--radius-md);
-  background: var(--color-accent-subtle);
-  color: var(--color-accent);
-  font-size: 1.25rem;
-  margin-bottom: var(--space-4);
-}
-
-.cert-card__title {
-  font-size: var(--font-size-base);
-  font-weight: var(--font-weight-semibold);
-  margin-bottom: var(--space-2);
-  line-height: var(--lineheight-tight);
-}
-
-.cert-card__issuer {
-  display: flex;
-  align-items: center;
-  gap: var(--space-2);
-  font-size: var(--font-size-sm);
-  color: var(--color-text-secondary);
-  margin-bottom: var(--space-1);
-}
-
-.cert-card__issuer i {
-  font-size: 0.875rem;
-  color: var(--color-text-tertiary);
-}
-
-.cert-card__date {
-  display: flex;
-  align-items: center;
-  gap: var(--space-2);
-  font-size: var(--font-size-xs);
-  color: var(--color-text-tertiary);
-}
-
-.cert-card__date i {
-  font-size: 0.75rem;
-}
-
-.cert-card__actions {
-  display: flex;
-  flex-wrap: wrap;
-  gap: var(--space-2);
-  margin-top: var(--space-5);
-}
-
-@media (min-width: 600px) {
-  .certs__grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-}
-
-@media (min-width: 1024px) {
-  .certs__grid {
-    grid-template-columns: repeat(3, 1fr);
-  }
-}
-
-/* ============================================
-   CONTACT
-   ============================================ */
-.contact__content {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: var(--space-10);
-}
-
-.contact__info {
-  display: flex;
-  flex-direction: column;
-  gap: var(--space-6);
-}
-
-.contact__item {
-  display: flex;
-  align-items: flex-start;
-  gap: var(--space-4);
-}
-
-.contact__item i {
-  color: var(--color-accent);
-  flex-shrink: 0;
-  font-size: 1.25rem;
-  margin-top: 2px;
-}
-
-.contact__item-label {
-  font-size: var(--font-size-xs);
-  font-weight: var(--font-weight-medium);
-  color: var(--color-text-tertiary);
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
-  margin-bottom: var(--space-1);
-}
-
-.contact__item-value {
-  font-size: var(--font-size-base);
-  font-weight: var(--font-weight-medium);
-  color: var(--color-text);
-  transition: color var(--transition-fast);
-}
-
-.contact__item-value:hover {
-  color: var(--color-accent);
-}
-
-.contact__cta {
-  padding: var(--space-8);
-  background: var(--color-surface);
-  border: 1px solid var(--color-border);
-  border-radius: var(--radius-xl);
-}
-
-.contact__cta-title {
-  font-size: var(--font-size-xl);
-  font-weight: var(--font-weight-semibold);
-  margin-bottom: var(--space-3);
-}
-
-.contact__cta-text {
-  font-size: var(--font-size-base);
-  color: var(--color-text-secondary);
-  margin-bottom: var(--space-6);
-  max-width: 440px;
-}
-
-@media (min-width: 768px) {
-  .contact__content {
-    grid-template-columns: 1fr 1fr;
-  }
-}
-
-/* ============================================
-   FOOTER
-   ============================================ */
-.footer {
-  padding: var(--space-12) 0;
-  border-top: 1px solid var(--color-border);
-}
-
-.footer__content {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: var(--space-4);
-  text-align: center;
-}
-
-.footer__social {
-  display: flex;
-  gap: var(--space-3);
-}
-
-.footer__social a {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 40px;
-  height: 40px;
-  font-size: 1.25rem;
-  border-radius: var(--radius-full);
-  color: var(--color-text-secondary);
-  border: 1px solid var(--color-border);
-  transition: all var(--transition-fast);
-}
-
-.footer__social a:hover {
-  color: var(--color-text);
-  border-color: var(--color-border-hover);
-  background: var(--color-surface-2);
-}
-
-.footer__copy {
-  font-size: var(--font-size-xs);
-  color: var(--color-text-tertiary);
-}
-
-/* ============================================
-   LIGHTBOX
-   ============================================ */
-.lightbox {
-  position: fixed;
-  inset: 0;
-  z-index: var(--z-lightbox);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  opacity: 0;
-  visibility: hidden;
-  transition: opacity var(--transition-base), visibility var(--transition-base);
-}
-
-.lightbox.active {
-  opacity: 1;
-  visibility: visible;
-}
-
-.lightbox__backdrop {
-  position: absolute;
-  inset: 0;
-  background: rgba(0, 0, 0, 0.9);
-}
-
-.lightbox__container {
-  position: relative;
-  width: 90vw;
-  max-width: 1000px;
-  max-height: 85vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-.lightbox__close {
-  position: absolute;
-  top: -2.5rem;
-  right: 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 44px;
-  height: 44px;
-  font-size: 1.375rem;
-  border-radius: var(--radius-full);
-  color: var(--color-text-secondary);
-  background: rgba(255, 255, 255, 0.1);
-  transition: color var(--transition-fast), background var(--transition-fast);
-  z-index: 2;
-}
-
-.lightbox__close:hover {
-  color: #fff;
-  background: rgba(255, 255, 255, 0.2);
-}
-
-.lightbox__nav {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 44px;
-  height: 44px;
-  font-size: 1.375rem;
-  border-radius: var(--radius-full);
-  color: var(--color-text-secondary);
-  background: rgba(255, 255, 255, 0.1);
-  transition: color var(--transition-fast), background var(--transition-fast);
-  z-index: 2;
-}
-
-.lightbox__nav:hover {
-  color: #fff;
-  background: rgba(255, 255, 255, 0.2);
-}
-
-.lightbox__prev {
-  left: -3.5rem;
-}
-
-.lightbox__next {
-  right: -3.5rem;
-}
-
-.lightbox__figure {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  width: 100%;
-}
-
-.lightbox__image {
-  max-width: 100%;
-  max-height: 75vh;
-  object-fit: contain;
-  border-radius: var(--radius-lg);
-}
-
-.lightbox__counter {
-  margin-top: var(--space-3);
-  font-size: var(--font-size-sm);
-  color: var(--color-text-tertiary);
-}
-
-/* Project overlay always visible on mobile */
-@media (max-width: 767px) {
-  .project-card__overlay {
-    opacity: 1;
-    background: linear-gradient(to top, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0.4) 60%, transparent 100%);
-    align-items: flex-end;
-    padding-bottom: var(--space-4);
-  }
-
-  .project-card__overlay .btn--ghost {
-    color: rgba(255, 255, 255, 0.9);
-    border-color: rgba(255, 255, 255, 0.2);
-    backdrop-filter: blur(8px);
-    -webkit-backdrop-filter: blur(8px);
-  }
-
-  .project-card__overlay .btn--ghost:hover {
-    background: rgba(255, 255, 255, 0.15);
-    color: #fff;
-    border-color: rgba(255, 255, 255, 0.3);
-  }
-
-  .lightbox__nav {
-    display: none;
-  }
-
-  .lightbox__close {
-    top: -2.5rem;
-    right: 50%;
-    transform: translateX(50%);
-  }
-}
-
-/* ============================================
-   BACK TO TOP
-   ============================================ */
-.backtotop {
-  position: fixed;
-  bottom: var(--space-6);
-  right: var(--space-6);
-  z-index: var(--z-backtotop);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 44px;
-  height: 44px;
-  font-size: 1.25rem;
-  border-radius: var(--radius-full);
-  background: var(--color-surface-2);
-  border: 1px solid var(--color-border);
-  color: var(--color-text-secondary);
-  opacity: 0;
-  visibility: hidden;
-  transform: translateY(8px);
-  transition: all var(--transition-base);
-}
-
-.backtotop.visible {
-  opacity: 1;
-  visibility: visible;
-  transform: translateY(0);
-}
-
-.backtotop:hover {
-  color: var(--color-text);
-  border-color: var(--color-border-hover);
-}
-
-/* ============================================
-   SCROLL REVEAL
-   ============================================ */
-.reveal {
-  opacity: 0;
-  transform: translateY(20px);
-  transition: opacity 0.6s ease, transform 0.6s ease;
-}
-
-.reveal.visible {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-/* ============================================
-   REDUCED MOTION
-   ============================================ */
-@media (prefers-reduced-motion: reduce) {
-  *,
-  *::before,
-  *::after {
-    animation-duration: 0.01ms !important;
-    animation-iteration-count: 1 !important;
-    transition-duration: 0.01ms !important;
-    scroll-behavior: auto !important;
-  }
-
-  .reveal {
-    opacity: 1;
-    transform: none;
-  }
-}
-</file>
-
 <file path="index.html">
 <!doctype html>
 <html lang="id" dir="ltr">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="theme-color" content="#0a0a0b" media="(prefers-color-scheme: dark)" />
-    <meta name="theme-color" content="#fafafa" media="(prefers-color-scheme: light)" />
+    <script>
+      (function () {
+        try {
+          var saved = localStorage.getItem('theme');
+          var theme =
+            saved === 'light' || saved === 'dark'
+              ? saved
+              : window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches
+                ? 'light'
+                : 'dark';
+          document.documentElement.dataset.theme = theme;
+        } catch (error) {
+          document.documentElement.dataset.theme = 'dark';
+        }
+      })();
+    </script>
+    <meta name="color-scheme" content="dark light" />
+    <meta name="theme-color" content="#0a0a0b" />
     <title>Daffa Aria — Junior Backend Developer</title>
-    <meta name="description" content="Portfolio Daffa Aria — Junior Backend Developer. Python, FastAPI, Laravel, AI automation. Berbasis di Cinere, Depok." />
-    <meta name="author" content="Daffa Aria" />
+    <meta
+      name="description"
+      content="Portfolio Daffa Aria — Junior Backend Developer. Python, FastAPI, Laravel, AI automation. Berbasis di Cinere, Depok."
+    />
+    <meta name="author" content="Muhammad Daffa Aria Firmansyah" />
+    <meta name="robots" content="index, follow" />
     <link rel="canonical" href="https://bule2365.github.io/my-web/" />
-    <link rel="icon" type="image/svg+xml" href="/my-web/assets/icons/favicon.svg" />
-    <link rel="apple-touch-icon" href="/my-web/assets/icons/favicon.svg" />
+    <link rel="icon" type="image/svg+xml" href="%BASE_URL%assets/icons/favicon.svg" />
+    <link rel="apple-touch-icon" href="%BASE_URL%assets/icons/favicon.svg" />
+    <link rel="preload" as="image" href="%BASE_URL%assets/images/profile.webp" type="image/webp" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Open Graph / LinkedIn -->
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Daffa Aria" />
+    <meta property="og:title" content="Daffa Aria — Junior Backend Developer" />
+    <meta
+      property="og:description"
+      content="Portfolio Daffa Aria — Junior Backend Developer. Python, FastAPI, Laravel, AI automation. Proyek nyata, sertifikasi, dan pengalaman kerja."
+    />
+    <meta property="og:url" content="https://bule2365.github.io/my-web/" />
+    <meta property="og:locale" content="id_ID" />
+    <meta
+      property="og:image"
+      content="https://bule2365.github.io/my-web/assets/images/og-image.png"
+    />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="Daffa Aria — Junior Backend Developer" />
+
+    <!-- Twitter / X -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Daffa Aria — Junior Backend Developer" />
+    <meta
+      name="twitter:description"
+      content="Portfolio Daffa Aria — Junior Backend Developer. Python, FastAPI, Laravel, AI automation."
+    />
+    <meta
+      name="twitter:image"
+      content="https://bule2365.github.io/my-web/assets/images/og-image.png"
+    />
+
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Person",
+        "name": "Muhammad Daffa Aria Firmansyah",
+        "alternateName": "Daffa Aria",
+        "jobTitle": "Junior Backend Developer",
+        "description": "Junior Backend Developer yang fokus pada API, sistem backend, dan AI automation.",
+        "url": "https://bule2365.github.io/my-web/",
+        "image": "https://bule2365.github.io/my-web/assets/images/profile.webp",
+        "email": "mailto:ariadaffa127@gmail.com",
+        "telephone": "+62-815-2365-1797",
+        "address": {
+          "@type": "PostalAddress",
+          "addressLocality": "Cinere, Depok",
+          "addressCountry": "ID"
+        },
+        "sameAs": [
+          "https://github.com/Bule2365",
+          "https://linkedin.com/in/leaddaf"
+        ],
+        "alumniOf": [
+          {
+            "@type": "CollegeOrUniversity",
+            "name": "Institut Bisnis dan Informatika Kosgoro 1957"
+          },
+          {
+            "@type": "School",
+            "name": "Sekolah Menengah Kejuruan Informatika Utama"
+          }
+        ],
+        "knowsAbout": [
+          "Backend Development",
+          "Python",
+          "FastAPI",
+          "Laravel",
+          "AI Automation",
+          "System Design"
+        ]
+      }
+    </script>
   </head>
   <body>
     <div id="root"></div>

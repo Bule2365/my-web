@@ -75,7 +75,6 @@ public/
   documents/
     CV-Daffa_v6.pdf
   google3935b0c3f9d63e31.html
-  robots.txt
   sitemap.xml
 src/
   components/
@@ -106,6 +105,7 @@ src/
   index.css
   main.jsx
   theme.jsx
+CV-Daffa_V8.docx
 index.html
 package.json
 postcss.config.js
@@ -116,19 +116,26 @@ vite.config.js
 <files>
 This section contains the contents of the repository's files.
 
-<file path="public/google3935b0c3f9d63e31.html">
-google-site-verification: google3935b0c3f9d63e31.html
+<file path="public/assets/icons/favicon.svg">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" fill="none">
+  <rect width="64" height="64" rx="18" fill="#050816" />
+  <rect x="6" y="6" width="52" height="52" rx="14" fill="url(#paint0_linear)" />
+  <path
+    d="M22 18H33.5C42.3366 18 49.5 25.1634 49.5 34C49.5 42.8366 42.3366 50 33.5 50H22V18ZM29.5 25V43H33.1C38.0153 43 42 38.9706 42 34C42 29.0294 38.0153 25 33.1 25H29.5Z"
+    fill="white"
+  />
+  <defs>
+    <linearGradient id="paint0_linear" x1="6" y1="6" x2="58" y2="58" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#2563EB" />
+      <stop offset="0.5" stop-color="#7C3AED" />
+      <stop offset="1" stop-color="#06B6D4" />
+    </linearGradient>
+  </defs>
+</svg>
 </file>
 
-<file path="public/robots.txt">
-User-agent: *
-Allow: /
-
-Sitemap: https://bule2365.github.io/my-web/sitemap.xml
-
-# Google Search Console verification
-User-agent: Googlebot
-Allow: /
+<file path="public/google3935b0c3f9d63e31.html">
+google-site-verification: google3935b0c3f9d63e31.html
 </file>
 
 <file path="public/sitemap.xml">
@@ -375,7 +382,7 @@ function TimelineItem({ icon, title, subtitle, period, points }) {
       <div className="rounded-xl border border-border bg-surface/70 p-5">
         <div className="flex flex-wrap items-start justify-between gap-2">
           <div>
-            <h3 className="font-semibold text-text">{title}</h3>
+            <h4 className="font-semibold text-text">{title}</h4>
             <p className="mt-0.5 text-sm text-text-secondary">{subtitle}</p>
           </div>
           <span className="inline-flex items-center gap-1.5 rounded-full border border-border bg-surface-2 px-2.5 py-1 text-xs text-text-tertiary">
@@ -426,7 +433,7 @@ export default function Journey() {
               </h3>
             </ScrollReveal>
             <ScrollReveal>
-              <ol className="relative flex flex-col gap-6 border-l border-border pl-1">
+              <ol className="relative flex flex-col gap-6 before:absolute before:bottom-0 before:left-[18px] before:top-0 before:w-px before:bg-border">
                 {education.map((item) => (
                   <TimelineItem
                     key={item.institution}
@@ -447,7 +454,7 @@ export default function Journey() {
               </h3>
             </ScrollReveal>
             <ScrollReveal>
-              <ol className="relative flex flex-col gap-6 border-l border-border pl-1">
+              <ol className="relative flex flex-col gap-6 before:absolute before:bottom-0 before:left-[18px] before:top-0 before:w-px before:bg-border">
                 {experience.map((item) => (
                   <TimelineItem
                     key={item.company}
@@ -470,7 +477,7 @@ export default function Journey() {
 
 <file path="src/components/Lightbox.jsx">
 import React, { useEffect, useState } from 'react';
-import { AnimatePresence, motion, useReducedMotion } from 'framer-motion';
+import { AnimatePresence, m, useReducedMotion } from 'framer-motion';
 import Icon from './Icon';
 import Modal from './Modal';
 
@@ -527,9 +534,9 @@ export default function Lightbox({ images, index, onClose, onNext, onPrev }) {
         <div className="relative">
           <AnimatePresence mode="wait" initial={false}>
             {failed ? (
-              <motion.div
+              <m.div
                 key={`fallback-${index}`}
-                className="mx-auto flex min-h-[40vh] max-w-3xl flex-col items-center justify-center gap-3 rounded-lg border border-white/15 bg-white/5 p-8 text-center"
+                className="mx-auto flex min-h-[40dvh] max-w-3xl flex-col items-center justify-center gap-3 rounded-lg border border-white/15 bg-white/5 p-8 text-center"
                 initial={reduceMotion ? false : { opacity: 0 }}
                 animate={{ opacity: 1 }}
                 exit={reduceMotion ? undefined : { opacity: 0 }}
@@ -547,15 +554,15 @@ export default function Lightbox({ images, index, onClose, onNext, onPrev }) {
                     Buka gambar di tab baru
                   </a>
                 ) : null}
-              </motion.div>
+              </m.div>
             ) : (
-              <motion.img
+              <m.img
                 key={index}
                 src={current?.src || ''}
                 alt={current?.alt || ''}
                 width={1200}
                 height={800}
-                className="mx-auto max-h-[70vh] w-auto max-w-full rounded-lg object-contain shadow-2xl"
+                className="mx-auto max-h-[70dvh] w-auto max-w-full rounded-lg object-contain shadow-2xl"
                 initial={reduceMotion ? false : { opacity: 0, x: 40 }}
                 animate={{ opacity: 1, x: 0 }}
                 exit={reduceMotion ? undefined : { opacity: 0, x: -40 }}
@@ -619,7 +626,7 @@ export default function Lightbox({ images, index, onClose, onNext, onPrev }) {
 
 <file path="src/components/Modal.jsx">
 import React, { useEffect, useRef } from 'react';
-import { motion, useReducedMotion } from 'framer-motion';
+import { m, useReducedMotion } from 'framer-motion';
 import useBodyScrollLock from '../hooks/useBodyScrollLock';
 
 const FOCUSABLE_SELECTOR = [
@@ -698,7 +705,7 @@ export default function Modal({
   }, [onClose]);
 
   return (
-    <motion.div
+    <m.div
       className="fixed inset-0 z-[200] flex items-center justify-center p-4 sm:p-6"
       role="dialog"
       aria-modal="true"
@@ -713,19 +720,19 @@ export default function Modal({
         onClick={onClose}
         aria-hidden="true"
       />
-      <motion.div
+      <m.div
         ref={panelRef}
         tabIndex={-1}
         onClick={(event) => event.stopPropagation()}
-        className={`relative z-10 w-full outline-none ${panelClassName}`.trim()}
+        className={`relative z-10 max-h-[calc(100dvh-2rem)] w-full overflow-y-auto outline-none ${panelClassName}`.trim()}
         initial={reduceMotion ? false : { opacity: 0, scale: 0.97, y: 8 }}
         animate={{ opacity: 1, scale: 1, y: 0 }}
         exit={reduceMotion ? undefined : { opacity: 0, scale: 0.97, y: 8 }}
         transition={{ duration: reduceMotion ? 0 : 0.2, ease: 'easeOut' }}
       >
         {children}
-      </motion.div>
-    </motion.div>
+      </m.div>
+    </m.div>
   );
 }
 </file>
@@ -780,7 +787,7 @@ export default function PdfPreview({ certificate, onClose }) {
         <object
           data={`${certificate.file}#view=FitH`}
           type="application/pdf"
-          className="h-[68vh] w-full bg-surface-2"
+          className="h-[68dvh] w-full bg-surface-2"
           aria-label={`Dokumen PDF ${certificate.title}`}
         >
           <div className="flex h-[50vh] flex-col items-center justify-center gap-3 p-8 text-center">
@@ -806,7 +813,7 @@ export default function PdfPreview({ certificate, onClose }) {
 
 <file path="src/components/ThemeToggle.jsx">
 import React from 'react';
-import { motion, useReducedMotion } from 'framer-motion';
+import { m, useReducedMotion } from 'framer-motion';
 import Icon from './Icon';
 import { useTheme } from '../theme';
 
@@ -829,7 +836,7 @@ export default function ThemeToggle({ className = '' }) {
         className,
       ].join(' ')}
     >
-      <motion.span
+      <m.span
         key={theme}
         initial={reduceMotion ? false : { opacity: 0, rotate: isDark ? -90 : 90 }}
         animate={{ opacity: 1, rotate: 0 }}
@@ -837,7 +844,7 @@ export default function ThemeToggle({ className = '' }) {
         className="flex"
       >
         <Icon name={isDark ? 'sun' : 'moon'} size={18} />
-      </motion.span>
+      </m.span>
     </button>
   );
 }
@@ -875,7 +882,15 @@ export default function useBodyScrollLock(locked) {
 </file>
 
 <file path="src/theme.jsx">
-import React, { createContext, useCallback, useContext, useEffect, useMemo, useState } from 'react';
+import React, {
+  createContext,
+  useCallback,
+  useContext,
+  useEffect,
+  useMemo,
+  useRef,
+  useState,
+} from 'react';
 
 const DARK_COLOR = '#0a0a0b';
 const LIGHT_COLOR = '#fafafa';
@@ -921,19 +936,19 @@ export function ThemeProvider({ children }) {
     if (fromDom === 'light' || fromDom === 'dark') return fromDom;
     return readTheme();
   });
+  const hasInteracted = useRef(false);
 
   useEffect(() => {
-    applyTheme(theme);
+    // Jangan simpan preferensi OS sebagai pilihan eksplisit saat mount.
+    applyTheme(theme, { persist: hasInteracted.current });
   }, [theme]);
 
   const toggleTheme = useCallback(() => {
+    hasInteracted.current = true;
     setTheme((current) => (current === 'dark' ? 'light' : 'dark'));
   }, []);
 
-  const value = useMemo(
-    () => ({ theme, setTheme, toggleTheme, isDark: theme === 'dark' }),
-    [theme, toggleTheme],
-  );
+  const value = useMemo(() => ({ theme, toggleTheme }), [theme, toggleTheme]);
 
   return <ThemeContext.Provider value={value}>{children}</ThemeContext.Provider>;
 }
@@ -947,22 +962,23 @@ export function useTheme() {
 }
 </file>
 
-<file path="public/assets/icons/favicon.svg">
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" fill="none">
-  <rect width="64" height="64" rx="18" fill="#050816" />
-  <rect x="6" y="6" width="52" height="52" rx="14" fill="url(#paint0_linear)" />
-  <path
-    d="M22 18H33.5C42.3366 18 49.5 25.1634 49.5 34C49.5 42.8366 42.3366 50 33.5 50H22V18ZM29.5 25V43H33.1C38.0153 43 42 38.9706 42 34C42 29.0294 38.0153 25 33.1 25H29.5Z"
-    fill="white"
-  />
-  <defs>
-    <linearGradient id="paint0_linear" x1="6" y1="6" x2="58" y2="58" gradientUnits="userSpaceOnUse">
-      <stop stop-color="#2563EB" />
-      <stop offset="0.5" stop-color="#7C3AED" />
-      <stop offset="1" stop-color="#06B6D4" />
-    </linearGradient>
-  </defs>
-</svg>
+<file path="postcss.config.js">
+export default {
+  plugins: {
+    tailwindcss: {},
+    autoprefixer: {},
+  },
+};
+</file>
+
+<file path="vite.config.js">
+import { defineConfig } from 'vite';
+import react from '@vitejs/plugin-react';
+
+export default defineConfig({
+  plugins: [react()],
+  base: '/my-web/',
+});
 </file>
 
 <file path="src/components/About.jsx">
@@ -1038,7 +1054,7 @@ export default function About() {
               />
               <figcaption className="relative mt-4 flex items-center gap-2 text-xs text-text-tertiary">
                 <Icon name="map-pin" size={14} className="text-accent" />
-                Berbasis di Cinere, Depok — terbuka untuk kerja remote maupun hybrid.
+                Berbasis di Cinere, Depok — terbuka untuk kerja remote.
               </figcaption>
             </figure>
           </ScrollReveal>
@@ -1263,7 +1279,7 @@ export default function Contact() {
                   href={contactInfo.whatsapp}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex min-h-11 items-center justify-center gap-2 rounded-lg border border-emerald-600/30 px-5 py-3 text-sm font-medium text-emerald-500 transition-colors hover:bg-emerald-500/10 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-emerald-500"
+                  className="inline-flex min-h-11 items-center justify-center gap-2 rounded-lg border border-emerald-600/30 px-5 py-3 text-sm font-medium text-emerald-700 transition-colors hover:bg-emerald-500/10 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-emerald-600 dark:text-emerald-400"
                 >
                   <Icon name="whatsapp" size={17} /> WhatsApp
                 </a>
@@ -1367,7 +1383,7 @@ export default function Skills() {
 
         <div className="grid gap-4 md:grid-cols-3">
           {primaryGroups.map((group) => (
-            <ScrollReveal key={group.title}>
+            <ScrollReveal key={group.title} className="h-full" itemClassName="h-full">
               <div className="h-full rounded-2xl border border-border bg-surface p-6 transition-colors hover:border-border-hover">
                 <div className="mb-4 flex items-center gap-3">
                   <span className="flex h-10 w-10 items-center justify-center rounded-lg bg-accent-subtle text-accent">
@@ -1392,7 +1408,7 @@ export default function Skills() {
 
         <div className="mt-4 grid gap-4 md:grid-cols-2">
           {supportGroups.map((group) => (
-            <ScrollReveal key={group.title}>
+            <ScrollReveal key={group.title} className="h-full" itemClassName="h-full">
               <div className="h-full rounded-xl border border-border bg-surface/60 p-5">
                 <div className="mb-3 flex items-center gap-2">
                   <Icon name={group.icon} size={16} className="text-text-tertiary" />
@@ -1447,8 +1463,6 @@ export function assetUrl(path) {
     "react-dom": "^18.3.1"
   },
   "devDependencies": {
-    "@types/react": "^18.3.3",
-    "@types/react-dom": "^18.3.0",
     "@vitejs/plugin-react": "^4.3.0",
     "autoprefixer": "^10.4.19",
     "gh-pages": "^6.1.1",
@@ -1459,31 +1473,12 @@ export function assetUrl(path) {
 }
 </file>
 
-<file path="postcss.config.js">
-export default {
-  plugins: {
-    tailwindcss: {},
-    autoprefixer: {},
-  },
-};
-</file>
-
-<file path="vite.config.js">
-import { defineConfig } from 'vite';
-import react from '@vitejs/plugin-react';
-
-export default defineConfig({
-  plugins: [react()],
-  base: '/my-web/',
-});
-</file>
-
 <file path="src/components/CTAButton.jsx">
 import React from 'react';
-import { motion, useReducedMotion } from 'framer-motion';
+import { m, useReducedMotion } from 'framer-motion';
 
 const variants = {
-  primary: 'bg-accent text-white hover:bg-accent-hover border border-transparent',
+  primary: 'bg-accent-solid text-white hover:bg-accent-solid-hover border border-transparent',
   secondary: 'bg-surface-2 text-text border border-border hover:border-border-hover',
   outline: 'bg-transparent text-accent border border-accent-border hover:bg-accent-subtle hover:border-accent',
 };
@@ -1513,7 +1508,7 @@ export default function CTAButton({
   ].join(' ');
 
   return (
-    <motion.a
+    <m.a
       href={href}
       target={finalTarget}
       rel={finalRel}
@@ -1524,17 +1519,18 @@ export default function CTAButton({
       {...anchorProps}
     >
       {children}
-    </motion.a>
+    </m.a>
   );
 }
 </file>
 
 <file path="src/components/Hero.jsx">
 import React from 'react';
-import { motion, useReducedMotion } from 'framer-motion';
+import { m, useReducedMotion } from 'framer-motion';
 import CTAButton from './CTAButton';
 import Icon from './Icon';
 import { assetUrl } from '../utils/assetUrl';
+import { certificates, projects } from '../data';
 
 const ease = [0.25, 0.46, 0.45, 0.94];
 
@@ -1569,55 +1565,52 @@ export default function Hero() {
       </div>
 
       <div className="container">
-        <motion.div
+        <m.div
           variants={stagger}
           initial={reduceMotion ? false : 'hidden'}
           animate="visible"
           className="grid grid-cols-1 items-center gap-10 lg:grid-cols-[1.15fr_0.85fr] lg:gap-14"
         >
           <div>
-            <motion.div variants={fadeUp}>
+            <m.div variants={fadeUp}>
               <span className="inline-flex items-center gap-2 rounded-full border border-accent-border bg-accent-subtle px-3 py-1.5 text-xs font-medium text-accent">
-                <span className="relative flex h-2 w-2">
-                  <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-emerald-400 opacity-60" />
-                  <span className="relative inline-flex h-2 w-2 rounded-full bg-emerald-400" />
-                </span>
-                Terbuka untuk peluang kerja
+                <span className="h-2 w-2 rounded-full bg-accent" aria-hidden="true" />
+                Fokus Backend Development
               </span>
-            </motion.div>
+            </m.div>
 
-            <motion.p
+            <m.p
               variants={fadeUp}
               className="mt-5 text-sm font-medium uppercase tracking-[0.2em] text-text-tertiary"
             >
               Daffa Aria — Cinere, Depok
-            </motion.p>
+            </m.p>
 
-            <motion.h1
+            <m.h1
               variants={fadeUp}
               className="mt-3 max-w-3xl text-4xl font-bold leading-[1.05] tracking-tight text-balance md:text-5xl lg:text-6xl"
             >
               Junior <span className="text-gradient">Backend Developer</span>
-            </motion.h1>
+            </m.h1>
 
-            <motion.p
+            <m.p
               variants={fadeUp}
               className="mt-5 max-w-xl text-lg text-text-secondary"
             >
               Bangun backend yang tangguh. Selesaikan masalah yang sebenarnya — API cepat,
               sistem stabil, dan kode yang mudah dirawat.
-            </motion.p>
+            </m.p>
 
-            <motion.div variants={fadeUp} className="mt-6 flex flex-wrap gap-2">
+            <m.div variants={fadeUp} className="mt-6 flex flex-wrap gap-2">
               {['Python', 'FastAPI', 'Laravel', 'AI Automation'].map((tag) => (
                 <span key={tag} className="chip">
                   <Icon name="code" size={13} className="text-accent" />
                   {tag}
                 </span>
               ))}
-            </motion.div>
+            </m.div>
 
-            <motion.div variants={fadeUp} className="mt-8 flex flex-wrap gap-3">
+            <m.div variants={fadeUp} className="mt-8 flex flex-wrap gap-3">
               <CTAButton href="#proyek" variant="primary">
                 <Icon name="arrow-right" size={17} /> Lihat Proyek
               </CTAButton>
@@ -1628,16 +1621,16 @@ export default function Hero() {
               >
                 <Icon name="download" size={17} /> Unduh CV
               </CTAButton>
-            </motion.div>
+            </m.div>
 
-            <motion.dl
+            <m.dl
               variants={fadeUp}
               className="mt-10 grid max-w-lg grid-cols-3 divide-x divide-border rounded-xl border border-border bg-surface/70 p-1"
             >
               {[
-                { value: '2', label: 'proyek unggulan' },
-                { value: '9', label: 'sertifikasi' },
-                { value: '4,6ms', label: 'per query' },
+                { value: String(projects.length), label: 'proyek unggulan' },
+                { value: String(certificates.length), label: 'sertifikasi' },
+                { value: '4,6ms', label: 'latensi pencarian' },
               ].map((stat) => (
                 <div key={stat.label} className="px-3 py-3 text-center sm:px-4">
                   <dt className="text-lg font-bold text-text sm:text-xl">{stat.value}</dt>
@@ -1646,16 +1639,16 @@ export default function Hero() {
                   </dd>
                 </div>
               ))}
-            </motion.dl>
+            </m.dl>
           </div>
 
-          <motion.div variants={fadeUp} className="flex justify-center lg:justify-end">
+          <m.div variants={fadeUp} className="flex justify-center lg:justify-end">
             <div className="relative">
               <div
                 className="absolute -inset-3 rounded-[2rem] bg-gradient-to-br from-accent via-accent-2 to-accent-3 opacity-25 blur-2xl"
                 aria-hidden="true"
               />
-              <motion.div
+              <m.div
                 initial={reduceMotion ? false : { opacity: 0, scale: 0.9 }}
                 animate={{ opacity: 1, scale: 1 }}
                 transition={{ duration: reduceMotion ? 0 : 0.7, delay: reduceMotion ? 0 : 0.25 }}
@@ -1670,10 +1663,10 @@ export default function Hero() {
                   fetchPriority="high"
                   className="h-full w-full object-cover"
                 />
-              </motion.div>
+              </m.div>
             </div>
-          </motion.div>
-        </motion.div>
+          </m.div>
+        </m.div>
       </div>
     </section>
   );
@@ -1682,7 +1675,7 @@ export default function Hero() {
 
 <file path="src/components/Navbar.jsx">
 import React, { useState, useEffect, useCallback, useRef } from 'react';
-import { AnimatePresence, motion, useReducedMotion } from 'framer-motion';
+import { AnimatePresence, m, useReducedMotion } from 'framer-motion';
 import { assetUrl } from '../utils/assetUrl';
 import ThemeToggle from './ThemeToggle';
 import Icon from './Icon';
@@ -1877,80 +1870,82 @@ export default function Navbar() {
   };
 
   return (
-    <header
-      className={`fixed inset-x-0 top-0 z-50 transition-all duration-300 ${
-        scrolled ? 'border-b border-border bg-bg/85 backdrop-blur-md' : 'bg-transparent'
-      }`}
-    >
-      <nav className="container flex items-center justify-between py-3" aria-label="Navigasi utama">
-        <a
-          href="#hero"
-          onClick={handleNavClick}
-          className="text-lg font-semibold tracking-tight text-text transition-opacity hover:opacity-80"
-        >
-          Daffa Aria
-        </a>
-
-        <div className="flex items-center gap-2">
-          <ul className="hidden items-center gap-1 md:flex">
-            {navLinks.map((link) => {
-              const isActive = activeSection === link.href.slice(1) && !link.isExternal;
-              return (
-                <li key={link.href}>
-                  <a
-                    href={link.href}
-                    target={link.isExternal ? '_blank' : undefined}
-                    rel={link.isExternal ? 'noopener noreferrer' : undefined}
-                    onClick={handleNavClick}
-                    aria-current={isActive ? 'location' : undefined}
-                    className={`block rounded-lg px-3 py-2 text-sm font-medium transition-colors ${
-                      isActive
-                        ? 'bg-surface-2 text-text'
-                        : 'text-text-secondary hover:bg-surface-2 hover:text-text'
-                    }`}
-                  >
-                    {link.label}
-                  </a>
-                </li>
-              );
-            })}
-          </ul>
-
-          <ThemeToggle />
-
-          <button
-            ref={toggleRef}
-            type="button"
-            className={`relative z-50 flex h-11 w-11 flex-col items-center justify-center gap-[5px] p-2 md:hidden ${
-              isOpen ? 'invisible' : ''
-            }`}
-            onClick={toggleMenu}
-            aria-label={isOpen ? 'Tutup menu' : 'Buka menu'}
-            aria-controls="nav-menu"
-            aria-expanded={isOpen}
+    <>
+      <header
+        className={`fixed inset-x-0 top-0 z-50 transition-all duration-300 ${
+          scrolled ? 'border-b border-border bg-bg/85 backdrop-blur-md' : 'bg-transparent'
+        }`}
+      >
+        <nav className="container flex items-center justify-between py-3" aria-label="Navigasi utama">
+          <a
+            href="#hero"
+            onClick={handleNavClick}
+            className="text-lg font-semibold tracking-tight text-text transition-opacity hover:opacity-80"
           >
-            <span
-              className={`block h-[2px] w-[22px] rounded-[2px] bg-text transition-all duration-300 ${
-                isOpen ? 'translate-y-[7px] rotate-45' : ''
+            Daffa Aria
+          </a>
+
+          <div className="flex items-center gap-2">
+            <ul className="hidden items-center gap-1 md:flex">
+              {navLinks.map((link) => {
+                const isActive = activeSection === link.href.slice(1) && !link.isExternal;
+                return (
+                  <li key={link.href}>
+                    <a
+                      href={link.href}
+                      target={link.isExternal ? '_blank' : undefined}
+                      rel={link.isExternal ? 'noopener noreferrer' : undefined}
+                      onClick={handleNavClick}
+                      aria-current={isActive ? 'location' : undefined}
+                      className={`block rounded-lg px-3 py-2 text-sm font-medium transition-colors ${
+                        isActive
+                          ? 'bg-surface-2 text-text'
+                          : 'text-text-secondary hover:bg-surface-2 hover:text-text'
+                      }`}
+                    >
+                      {link.label}
+                    </a>
+                  </li>
+                );
+              })}
+            </ul>
+
+            <ThemeToggle />
+
+            <button
+              ref={toggleRef}
+              type="button"
+              className={`relative z-50 flex h-11 w-11 flex-col items-center justify-center gap-[5px] p-2 md:hidden ${
+                isOpen ? 'invisible' : ''
               }`}
-            />
-            <span
-              className={`block h-[2px] w-[22px] rounded-[2px] bg-text transition-all duration-300 ${
-                isOpen ? 'opacity-0' : ''
-              }`}
-            />
-            <span
-              className={`block h-[2px] w-[22px] rounded-[2px] bg-text transition-all duration-300 ${
-                isOpen ? '-translate-y-[7px] -rotate-45' : ''
-              }`}
-            />
-          </button>
-        </div>
-      </nav>
+              onClick={toggleMenu}
+              aria-label={isOpen ? 'Tutup menu' : 'Buka menu'}
+              aria-controls="nav-menu"
+              aria-expanded={isOpen}
+            >
+              <span
+                className={`block h-[2px] w-[22px] rounded-[2px] bg-text transition-all duration-300 ${
+                  isOpen ? 'translate-y-[7px] rotate-45' : ''
+                }`}
+              />
+              <span
+                className={`block h-[2px] w-[22px] rounded-[2px] bg-text transition-all duration-300 ${
+                  isOpen ? 'opacity-0' : ''
+                }`}
+              />
+              <span
+                className={`block h-[2px] w-[22px] rounded-[2px] bg-text transition-all duration-300 ${
+                  isOpen ? '-translate-y-[7px] -rotate-45' : ''
+                }`}
+              />
+            </button>
+          </div>
+        </nav>
+      </header>
 
       <AnimatePresence>
         {isOpen && !isDesktop && (
-          <motion.button
+          <m.button
             key="nav-backdrop"
             type="button"
             tabIndex={-1}
@@ -1960,14 +1955,14 @@ export default function Navbar() {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: reduceMotion ? 0 : 0.2 }}
-            className="fixed inset-0 z-30 cursor-default bg-black/50 md:hidden"
+            className="fixed inset-0 z-[55] cursor-default bg-black/50 md:hidden"
           />
         )}
       </AnimatePresence>
 
       <AnimatePresence>
         {isOpen && !isDesktop && (
-          <motion.nav
+          <m.nav
             key="nav-drawer"
             id="nav-menu"
             ref={menuRef}
@@ -1976,7 +1971,7 @@ export default function Navbar() {
             animate={{ opacity: 1, x: 0 }}
             exit={{ opacity: 0, x: '100%' }}
             transition={{ duration: reduceMotion ? 0 : 0.2, ease: 'easeInOut' }}
-            className="fixed inset-y-0 right-0 z-40 flex w-72 max-w-[85vw] flex-col gap-2 border-l border-border bg-bg/95 p-6 pt-20 backdrop-blur-lg md:hidden"
+            className="fixed inset-y-0 right-0 z-[60] flex w-72 max-w-[85vw] flex-col gap-2 border-l border-border bg-bg/95 p-6 pt-20 backdrop-blur-lg md:hidden"
           >
             <button
               type="button"
@@ -2012,21 +2007,21 @@ export default function Navbar() {
               <p className="mb-2 text-xs uppercase tracking-widest text-text-tertiary">Tema</p>
               <ThemeToggle />
             </div>
-          </motion.nav>
+          </m.nav>
         )}
       </AnimatePresence>
-    </header>
+    </>
   );
 }
 </file>
 
 <file path="src/components/ScrollReveal.jsx">
 import React from 'react';
-import { motion, useReducedMotion } from 'framer-motion';
+import { m, useReducedMotion } from 'framer-motion';
 
 const EASE = [0.25, 0.46, 0.45, 0.94];
 
-export default function ScrollReveal({ children, className = '' }) {
+export default function ScrollReveal({ children, className = '', itemClassName = '' }) {
   const reduceMotion = useReducedMotion();
 
   const containerVariants = {
@@ -2049,7 +2044,7 @@ export default function ScrollReveal({ children, className = '' }) {
   };
 
   return (
-    <motion.div
+    <m.div
       variants={containerVariants}
       initial={reduceMotion ? false : 'hidden'}
       whileInView="visible"
@@ -2057,9 +2052,11 @@ export default function ScrollReveal({ children, className = '' }) {
       className={className}
     >
       {React.Children.map(children, (child) => (
-        <motion.div variants={itemVariants}>{child}</motion.div>
+        <m.div variants={itemVariants} className={itemClassName}>
+          {child}
+        </m.div>
       ))}
-    </motion.div>
+    </m.div>
   );
 }
 </file>
@@ -2192,8 +2189,8 @@ const certificates = [
 const skills = {
   languages: ['Python', 'PHP', 'JavaScript'],
   databases: ['MySQL', 'SQLite', 'PostgreSQL'],
-  frameworks: ['FastAPI', 'Laravel', 'Django', 'Node.js', 'Next.js'],
-  tools: ['Git', 'GitHub', 'VS Code', 'Docker', 'WSL'],
+  frameworks: ['FastAPI', 'Laravel', 'Node.js', 'Next.js'],
+  tools: ['Git', 'GitHub', 'Docker', 'WSL', 'AI-Assisted Development'],
   focus: ['Backend Development', 'AI & Automation', 'System Design', 'Problem Solving'],
 };
 
@@ -2266,6 +2263,8 @@ export { projectImages, projects, certificates, skills, contactInfo, education, 
   --color-text-tertiary: #8b8b94;
   --color-accent: #3b82f6;
   --color-accent-hover: #2563eb;
+  --color-accent-solid: #2563eb;
+  --color-accent-solid-hover: #1d4ed8;
   --color-accent-subtle: rgba(59, 130, 246, 0.1);
   --color-accent-border: rgba(59, 130, 246, 0.25);
   --color-accent-2: #7c3aed;
@@ -2300,6 +2299,8 @@ export { projectImages, projects, certificates, skills, contactInfo, education, 
   --color-text-tertiary: #6b6b75;
   --color-accent: #2563eb;
   --color-accent-hover: #1d4ed8;
+  --color-accent-solid: #2563eb;
+  --color-accent-solid-hover: #1d4ed8;
   --color-accent-subtle: rgba(37, 99, 235, 0.08);
   --color-accent-border: rgba(37, 99, 235, 0.2);
   --color-accent-2: #6d28d9;
@@ -2325,11 +2326,8 @@ export { projectImages, projects, certificates, skills, contactInfo, education, 
 
   html {
     scroll-behavior: smooth;
-    scroll-padding-top: 6rem;
-  }
-
-  section[id] {
-    scroll-margin-top: 6rem;
+    scroll-padding-top: 5rem;
+    scrollbar-gutter: stable;
   }
 
   body {
@@ -2512,19 +2510,6 @@ export { projectImages, projects, certificates, skills, contactInfo, education, 
     color: transparent;
   }
 
-  .rule-gradient {
-    height: 1px;
-    background: linear-gradient(
-      90deg,
-      transparent,
-      var(--color-accent) 25%,
-      var(--color-accent-2) 55%,
-      var(--color-accent-3) 80%,
-      transparent
-    );
-    opacity: 0.55;
-  }
-
   .section-tint {
     background:
       linear-gradient(180deg, rgba(59, 130, 246, 0.04), transparent 45%),
@@ -2593,6 +2578,8 @@ export default {
         accent: {
           DEFAULT: 'rgb(var(--color-accent-rgb) / <alpha-value>)',
           hover: 'var(--color-accent-hover)',
+          solid: 'var(--color-accent-solid)',
+          'solid-hover': 'var(--color-accent-solid-hover)',
           subtle: 'var(--color-accent-subtle)',
           border: 'var(--color-accent-border)',
           2: 'rgb(var(--color-accent-2-rgb) / <alpha-value>)',
@@ -2601,9 +2588,6 @@ export default {
       },
       fontFamily: {
         sans: ['Inter', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'sans-serif'],
-      },
-      maxWidth: {
-        content: '1120px',
       },
     },
   },
@@ -2683,7 +2667,7 @@ export default function Certificates() {
         <ScrollReveal>
           <div className="section__header">
             <p className="mb-2 text-xs font-semibold uppercase tracking-[0.2em] text-accent">
-              Sertifikat
+              {String(certificates.length).padStart(2, '0')} Kredensial
             </p>
             <h2 className="section__title">Sertifikat</h2>
             <p className="section__subtitle">
@@ -2705,7 +2689,7 @@ export default function Certificates() {
                     onClick={() => setActiveFilter(filter)}
                     className={`inline-flex min-h-11 items-center gap-2 rounded-full border px-4 py-2 text-sm font-medium transition-colors ${
                       isActive
-                        ? 'border-accent bg-accent text-white'
+                        ? 'border-accent-solid bg-accent-solid text-white'
                         : 'border-border text-text-secondary hover:border-border-hover hover:text-text'
                     }`}
                   >
@@ -2974,7 +2958,8 @@ export default function Projects() {
 </file>
 
 <file path="src/App.jsx">
-import React from 'react';
+import React, { useEffect } from 'react';
+import { LazyMotion, domAnimation } from 'framer-motion';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
 import About from './components/About';
@@ -2987,24 +2972,52 @@ import Footer from './components/Footer';
 import BackToTop from './components/BackToTop';
 
 export default function App() {
+  useEffect(() => {
+    const hash = window.location.hash.slice(1);
+    if (!hash) return undefined;
+
+    let cancelled = false;
+    const scrollToHash = () => {
+      if (cancelled) return;
+      let target = null;
+      try {
+        target = document.getElementById(decodeURIComponent(hash));
+      } catch {
+        target = document.getElementById(hash);
+      }
+      target?.scrollIntoView({ block: 'start', behavior: 'instant' });
+    };
+
+    const frame = window.requestAnimationFrame(scrollToHash);
+    // Font web dapat menggeser layout setelah render pertama.
+    document.fonts?.ready.then(() => window.requestAnimationFrame(scrollToHash));
+
+    return () => {
+      cancelled = true;
+      window.cancelAnimationFrame(frame);
+    };
+  }, []);
+
   return (
-    <div className="min-h-screen bg-bg font-sans text-text antialiased">
-      <a className="skip-link" href="#main">
-        Lewati ke konten utama
-      </a>
-      <Navbar />
-      <main id="main" tabIndex={-1} className="outline-none">
-        <Hero />
-        <About />
-        <Journey />
-        <Skills />
-        <Projects />
-        <Certificates />
-        <Contact />
-      </main>
-      <Footer />
-      <BackToTop />
-    </div>
+    <LazyMotion features={domAnimation} strict>
+      <div className="min-h-screen bg-bg font-sans text-text antialiased">
+        <a className="skip-link" href="#main">
+          Lewati ke konten utama
+        </a>
+        <Navbar />
+        <main id="main" tabIndex={-1} className="outline-none">
+          <Hero />
+          <About />
+          <Journey />
+          <Skills />
+          <Projects />
+          <Certificates />
+          <Contact />
+        </main>
+        <Footer />
+        <BackToTop />
+      </div>
+    </LazyMotion>
   );
 }
 </file>
@@ -3092,7 +3105,6 @@ export default function App() {
         "url": "https://bule2365.github.io/my-web/",
         "image": "https://bule2365.github.io/my-web/assets/images/profile.webp",
         "email": "mailto:ariadaffa127@gmail.com",
-        "telephone": "+62-815-2365-1797",
         "address": {
           "@type": "PostalAddress",
           "addressLocality": "Cinere, Depok",
@@ -3124,6 +3136,27 @@ export default function App() {
     </script>
   </head>
   <body>
+    <noscript>
+      <div style="max-width: 42rem; margin: 0 auto; padding: 2rem; font-family: system-ui, sans-serif; line-height: 1.6">
+        <h1>Daffa Aria — Junior Backend Developer</h1>
+        <p>
+          Portfolio Daffa Aria, mahasiswa Teknik Informatika dan penerima Beasiswa Prestasi yang
+          berfokus pada backend development. Berpengalaman merancang RESTful API dan arsitektur
+          backend dengan Node.js, Next.js, Laravel, PostgreSQL, dan Docker, termasuk magang sebagai
+          Full Stack Developer di PT Prima Gemilang Futuristik.
+        </p>
+        <p>
+          Proyek unggulan: AI Code Review Assistant dan Intelligent Search &amp; Recommendation
+          Engine. Tersedia sembilan sertifikat dari IBM SkillsBuild, Anthropic Courses, MySkill, dan
+          Microsoft.
+        </p>
+        <p>
+          Email: <a href="mailto:ariadaffa127@gmail.com">ariadaffa127@gmail.com</a><br />
+          GitHub: <a href="https://github.com/Bule2365">github.com/Bule2365</a><br />
+          LinkedIn: <a href="https://linkedin.com/in/leaddaf">linkedin.com/in/leaddaf</a>
+        </p>
+      </div>
+    </noscript>
     <div id="root"></div>
     <script type="module" src="/src/main.jsx"></script>
   </body>

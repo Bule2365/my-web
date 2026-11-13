@@ -88,9 +88,9 @@ export default function Hero() {
                 <Icon name="arrow-right" size={17} /> Lihat Proyek
               </CTAButton>
               <CTAButton
-                href={assetUrl('documents/CV-Daffa_v6.pdf')}
+                href={assetUrl('documents/CV-Daffa_v8.pdf')}
                 variant="secondary"
-                download="CV-Daffa_v6.pdf"
+                download="CV-Daffa_v8.pdf"
               >
                 <Icon name="download" size={17} /> Unduh CV
               </CTAButton>

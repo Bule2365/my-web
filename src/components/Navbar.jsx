@@ -11,7 +11,7 @@ const navLinks = [
   { href: '#keahlian', label: 'Keahlian' },
   { href: '#proyek', label: 'Proyek' },
   { href: '#sertifikat', label: 'Sertifikat' },
-  { href: assetUrl('documents/CV-Daffa_v6.pdf'), label: 'CV', isExternal: true },
+  { href: assetUrl('documents/CV-Daffa_v8.pdf'), label: 'CV', isExternal: true },
   { href: '#kontak', label: 'Kontak' },
 ];
 

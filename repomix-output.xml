@@ -73,7 +73,7 @@ public/
       og-image.png
       profile.webp
   documents/
-    CV-Daffa_v6.pdf
+    CV-Daffa_V8.pdf
   google3935b0c3f9d63e31.html
   sitemap.xml
 src/
@@ -105,7 +105,6 @@ src/
   index.css
   main.jsx
   theme.jsx
-CV-Daffa_V8.docx
 index.html
 package.json
 postcss.config.js
@@ -1524,497 +1523,6 @@ export default function CTAButton({
 }
 </file>
 
-<file path="src/components/Hero.jsx">
-import React from 'react';
-import { m, useReducedMotion } from 'framer-motion';
-import CTAButton from './CTAButton';
-import Icon from './Icon';
-import { assetUrl } from '../utils/assetUrl';
-import { certificates, projects } from '../data';
-
-const ease = [0.25, 0.46, 0.45, 0.94];
-
-export default function Hero() {
-  const reduceMotion = useReducedMotion();
-
-  const fadeUp = {
-    hidden: { opacity: reduceMotion ? 1 : 0, y: reduceMotion ? 0 : 28 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: { duration: reduceMotion ? 0 : 0.65, ease },
-    },
-  };
-
-  const stagger = {
-    hidden: {},
-    visible: {
-      transition: reduceMotion ? { duration: 0 } : { staggerChildren: 0.08, delayChildren: 0.12 },
-    },
-  };
-
-  return (
-    <section
-      id="hero"
-      className="relative flex min-h-[100svh] items-center overflow-hidden pb-16 pt-24 sm:pt-28"
-    >
-      <div className="pointer-events-none absolute inset-0 -z-10" aria-hidden="true">
-        <div className="absolute -right-24 top-10 h-72 w-72 rounded-full bg-accent/20 blur-3xl" />
-        <div className="absolute bottom-0 right-1/4 h-64 w-64 rounded-full bg-accent-2/15 blur-3xl" />
-        <div className="absolute left-1/2 top-1/3 h-56 w-56 -translate-x-1/2 rounded-full bg-accent-3/10 blur-3xl" />
-      </div>
-
-      <div className="container">
-        <m.div
-          variants={stagger}
-          initial={reduceMotion ? false : 'hidden'}
-          animate="visible"
-          className="grid grid-cols-1 items-center gap-10 lg:grid-cols-[1.15fr_0.85fr] lg:gap-14"
-        >
-          <div>
-            <m.div variants={fadeUp}>
-              <span className="inline-flex items-center gap-2 rounded-full border border-accent-border bg-accent-subtle px-3 py-1.5 text-xs font-medium text-accent">
-                <span className="h-2 w-2 rounded-full bg-accent" aria-hidden="true" />
-                Fokus Backend Development
-              </span>
-            </m.div>
-
-            <m.p
-              variants={fadeUp}
-              className="mt-5 text-sm font-medium uppercase tracking-[0.2em] text-text-tertiary"
-            >
-              Daffa Aria — Cinere, Depok
-            </m.p>
-
-            <m.h1
-              variants={fadeUp}
-              className="mt-3 max-w-3xl text-4xl font-bold leading-[1.05] tracking-tight text-balance md:text-5xl lg:text-6xl"
-            >
-              Junior <span className="text-gradient">Backend Developer</span>
-            </m.h1>
-
-            <m.p
-              variants={fadeUp}
-              className="mt-5 max-w-xl text-lg text-text-secondary"
-            >
-              Bangun backend yang tangguh. Selesaikan masalah yang sebenarnya — API cepat,
-              sistem stabil, dan kode yang mudah dirawat.
-            </m.p>
-
-            <m.div variants={fadeUp} className="mt-6 flex flex-wrap gap-2">
-              {['Python', 'FastAPI', 'Laravel', 'AI Automation'].map((tag) => (
-                <span key={tag} className="chip">
-                  <Icon name="code" size={13} className="text-accent" />
-                  {tag}
-                </span>
-              ))}
-            </m.div>
-
-            <m.div variants={fadeUp} className="mt-8 flex flex-wrap gap-3">
-              <CTAButton href="#proyek" variant="primary">
-                <Icon name="arrow-right" size={17} /> Lihat Proyek
-              </CTAButton>
-              <CTAButton
-                href={assetUrl('documents/CV-Daffa_v6.pdf')}
-                variant="secondary"
-                download="CV-Daffa_v6.pdf"
-              >
-                <Icon name="download" size={17} /> Unduh CV
-              </CTAButton>
-            </m.div>
-
-            <m.dl
-              variants={fadeUp}
-              className="mt-10 grid max-w-lg grid-cols-3 divide-x divide-border rounded-xl border border-border bg-surface/70 p-1"
-            >
-              {[
-                { value: String(projects.length), label: 'proyek unggulan' },
-                { value: String(certificates.length), label: 'sertifikasi' },
-                { value: '4,6ms', label: 'latensi pencarian' },
-              ].map((stat) => (
-                <div key={stat.label} className="px-3 py-3 text-center sm:px-4">
-                  <dt className="text-lg font-bold text-text sm:text-xl">{stat.value}</dt>
-                  <dd className="mt-0.5 text-[11px] leading-tight text-text-tertiary sm:text-xs">
-                    {stat.label}
-                  </dd>
-                </div>
-              ))}
-            </m.dl>
-          </div>
-
-          <m.div variants={fadeUp} className="flex justify-center lg:justify-end">
-            <div className="relative">
-              <div
-                className="absolute -inset-3 rounded-[2rem] bg-gradient-to-br from-accent via-accent-2 to-accent-3 opacity-25 blur-2xl"
-                aria-hidden="true"
-              />
-              <m.div
-                initial={reduceMotion ? false : { opacity: 0, scale: 0.9 }}
-                animate={{ opacity: 1, scale: 1 }}
-                transition={{ duration: reduceMotion ? 0 : 0.7, delay: reduceMotion ? 0 : 0.25 }}
-                className="relative h-60 w-60 overflow-hidden rounded-[1.75rem] border border-border bg-surface shadow-lg sm:h-72 sm:w-72 lg:h-80 lg:w-80"
-              >
-                <img
-                  src={assetUrl('assets/images/profile.webp')}
-                  alt="Foto profil Daffa Aria"
-                  width="420"
-                  height="420"
-                  loading="eager"
-                  fetchPriority="high"
-                  className="h-full w-full object-cover"
-                />
-              </m.div>
-            </div>
-          </m.div>
-        </m.div>
-      </div>
-    </section>
-  );
-}
-</file>
-
-<file path="src/components/Navbar.jsx">
-import React, { useState, useEffect, useCallback, useRef } from 'react';
-import { AnimatePresence, m, useReducedMotion } from 'framer-motion';
-import { assetUrl } from '../utils/assetUrl';
-import ThemeToggle from './ThemeToggle';
-import Icon from './Icon';
-import useBodyScrollLock from '../hooks/useBodyScrollLock';
-
-const navLinks = [
-  { href: '#tentang', label: 'Tentang' },
-  { href: '#perjalanan', label: 'Perjalanan' },
-  { href: '#keahlian', label: 'Keahlian' },
-  { href: '#proyek', label: 'Proyek' },
-  { href: '#sertifikat', label: 'Sertifikat' },
-  { href: assetUrl('documents/CV-Daffa_v6.pdf'), label: 'CV', isExternal: true },
-  { href: '#kontak', label: 'Kontak' },
-];
-
-const SECTION_IDS = ['hero', 'tentang', 'perjalanan', 'keahlian', 'proyek', 'sertifikat', 'kontak'];
-const SCROLL_OFFSET = 96;
-
-function useMediaQuery(query) {
-  const [matches, setMatches] = useState(false);
-
-  useEffect(() => {
-    const media = window.matchMedia(query);
-    const handleChange = () => setMatches(media.matches);
-
-    handleChange();
-
-    if (media.addEventListener) {
-      media.addEventListener('change', handleChange);
-      return () => media.removeEventListener('change', handleChange);
-    }
-
-    media.addListener(handleChange);
-    return () => media.removeListener(handleChange);
-  }, [query]);
-
-  return matches;
-}
-
-export default function Navbar() {
-  const [isOpen, setIsOpen] = useState(false);
-  const [scrolled, setScrolled] = useState(false);
-  const [activeSection, setActiveSection] = useState('');
-  const menuRef = useRef(null);
-  const toggleRef = useRef(null);
-  const restoreFocusRef = useRef(false);
-  const wasOpenRef = useRef(false);
-  const isDesktop = useMediaQuery('(min-width: 768px)');
-  const reduceMotion = useReducedMotion();
-
-  useBodyScrollLock(isOpen && !isDesktop);
-
-  const closeMenu = useCallback(({ restoreFocus = false } = {}) => {
-    restoreFocusRef.current = restoreFocus;
-    setIsOpen(false);
-  }, []);
-
-  const toggleMenu = useCallback(() => setIsOpen((current) => !current), []);
-
-  useEffect(() => {
-    const handleScroll = () => setScrolled(window.scrollY > 40);
-    handleScroll();
-    window.addEventListener('scroll', handleScroll, { passive: true });
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
-
-  useEffect(() => {
-    const sections = SECTION_IDS.map((id) => document.getElementById(id)).filter(Boolean);
-    let frame = null;
-
-    const updateActive = () => {
-      let current = '';
-      const scrollPos = window.scrollY + SCROLL_OFFSET;
-
-      sections.forEach((section) => {
-        const sectionTop = section.offsetTop;
-        const sectionBottom = sectionTop + section.offsetHeight;
-        if (scrollPos >= sectionTop && scrollPos < sectionBottom) {
-          current = section.id;
-        }
-      });
-
-      if (!current && sections.length > 0) {
-        const firstTop = sections[0].offsetTop;
-        const last = sections[sections.length - 1];
-        const lastBottom = last.offsetTop + last.offsetHeight;
-        if (window.scrollY < firstTop) current = 'hero';
-        else if (window.scrollY >= lastBottom - SCROLL_OFFSET) current = 'kontak';
-      }
-
-      setActiveSection(current);
-    };
-
-    const handleScroll = () => {
-      if (frame !== null) return;
-      frame = window.requestAnimationFrame(() => {
-        updateActive();
-        frame = null;
-      });
-    };
-
-    updateActive();
-    window.addEventListener('scroll', handleScroll, { passive: true });
-    window.addEventListener('resize', handleScroll);
-
-    return () => {
-      window.removeEventListener('scroll', handleScroll);
-      window.removeEventListener('resize', handleScroll);
-      if (frame !== null) window.cancelAnimationFrame(frame);
-    };
-  }, []);
-
-  useEffect(() => {
-    if (isOpen && isDesktop) {
-      closeMenu();
-    }
-  }, [isOpen, isDesktop, closeMenu]);
-
-  useEffect(() => {
-    if (isOpen) {
-      wasOpenRef.current = true;
-      const timer = window.setTimeout(() => {
-        const firstControl = menuRef.current?.querySelector('a[href], button:not([disabled])');
-        firstControl?.focus();
-      }, 30);
-      return () => window.clearTimeout(timer);
-    }
-
-    if (wasOpenRef.current) {
-      wasOpenRef.current = false;
-      if (restoreFocusRef.current) {
-        restoreFocusRef.current = false;
-        toggleRef.current?.focus();
-      }
-    }
-    return undefined;
-  }, [isOpen]);
-
-  useEffect(() => {
-    if (!isOpen || isDesktop) return undefined;
-
-    const handleKeydown = (event) => {
-      if (event.key === 'Escape') {
-        event.preventDefault();
-        closeMenu({ restoreFocus: true });
-        return;
-      }
-
-      if (event.key !== 'Tab') return;
-
-      const menu = menuRef.current;
-      if (!menu) return;
-
-      const items = Array.from(menu.querySelectorAll('a[href], button:not([disabled])')).filter(
-        (element) => element.offsetParent !== null,
-      );
-
-      if (items.length === 0) {
-        event.preventDefault();
-        return;
-      }
-
-      const firstItem = items[0];
-      const lastItem = items[items.length - 1];
-
-      if (event.shiftKey && document.activeElement === firstItem) {
-        event.preventDefault();
-        lastItem.focus();
-      } else if (!event.shiftKey && document.activeElement === lastItem) {
-        event.preventDefault();
-        firstItem.focus();
-      }
-    };
-
-    document.addEventListener('keydown', handleKeydown);
-    return () => document.removeEventListener('keydown', handleKeydown);
-  }, [isOpen, isDesktop, closeMenu]);
-
-  useEffect(() => {
-    if (!isOpen || isDesktop) return undefined;
-
-    const regions = [document.querySelector('main'), document.querySelector('footer')].filter(Boolean);
-    regions.forEach((region) => region.setAttribute('inert', ''));
-
-    return () => {
-      regions.forEach((region) => region.removeAttribute('inert'));
-    };
-  }, [isOpen, isDesktop]);
-
-  const handleNavClick = () => {
-    closeMenu();
-  };
-
-  return (
-    <>
-      <header
-        className={`fixed inset-x-0 top-0 z-50 transition-all duration-300 ${
-          scrolled ? 'border-b border-border bg-bg/85 backdrop-blur-md' : 'bg-transparent'
-        }`}
-      >
-        <nav className="container flex items-center justify-between py-3" aria-label="Navigasi utama">
-          <a
-            href="#hero"
-            onClick={handleNavClick}
-            className="text-lg font-semibold tracking-tight text-text transition-opacity hover:opacity-80"
-          >
-            Daffa Aria
-          </a>
-
-          <div className="flex items-center gap-2">
-            <ul className="hidden items-center gap-1 md:flex">
-              {navLinks.map((link) => {
-                const isActive = activeSection === link.href.slice(1) && !link.isExternal;
-                return (
-                  <li key={link.href}>
-                    <a
-                      href={link.href}
-                      target={link.isExternal ? '_blank' : undefined}
-                      rel={link.isExternal ? 'noopener noreferrer' : undefined}
-                      onClick={handleNavClick}
-                      aria-current={isActive ? 'location' : undefined}
-                      className={`block rounded-lg px-3 py-2 text-sm font-medium transition-colors ${
-                        isActive
-                          ? 'bg-surface-2 text-text'
-                          : 'text-text-secondary hover:bg-surface-2 hover:text-text'
-                      }`}
-                    >
-                      {link.label}
-                    </a>
-                  </li>
-                );
-              })}
-            </ul>
-
-            <ThemeToggle />
-
-            <button
-              ref={toggleRef}
-              type="button"
-              className={`relative z-50 flex h-11 w-11 flex-col items-center justify-center gap-[5px] p-2 md:hidden ${
-                isOpen ? 'invisible' : ''
-              }`}
-              onClick={toggleMenu}
-              aria-label={isOpen ? 'Tutup menu' : 'Buka menu'}
-              aria-controls="nav-menu"
-              aria-expanded={isOpen}
-            >
-              <span
-                className={`block h-[2px] w-[22px] rounded-[2px] bg-text transition-all duration-300 ${
-                  isOpen ? 'translate-y-[7px] rotate-45' : ''
-                }`}
-              />
-              <span
-                className={`block h-[2px] w-[22px] rounded-[2px] bg-text transition-all duration-300 ${
-                  isOpen ? 'opacity-0' : ''
-                }`}
-              />
-              <span
-                className={`block h-[2px] w-[22px] rounded-[2px] bg-text transition-all duration-300 ${
-                  isOpen ? '-translate-y-[7px] -rotate-45' : ''
-                }`}
-              />
-            </button>
-          </div>
-        </nav>
-      </header>
-
-      <AnimatePresence>
-        {isOpen && !isDesktop && (
-          <m.button
-            key="nav-backdrop"
-            type="button"
-            tabIndex={-1}
-            aria-label="Tutup menu"
-            onClick={() => closeMenu({ restoreFocus: true })}
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            transition={{ duration: reduceMotion ? 0 : 0.2 }}
-            className="fixed inset-0 z-[55] cursor-default bg-black/50 md:hidden"
-          />
-        )}
-      </AnimatePresence>
-
-      <AnimatePresence>
-        {isOpen && !isDesktop && (
-          <m.nav
-            key="nav-drawer"
-            id="nav-menu"
-            ref={menuRef}
-            aria-label="Navigasi mobile"
-            initial={{ opacity: 0, x: '100%' }}
-            animate={{ opacity: 1, x: 0 }}
-            exit={{ opacity: 0, x: '100%' }}
-            transition={{ duration: reduceMotion ? 0 : 0.2, ease: 'easeInOut' }}
-            className="fixed inset-y-0 right-0 z-[60] flex w-72 max-w-[85vw] flex-col gap-2 border-l border-border bg-bg/95 p-6 pt-20 backdrop-blur-lg md:hidden"
-          >
-            <button
-              type="button"
-              onClick={() => closeMenu({ restoreFocus: true })}
-              aria-label="Tutup menu"
-              className="absolute right-4 top-4 flex h-11 w-11 items-center justify-center rounded-lg border border-border text-text-secondary transition-colors hover:border-border-hover hover:text-text"
-            >
-              <Icon name="x" size={18} />
-            </button>
-
-            {navLinks.map((link) => {
-              const isActive = activeSection === link.href.slice(1) && !link.isExternal;
-              return (
-                <a
-                  key={link.href}
-                  href={link.href}
-                  target={link.isExternal ? '_blank' : undefined}
-                  rel={link.isExternal ? 'noopener noreferrer' : undefined}
-                  onClick={handleNavClick}
-                  aria-current={isActive ? 'location' : undefined}
-                  className={`rounded-lg px-4 py-3 text-base font-medium transition-colors ${
-                    isActive
-                      ? 'bg-surface-2 text-text'
-                      : 'text-text-secondary hover:bg-surface-2 hover:text-text'
-                  }`}
-                >
-                  {link.label}
-                </a>
-              );
-            })}
-
-            <div className="mt-auto border-t border-border pt-4">
-              <p className="mb-2 text-xs uppercase tracking-widest text-text-tertiary">Tema</p>
-              <ThemeToggle />
-            </div>
-          </m.nav>
-        )}
-      </AnimatePresence>
-    </>
-  );
-}
-</file>
-
 <file path="src/components/ScrollReveal.jsx">
 import React from 'react';
 import { m, useReducedMotion } from 'framer-motion';
@@ -2790,6 +2298,497 @@ export default function Certificates() {
         )}
       </AnimatePresence>
     </section>
+  );
+}
+</file>
+
+<file path="src/components/Hero.jsx">
+import React from 'react';
+import { m, useReducedMotion } from 'framer-motion';
+import CTAButton from './CTAButton';
+import Icon from './Icon';
+import { assetUrl } from '../utils/assetUrl';
+import { certificates, projects } from '../data';
+
+const ease = [0.25, 0.46, 0.45, 0.94];
+
+export default function Hero() {
+  const reduceMotion = useReducedMotion();
+
+  const fadeUp = {
+    hidden: { opacity: reduceMotion ? 1 : 0, y: reduceMotion ? 0 : 28 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: { duration: reduceMotion ? 0 : 0.65, ease },
+    },
+  };
+
+  const stagger = {
+    hidden: {},
+    visible: {
+      transition: reduceMotion ? { duration: 0 } : { staggerChildren: 0.08, delayChildren: 0.12 },
+    },
+  };
+
+  return (
+    <section
+      id="hero"
+      className="relative flex min-h-[100svh] items-center overflow-hidden pb-16 pt-24 sm:pt-28"
+    >
+      <div className="pointer-events-none absolute inset-0 -z-10" aria-hidden="true">
+        <div className="absolute -right-24 top-10 h-72 w-72 rounded-full bg-accent/20 blur-3xl" />
+        <div className="absolute bottom-0 right-1/4 h-64 w-64 rounded-full bg-accent-2/15 blur-3xl" />
+        <div className="absolute left-1/2 top-1/3 h-56 w-56 -translate-x-1/2 rounded-full bg-accent-3/10 blur-3xl" />
+      </div>
+
+      <div className="container">
+        <m.div
+          variants={stagger}
+          initial={reduceMotion ? false : 'hidden'}
+          animate="visible"
+          className="grid grid-cols-1 items-center gap-10 lg:grid-cols-[1.15fr_0.85fr] lg:gap-14"
+        >
+          <div>
+            <m.div variants={fadeUp}>
+              <span className="inline-flex items-center gap-2 rounded-full border border-accent-border bg-accent-subtle px-3 py-1.5 text-xs font-medium text-accent">
+                <span className="h-2 w-2 rounded-full bg-accent" aria-hidden="true" />
+                Fokus Backend Development
+              </span>
+            </m.div>
+
+            <m.p
+              variants={fadeUp}
+              className="mt-5 text-sm font-medium uppercase tracking-[0.2em] text-text-tertiary"
+            >
+              Daffa Aria — Cinere, Depok
+            </m.p>
+
+            <m.h1
+              variants={fadeUp}
+              className="mt-3 max-w-3xl text-4xl font-bold leading-[1.05] tracking-tight text-balance md:text-5xl lg:text-6xl"
+            >
+              Junior <span className="text-gradient">Backend Developer</span>
+            </m.h1>
+
+            <m.p
+              variants={fadeUp}
+              className="mt-5 max-w-xl text-lg text-text-secondary"
+            >
+              Bangun backend yang tangguh. Selesaikan masalah yang sebenarnya — API cepat,
+              sistem stabil, dan kode yang mudah dirawat.
+            </m.p>
+
+            <m.div variants={fadeUp} className="mt-6 flex flex-wrap gap-2">
+              {['Python', 'FastAPI', 'Laravel', 'AI Automation'].map((tag) => (
+                <span key={tag} className="chip">
+                  <Icon name="code" size={13} className="text-accent" />
+                  {tag}
+                </span>
+              ))}
+            </m.div>
+
+            <m.div variants={fadeUp} className="mt-8 flex flex-wrap gap-3">
+              <CTAButton href="#proyek" variant="primary">
+                <Icon name="arrow-right" size={17} /> Lihat Proyek
+              </CTAButton>
+              <CTAButton
+                href={assetUrl('documents/CV-Daffa_v8.pdf')}
+                variant="secondary"
+                download="CV-Daffa_v8.pdf"
+              >
+                <Icon name="download" size={17} /> Unduh CV
+              </CTAButton>
+            </m.div>
+
+            <m.dl
+              variants={fadeUp}
+              className="mt-10 grid max-w-lg grid-cols-3 divide-x divide-border rounded-xl border border-border bg-surface/70 p-1"
+            >
+              {[
+                { value: String(projects.length), label: 'proyek unggulan' },
+                { value: String(certificates.length), label: 'sertifikasi' },
+                { value: '4,6ms', label: 'latensi pencarian' },
+              ].map((stat) => (
+                <div key={stat.label} className="px-3 py-3 text-center sm:px-4">
+                  <dt className="text-lg font-bold text-text sm:text-xl">{stat.value}</dt>
+                  <dd className="mt-0.5 text-[11px] leading-tight text-text-tertiary sm:text-xs">
+                    {stat.label}
+                  </dd>
+                </div>
+              ))}
+            </m.dl>
+          </div>
+
+          <m.div variants={fadeUp} className="flex justify-center lg:justify-end">
+            <div className="relative">
+              <div
+                className="absolute -inset-3 rounded-[2rem] bg-gradient-to-br from-accent via-accent-2 to-accent-3 opacity-25 blur-2xl"
+                aria-hidden="true"
+              />
+              <m.div
+                initial={reduceMotion ? false : { opacity: 0, scale: 0.9 }}
+                animate={{ opacity: 1, scale: 1 }}
+                transition={{ duration: reduceMotion ? 0 : 0.7, delay: reduceMotion ? 0 : 0.25 }}
+                className="relative h-60 w-60 overflow-hidden rounded-[1.75rem] border border-border bg-surface shadow-lg sm:h-72 sm:w-72 lg:h-80 lg:w-80"
+              >
+                <img
+                  src={assetUrl('assets/images/profile.webp')}
+                  alt="Foto profil Daffa Aria"
+                  width="420"
+                  height="420"
+                  loading="eager"
+                  fetchPriority="high"
+                  className="h-full w-full object-cover"
+                />
+              </m.div>
+            </div>
+          </m.div>
+        </m.div>
+      </div>
+    </section>
+  );
+}
+</file>
+
+<file path="src/components/Navbar.jsx">
+import React, { useState, useEffect, useCallback, useRef } from 'react';
+import { AnimatePresence, m, useReducedMotion } from 'framer-motion';
+import { assetUrl } from '../utils/assetUrl';
+import ThemeToggle from './ThemeToggle';
+import Icon from './Icon';
+import useBodyScrollLock from '../hooks/useBodyScrollLock';
+
+const navLinks = [
+  { href: '#tentang', label: 'Tentang' },
+  { href: '#perjalanan', label: 'Perjalanan' },
+  { href: '#keahlian', label: 'Keahlian' },
+  { href: '#proyek', label: 'Proyek' },
+  { href: '#sertifikat', label: 'Sertifikat' },
+  { href: assetUrl('documents/CV-Daffa_v8.pdf'), label: 'CV', isExternal: true },
+  { href: '#kontak', label: 'Kontak' },
+];
+
+const SECTION_IDS = ['hero', 'tentang', 'perjalanan', 'keahlian', 'proyek', 'sertifikat', 'kontak'];
+const SCROLL_OFFSET = 96;
+
+function useMediaQuery(query) {
+  const [matches, setMatches] = useState(false);
+
+  useEffect(() => {
+    const media = window.matchMedia(query);
+    const handleChange = () => setMatches(media.matches);
+
+    handleChange();
+
+    if (media.addEventListener) {
+      media.addEventListener('change', handleChange);
+      return () => media.removeEventListener('change', handleChange);
+    }
+
+    media.addListener(handleChange);
+    return () => media.removeListener(handleChange);
+  }, [query]);
+
+  return matches;
+}
+
+export default function Navbar() {
+  const [isOpen, setIsOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
+  const [activeSection, setActiveSection] = useState('');
+  const menuRef = useRef(null);
+  const toggleRef = useRef(null);
+  const restoreFocusRef = useRef(false);
+  const wasOpenRef = useRef(false);
+  const isDesktop = useMediaQuery('(min-width: 768px)');
+  const reduceMotion = useReducedMotion();
+
+  useBodyScrollLock(isOpen && !isDesktop);
+
+  const closeMenu = useCallback(({ restoreFocus = false } = {}) => {
+    restoreFocusRef.current = restoreFocus;
+    setIsOpen(false);
+  }, []);
+
+  const toggleMenu = useCallback(() => setIsOpen((current) => !current), []);
+
+  useEffect(() => {
+    const handleScroll = () => setScrolled(window.scrollY > 40);
+    handleScroll();
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
+  useEffect(() => {
+    const sections = SECTION_IDS.map((id) => document.getElementById(id)).filter(Boolean);
+    let frame = null;
+
+    const updateActive = () => {
+      let current = '';
+      const scrollPos = window.scrollY + SCROLL_OFFSET;
+
+      sections.forEach((section) => {
+        const sectionTop = section.offsetTop;
+        const sectionBottom = sectionTop + section.offsetHeight;
+        if (scrollPos >= sectionTop && scrollPos < sectionBottom) {
+          current = section.id;
+        }
+      });
+
+      if (!current && sections.length > 0) {
+        const firstTop = sections[0].offsetTop;
+        const last = sections[sections.length - 1];
+        const lastBottom = last.offsetTop + last.offsetHeight;
+        if (window.scrollY < firstTop) current = 'hero';
+        else if (window.scrollY >= lastBottom - SCROLL_OFFSET) current = 'kontak';
+      }
+
+      setActiveSection(current);
+    };
+
+    const handleScroll = () => {
+      if (frame !== null) return;
+      frame = window.requestAnimationFrame(() => {
+        updateActive();
+        frame = null;
+      });
+    };
+
+    updateActive();
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    window.addEventListener('resize', handleScroll);
+
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+      window.removeEventListener('resize', handleScroll);
+      if (frame !== null) window.cancelAnimationFrame(frame);
+    };
+  }, []);
+
+  useEffect(() => {
+    if (isOpen && isDesktop) {
+      closeMenu();
+    }
+  }, [isOpen, isDesktop, closeMenu]);
+
+  useEffect(() => {
+    if (isOpen) {
+      wasOpenRef.current = true;
+      const timer = window.setTimeout(() => {
+        const firstControl = menuRef.current?.querySelector('a[href], button:not([disabled])');
+        firstControl?.focus();
+      }, 30);
+      return () => window.clearTimeout(timer);
+    }
+
+    if (wasOpenRef.current) {
+      wasOpenRef.current = false;
+      if (restoreFocusRef.current) {
+        restoreFocusRef.current = false;
+        toggleRef.current?.focus();
+      }
+    }
+    return undefined;
+  }, [isOpen]);
+
+  useEffect(() => {
+    if (!isOpen || isDesktop) return undefined;
+
+    const handleKeydown = (event) => {
+      if (event.key === 'Escape') {
+        event.preventDefault();
+        closeMenu({ restoreFocus: true });
+        return;
+      }
+
+      if (event.key !== 'Tab') return;
+
+      const menu = menuRef.current;
+      if (!menu) return;
+
+      const items = Array.from(menu.querySelectorAll('a[href], button:not([disabled])')).filter(
+        (element) => element.offsetParent !== null,
+      );
+
+      if (items.length === 0) {
+        event.preventDefault();
+        return;
+      }
+
+      const firstItem = items[0];
+      const lastItem = items[items.length - 1];
+
+      if (event.shiftKey && document.activeElement === firstItem) {
+        event.preventDefault();
+        lastItem.focus();
+      } else if (!event.shiftKey && document.activeElement === lastItem) {
+        event.preventDefault();
+        firstItem.focus();
+      }
+    };
+
+    document.addEventListener('keydown', handleKeydown);
+    return () => document.removeEventListener('keydown', handleKeydown);
+  }, [isOpen, isDesktop, closeMenu]);
+
+  useEffect(() => {
+    if (!isOpen || isDesktop) return undefined;
+
+    const regions = [document.querySelector('main'), document.querySelector('footer')].filter(Boolean);
+    regions.forEach((region) => region.setAttribute('inert', ''));
+
+    return () => {
+      regions.forEach((region) => region.removeAttribute('inert'));
+    };
+  }, [isOpen, isDesktop]);
+
+  const handleNavClick = () => {
+    closeMenu();
+  };
+
+  return (
+    <>
+      <header
+        className={`fixed inset-x-0 top-0 z-50 transition-all duration-300 ${
+          scrolled ? 'border-b border-border bg-bg/85 backdrop-blur-md' : 'bg-transparent'
+        }`}
+      >
+        <nav className="container flex items-center justify-between py-3" aria-label="Navigasi utama">
+          <a
+            href="#hero"
+            onClick={handleNavClick}
+            className="text-lg font-semibold tracking-tight text-text transition-opacity hover:opacity-80"
+          >
+            Daffa Aria
+          </a>
+
+          <div className="flex items-center gap-2">
+            <ul className="hidden items-center gap-1 md:flex">
+              {navLinks.map((link) => {
+                const isActive = activeSection === link.href.slice(1) && !link.isExternal;
+                return (
+                  <li key={link.href}>
+                    <a
+                      href={link.href}
+                      target={link.isExternal ? '_blank' : undefined}
+                      rel={link.isExternal ? 'noopener noreferrer' : undefined}
+                      onClick={handleNavClick}
+                      aria-current={isActive ? 'location' : undefined}
+                      className={`block rounded-lg px-3 py-2 text-sm font-medium transition-colors ${
+                        isActive
+                          ? 'bg-surface-2 text-text'
+                          : 'text-text-secondary hover:bg-surface-2 hover:text-text'
+                      }`}
+                    >
+                      {link.label}
+                    </a>
+                  </li>
+                );
+              })}
+            </ul>
+
+            <ThemeToggle />
+
+            <button
+              ref={toggleRef}
+              type="button"
+              className={`relative z-50 flex h-11 w-11 flex-col items-center justify-center gap-[5px] p-2 md:hidden ${
+                isOpen ? 'invisible' : ''
+              }`}
+              onClick={toggleMenu}
+              aria-label={isOpen ? 'Tutup menu' : 'Buka menu'}
+              aria-controls="nav-menu"
+              aria-expanded={isOpen}
+            >
+              <span
+                className={`block h-[2px] w-[22px] rounded-[2px] bg-text transition-all duration-300 ${
+                  isOpen ? 'translate-y-[7px] rotate-45' : ''
+                }`}
+              />
+              <span
+                className={`block h-[2px] w-[22px] rounded-[2px] bg-text transition-all duration-300 ${
+                  isOpen ? 'opacity-0' : ''
+                }`}
+              />
+              <span
+                className={`block h-[2px] w-[22px] rounded-[2px] bg-text transition-all duration-300 ${
+                  isOpen ? '-translate-y-[7px] -rotate-45' : ''
+                }`}
+              />
+            </button>
+          </div>
+        </nav>
+      </header>
+
+      <AnimatePresence>
+        {isOpen && !isDesktop && (
+          <m.button
+            key="nav-backdrop"
+            type="button"
+            tabIndex={-1}
+            aria-label="Tutup menu"
+            onClick={() => closeMenu({ restoreFocus: true })}
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: reduceMotion ? 0 : 0.2 }}
+            className="fixed inset-0 z-[55] cursor-default bg-black/50 md:hidden"
+          />
+        )}
+      </AnimatePresence>
+
+      <AnimatePresence>
+        {isOpen && !isDesktop && (
+          <m.nav
+            key="nav-drawer"
+            id="nav-menu"
+            ref={menuRef}
+            aria-label="Navigasi mobile"
+            initial={{ opacity: 0, x: '100%' }}
+            animate={{ opacity: 1, x: 0 }}
+            exit={{ opacity: 0, x: '100%' }}
+            transition={{ duration: reduceMotion ? 0 : 0.2, ease: 'easeInOut' }}
+            className="fixed inset-y-0 right-0 z-[60] flex w-72 max-w-[85vw] flex-col gap-2 border-l border-border bg-bg/95 p-6 pt-20 backdrop-blur-lg md:hidden"
+          >
+            <button
+              type="button"
+              onClick={() => closeMenu({ restoreFocus: true })}
+              aria-label="Tutup menu"
+              className="absolute right-4 top-4 flex h-11 w-11 items-center justify-center rounded-lg border border-border text-text-secondary transition-colors hover:border-border-hover hover:text-text"
+            >
+              <Icon name="x" size={18} />
+            </button>
+
+            {navLinks.map((link) => {
+              const isActive = activeSection === link.href.slice(1) && !link.isExternal;
+              return (
+                <a
+                  key={link.href}
+                  href={link.href}
+                  target={link.isExternal ? '_blank' : undefined}
+                  rel={link.isExternal ? 'noopener noreferrer' : undefined}
+                  onClick={handleNavClick}
+                  aria-current={isActive ? 'location' : undefined}
+                  className={`rounded-lg px-4 py-3 text-base font-medium transition-colors ${
+                    isActive
+                      ? 'bg-surface-2 text-text'
+                      : 'text-text-secondary hover:bg-surface-2 hover:text-text'
+                  }`}
+                >
+                  {link.label}
+                </a>
+              );
+            })}
+
+            <div className="mt-auto border-t border-border pt-4">
+              <p className="mb-2 text-xs uppercase tracking-widest text-text-tertiary">Tema</p>
+              <ThemeToggle />
+            </div>
+          </m.nav>
+        )}
+      </AnimatePresence>
+    </>
   );
 }
 </file>
